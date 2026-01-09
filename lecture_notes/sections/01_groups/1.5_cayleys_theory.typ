@@ -1,4 +1,4 @@
-#import "../../utils.typ": solution, proof, definition, theorem, proposition, corollary, example, solution
+#import "../../utils.typ": *
 == Cayley's Theory
 
 === Theory
@@ -32,14 +32,18 @@
 ]
 
 === Exercises
-+ Write down the permutation representation of $ZZ_3 = {0, 1, 2}$ given by Cayley's Theorem.
+#exercise[
+  Write down the permutation representation of $ZZ_3 = {0, 1, 2}$ given by Cayley's Theorem.
+]
 #solution[
   Elements: $0, 1, 2$. Operation is addition mod 3.
   - $lambda_0$: $0 arrow 0, 1 arrow 1, 2 arrow 2$ -> $(0)(1)(2) = e$
   - $lambda_1$: $0 arrow 1, 1 arrow 2, 2 arrow 0$ -> $(0 space 1 space 2)$
   - $lambda_2$: $0 arrow 2, 1 arrow 0, 2 arrow 1$ -> $(0 space 2 space 1)$
 ]
-+ Explain why the image of the map $g mapsto lambda_g$ is a subgroup of $S_G$.
+#exercise[
+  Explain why the image of the map $g mapsto lambda_g$ is a subgroup of $S_G$.
+]
 #solution[
   The map is a homomorphism. The image of any group homomorphism is a subgroup of the codomain. Since the codomain is $S_G$, the image is a subgroup of $S_G$.
 ]

@@ -1,4 +1,4 @@
-#import "../../utils.typ": solution, proof, definition, theorem, proposition, corollary, example, solution
+#import "../../utils.typ": *
 == Permutation Groups
 
 === Theory
@@ -28,7 +28,9 @@
 ]
 
 === Exercises
-+ Calculate the product of permutations $pi = (1 space 3 space 4)$ and $sigma = (1 space 2)(3 space 4)$ in $S_4$.
+#exercise[
+  Calculate the product of permutations $pi = (1 space 3 space 4)$ and $sigma = (1 space 2)(3 space 4)$ in $S_4$.
+]
 #solution[
   Compute from right to left (standard function composition): $pi sigma$.
   - $1 arrow^sigma 2 arrow^pi 2$
@@ -37,12 +39,16 @@
   - $4 arrow^sigma 3 arrow^pi 4$
   Result: $(1 space 2 space 3)$.
 ]
-+ Find the order of the permutation $(1 space 2 space 4)(3 space 5 space 6)$ in $S_6$.
+#exercise[
+  Find the order of the permutation $(1 space 2 space 4)(3 space 5 space 6)$ in $S_6$.
+]
 #solution[
   It's a product of disjoint cycles of length 3 and 3.
   Order = $"lcm"(3, 3) = 3$.
 ]
-+ How many elements does $S_4$ have? List 5 different elements.
+#exercise[
+  How many elements does $S_4$ have? List 5 different elements.
+]
 #solution[
   $|S_4| = 4! = 24$.
   Examples: $e, (1 space 2), (1 space 3), (1 space 2 space 3), (1 space 2)(3 space 4)$.

@@ -1,4 +1,4 @@
-#import "../../utils.typ": solution, proof, definition, theorem, proposition, corollary, example, solution
+#import "../../utils.typ": *
 == Definition and Examples of Rings
 
 === Theory
@@ -31,11 +31,15 @@
 ]
 
 === Exercises
-+ Is $ZZ$ under component-wise addition and multiplication a ring?
+#exercise[
+  Is $ZZ$ under component-wise addition and multiplication a ring?
+]
 #solution[
   The phrasing "component-wise" usually applies to vectors. If referring to $ZZ$, standard addition and multiplication form a ring. If referring to $ZZ times ZZ$, then yes, component-wise operations make it a ring. $ZZ$ itself is a ring.
 ]
-+ Find all units (invertible elements) in the ring $ZZ_(10)$.
+#exercise[
+  Find all units (invertible elements) in the ring $ZZ_(10)$.
+]
 #solution[
   Units in $ZZ_n$ are elements coprime to $n$.
   For $n=10$, units are ${1, 3, 7, 9}$.

@@ -1,4 +1,4 @@
-#import "../../utils.typ": corollary, definition, example, proof, proposition, solution, theorem
+#import "../../utils.typ": *
 == Automorphisms
 
 === Theory
@@ -37,14 +37,18 @@
 ]
 
 === Exercises
-+ Determine all automorphisms of the group $ZZ_6$.
+#exercise[
+  Determine all automorphisms of the group $ZZ_6$.
+]
 #solution[
   Automorphisms of $ZZ_n$ map generators to generators. Generators of $ZZ_6$ are elements coprime to 6: $1, 5$.
   - $sigma_1(x) = 1x = x$ (Identity)
   - $sigma_5(x) = 5x = -x$
   So $"Aut"(ZZ_6) tilde.eq Z_2$.
 ]
-+ Show that for an abelian group, the only inner automorphism is the identity map.
+#exercise[
+  Show that for an abelian group, the only inner automorphism is the identity map.
+]
 #solution[
   Inner automorphism: $phi_g(x) = g x g^(-1)$.
   Since $G$ is abelian, $g x = x g$.

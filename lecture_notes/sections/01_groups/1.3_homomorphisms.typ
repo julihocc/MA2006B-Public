@@ -1,4 +1,4 @@
-#import "../../utils.typ": solution, proof, definition, theorem, proposition, corollary, example, solution
+#import "../../utils.typ": *
 == Homomorphisms
 
 === Theory
@@ -34,13 +34,17 @@
 ]
 
 === Exercises
-+ Let $phi: RR^* arrow RR^*$ be defined by $phi(x) = |x|$. Is $phi$ a homomorphism under multiplication?
+#exercise[
+  Let $phi: RR^* arrow RR^*$ be defined by $phi(x) = |x|$. Is $phi$ a homomorphism under multiplication?
+]
 #solution[
   Check if $phi(x y) = phi(x)phi(y)$.
   $phi(x y) = |x y| = |x||y| = phi(x)phi(y)$.
   Yes, it is a homomorphism.
 ]
-+ Find the kernel of the homomorphism $phi: ZZ_(12) arrow ZZ_4$ defined by $phi(x) = x mod 4$.
+#exercise[
+  Find the kernel of the homomorphism $phi: ZZ_(12) arrow ZZ_4$ defined by $phi(x) = x mod 4$.
+]
 #solution[
   We need $x in ZZ_(12)$ such that $x mod 4 = 0$.
   The elements in ${0, 1, ..., 11}$ divisible by 4 are $0, 4, 8$.

@@ -1,4 +1,4 @@
-#import "../../utils.typ": solution, proof, definition, theorem, proposition, corollary, example, solution
+#import "../../utils.typ": *
 == Ideals and Quotient Rings
 
 === Theory
@@ -36,13 +36,17 @@
 ]
 
 === Exercises
-+ Show that the set of even integers $2ZZ$ is an ideal of $ZZ$.
+#exercise[
+  Show that the set of even integers $2ZZ$ is an ideal of $ZZ$.
+]
 #solution[
   Let $x in 2ZZ$. Then $x = 2k$ for some $k$.
   For any $r in ZZ$, $r dot x = r(2k) = 2(r k) in 2ZZ$.
   Thus, it absorbs multiplication and is an ideal.
 ]
-+ In $ZZ_[x]$, let $I = angle.l x^2 + 1 angle.r$. Describe the elements of $ZZ_[x] slash I$.
+#exercise[
+  In $ZZ_[x]$, let $I = angle.l x^2 + 1 angle.r$. Describe the elements of $ZZ_[x] slash I$.
+]
 #solution[
   Elements of the quotient are polynomials modulo $x^2 + 1$.
   Any polynomial $f(x)$ can be written as $q(x)(x^2 + 1) + r(x)$ where $deg(r) < 2$.

@@ -1,4 +1,4 @@
-#import "../../utils.typ": solution, proof, definition, theorem, proposition, corollary, example, solution
+#import "../../utils.typ": *
 == Euclidean Rings
 
 === Theory
@@ -31,7 +31,9 @@
 ]
 
 === Exercises
-+ Use the Extended Euclidean Algorithm to find the inverse of $17$ modulo $26$.
+#exercise[
+  Use the Extended Euclidean Algorithm to find the inverse of $17$ modulo $26$.
+]
 #solution[
   We want $17x equiv 1 (mod 26)$.
   $26 = 1(17) + 9$
@@ -44,7 +46,9 @@
   So $-3(17) equiv 1 (mod 26)$.
   $-3 equiv 23 (mod 26)$. Inverse is 23.
 ]
-+ Prove that the ring of Gaussian Integers $ZZ[i]$ is a Euclidean domain.
+#exercise[
+  Prove that the ring of Gaussian Integers $ZZ[i]$ is a Euclidean domain.
+]
 #solution[
   Define norm $N(a+b i) = a^2 + b^2$.
   For any $z, w in ZZ[i]$, consider $z/w$ in $CC$. This lies in a unit square of the lattice $ZZ[i]$. The standard Euclidean distance to the nearest lattice point is at most $sqrt(2)/2 < 1$. This implies existence of a remainder with strictly smaller norm.

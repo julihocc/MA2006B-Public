@@ -1,4 +1,4 @@
-#import "../../utils.typ": solution, proof, definition, theorem, proposition, corollary, example, solution
+#import "../../utils.typ": *
 == Definition and Examples of Groups
 
 === Theory
@@ -33,7 +33,9 @@
 ]
 
 === Exercises
-+ Verify if the set of non-zero real numbers $RR^*$ under multiplication forms a group.
+#exercise[
+  Verify if the set of non-zero real numbers $RR^*$ under multiplication forms a group.
+]
 #solution[
   Yes, $(RR^*, dot)$ is a group.
   - *Closure*: The product of two non-zero real numbers is non-zero.
@@ -41,13 +43,17 @@
   - *Identity*: $1 in RR^*$ satisfies $1 dot a = a$.
   - *Inverse*: For every $a in RR^*$, $1/a in RR^*$ is the inverse.
 ]
-+ Compute the inverse of $3$ in the group $ZZ_(11)$ under multiplication.
+#exercise[
+  Compute the inverse of $3$ in the group $ZZ_(11)$ under multiplication.
+]
 #solution[
   We need $x$ such that $3x equiv 1 (mod 11)$.
   Testing values: $3(4) = 12 equiv 1 (mod 11)$.
   Thus, $3^(-1) = 4$.
 ]
-+ Determine if the set of $2 times 2$ matrices with integer entries forms a group under matrix addition.
+#exercise[
+  Determine if the set of $2 times 2$ matrices with integer entries forms a group under matrix addition.
+]
 #solution[
   Yes. Matrix addition is closed, associative, has an identity (zero matrix), and inverses (negative matrix). Since entries are integers, their sum/negation remains integers.
 ]

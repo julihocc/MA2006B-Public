@@ -1,4 +1,4 @@
-#import "../../utils.typ": solution, proof, definition, theorem, proposition, corollary, example, solution
+#import "../../utils.typ": *
 == Polynomial Rings
 
 === Theory
@@ -37,11 +37,15 @@
 ]
 
 === Exercises
-+ Factor $x^2 - 1$ in $ZZ_5[x]$.
+#exercise[
+  Factor $x^2 - 1$ in $ZZ_5[x]$.
+]
 #solution[
   $x^2 - 1 = (x - 1)(x + 1) = (x + 4)(x + 1)$ in $ZZ_5$.
 ]
-+ Determine if $x^3 + x + 1$ is irreducible in $ZZ_2[x]$.
+#exercise[
+  Determine if $x^3 + x + 1$ is irreducible in $ZZ_2[x]$.
+]
 #solution[
   For degree 3, it is reducible iff it has a root.
   Test elements of $ZZ_2$:
