@@ -4,16 +4,16 @@
 // #show: thmrules
 
 // Definitions
-#let definition = thmbox("definition", "Definition", fill: rgb("#e6f3ff"), stroke: rgb("#0000ff") + 1pt)
+#let definition = thmbox("definition", "Definition", fill: luma(245), stroke: luma(80) + 1pt)
 
 // Theorems
-#let theorem = thmbox("theorem", "Theorem", fill: rgb("#ffe6e6"), stroke: rgb("#ff0000") + 1pt)
+#let theorem = thmbox("theorem", "Theorem", fill: luma(240), stroke: luma(0) + 1pt)
 
 // Propositions
-#let proposition = thmbox("proposition", "Proposition", fill: rgb("#e6ffe6"), stroke: rgb("#008800") + 1pt)
+#let proposition = thmbox("proposition", "Proposition", fill: luma(250), stroke: luma(100) + 1pt)
 
 // Corollaries
-#let corollary = thmbox("corollary", "Corollary", fill: rgb("#fff2e6"), stroke: rgb("#ff8800") + 1pt, base: "theorem")
+#let corollary = thmbox("corollary", "Corollary", fill: luma(250), stroke: luma(120) + 1pt, base: "theorem")
 
 // Examples
 #let example = thmplain("example", "Example").with(numbering: none)
