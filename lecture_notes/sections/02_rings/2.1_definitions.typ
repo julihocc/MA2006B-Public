@@ -18,14 +18,17 @@
   A *field* is a commutative ring with unity where every non-zero element has a multiplicative inverse.
 ]
 
-=== Computations
-In $ZZ_(12)$, arithmetic is done modulo 12.
-$ 5 times 7 = 35 equiv 11 (mod 12) $
-Note that $ZZ_(12)$ is not a field because not all elements have inverses (e.g., $2$ has no inverse).
+=== Examples
+#example[
+  In $ZZ_(12)$, arithmetic is done modulo 12.
+  $ 5 times 7 = 35 equiv 11 (mod 12) $
+  Note that $ZZ_(12)$ is not a field because not all elements have inverses (e.g., $2$ has no inverse).
+]
 
-=== Applications
-- *Finite Fields*: $"GF"(p)$ (or $ZZ_p$) where $p$ is prime, are fields widely used in ECC.
-- *Integers modulo n*: $ZZ_n$ is a ring used in RSA.
+#example[
+  - *Finite Fields*: $"GF"(p)$ (or $ZZ_p$) where $p$ is prime, are fields widely used in ECC.
+  - *Integers modulo n*: $ZZ_n$ is a ring used in RSA.
+]
 
 === Exercises
 + Is $ZZ$ under component-wise addition and multiplication a ring?

@@ -17,16 +17,19 @@
   ]
 ]
 
-=== Computations
-To find subgroups of $ZZ_6$ (under addition):
-The order of $ZZ_6$ is 6. Possible orders for subgroups are divisors of 6: 1, 2, 3, 6.
-- Order 1: ${0}$ (trivial subgroup)
-- Order 2: ${0, 3}$ ($3+3=6 equiv 0$)
-- Order 3: ${0, 2, 4}$ ($2+2=4, 4+2=6 equiv 0$)
-- Order 6: $ZZ_6$ itself.
+=== Examples
+#example[
+  *Finding Subgroups*: To find subgroups of $ZZ_6$ (under addition):
+  The order of $ZZ_6$ is 6. Possible orders for subgroups are divisors of 6: 1, 2, 3, 6.
+  - Order 1: ${0}$ (trivial subgroup)
+  - Order 2: ${0, 3}$ ($3+3=6 equiv 0$)
+  - Order 3: ${0, 2, 4}$ ($2+2=4, 4+2=6 equiv 0$)
+  - Order 6: $ZZ_6$ itself.
+]
 
-=== Applications
-Subgroups play a crucial role in preventing "small subgroup attacks" in cryptographic protocols. In Diffie-Hellman, if the group order has small factors, an attacker can confine the shared secret to a small subgroup and exhaustively search for it. We often choose groups of prime order or groups where the order has a large prime factor to avoid this.
+#example[
+  *Small Subgroup Attacks*: Subgroups play a crucial role in preventing "small subgroup attacks" in cryptographic protocols. In Diffie-Hellman, if the group order has small factors, an attacker can confine the shared secret to a small subgroup and exhaustively search for it. We often choose groups of prime order or groups where the order has a large prime factor to avoid this.
+]
 
 === Exercises
 + List all subgroups of $ZZ_(12)$.

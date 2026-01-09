@@ -21,14 +21,17 @@
   The *Kernel* of $phi$, denoted $ker(phi)$, is the set ${g in G | phi(g) = e_H}$. It is always a normal subgroup of $G$.
 ]
 
-=== Computations
-Consider $phi: ZZ arrow ZZ_n$ defined by $phi(x) = x mod n$.
-Check homomorphism property:
-$phi(x+y) = (x+y) mod n = (x mod n + y mod n) mod n = phi(x) +_n phi(y)$.
-Thus, it is a homomorphism.
+=== Examples
+#example[
+  Consider $phi: ZZ arrow ZZ_n$ defined by $phi(x) = x mod n$.
+  Check homomorphism property:
+  $phi(x+y) = (x+y) mod n = (x mod n + y mod n) mod n = phi(x) +_n phi(y)$.
+  Thus, it is a homomorphism.
+]
 
-=== Applications
-Homomorphisms are implicit in many reduction steps in cryptography. For example, the security reduction of many protocols relies on mapping a complex problem instance to another structure where relations are preserved. They are also fundamental in constructing "Homomorphic Encryption" schemes, where computations can be performed on encrypted data ($phi("enc"(m_1) dot "enc"(m_2)) = phi("enc"(m_1 dot m_2))$), allowing operations on the ciphertext to map to operations on the plaintext.
+#example[
+  *Homomorphic Encryption*: Homomorphisms are implicit in many reduction steps in cryptography. For example, the security reduction of many protocols relies on mapping a complex problem instance to another structure where relations are preserved. They are also fundamental in constructing "Homomorphic Encryption" schemes, where computations can be performed on encrypted data ($phi("enc"(m_1) dot "enc"(m_2)) = phi("enc"(m_1 dot m_2))$), allowing operations on the ciphertext to map to operations on the plaintext.
+]
 
 === Exercises
 + Let $phi: RR^* arrow RR^*$ be defined by $phi(x) = |x|$. Is $phi$ a homomorphism under multiplication?

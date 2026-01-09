@@ -17,16 +17,19 @@
   ]
 ]
 
-=== Computations
-Consider the group $G = {1, -1}$ under multiplication.
-Elements: $1, -1$.
-Permutations correspondled to left multiplication:
-$lambda_1$: $1 arrow 1$, $-1 arrow -1$ (Identity permutation $(1)(-1)$)
-$lambda_(-1)$: $1 arrow -1$, $-1 arrow 1$ (Transposition $(1, -1)$)
-Thus $G tilde.eq {(1)(-1), (1, -1)} subset.eq S_2$.
+=== Examples
+#example[
+  Consider the group $G = {1, -1}$ under multiplication.
+  Elements: $1, -1$.
+  Permutations correspondled to left multiplication:
+  $lambda_1$: $1 arrow 1$, $-1 arrow -1$ (Identity permutation $(1)(-1)$)
+  $lambda_(-1)$: $1 arrow -1$, $-1 arrow 1$ (Transposition $(1, -1)$)
+  Thus $G tilde.eq {(1)(-1), (1, -1)} subset.eq S_2$.
+]
 
-=== Applications
-Cayley's theorem is theoretically significant as it allows us to represent abstract groups concretely using permutations. In computational group theory, permutation representations are often easier to store and manipulate in a computer than abstract definitions, allowing for efficient algorithms to determine group properties.
+#example[
+  *Significance*: Cayley's theorem is theoretically significant as it allows us to represent abstract groups concretely using permutations. In computational group theory, permutation representations are often easier to store and manipulate in a computer than abstract definitions, allowing for efficient algorithms to determine group properties.
+]
 
 === Exercises
 + Write down the permutation representation of $ZZ_3 = {0, 1, 2}$ given by Cayley's Theorem.

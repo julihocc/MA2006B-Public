@@ -20,16 +20,17 @@
   The set $ZZ_n = {0, 1, ..., n-1}$ under addition modulo $n$ is a finite abelian group of order $n$.
 ]
 
-=== Computations
-In cryptography, we often work with finite groups. A common computational task is exponentiation (or scalar multiplication in additive notion).
+=== Examples
+#example[
+  *Modular Addition*: In $ZZ_(26)$ (often used for classical ciphers), computing $15 + 18 mod 26$:
+  $ 15 + 18 = 33 equiv 7 (mod 26) $
+]
 
-*Modular Addition*: In $ZZ_(26)$ (often used for classical ciphers), computing $15 + 18 mod 26$:
-$ 15 + 18 = 33 equiv 7 (mod 26) $
-
-=== Applications
-Groups are the foundation of many cryptographic primitives.
-- *Diffie-Hellman Key Exchange* relies on the difficulty of the Discrete Logarithm Problem in a cyclic group.
-- *RSA* uses the multiplicative group of integers modulo $n$, denoted $ZZ_n^*$.
+#example[
+  *Cryptography*: Groups are the foundation of many cryptographic primitives.
+  - *Diffie-Hellman Key Exchange* relies on the difficulty of the Discrete Logarithm Problem in a cyclic group.
+  - *RSA* uses the multiplicative group of integers modulo $n$, denoted $ZZ_n^*$.
+]
 
 === Exercises
 + Verify if the set of non-zero real numbers $RR^*$ under multiplication forms a group.

@@ -14,15 +14,18 @@
   ]
 ]
 
-=== Computations
-In $S_5$, let $sigma = (1 space 2 space 3)(4 space 5)$.
-This is a composition of a 3-cycle and a 2-cycle.
-Order of $sigma = "lcm"(3, 2) = 6$.
-Computing $sigma^2$:
-$sigma^2 = (1 space 2 space 3)^2 (4 space 5)^2 = (1 space 3 space 2)(e) = (1 space 3 space 2)$.
+=== Examples
+#example[
+  In $S_5$, let $sigma = (1 space 2 space 3)(4 space 5)$.
+  This is a composition of a 3-cycle and a 2-cycle.
+  Order of $sigma = "lcm"(3, 2) = 6$.
+  Computing $sigma^2$:
+  $sigma^2 = (1 space 2 space 3)^2 (4 space 5)^2 = (1 space 3 space 2)(e) = (1 space 3 space 2)$.
+]
 
-=== Applications
-Permutation groups are the basis of many classical ciphers (like the Enigma machine, which used complex permutations). In modern design, substitution-permutation networks (SPNs) used in block ciphers like AES rely heavily on mixing (permutations) and substitution (S-boxes, which are often defined via other algebraic properties) to achieve confusion and diffusion.
+#example[
+  *Ciphers*: Permutation groups are the basis of many classical ciphers (like the Enigma machine, which used complex permutations). In modern design, substitution-permutation networks (SPNs) used in block ciphers like AES rely heavily on mixing (permutations) and substitution (S-boxes, which are often defined via other algebraic properties) to achieve confusion and diffusion.
+]
 
 === Exercises
 + Calculate the product of permutations $pi = (1 space 3 space 4)$ and $sigma = (1 space 2)(3 space 4)$ in $S_4$.

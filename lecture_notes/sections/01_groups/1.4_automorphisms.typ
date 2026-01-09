@@ -20,18 +20,21 @@
   For any $g in G$, the conjugation map $phi_g(x) = g x g^(-1)$ is an automorphism.
 ]
 
-=== Computations
-Let $G = ZZ_5$ (additive). Any automorphism must map a generator to a generator.
-Generators of $ZZ_5$ are ${1, 2, 3, 4}$.
-Maps:
-$sigma_1(x) = 1x = x$ (Identity)
-$sigma_2(x) = 2x mod 5$
-$sigma_3(x) = 3x mod 5$
-$sigma_4(x) = 4x mod 5$
-Each of these is an automorphism.
+=== Examples
+#example[
+  Let $G = ZZ_5$ (additive). Any automorphism must map a generator to a generator.
+  Generators of $ZZ_5$ are ${1, 2, 3, 4}$.
+  Maps:
+  $sigma_1(x) = 1x = x$ (Identity)
+  $sigma_2(x) = 2x mod 5$
+  $sigma_3(x) = 3x mod 5$
+  $sigma_4(x) = 4x mod 5$
+  Each of these is an automorphism.
+]
 
-=== Applications
-Automorphisms describe the symmetries of the algebraic structure. In cryptography, understanding the automorphism group of the underlying structure (like an elliptic curve) is vital for understanding potential weaknesses or for optimizing arithmetic (e.g., using Frobenius automorphisms for faster scalar multiplication on Koblitz curves).
+#example[
+  *Structure Weaknesses*: Automorphisms describe the symmetries of the algebraic structure. In cryptography, understanding the automorphism group of the underlying structure (like an elliptic curve) is vital for understanding potential weaknesses or for optimizing arithmetic (e.g., using Frobenius automorphisms for faster scalar multiplication on Koblitz curves).
+]
 
 === Exercises
 + Determine all automorphisms of the group $ZZ_6$.

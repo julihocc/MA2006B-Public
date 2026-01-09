@@ -9,10 +9,12 @@
   where either $r = 0$ or $N(r) < N(b)$.
 ]
 
-=== Computations
-$ZZ$ is a Euclidean domain with $N(a) = |a|$.
-Example: $a=23, b=5$.
-$23 = 5(4) + 3$. Here $q=4, r=3$, and $|3| < |5|$.
+=== Examples
+#example[
+  $ZZ$ is a Euclidean domain with $N(a) = |a|$.
+  Example: $a=23, b=5$.
+  $23 = 5(4) + 3$. Here $q=4, r=3$, and $|3| < |5|$.
+]
 
 #theorem(title: "Extended Euclidean Algorithm (EEA)")[
   The Extended Euclidean Algorithm (EEA) finds the greatest common divisor (GCD) and coefficients $x, y$ such that $a x + b y = "gcd"(a, b)$.
@@ -22,9 +24,11 @@ $23 = 5(4) + 3$. Here $q=4, r=3$, and $|3| < |5|$.
   ]
 ]
 
-=== Applications
-- *RSA Key Generation*: The EEA is used to compute the modular multiplicative inverse of the public exponent $e$ to find the private key $d$ ($e d equiv 1 (mod phi(n))$).
-- *Determining Inverses*: In any finite field, finding inverses is done via the Euclidean algorithm.
+#example[
+  *key Generation*:
+  - *RSA Key Generation*: The EEA is used to compute the modular multiplicative inverse of the public exponent $e$ to find the private key $d$ ($e d equiv 1 (mod phi(n))$).
+  - *Determining Inverses*: In any finite field, finding inverses is done via the Euclidean algorithm.
+]
 
 === Exercises
 + Use the Extended Euclidean Algorithm to find the inverse of $17$ modulo $26$.

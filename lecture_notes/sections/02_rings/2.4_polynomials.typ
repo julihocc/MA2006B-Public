@@ -22,15 +22,19 @@
   ]
 ]
 
-=== Computations
-In $ZZ_2[x]$, perform addition and multiplication.
-Let $f(x) = x^2 + x + 1$ and $g(x) = x + 1$.
-$f(x) + g(x) = (x^2 + x + 1) + (x + 1) = x^2 + 2x + 2 = x^2$ (coefficients mod 2).
-$f(x) dot g(x) = (x^2 + x + 1)(x + 1) = x^3 + x^2 + x + x^2 + x + 1 = x^3 + 2x^2 + 2x + 1 = x^3 + 1$.
+=== Examples
+#example[
+  In $ZZ_2[x]$, perform addition and multiplication.
+  Let $f(x) = x^2 + x + 1$ and $g(x) = x + 1$.
+  $f(x) + g(x) = (x^2 + x + 1) + (x + 1) = x^2 + 2x + 2 = x^2$ (coefficients mod 2).
+  $f(x) dot g(x) = (x^2 + x + 1)(x + 1) = x^3 + x^2 + x + x^2 + x + 1 = x^3 + 2x^2 + 2x + 1 = x^3 + 1$.
+]
 
-=== Applications
-- *AES*: Operates in $"GF"(2^8)$ constructed with the irreducible polynomial $x^8 + x^4 + x^3 + x + 1$.
-- *ECC*: Uses fields $"GF"(2^m)$ or $"GF"(p)$.
+#example[
+  *Cryptography*:
+  - *AES*: Operates in $"GF"(2^8)$ constructed with the irreducible polynomial $x^8 + x^4 + x^3 + x + 1$.
+  - *ECC*: Uses fields $"GF"(2^m)$ or $"GF"(p)$.
+]
 
 === Exercises
 + Factor $x^2 - 1$ in $ZZ_5[x]$.

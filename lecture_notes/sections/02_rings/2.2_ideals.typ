@@ -24,13 +24,16 @@
   ]
 ]
 
-=== Computations
-Consider $R = ZZ$ and $I = n ZZ$ (multiples of $n$).
-$I$ is an ideal. The quotient ring $ZZ slash n ZZ$ is isomorphic to $ZZ_n$.
-Calculation in $ZZ slash 5 ZZ$ is just arithmetic modulo 5.
+=== Examples
+#example[
+  Consider $R = ZZ$ and $I = n ZZ$ (multiples of $n$).
+  $I$ is an ideal. The quotient ring $ZZ slash n ZZ$ is isomorphic to $ZZ_n$.
+  Calculation in $ZZ slash 5 ZZ$ is just arithmetic modulo 5.
+]
 
-=== Applications
-Quotient rings are fundamental in constructing finite fields consisting of polynomial bases, e.g., $"GF"(2^8) tilde.eq ZZ_2[x] slash P(x)$ where $P(x)$ is an irreducible polynomial. This structure is the basis for the AES S-box.
+#example[
+  *AES S-Box*: Quotient rings are fundamental in constructing finite fields consisting of polynomial bases, e.g., $"GF"(2^8) tilde.eq ZZ_2[x] slash P(x)$ where $P(x)$ is an irreducible polynomial. This structure is the basis for the AES S-box.
+]
 
 === Exercises
 + Show that the set of even integers $2ZZ$ is an ideal of $ZZ$.
