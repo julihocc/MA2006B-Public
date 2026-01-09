@@ -2,16 +2,16 @@
 == Polynomial Rings
 
 === Theory
-#definition(title: "Polynomial Ring")[
+#definition("Polynomial Ring")[
   A *Polynomial Ring* $R[x]$ consists of polynomials with coefficients in a ring $R$.
   The division algorithm for polynomials holds if $R$ is a field.
 ]
 
-#definition(title: "Irreducible Polynomial")[
+#definition("Irreducible Polynomial")[
   A polynomial $P(x)$ is *irreducible* over $F$ if it cannot be factored into two non-constant polynomials in $F[x]$.
 ]
 
-#theorem(title: "Finite Field Construction")[
+#theorem("Finite Field Construction")[
   Finite fields of order $p^n$, denoted $"GF"(p^n)$, are constructed as $ZZ_p[x] slash angle.l P(x) angle.r$ where $P(x)$ is an irreducible polynomial of degree $n$.
   #proof[
     Let $F = ZZ_p[x] slash angle.l P(x) angle.r$. $F$ is a commutative ring with unity.

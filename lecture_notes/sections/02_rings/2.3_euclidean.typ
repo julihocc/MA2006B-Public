@@ -16,7 +16,7 @@
   $23 = 5(4) + 3$. Here $q=4, r=3$, and $|3| < |5|$.
 ]
 
-#theorem(title: "Extended Euclidean Algorithm (EEA)")[
+#theorem("Extended Euclidean Algorithm (EEA)")[
   The Extended Euclidean Algorithm (EEA) finds the greatest common divisor (GCD) and coefficients $x, y$ such that $a x + b y = "gcd"(a, b)$.
   #proof[
     The algorithm proceeds by successive divisions: $r_(i-2) = q_i r_(i-1) + r_i$.

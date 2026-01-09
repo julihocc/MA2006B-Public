@@ -14,7 +14,7 @@
   - If multiplication is commutative, it is a *commutative ring*.
 ]
 
-#definition(title: "Field")[
+#definition("Field")[
   A *field* is a commutative ring with unity where every non-zero element has a multiplicative inverse.
 ]
 

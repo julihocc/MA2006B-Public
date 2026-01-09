@@ -2,12 +2,12 @@
 == Homomorphisms
 
 === Theory
-#definition(title: "Homomorphism")[
+#definition("Homomorphism")[
   A *homomorphism* is a structure-preserving map between two algebraic structures. Let $(G, dot)$ and $(H, *)$ be groups. A function $phi: G arrow H$ is a group homomorphism if for all $a, b in G$:
   $ phi(a dot b) = phi(a) * phi(b) $
 ]
 
-#proposition(title: "Properties of Homomorphisms")[
+#proposition("Properties of Homomorphisms")[
   - $phi(e_G) = e_H$ (maps identity to identity)
   - $phi(a^(-1)) = phi(a)^(-1)$ (maps inverses to inverses)
 

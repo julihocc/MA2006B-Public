@@ -2,11 +2,11 @@
 == Permutation Groups
 
 === Theory
-#definition(title: "Permutation Group")[
+#definition("Permutation Group")[
   A *permutation group* is a group $G$ whose elements are permutations of a given set $M$ and whose group operation is function composition. The symmetric group $S_n$ consists of all permutations of a set of $n$ elements and has order $n!$.
 ]
 
-#proposition(title: "Cycle Decomposition")[
+#proposition("Cycle Decomposition")[
   Any permutation can be decomposed into disjoint cycles. The order of a permutation is the least common multiple (LCM) of the lengths of these disjoint cycles.
   #proof[
     Consider the limit of the sequence $x, sigma(x), sigma^2(x), ...$ for any $x$. Since the set is finite, it must loop back to $x$. This forms a cycle. Removing these elements and repeating the process decomposes the entire permutation into disjoint cycles.

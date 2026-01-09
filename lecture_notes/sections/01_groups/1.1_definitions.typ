@@ -2,7 +2,7 @@
 == Definition and Examples of Groups
 
 === Theory
-#definition(title: "Group")[
+#definition("Group")[
   A *group* is a set $G$ equipped with a binary operation $dot: G times G arrow G$ satisfying the following axioms:
   + *Closure*: For all $a, b in G$, the result $a dot b$ is also in $G$.
   + *Associativity*: For all $a, b, c in G$, $(a dot b) dot c = a dot (b dot c)$.

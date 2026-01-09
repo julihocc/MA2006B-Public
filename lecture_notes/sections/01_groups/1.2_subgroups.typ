@@ -2,15 +2,15 @@
 == Subgroups
 
 === Theory
-#definition(title: "Subgroup")[
+#definition("Subgroup")[
   A subset $H$ of a group $G$ is called a *subgroup* if $H$ itself forms a group under the same operation defined on $G$. We denote this as $H lt.eq G$.
 ]
 
-#proposition(title: "Subgroup Test")[
+#proposition("Subgroup Test")[
   A non-empty subset $H subset.eq G$ is a subgroup if and only if for all $a, b in H$, $a dot b^(-1) in H$.
 ]
 
-#theorem(title: "Lagrange's Theorem")[
+#theorem("Lagrange's Theorem")[
   If $G$ is a finite group and $H$ is a subgroup of $G$, then the order (number of elements) of $H$ divides the order of $G$. i.e., $|H|$ divides $|G|$.
   #proof[
     The left cosets of $H$ in $G$ form a partition of $G$. The map $h mapsto g h$ is a bijection between $H$ and $g H$, so every coset has the same size $|H|$. If there are $k$ distinct cosets, then $|G| = k |H|$. Thus $|H|$ divides $|G|$.

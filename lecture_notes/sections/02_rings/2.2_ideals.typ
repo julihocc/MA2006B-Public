@@ -2,17 +2,17 @@
 == Ideals and Quotient Rings
 
 === Theory
-#definition(title: "Ideal")[
+#definition("Ideal")[
   An *ideal* $I$ of a ring $R$ is a subring such that for all $r in R$ and $x in I$, both $r dot x$ and $x dot r$ are in $I$. Ideals "absorb" multiplication by ring elements.
 ]
 
-#definition(title: "Quotient Ring")[
+#definition("Quotient Ring")[
   Given an ideal $I$, we can form the *quotient ring* $R slash I$. The elements of $R slash I$ are cosets $a + I$, and operations are defined naturally:
   - $(a + I) + (b + I) = (a + b) + I$
   - $(a + I) dot (b + I) = (a dot b) + I$
 ]
 
-#proposition(title: "Kernel is an Ideal")[
+#proposition("Kernel is an Ideal")[
   The kernel of any ring homomorphism $phi: R arrow S$ is an ideal of $R$.
   #proof[
     Let $K = ker(phi)$.

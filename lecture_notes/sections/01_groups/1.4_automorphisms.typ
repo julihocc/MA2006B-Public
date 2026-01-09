@@ -2,7 +2,7 @@
 == Automorphisms
 
 === Theory
-#definition(title: "Automorphism")[
+#definition("Automorphism")[
   An *automorphism* of a group $G$ is an isomorphism from $G$ to itself. That is, distinct bijection $phi: G arrow G$ that is also a homomorphism.
 ]
 

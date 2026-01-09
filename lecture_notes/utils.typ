@@ -1,58 +1,25 @@
-#let solution(content) = block(
-  fill: luma(240),
-  inset: 8pt,
-  radius: 4pt,
-  width: 100%,
-  [*Solution:* \ #content],
-)
+#import "@preview/ctheorems:1.1.3": *
 
-#let proof(content) = block(
-  width: 100%,
-  inset: (left: 1em),
-  above: 0.6em,
-  below: 1em,
-  [_Proof._ #content #h(1fr) $square$],
-)
+// Initialize the counters and rules. This function must be called in a show rule in main.typ
+// #show: thmrules
 
-#let definition(title: "Definition", content) = block(
-  fill: rgb("#e8f4fd"),
-  stroke: (left: 2pt + blue),
-  inset: 8pt,
-  radius: (right: 4pt),
-  width: 100%,
-  [*#title* \ #content],
-)
+// Definitions
+#let definition = thmbox("definition", "Definition", fill: rgb("#e6f3ff"), stroke: rgb("#0000ff") + 1pt)
 
-#let theorem(title: "Theorem", content) = block(
-  fill: rgb("#fff0e6"),
-  stroke: (left: 2pt + orange),
-  inset: 8pt,
-  radius: (right: 4pt),
-  width: 100%,
-  [*#title* \ #content],
-)
+// Theorems
+#let theorem = thmbox("theorem", "Theorem", fill: rgb("#ffe6e6"), stroke: rgb("#ff0000") + 1pt)
 
-#let proposition(title: "Proposition", content) = block(
-  fill: rgb("#f0fdf4"),
-  stroke: (left: 2pt + green),
-  inset: 8pt,
-  radius: (right: 4pt),
-  width: 100%,
-  [*#title* \ #content],
-)
+// Propositions
+#let proposition = thmbox("proposition", "Proposition", fill: rgb("#e6ffe6"), stroke: rgb("#008800") + 1pt)
 
-#let corollary(title: "Corollary", content) = block(
-  fill: rgb("#f5f5f5"),
-  stroke: (left: 2pt + gray),
-  inset: 8pt,
-  radius: (right: 4pt),
-  width: 100%,
-  [*#title* \ #content],
-)
+// Corollaries
+#let corollary = thmbox("corollary", "Corollary", fill: rgb("#fff2e6"), stroke: rgb("#ff8800") + 1pt, base: "theorem")
 
-#let example(content) = block(
-  stroke: (left: 1pt + black),
-  inset: (left: 1em),
-  width: 100%,
-  [*Example*: #content],
-)
+// Examples
+#let example = thmplain("example", "Example").with(numbering: none)
+
+// Proofs
+#let proof = thmproof("proof", "Proof")
+
+// Solutions
+#let solution = thmbox("solution", "Solution", fill: luma(240), inset: 8pt, radius: 4pt).with(numbering: none)

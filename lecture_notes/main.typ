@@ -18,7 +18,8 @@
   #datetime.today().display()
 ]
 
-#import "utils.typ": solution, proof, definition, theorem, proposition, corollary, example, solution
+#import "utils.typ": *
+#show: thmrules
 
 #outline(indent: auto)
 #pagebreak()

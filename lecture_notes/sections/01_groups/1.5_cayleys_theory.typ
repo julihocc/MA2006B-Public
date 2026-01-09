@@ -2,11 +2,11 @@
 == Cayley's Theory
 
 === Theory
-#theorem(title: "Cayley's Theorem")[
+#theorem("Cayley's Theorem")[
   Every group $G$ is isomorphic to a subgroup of the symmetric group acting on $G$. In other words, every group can be considered as a group of permutations.
 ]
 
-#proposition(title: "Permutation Representation")[
+#proposition("Permutation Representation")[
   Specifically, for each $g in G$, we can define a permutation $lambda_g: G arrow G$ by $lambda_g(x) = g dot x$. The mapping $g mapsto lambda_g$ is an injective homomorphism from $G$ into $S_G$ (the group of all permutations of the set $G$).
 
   #proof[
