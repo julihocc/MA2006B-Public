@@ -7,8 +7,17 @@
   The division algorithm for polynomials holds if $R$ is a field.
 ]
 
+#example[
+  $ZZ[x]$ is the ring of polynomials with integer coefficients. $RR[x]$ is the ring of polynomials with real coefficients.
+]
+
+
 #definition("Irreducible Polynomial")[
   A polynomial $P(x)$ is *irreducible* over a field $F$ if it cannot be factored into two non-constant polynomials in $F[x]$.
+]
+
+#example[
+  $x^2 + 1$ is irreducible over the reals $RR$ because it has no real roots. However, it is reducible over the complex numbers $CC$ as $(x-i)(x+i)$ and over $ZZ_2$ as $(x+1)^2 = x^2+1$.
 ]
 
 #theorem("Finite Field Construction")[

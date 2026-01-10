@@ -9,6 +9,10 @@
   where either $r = 0$ or $N(r) < N(b)$.
 ]
 
+#example[
+  The ring of integers $ZZ$ is a Euclidean domain with norm $N(a) = |a|$. The ring of polynomials $F[x]$ over a field $F$ is a Euclidean domain with norm $N(f) = deg(f)$.
+]
+
 #theorem("Extended Euclidean Algorithm (EEA)")[
   The Extended Euclidean Algorithm (EEA) finds the greatest common divisor (GCD) and coefficients $x, y$ such that $a x + b y = "gcd"(a, b)$.
   #proof[

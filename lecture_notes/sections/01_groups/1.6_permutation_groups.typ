@@ -6,6 +6,10 @@
   A *permutation group* is a group $G$ whose elements are permutations of a given set $M$ and whose group operation is function composition. The symmetric group $S_n$ consists of all permutations of a set of $n$ elements and has order $n!$.
 ]
 
+#example[
+  The group $S_3$ contains $3! = 6$ elements. These are the Identity $e$, three 2-cycles $(1 space 2), (1 space 3), (2 space 3)$, and two 3-cycles $(1 space 2 space 3), (1 space 3 space 2)$.
+]
+
 #proposition("Cycle Decomposition")[
   Any permutation can be decomposed into disjoint cycles. The order of a permutation is the least common multiple (LCM) of the lengths of these disjoint cycles.
   #proof[

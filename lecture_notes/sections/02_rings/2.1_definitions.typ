@@ -9,9 +9,17 @@
   + Distributive Laws hold: $a dot (b + c) = a dot b + a dot c$ and $(a + b) dot c = a dot c + b dot c$.
 ]
 
+#example[
+  The set of integers $ZZ$ with standard addition and multiplication is a ring. The set of even integers $2ZZ$ is also a ring (without unity). The set of $n times n$ matrices $M_n(RR)$ is a non-commutative ring.
+]
+
 #definition[
   - If there is a multiplicative identity (denoted $1$ such that $1 dot a = a dot 1 = a$), it is a *ring with unity*.
   - If multiplication is commutative, it is a *commutative ring*.
+]
+
+#example[
+  The ring of integers $ZZ$ is a commutative ring with unity $1$. The ring of even integers $2ZZ$ is a commutative ring but has no multiplicative identity. The ring of $2 times 2$ matrices $M_2(RR)$ has a unity (the identity matrix $I$) but is not commutative.
 ]
 
 #definition("Field")[

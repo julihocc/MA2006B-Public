@@ -7,6 +7,10 @@
   $ phi(a dot b) = phi(a) * phi(b) $
 ]
 
+#example[
+  The map $exp: (RR, +) arrow (RR^+, dot)$ defined by $x mapsto e^x$ is a homomorphism because $e^(x+y) = e^x dot e^y$.
+]
+
 #proposition("Properties of Homomorphisms")[
   - $phi(e_G) = e_H$ (maps identity to identity)
   - $phi(a^(-1)) = phi(a)^(-1)$ (maps inverses to inverses)
@@ -19,6 +23,10 @@
 
 #definition(title: "Kernel")[
   The *Kernel* of $phi$, denoted $ker(phi)$, is the set ${g in G | phi(g) = e_H}$. It is always a normal subgroup of $G$.
+]
+
+#example[
+  For the homomorphism $phi: ZZ arrow ZZ_2$ given by $phi(x) = x mod 2$, the kernel corresponds to the set of even integers $2ZZ$, as these are exactly the integers mapped to $0$.
 ]
 
 #example[

@@ -6,6 +6,10 @@
   A subset $H$ of a group $G$ is called a *subgroup* if $H$ itself forms a group under the same operation defined on $G$. We denote this as $H lt.eq G$.
 ]
 
+#example[
+  The set of even integers $2ZZ = {..., -4, -2, 0, 2, 4, ...}$ is a subgroup of the integers $ZZ$ under addition. It is closed under addition ($2m + 2n = 2(m+n)$) and inverses ($-2m = 2(-m)$).
+]
+
 #proposition("Subgroup Test")[
   A non-empty subset $H subset.eq G$ is a subgroup if and only if for all $a, b in H$, $a dot b^(-1) in H$.
 ]

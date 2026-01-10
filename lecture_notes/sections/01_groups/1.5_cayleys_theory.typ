@@ -6,6 +6,10 @@
   Every group $G$ is isomorphic to a subgroup of the symmetric group acting on $G$. In other words, every group can be considered as a group of permutations.
 ]
 
+#example[
+  For the cyclic group $ZZ_3 = \{0, 1, 2\}$, Cayley's theorem tells us we can view its elements as permutations of the set $\{0, 1, 2\}$. For instance, adding $1$ corresponds to the cycle $(0 space 1 space 2)$.
+]
+
 #proposition("Permutation Representation")[
   Specifically, for each $g in G$, we can define a permutation $lambda_g: G arrow G$ by $lambda_g(x) = g dot x$. The mapping $g mapsto lambda_g$ is an injective homomorphism from $G$ into $S_G$ (the group of all permutations of the set $G$).
 

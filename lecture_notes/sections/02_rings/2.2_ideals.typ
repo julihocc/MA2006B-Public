@@ -6,10 +6,18 @@
   An *ideal* $I$ of a ring $R$ is a subring such that for all $r in R$ and $x in I$, both $r dot x$ and $x dot r$ are in $I$. Ideals "absorb" multiplication by ring elements.
 ]
 
+#example[
+  The set of multiples of $n$, denoted $n ZZ$, is an ideal of $ZZ$. For any integer $r$ and any multiple $n k$, the product $r(n k) = n(r k)$ is still a multiple of $n$.
+]
+
 #definition("Quotient Ring")[
   Given an ideal $I$, we can form the *quotient ring* $R / I$. The elements of $R / I$ are cosets $a + I$, and operations are defined naturally:
   - $(a + I) + (b + I) = (a + b) + I$
   - $(a + I) dot (b + I) = (a dot b) + I$
+]
+
+#example[
+  If $R = ZZ$ and $I = 3ZZ$, the quotient ring $ZZ / 3ZZ$ has elements $\{0+3ZZ, 1+3ZZ, 2+3ZZ\}$. This is isomorphic to the integers modulo 3, $ZZ_3$.
 ]
 
 #proposition("Kernel is an Ideal")[

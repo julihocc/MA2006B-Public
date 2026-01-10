@@ -6,6 +6,10 @@
   An *automorphism* of a group $G$ is an isomorphism from $G$ to itself. That is, a bijection $phi: G arrow G$ that is also a homomorphism.
 ]
 
+#example[
+  For the additive group of integers $ZZ$, the map $phi(x) = -x$ is an automorphism. It is a bijection and preserves addition: $phi(x+y) = -(x+y) = (-x) + (-y) = phi(x) + phi(y)$.
+]
+
 #proposition[
   The set of all automorphisms of $G$, denoted $"Aut"(G)$, forms a group under function composition.
   #proof[
@@ -18,6 +22,10 @@
 
 #definition(title: "Inner Automorphism")[
   For any $g in G$, the conjugation map $phi_g(x) = g x g^(-1)$ is an automorphism of $G$ called an *inner automorphism*.
+]
+
+#example[
+  In the symmetric group $S_3$, conjugation by an element can permute the cycles. However, as noted in the solved problems, in any abelian group, the only inner automorphism is the identity map since $g x g^(-1) = x g g^(-1) = x$.
 ]
 
 #example[
