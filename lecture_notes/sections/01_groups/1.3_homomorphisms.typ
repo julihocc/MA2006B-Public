@@ -14,11 +14,11 @@
 #proposition("Properties of Homomorphisms")[
   - $phi(e_G) = e_H$ (maps identity to identity)
   - $phi(a^(-1)) = phi(a)^(-1)$ (maps inverses to inverses)
+]
 
-  #proof[
-    1. $phi(e_G) = phi(e_G dot e_G) = phi(e_G) * phi(e_G)$. Multiplying by $phi(e_G)^(-1)$ gives $e_H = phi(e_G)$.
-    2. $e_H = phi(e_G) = phi(a dot a^(-1)) = phi(a) * phi(a^(-1))$. Thus $phi(a^(-1))$ is the inverse of $phi(a)$.
-  ]
+#proof[
+  1. $phi(e_G) = phi(e_G dot e_G) = phi(e_G) * phi(e_G)$. Multiplying by $phi(e_G)^(-1)$ gives $e_H = phi(e_G)$.
+  2. $e_H = phi(e_G) = phi(a dot a^(-1)) = phi(a) * phi(a^(-1))$. Thus $phi(a^(-1))$ is the inverse of $phi(a)$.
 ]
 
 #definition(title: "Kernel")[

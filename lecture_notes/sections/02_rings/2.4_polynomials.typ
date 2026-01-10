@@ -22,13 +22,14 @@
 
 #theorem("Finite Field Construction")[
   Finite fields of order $p^n$, denoted $"GF"(p^n)$, are constructed as $ZZ_p[x] / angle.l P(x) angle.r$ where $P(x)$ is an irreducible polynomial of degree $n$ over $ZZ_p$.
-  #proof[
-    Let $F = ZZ_p[x] / angle.l P(x) angle.r$. $F$ is a commutative ring with unity.
-    Let $f(x) in F$ be non-zero (meaning it is not a multiple of $P(x)$). Since $P(x)$ is irreducible and $deg(f) < deg(P)$, $gcd(f, P) = 1$.
-    By EEA for polynomials, there exist $a(x), b(x)$ such that $a(x) f(x) + b(x) P(x) = 1$.
-    Taking this equation modulo $P(x)$, we get $a(x) f(x) equiv 1$.
-    Thus every non-zero element has an inverse, making $F$ a field.
-  ]
+]
+
+#proof[
+  Let $F = ZZ_p[x] / angle.l P(x) angle.r$. $F$ is a commutative ring with unity.
+  Let $f(x) in F$ be non-zero (meaning it is not a multiple of $P(x)$). Since $P(x)$ is irreducible and $deg(f) < deg(P)$, $gcd(f, P) = 1$.
+  By EEA for polynomials, there exist $a(x), b(x)$ such that $a(x) f(x) + b(x) P(x) = 1$.
+  Taking this equation modulo $P(x)$, we get $a(x) f(x) equiv 1$.
+  Thus every non-zero element has an inverse, making $F$ a field.
 ]
 
 #example[

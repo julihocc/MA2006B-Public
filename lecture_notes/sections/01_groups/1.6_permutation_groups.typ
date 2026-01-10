@@ -12,10 +12,11 @@
 
 #proposition("Cycle Decomposition")[
   Any permutation can be decomposed into disjoint cycles. The order of a permutation is the least common multiple (LCM) of the lengths of these disjoint cycles.
-  #proof[
-    Consider the limit of the sequence $x, sigma(x), sigma^2(x), ...$ for any $x$. Since the set is finite, it must loop back to $x$. This forms a cycle. Removing these elements and repeating the process decomposes the entire permutation into disjoint cycles.
-    For disjoint cycles, operations commute. Order is the smallest $k$ such that $"LCM"(l_1, ..., l_m)$ divides $k$.
-  ]
+]
+
+#proof[
+  Consider the limit of the sequence $x, sigma(x), sigma^2(x), ...$ for any $x$. Since the set is finite, it must loop back to $x$. This forms a cycle. Removing these elements and repeating the process decomposes the entire permutation into disjoint cycles.
+  For disjoint cycles, operations commute. Order is the smallest $k$ such that $"LCM"(l_1, ..., l_m)$ divides $k$.
 ]
 
 #example[

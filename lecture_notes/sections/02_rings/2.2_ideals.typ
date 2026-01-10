@@ -22,14 +22,15 @@
 
 #proposition("Kernel is an Ideal")[
   The kernel of any ring homomorphism $phi: R arrow S$ is an ideal of $R$.
-  #proof[
-    Let $K = ker(phi)$.
-    1. *Subgroup*: $K$ is an additive subgroup (standard group theory result).
-    2. *Absorption*: Let $r in R, k in K$.
-      $phi(r dot k) = phi(r) dot phi(k) = phi(r) dot 0 = 0$.
-      $phi(k dot r) = phi(k) dot phi(r) = 0 dot phi(r) = 0$.
-      Thus $r dot k in K$ and $k dot r in K$, so $K$ is an ideal.
-  ]
+]
+
+#proof[
+  Let $K = ker(phi)$.
+  1. *Subgroup*: $K$ is an additive subgroup (standard group theory result).
+  2. *Absorption*: Let $r in R, k in K$.
+    $phi(r dot k) = phi(r) dot phi(k) = phi(r) dot 0 = 0$.
+    $phi(k dot r) = phi(k) dot phi(r) = 0 dot phi(r) = 0$.
+    Thus $r dot k in K$ and $k dot r in K$, so $K$ is an ideal.
 ]
 
 #example[

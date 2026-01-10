@@ -12,12 +12,13 @@
 
 #proposition[
   The set of all automorphisms of $G$, denoted $"Aut"(G)$, forms a group under function composition.
-  #proof[
-    1. *Closure*: The composition of two isomorphisms is an isomorphism.
-    2. *Associativity*: Function composition is associative.
-    3. *Identity*: The identity map $id(x) = x$ is an automorphism.
-    4. *Inverse*: The inverse function of an isomorphism is also an isomorphism.
-  ]
+]
+
+#proof[
+  1. *Closure*: The composition of two isomorphisms is an isomorphism.
+  2. *Associativity*: Function composition is associative.
+  3. *Identity*: The identity map $id(x) = x$ is an automorphism.
+  4. *Inverse*: The inverse function of an isomorphism is also an isomorphism.
 ]
 
 #definition(title: "Inner Automorphism")[

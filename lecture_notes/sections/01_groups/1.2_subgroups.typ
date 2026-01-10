@@ -16,9 +16,10 @@
 
 #theorem("Lagrange's Theorem")[
   If $G$ is a finite group and $H$ is a subgroup of $G$, then the order (number of elements) of $H$ divides the order of $G$. i.e., $|H|$ divides $|G|$.
-  #proof[
-    The left cosets of $H$ in $G$ form a partition of $G$. The map $h mapsto g h$ is a bijection between $H$ and $g H$, so every coset has the same size $|H|$. If there are $k$ distinct cosets, then $|G| = k |H|$. Thus $|H|$ divides $|G|$.
-  ]
+]
+
+#proof[
+  The left cosets of $H$ in $G$ form a partition of $G$. The map $h mapsto g h$ is a bijection between $H$ and $g H$, so every coset has the same size $|H|$. If there are $k$ distinct cosets, then $|G| = k |H|$. Thus $|H|$ divides $|G|$.
 ]
 
 #example[

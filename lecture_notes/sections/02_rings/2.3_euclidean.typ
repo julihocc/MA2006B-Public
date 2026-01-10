@@ -15,10 +15,11 @@
 
 #theorem("Extended Euclidean Algorithm (EEA)")[
   The Extended Euclidean Algorithm (EEA) finds the greatest common divisor (GCD) and coefficients $x, y$ such that $a x + b y = "gcd"(a, b)$.
-  #proof[
-    The algorithm proceeds by successive divisions: $r_(i-2) = q_i r_(i-1) + r_i$.
-    Since $N(r_i)$ is a strictly decreasing sequence of non-negative integers, it must terminate with $r_k = 0$. The last non-zero remainder $r_(k-1)$ divides all previous remainders and linear combinations, so it is the GCD. Back-substitution yields $x, y$.
-  ]
+]
+
+#proof[
+  The algorithm proceeds by successive divisions: $r_(i-2) = q_i r_(i-1) + r_i$.
+  Since $N(r_i)$ is a strictly decreasing sequence of non-negative integers, it must terminate with $r_k = 0$. The last non-zero remainder $r_(k-1)$ divides all previous remainders and linear combinations, so it is the GCD. Back-substitution yields $x, y$.
 ]
 
 #example[

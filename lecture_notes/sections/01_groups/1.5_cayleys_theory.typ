@@ -12,13 +12,13 @@
 
 #proposition("Permutation Representation")[
   Specifically, for each $g in G$, we can define a permutation $lambda_g: G arrow G$ by $lambda_g(x) = g dot x$. The mapping $g mapsto lambda_g$ is an injective homomorphism from $G$ into $S_G$ (the group of all permutations of the set $G$).
+]
 
-  #proof[
-    1. *Well-defined*: $lambda_g$ is a permutation because it has an inverse $lambda_(g^(-1))$.
-    2. *Homomorphism*: $lambda_(g h)(x) = (g h)x = g(h x) = lambda_g(lambda_h(x))$. Thus $g mapsto lambda_g$ preserves operations.
-    3. *Injective*: If $lambda_g = lambda_h$, then $lambda_g(e) = lambda_h(e) arrow.double g = h$.
-    Thus $G$ is isomorphic to the image ${lambda_g | g in G}$, which is a subgroup of $S_G$.
-  ]
+#proof[
+  1. *Well-defined*: $lambda_g$ is a permutation because it has an inverse $lambda_(g^(-1))$.
+  2. *Homomorphism*: $lambda_(g h)(x) = (g h)x = g(h x) = lambda_g(lambda_h(x))$. Thus $g mapsto lambda_g$ preserves operations.
+  3. *Injective*: If $lambda_g = lambda_h$, then $lambda_g(e) = lambda_h(e) arrow.double g = h$.
+  Thus $G$ is isomorphic to the image ${lambda_g | g in G}$, which is a subgroup of $S_G$.
 ]
 
 #example[
