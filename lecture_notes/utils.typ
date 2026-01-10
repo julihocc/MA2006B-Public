@@ -63,4 +63,4 @@
 #let proof = thmproof("proof", "Proof")
 
 // Solutions
-#let solution = thmbox("solution", "Solution", fill: luma(250), inset: 8pt, radius: 4pt).with(numbering: none)
+#let solution = thmproof("solution", "Solution")

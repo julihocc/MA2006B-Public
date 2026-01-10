@@ -1,0 +1,48 @@
+warning: `angle.l` is deprecated, use `chevron.l` instead
+   ┌─ \\?\E:\REPOSITORIES\ma2006-lecture-notes\MA2006B-Lecture-Notes\lecture_notes\sections\02_rings\2.2_ideals.typ:70:29
+   │
+70 │   In $ZZ[x]$, let $I = angle.l x^2 + 1 angle.r$. Describe the elements of $ZZ[x] / I$.
+   │                              ^
+
+warning: `angle.r` is deprecated, use `chevron.r` instead
+   ┌─ \\?\E:\REPOSITORIES\ma2006-lecture-notes\MA2006B-Lecture-Notes\lecture_notes\sections\02_rings\2.2_ideals.typ:70:45
+   │
+70 │   In $ZZ[x]$, let $I = angle.l x^2 + 1 angle.r$. Describe the elements of $ZZ[x] / I$.
+   │                                              ^
+
+warning: `angle.l` is deprecated, use `chevron.l` instead
+   ┌─ \\?\E:\REPOSITORIES\ma2006-lecture-notes\MA2006B-Lecture-Notes\lecture_notes\sections\02_rings\2.4_polynomials.typ:24:89
+   │
+24 │   Finite fields of order $p^n$, denoted $"GF"(p^n)$, are constructed as $ZZ_p[x] / angle.l P(x) angle.r$ where $P(x)$ is an irreducible polynomial of degree $n$ over $ZZ_p$.
+   │                                                                                          ^
+
+warning: `angle.r` is deprecated, use `chevron.r` instead
+   ┌─ \\?\E:\REPOSITORIES\ma2006-lecture-notes\MA2006B-Lecture-Notes\lecture_notes\sections\02_rings\2.4_polynomials.typ:24:102
+   │
+24 │   Finite fields of order $p^n$, denoted $"GF"(p^n)$, are constructed as $ZZ_p[x] / angle.l P(x) angle.r$ where $P(x)$ is an irreducible polynomial of degree $n$ over $ZZ_p$.
+   │                                                                                                       ^
+
+warning: `angle.l` is deprecated, use `chevron.l` instead
+   ┌─ \\?\E:\REPOSITORIES\ma2006-lecture-notes\MA2006B-Lecture-Notes\lecture_notes\sections\02_rings\2.4_polynomials.typ:28:27
+   │
+28 │   Let $F = ZZ_p[x] / angle.l P(x) angle.r$. $F$ is a commutative ring with unity.
+   │                            ^
+
+warning: `angle.r` is deprecated, use `chevron.r` instead
+   ┌─ \\?\E:\REPOSITORIES\ma2006-lecture-notes\MA2006B-Lecture-Notes\lecture_notes\sections\02_rings\2.4_polynomials.typ:28:40
+   │
+28 │   Let $F = ZZ_p[x] / angle.l P(x) angle.r$. $F$ is a commutative ring with unity.
+   │                                         ^
+
+warning: `angle.l` is deprecated, use `chevron.l` instead
+   ┌─ \\?\E:\REPOSITORIES\ma2006-lecture-notes\MA2006B-Lecture-Notes\lecture_notes\sections\02_rings\2.4_polynomials.typ:90:93
+   │
+90 │   Construct the multiplication table for the field $"GF"(4)$ constructed as $ZZ_2[x] / angle.l x^2+x+1 angle.r$.
+   │                                                                                              ^
+
+warning: `angle.r` is deprecated, use `chevron.r` instead
+   ┌─ \\?\E:\REPOSITORIES\ma2006-lecture-notes\MA2006B-Lecture-Notes\lecture_notes\sections\02_rings\2.4_polynomials.typ:90:109
+   │
+90 │   Construct the multiplication table for the field $"GF"(4)$ constructed as $ZZ_2[x] / angle.l x^2+x+1 angle.r$.
+   │                                                                                                              ^
+
