@@ -11,16 +11,22 @@
 // #show: thmrules
 
 // Definitions
-#let definition = thmbox("definition", "Definition", fill: luma(245), stroke: luma(80) + 1pt, base: "heading")
+#let definition = thmbox("definition", "Definition", fill: rgb("fff3e0"), stroke: rgb("e65100") + 1pt, base: "heading")
 
 // Theorems
-#let theorem = thmbox("theorem", "Theorem", fill: luma(240), stroke: luma(0) + 1pt, base: "heading")
+#let theorem = thmbox("theorem", "Theorem", fill: rgb("e8eaf6"), stroke: rgb("283593") + 1pt, base: "heading")
 
 // Propositions
-#let proposition = thmbox("proposition", "Proposition", fill: luma(250), stroke: luma(100) + 1pt, base: "heading")
+#let proposition = thmbox(
+  "proposition",
+  "Proposition",
+  fill: rgb("fce4ec"),
+  stroke: rgb("880e4f") + 1pt,
+  base: "heading",
+)
 
 // Corollaries
-#let corollary = thmbox("corollary", "Corollary", fill: luma(250), stroke: luma(120) + 1pt, base: "heading")
+#let corollary = thmbox("corollary", "Corollary", fill: rgb("e0f2f1"), stroke: rgb("00695c") + 1pt, base: "heading")
 
 // Examples (Keeping as alias or for minor inline examples if needed, but primary focus is Solved Problems)
 // Examples
@@ -51,7 +57,7 @@
 )
 
 // Exercises (Keeping for backward compatibility or generic use)
-#let exercise = thmbox("exercise", "Exercise", fill: luma(250), stroke: luma(150) + 1pt, base: "heading")
+#let exercise = thmbox("exercise", "Exercise", fill: rgb("f3e5f5"), stroke: rgb("6a1b9a") + 1pt, base: "heading")
 
 // Proofs
 #let proof = thmproof("proof", "Proof")
