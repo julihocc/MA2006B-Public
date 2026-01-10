@@ -1,5 +1,12 @@
 #import "@preview/ctheorems:1.1.3": *
 
+// Math sets
+#let ZZ = $bb(Z)$
+#let RR = $bb(R)$
+#let QQ = $bb(Q)$
+#let CC = $bb(C)$
+#let NN = $bb(N)$
+
 // Initialize the counters and rules. This function must be called in a show rule in main.typ
 // #show: thmrules
 
@@ -15,14 +22,36 @@
 // Corollaries
 #let corollary = thmbox("corollary", "Corollary", fill: luma(250), stroke: luma(120) + 1pt, base: "heading")
 
-// Examples
+// Examples (Keeping as alias or for minor inline examples if needed, but primary focus is Solved Problems)
 #let example = thmplain("example", "Example", base: "heading").with(numbering: "1.1")
 
-// Exercises
+// Solved Problems (Schaum's Style)
+#let solved_problem = thmbox(
+  "solved_problem",
+  "Problem",
+  fill: rgb("e6f3ff"),
+  inset: 8pt,
+  radius: 4pt,
+  stroke: rgb("0074d9") + 1pt,
+  base: "heading",
+)
+
+// Supplementary Problems (Schaum's Style)
+#let supplementary = thmbox(
+  "supplementary",
+  "Supplementary Problem",
+  fill: rgb("fffde7"),
+  inset: 8pt,
+  radius: 4pt,
+  stroke: rgb("fbc02d") + 1pt,
+  base: "heading",
+)
+
+// Exercises (Keeping for backward compatibility or generic use)
 #let exercise = thmbox("exercise", "Exercise", fill: luma(250), stroke: luma(150) + 1pt, base: "heading")
 
 // Proofs
 #let proof = thmproof("proof", "Proof")
 
 // Solutions
-#let solution = thmbox("solution", "Solution", fill: luma(240), inset: 8pt, radius: 4pt).with(numbering: none)
+#let solution = thmbox("solution", "Solution", fill: luma(250), inset: 8pt, radius: 4pt).with(numbering: none)

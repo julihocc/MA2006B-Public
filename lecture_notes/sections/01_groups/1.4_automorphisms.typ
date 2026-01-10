@@ -3,7 +3,7 @@
 
 === Theory
 #definition("Automorphism")[
-  An *automorphism* of a group $G$ is an isomorphism from $G$ to itself. That is, distinct bijection $phi: G arrow G$ that is also a homomorphism.
+  An *automorphism* of a group $G$ is an isomorphism from $G$ to itself. That is, a bijection $phi: G arrow G$ that is also a homomorphism.
 ]
 
 #proposition[
@@ -17,41 +17,59 @@
 ]
 
 #definition(title: "Inner Automorphism")[
-  For any $g in G$, the conjugation map $phi_g(x) = g x g^(-1)$ is an automorphism.
-]
-
-=== Examples
-#example[
-  Let $G = ZZ_5$ (additive). Any automorphism must map a generator to a generator.
-  Generators of $ZZ_5$ are ${1, 2, 3, 4}$.
-  Maps:
-  $sigma_1(x) = 1x = x$ (Identity)
-  $sigma_2(x) = 2x mod 5$
-  $sigma_3(x) = 3x mod 5$
-  $sigma_4(x) = 4x mod 5$
-  Each of these is an automorphism.
+  For any $g in G$, the conjugation map $phi_g(x) = g x g^(-1)$ is an automorphism of $G$ called an *inner automorphism*.
 ]
 
 #example[
   *Structure Weaknesses*: Automorphisms describe the symmetries of the algebraic structure. In cryptography, understanding the automorphism group of the underlying structure (like an elliptic curve) is vital for understanding potential weaknesses or for optimizing arithmetic (e.g., using Frobenius automorphisms for faster scalar multiplication on Koblitz curves).
 ]
 
-=== Exercises
-#exercise[
+=== Solved Problems
+
+#solved_problem[
+  Let $G = ZZ_5$ (additive). Find all automorphisms of $ZZ_5$.
+]
+#solution[
+  Any automorphism must map a generator to a generator.
+  Generators of $ZZ_5$ are ${1, 2, 3, 4}$ (since 5 is prime).
+  Maps $phi(x) = k x$ where $k$ is a generator:
+  - $sigma_1(x) = 1 x = x$ (Identity)
+  - $sigma_2(x) = 2 x mod 5$
+  - $sigma_3(x) = 3 x mod 5$
+  - $sigma_4(x) = 4 x mod 5$
+
+  Each of these is an automorphism. Thus $|"Aut"(ZZ_5)| = 4$.
+]
+
+#solved_problem[
   Determine all automorphisms of the group $ZZ_6$.
 ]
 #solution[
-  Automorphisms of $ZZ_n$ map generators to generators. Generators of $ZZ_6$ are elements coprime to 6: $1, 5$.
-  - $sigma_1(x) = 1x = x$ (Identity)
-  - $sigma_5(x) = 5x = -x$
-  So $"Aut"(ZZ_6) tilde.eq Z_2$.
+  Automorphisms of $ZZ_n$ are determined by where they map $1$. Since $1$ generates $ZZ_n$, $phi(1)$ must be a generator of $ZZ_n$.
+  The generators of $ZZ_6$ are elements coprime to 6: ${1, 5}$.
+  Two possible maps:
+  - $sigma_1(x) = 1 dot x = x$ (Identity)
+  - $sigma_5(x) = 5 dot x equiv -x mod 6$.
+
+  Thus, $"Aut"(ZZ_6) tilde.eq Z_2$.
 ]
-#exercise[
-  Show that for an abelian group, the only inner automorphism is the identity map.
+
+#solved_problem[
+  Show that for an abelian group $G$, the only inner automorphism is the identity map.
 ]
 #solution[
-  Inner automorphism: $phi_g(x) = g x g^(-1)$.
+  Let $G$ be abelian. An inner automorphism is defined by $phi_g(x) = g x g^(-1)$ for some $g in G$.
   Since $G$ is abelian, $g x = x g$.
-  Thus, $phi_g(x) = x g g^(-1) = x e = x$.
-  This is the identity map for all $g$.
+  Therefore, $phi_g(x) = (x g) g^(-1) = x (g g^(-1)) = x e = x$.
+  This is the identity map for all $g in G$.
+]
+
+=== Supplementary Problems
+
+#supplementary[
+  Prove that the map $phi: C arrow C$ given by $phi(z) = overline(z)$ (complex conjugation) is an automorphism of the additive group of complex numbers.
+]
+
+#supplementary[
+  Let $G = S_3$. Find the inner automorphism defined by $g = (1 2)$.
 ]

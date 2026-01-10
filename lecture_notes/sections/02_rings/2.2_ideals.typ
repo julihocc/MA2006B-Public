@@ -7,7 +7,7 @@
 ]
 
 #definition("Quotient Ring")[
-  Given an ideal $I$, we can form the *quotient ring* $R slash I$. The elements of $R slash I$ are cosets $a + I$, and operations are defined naturally:
+  Given an ideal $I$, we can form the *quotient ring* $R / I$. The elements of $R / I$ are cosets $a + I$, and operations are defined naturally:
   - $(a + I) + (b + I) = (a + b) + I$
   - $(a + I) dot (b + I) = (a dot b) + I$
 ]
@@ -24,32 +24,58 @@
   ]
 ]
 
-=== Examples
 #example[
-  Consider $R = ZZ$ and $I = n ZZ$ (multiples of $n$).
-  $I$ is an ideal. The quotient ring $ZZ slash n ZZ$ is isomorphic to $ZZ_n$.
-  Calculation in $ZZ slash 5 ZZ$ is just arithmetic modulo 5.
+  *AES S-Box*: Quotient rings are fundamental in constructing finite fields consisting of polynomial bases, e.g., $"GF"(2^8) tilde.eq ZZ_2[x] / P(x)$ where $P(x)$ is an irreducible polynomial. This structure is the basis for the AES S-box.
 ]
 
-#example[
-  *AES S-Box*: Quotient rings are fundamental in constructing finite fields consisting of polynomial bases, e.g., $"GF"(2^8) tilde.eq ZZ_2[x] slash P(x)$ where $P(x)$ is an irreducible polynomial. This structure is the basis for the AES S-box.
-]
+=== Solved Problems
 
-=== Exercises
-#exercise[
+#solved_problem[
   Show that the set of even integers $2ZZ$ is an ideal of $ZZ$.
 ]
 #solution[
-  Let $x in 2ZZ$. Then $x = 2k$ for some $k$.
-  For any $r in ZZ$, $r dot x = r(2k) = 2(r k) in 2ZZ$.
-  Thus, it absorbs multiplication and is an ideal.
+  1. *Subring Check*:
+    - Non-empty: $0 in 2ZZ$.
+    - Closed under subtraction: If $2a, 2b in 2ZZ$, then $2a - 2b = 2(a-b) in 2ZZ$.
+  2. *Absorption Check*:
+    - Let $x in 2ZZ$ (so $x=2k$) and $r in ZZ$.
+    - $r x = r(2k) = 2(r k) in 2ZZ$.
+
+  Since it satisfies both conditions (and multiplication is commutative), $2ZZ$ is an ideal.
 ]
-#exercise[
-  In $ZZ_[x]$, let $I = angle.l x^2 + 1 angle.r$. Describe the elements of $ZZ_[x] slash I$.
+
+#solved_problem[
+  Consider $R = ZZ$ and $I = 5 ZZ$. Describe the quotient ring $ZZ slash I$.
+]
+#solution[
+  The elements of $ZZ slash 5 ZZ$ are the cosets $a + 5ZZ$.
+  Two cosets are equal if their representatives differ by a multiple of 5.
+  Distinct cosets correspond to the remainders modulo 5:
+  $0 + 5ZZ, 1 + 5ZZ, 2 + 5ZZ, 3 + 5ZZ, 4 + 5ZZ$.
+
+  Addition and multiplication exactly mirror arithmetic in $ZZ_5$.
+  Thus, $ZZ / 5 ZZ tilde.eq ZZ_5$.
+]
+
+#solved_problem[
+  In $ZZ[x]$, let $I = angle.l x^2 + 1 angle.r$. Describe the elements of $ZZ[x] / I$.
 ]
 #solution[
   Elements of the quotient are polynomials modulo $x^2 + 1$.
-  Any polynomial $f(x)$ can be written as $q(x)(x^2 + 1) + r(x)$ where $deg(r) < 2$.
-  So elements are of the form $a x + b$ with $a, b in ZZ$.
-  (This is isomorphic to the Gaussian integers $ZZ[i]$).
+  By the Division Algorithm for polynomials, any $f(x) in ZZ[x]$ can be written as:
+  $f(x) = q(x)(x^2 + 1) + r(x)$, where $deg(r) < 2$.
+
+  Thus, every coset has a unique representative of the form $a x + b$ where $a, b in ZZ$.
+  Multiplication satisfies $x^2 equiv -1$.
+  This ring is isomorphic to the Gaussian integers $ZZ[i]$ via the map $a x+b mapsto b i + a$.
+]
+
+=== Supplementary Problems
+
+#supplementary[
+  Let $R$ be a commutative ring with unity. Show that $R$ is a field if and only if its only ideals are $\{0\}$ and $R$ itself.
+]
+
+#supplementary[
+  Let $I$ be the set of matrices in $M_2(RR)$ with the first column equal to zero. Is $I$ a left ideal, right ideal, or two-sided ideal?
 ]

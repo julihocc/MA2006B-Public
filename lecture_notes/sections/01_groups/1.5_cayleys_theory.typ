@@ -1,5 +1,5 @@
 #import "../../utils.typ": *
-== Cayley's Theory
+== Cayley's Theorem
 
 === Theory
 #theorem("Cayley's Theorem")[
@@ -17,33 +17,47 @@
   ]
 ]
 
-=== Examples
-#example[
-  Consider the group $G = {1, -1}$ under multiplication.
-  Elements: $1, -1$.
-  Permutations correspondled to left multiplication:
-  $lambda_1$: $1 arrow 1$, $-1 arrow -1$ (Identity permutation $(1)(-1)$)
-  $lambda_(-1)$: $1 arrow -1$, $-1 arrow 1$ (Transposition $(1, -1)$)
-  Thus $G tilde.eq {(1)(-1), (1, -1)} subset.eq S_2$.
-]
-
 #example[
   *Significance*: Cayley's theorem is theoretically significant as it allows us to represent abstract groups concretely using permutations. In computational group theory, permutation representations are often easier to store and manipulate in a computer than abstract definitions, allowing for efficient algorithms to determine group properties.
 ]
 
-=== Exercises
-#exercise[
+=== Solved Problems
+
+#solved_problem[
+  Consider the group $G = {1, -1}$ under multiplication. Find its permutation representation.
+]
+#solution[
+  Elements: $1, -1$.
+  Permutations correspond to left multiplication:
+  - $lambda_1$: $1 arrow 1, -1 arrow -1$. Disjoint cycle form: $(1)(-1)$ or $e$.
+  - $lambda_(-1)$: $1 arrow -1, -1 arrow 1$. Disjoint cycle form: $(1, -1)$.
+
+  Thus $G tilde.eq {e, (1, -1)} subset S_2$.
+]
+
+#solved_problem[
   Write down the permutation representation of $ZZ_3 = {0, 1, 2}$ given by Cayley's Theorem.
 ]
 #solution[
   Elements: $0, 1, 2$. Operation is addition mod 3.
-  - $lambda_0$: $0 arrow 0, 1 arrow 1, 2 arrow 2$ -> $(0)(1)(2) = e$
-  - $lambda_1$: $0 arrow 1, 1 arrow 2, 2 arrow 0$ -> $(0 space 1 space 2)$
-  - $lambda_2$: $0 arrow 2, 1 arrow 0, 2 arrow 1$ -> $(0 space 2 space 1)$
+  - $lambda_0$: $0 arrow 0, 1 arrow 1, 2 arrow 2 arrow (0)(1)(2) = e$
+  - $lambda_1$: $0 arrow 1, 1 arrow 2, 2 arrow 0 arrow (0 space 1 space 2)$
+  - $lambda_2$: $0 arrow 2, 1 arrow 0, 2 arrow 1 arrow (0 space 2 space 1)$
 ]
-#exercise[
+
+#solved_problem[
   Explain why the image of the map $g mapsto lambda_g$ is a subgroup of $S_G$.
 ]
 #solution[
-  The map is a homomorphism. The image of any group homomorphism is a subgroup of the codomain. Since the codomain is $S_G$, the image is a subgroup of $S_G$.
+  The map $phi: G arrow S_G$ given by $phi(g) = lambda_g$ is a homomorphism. A fundamental property of homomorphisms is that the image of a group is always a subgroup of the codomain. Since $G$ is a group and $phi$ is a homomorphism, $"Im"(phi)$ is a subgroup of $S_G$.
+]
+
+=== Supplementary Problems
+
+#supplementary[
+  Let $G = \{e, a, b, c\}$ be the Klein 4-group where $x^2 = e$ for all $x$. Construct the left regular representation (Cayley representation) for $a$.
+]
+
+#supplementary[
+  True or False: If $G$ has order $n$, then $G$ is isomorphic to a subgroup of $S_n$.
 ]

@@ -14,21 +14,28 @@
   ]
 ]
 
-=== Examples
-#example[
-  In $S_5$, let $sigma = (1 space 2 space 3)(4 space 5)$.
-  This is a composition of a 3-cycle and a 2-cycle.
-  Order of $sigma = "lcm"(3, 2) = 6$.
-  Computing $sigma^2$:
-  $sigma^2 = (1 space 2 space 3)^2 (4 space 5)^2 = (1 space 3 space 2)(e) = (1 space 3 space 2)$.
-]
-
 #example[
   *Ciphers*: Permutation groups are the basis of many classical ciphers (like the Enigma machine, which used complex permutations). In modern design, substitution-permutation networks (SPNs) used in block ciphers like AES rely heavily on mixing (permutations) and substitution (S-boxes, which are often defined via other algebraic properties) to achieve confusion and diffusion.
 ]
 
-=== Exercises
-#exercise[
+=== Solved Problems
+
+#solved_problem[
+  In $S_5$, let $sigma = (1 space 2 space 3)(4 space 5)$. Find the order of $sigma$ and compute $sigma^2$.
+]
+#solution[
+  This is a composition of a 3-cycle and a 2-cycle, which are disjoint.
+  Order of $sigma = "lcm"(3, 2) = 6$.
+
+  Computing $sigma^2$:
+  $sigma^2 = ((1 space 2 space 3)(4 space 5))^2$
+  Since they are disjoint, they commute:
+  $= (1 space 2 space 3)^2 (4 space 5)^2$
+  $= (1 space 3 space 2) (e)$
+  $= (1 space 3 space 2)$
+]
+
+#solved_problem[
   Calculate the product of permutations $pi = (1 space 3 space 4)$ and $sigma = (1 space 2)(3 space 4)$ in $S_4$.
 ]
 #solution[
@@ -37,19 +44,38 @@
   - $2 arrow^sigma 1 arrow^pi 3$
   - $3 arrow^sigma 4 arrow^pi 1$
   - $4 arrow^sigma 3 arrow^pi 4$
-  Result: $(1 space 2 space 3)$.
+
+  Result: $(1 space 2 space 3)(4) = (1 space 2 space 3)$.
 ]
-#exercise[
+
+#solved_problem[
   Find the order of the permutation $(1 space 2 space 4)(3 space 5 space 6)$ in $S_6$.
 ]
 #solution[
-  It's a product of disjoint cycles of length 3 and 3.
+  The permutation is a product of two disjoint cycles of length 3.
   Order = $"lcm"(3, 3) = 3$.
 ]
-#exercise[
+
+#solved_problem[
   How many elements does $S_4$ have? List 5 different elements.
 ]
 #solution[
-  $|S_4| = 4! = 24$.
-  Examples: $e, (1 space 2), (1 space 3), (1 space 2 space 3), (1 space 2)(3 space 4)$.
+  $|S_4| = 4! = 4 times 3 times 2 times 1 = 24$.
+
+  Examples:
+  1. $e$ (Identity)
+  2. $(1 space 2)$
+  3. $(1 space 3)$
+  4. $(1 space 2 space 3)$
+  5. $(1 space 2)(3 space 4)$
+]
+
+=== Supplementary Problems
+
+#supplementary[
+  Express the permutation $mat(1, 2, 3, 4, 5; 3, 5, 4, 1, 2)$ as a product of disjoint cycles.
+]
+
+#supplementary[
+  Find the inverse of the permutation $(1 space 2 space 3)(4 space 5)$.
 ]
