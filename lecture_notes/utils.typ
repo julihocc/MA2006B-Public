@@ -23,12 +23,15 @@
 #let corollary = thmbox("corollary", "Corollary", fill: luma(250), stroke: luma(120) + 1pt, base: "heading")
 
 // Examples (Keeping as alias or for minor inline examples if needed, but primary focus is Solved Problems)
-#let example = thmplain("example", "Example", base: "heading").with(numbering: "1.1")
+// Examples
+#let example = thmbox("example", "Example", fill: rgb("e8f5e9"), stroke: rgb("2e7d32") + 1pt, base: "heading").with(
+  numbering: "1.1",
+)
 
 // Solved Problems (Schaum's Style)
 #let solved_problem = thmbox(
   "solved_problem",
-  "Problem",
+  "Solved Problem",
   fill: rgb("e6f3ff"),
   inset: 8pt,
   radius: 4pt,
