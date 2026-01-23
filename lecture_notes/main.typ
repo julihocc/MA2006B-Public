@@ -41,3 +41,4 @@
 #include "sections/07_simple_protocols/07_main.typ"
 #include "sections/08_advanced_key_exchange/08_main.typ"
 #include "sections/09_advanced_signature_protocols/09_main.typ"
+#include "sections/10_topics_in_security/10_main.typ"
