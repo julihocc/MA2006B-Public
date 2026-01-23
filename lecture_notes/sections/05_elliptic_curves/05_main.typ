@@ -1,4 +1,4 @@
-= Curvas elípticas
+= Elliptic Curves
 
 This section focuses on the specific mathematical properties of Elliptic Curves as algebraic objects. We start by analyzing their geometry over the real numbers to build intuition, then formally define them over general fields, and finally study their properties over Galois Fields ($"GF"(q)$), which is the setting used in modern cryptography.
 

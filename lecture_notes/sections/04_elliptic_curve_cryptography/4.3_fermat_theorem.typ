@@ -1,6 +1,6 @@
 #import "../../utils.typ": *
 
-== Teorema de Fermat
+== Fermat's Theorem
 
 === Theory
 

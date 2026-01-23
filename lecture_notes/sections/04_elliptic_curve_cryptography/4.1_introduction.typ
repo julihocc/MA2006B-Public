@@ -1,6 +1,6 @@
 #import "../../utils.typ": *
 
-== Curvas elípticas y su importancia
+== Elliptic Curves and their Importance
 
 === Theory
 

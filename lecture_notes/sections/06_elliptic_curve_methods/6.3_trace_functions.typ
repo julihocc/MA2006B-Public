@@ -1,6 +1,6 @@
 #import "../../utils.typ": *
 
-== Funciones de rastreo
+== Trace Functions
 
 === Theory
 

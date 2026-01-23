@@ -1,4 +1,4 @@
-= Criptografía de curva elíptica
+= Elliptic Curve Cryptography
 
 Elliptic Curve Cryptography (ECC) represents the state-of-the-art in public key cryptosystems. By relying on the hardness of the Elliptic Curve Discrete Logarithm Problem (ECDLP), it achieves strong security with much smaller key sizes than RSA. This section explores the mathematical foundations needed to understand ECC, from big integer arithmetic to finite field polynomial math.
 

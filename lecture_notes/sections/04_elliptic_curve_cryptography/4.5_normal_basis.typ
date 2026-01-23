@@ -1,6 +1,6 @@
 #import "../../utils.typ": *
 
-== Matemática de base normal
+== Normal Basis Arithmetic
 
 === Theory
 

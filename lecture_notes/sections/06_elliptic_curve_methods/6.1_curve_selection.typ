@@ -1,6 +1,6 @@
 #import "../../utils.typ": *
 
-== Elección de curvas elípticas
+== Elliptic Curve Selection
 
 === Theory
 

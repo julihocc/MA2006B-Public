@@ -1,6 +1,6 @@
 #import "../../utils.typ": *
 
-== Teoría de números en enteros grandes
+== Large Integer Arithmetic
 
 === Theory
 

@@ -1,6 +1,6 @@
 #import "../../utils.typ": *
 
-== Curvas elípticas sobre grupos de Galois
+== Elliptic Curves over Galois Fields
 
 === Theory
 

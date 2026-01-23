@@ -1,4 +1,4 @@
-= Métodos en curvas elípticas
+= Elliptic Curve Methods
 
 This section explores advanced methods and properties of elliptic curves that are critical for their application in cryptography, including how to select secure curves, the distinction between supersingular and ordinary curves, and the role of trace functions.
 

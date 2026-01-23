@@ -1,6 +1,6 @@
 #import "../../utils.typ": *
 
-== Matemática polinomial sobre campos finitos
+== Polynomial Arithmetic over Finite Fields
 
 === Theory
 

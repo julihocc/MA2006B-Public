@@ -1,6 +1,6 @@
 #import "../../utils.typ": *
 
-== Bases normales óptimas de tipo I y II
+== Optimal Normal Bases Types I and II
 
 === Theory
 

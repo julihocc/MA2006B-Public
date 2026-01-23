@@ -1,6 +1,6 @@
 #import "../../utils.typ": *
 
-== Curvas nosupersingulares
+== Non-Supersingular Curves
 
 === Theory
 

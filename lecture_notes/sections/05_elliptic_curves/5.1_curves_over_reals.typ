@@ -1,6 +1,6 @@
 #import "../../utils.typ": *
 
-== Curvas elípticas sobre los reales
+== Elliptic Curves over the Reals
 
 === Theory
 
