@@ -36,3 +36,4 @@
 #include "sections/02_rings/02_main.typ"
 #include "sections/03_vector_spaces/03_main.typ"
 #include "sections/04_elliptic_curve_cryptography/04_main.typ"
+#include "sections/05_elliptic_curves/05_main.typ"
