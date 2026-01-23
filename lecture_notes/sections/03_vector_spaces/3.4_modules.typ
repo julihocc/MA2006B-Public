@@ -36,3 +36,14 @@
   For example, take scalar $1/2 in QQ$ and vector $3 in ZZ$. Then $(1/2) dot 3 = 3/2$, which is not in $ZZ$.
   Thus, $ZZ$ is not closed under scalar multiplication by $QQ$, so it is not a $QQ$-vector space.
 ]
+
+=== Supplementary Problems
+
+#supplementary[
+  Let $G$ be an abelian group. Show that $G$ becomes a $ZZ$-module if we define $n dot g$ (for $n in ZZ, g in G$) as $g + ... + g$ ($n$ times) if $n > 0$, and as $- (g + ... + g)$ ($-n$ times) if $n < 0$.
+]
+
+#supplementary[
+  Consider the set of integers modulo 6, $ZZ_6$, as a $ZZ$-module. Find a submodule of $ZZ_6$.
+]
+

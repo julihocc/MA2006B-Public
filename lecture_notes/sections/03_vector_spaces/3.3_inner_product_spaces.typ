@@ -45,3 +45,14 @@
 #solution[
   $ ||v|| = sqrt(3^2 + 4^2) = sqrt(9 + 16) = sqrt(25) = 5 $
 ]
+
+=== Supplementary Problems
+
+#supplementary[
+  Use the Gram-Schmidt process to find an orthogonal basis for $RR^2$ starting with basis vectors $(1, 1)$ and $(0, 2)$.
+]
+
+#supplementary[
+  Show that if $u$ is orthogonal to $v$, then $||u + v||^2 = ||u||^2 + ||v||^2$. (Pythagorean Theorem)
+]
+

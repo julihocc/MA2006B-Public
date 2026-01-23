@@ -42,3 +42,14 @@
 
   So the linear functionals are $f_1(x,y) = x - y$ and $f_2(x,y) = y$.
 ]
+
+=== Supplementary Problems
+
+#supplementary[
+  Let $V = P_1[x]$ (polynomials of degree at most 1). Let basis $B = {1, x}$. Find the dual basis relative to the functionals $phi_1(p) = p(0)$ and $phi_2(p) = p(1)$. verify if they form a dual basis.
+]
+
+#supplementary[
+  Prove that for any $v in V$ (finite dimensional), $v = 0$ if and only if $f(v) = 0$ for all $f in V^*$.
+]
+
