@@ -39,3 +39,4 @@
 #include "sections/05_elliptic_curves/05_main.typ"
 #include "sections/06_elliptic_curve_methods/06_main.typ"
 #include "sections/07_simple_protocols/07_main.typ"
+#include "sections/08_advanced_key_exchange/08_main.typ"
