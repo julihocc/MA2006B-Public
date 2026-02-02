@@ -7,7 +7,11 @@
 ]
 
 #example[
-  The group $S_3$ contains $3! = 6$ elements. These are the Identity $e$, three 2-cycles $(1 space 2), (1 space 3), (2 space 3)$, and two 3-cycles $(1 space 2 space 3), (1 space 3 space 2)$.
+  The group $S_3$ contains $6$ elements:
+  - Identity: $e$ (order 1).
+  - Transpositions (2-cycles): $(1 space 2), (1 space 3), (2 space 3)$ (order 2).
+  - 3-Cycles: $(1 space 2 space 3), (1 space 3 space 2)$ (order 3).
+  Isomorphism: $S_3 tilde.eq D_3$ (symmetries of a triangle).
 ]
 
 #proposition("Cycle Decomposition")[
@@ -20,7 +24,11 @@
 ]
 
 #example[
-  *Ciphers*: Permutation groups are the basis of many classical ciphers (like the Enigma machine, which used complex permutations). In modern design, substitution-permutation networks (SPNs) used in block ciphers like AES rely heavily on mixing (permutations) and substitution (S-boxes, which are often defined via other algebraic properties) to achieve confusion and diffusion.
+  *Ciphers*: Permutation groups are fundamental to cryptography.
+  - *Enigma Machine*: Used a series of rotors to generate a complex, changing permutation for each keystroke.
+  - *AES (SPN)*: Uses Substitution-Permutation Networks.
+    - *Substitution*: S-Boxes (nonlinear map).
+    - *Permutation*: ShiftRows and MixColumns operations permute bits/bytes to diffuse information across the state.
 ]
 
 === Solved Problems
@@ -83,4 +91,16 @@
 
 #supplementary[
   Find the inverse of the permutation $(1 space 2 space 3)(4 space 5)$.
+]
+
+#supplementary[
+  Determine if the permutation $sigma = (1 space 2 space 3 space 4)(5 space 6)$ is even or odd.
+]
+
+#supplementary[
+  Calculate the order of the permutation $tau = (1 space 2)(3 space 4 space 5)(6 space 7 space 8 space 9)$ in $S_9$.
+]
+
+#supplementary[
+  Find the number of elements of order 2 in $S_3$.
 ]

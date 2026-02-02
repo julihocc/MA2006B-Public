@@ -13,17 +13,26 @@
 ]
 
 #example[
-  The set of integers $ZZ$ under addition is an infinite abelian group. The identity is $0$, and the inverse of $a$ is $-a$.
+  The set of integers $ZZ$ under addition is an infinite abelian group.
+  - *Closure*: $a + b$ is an integer for all $a, b in ZZ$.
+  - *Associativity*: $(a + b) + c = a + (b + c)$.
+  - *Identity*: $0$ is the identity ($a + 0 = a$).
+  - *Inverse*: The inverse of $a$ is $-a$ ($a + (-a) = 0$).
+  - *Commutativity*: $a + b = b + a$.
 ]
 
 #example[
   The set $ZZ_n = {0, 1, ..., n-1}$ under addition modulo $n$ is a finite abelian group of order $n$.
+  For instance, in $Z_4 = {0, 1, 2, 3}$:
+  - The identity is $0$.
+  - Inverses: $0^(-1)=0, 1^(-1)=3, 2^(-1)=2, 3^(-1)=1$.
+  - Closure is satisfied modulo $n$ (e.g., $2+3 = 5 equiv 1 mod 4$).
 ]
 
 #example[
   *Cryptography*: Groups are the foundation of many cryptographic primitives.
-  - *Diffie-Hellman Key Exchange* relies on the difficulty of the Discrete Logarithm Problem in a cyclic group.
-  - *RSA* uses the multiplicative group of integers modulo $n$, denoted $ZZ_n^*$.
+  - *Diffie-Hellman Key Exchange*: Relies on the difficulty of the Discrete Logarithm Problem (DLP) in a cyclic group $G$. Given $g$ and $g^x$, it is computationally hard to find $x$.
+  - *RSA*: Uses the multiplicative group of integers modulo $n$, denoted $ZZ_n^*$. This group consists of integers coprime to $n$. Its order is given by Euler's totient function $phi(n)$.
 ]
 
 === Solved Problems
@@ -69,4 +78,16 @@
 
 #supplementary[
   Does the set of integers $ZZ$ form a group under subtraction?
+]
+
+#supplementary[
+  Prove that the identity element in a group is unique.
+]
+
+#supplementary[
+  Show that for every element $a$ in a group $G$, the inverse $a^(-1)$ is unique.
+]
+
+#supplementary[
+  Let $G$ be a group such that $x^2 = e$ for all $x in G$. Prove that $G$ is abelian.
 ]

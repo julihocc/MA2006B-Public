@@ -7,7 +7,13 @@
 ]
 
 #example[
-  For the cyclic group $ZZ_3 = \{0, 1, 2\}$, Cayley's theorem tells us we can view its elements as permutations of the set $\{0, 1, 2\}$. For instance, adding $1$ corresponds to the cycle $(0 space 1 space 2)$.
+  For the cyclic group $ZZ_3 = \{0, 1, 2\}$:
+  - Elements $\{0, 1, 2\}$.
+  - Cayley's representation associates each $x$ with $lambda_x(y) = x + y (mod 3)$.
+  - $lambda_0 = (0)(1)(2) = id$.
+  - $lambda_1$: $0 mapsto 1, 1 mapsto 2, 2 mapsto 0 => (0 space 1 space 2)$.
+  - $lambda_2$: $0 mapsto 2, 1 mapsto 0, 2 mapsto 1 => (0 space 2 space 1)$.
+  Thus $ZZ_3 tilde.eq \{id, (0 space 1 space 2), (0 space 2 space 1)\} subset S_3$.
 ]
 
 #proposition("Permutation Representation")[
@@ -64,4 +70,16 @@
 
 #supplementary[
   True or False: If $G$ has order $n$, then $G$ is isomorphic to a subgroup of $S_n$.
+]
+
+#supplementary[
+  Let $G = Z_4 = {0, 1, 2, 3}$. Find the permutation in $S_4$ corresponding to the element $1$ under the left regular representation.
+]
+
+#supplementary[
+  Prove that the homomorphism $g mapsto lambda_g$ in Cayley's Theorem has a trivial kernel, i.e., it is injective.
+]
+
+#supplementary[
+  If $G$ is a group of order 3, show explicitly that it is isomorphic to the subgroup $A_3$ of $S_3$.
 ]

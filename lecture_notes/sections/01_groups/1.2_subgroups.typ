@@ -7,7 +7,11 @@
 ]
 
 #example[
-  The set of even integers $2ZZ = {..., -4, -2, 0, 2, 4, ...}$ is a subgroup of the integers $ZZ$ under addition. It is closed under addition ($2m + 2n = 2(m+n)$) and inverses ($-2m = 2(-m)$).
+  The set of even integers $2ZZ = {..., -4, -2, 0, 2, 4, ...}$ is a subgroup of the integers $ZZ$ under addition.
+  - *Subset*: Clearly $2ZZ subset ZZ$.
+  - *Identity*: $0 = 2(0) in 2ZZ$.
+  - *Closure*: If $a = 2m$ and $b = 2n$, then $a + b = 2(m+n)$, which is even.
+  - *Inverses*: If $a = 2m$, then $-a = 2(-m)$, which is even.
 ]
 
 #proposition("Subgroup Test")[
@@ -23,7 +27,9 @@
 ]
 
 #example[
-  *Small Subgroup Attacks*: Subgroups play a crucial role in preventing "small subgroup attacks" in cryptographic protocols. In Diffie-Hellman, if the group order has small factors, an attacker can confine the shared secret to a small subgroup and exhaustively search for it. We often choose groups of prime order or groups where the order has a large prime factor to avoid this.
+  *Small Subgroup Attacks*: Subgroups play a crucial role in preventing "small subgroup attacks".
+  In Diffie-Hellman, we work in a group $Z_p^*$. If order $p-1$ has a small factor $q$, there exists a subgroup of order $q$. An attacker can send a value $h$ of order $q$. Then the shared secret $s = h^a$ will also be in this small subgroup. The attacker can brute-force $s$ in $O(q)$ steps, revealing information about the private key $a$.
+  *Mitigation*: Use groups of prime order, or verify that received elements are in the correct subgroup.
 ]
 
 === Solved Problems
@@ -67,4 +73,16 @@
 
 #supplementary[
   Show that the intersection of two subgroups $H$ and $K$ of a group $G$ is also a subgroup of $G$.
+]
+
+#supplementary[
+  Find the center of the group $S_3$. The center $Z(G)$ is the set of elements that commute with all elements of $G$.
+]
+
+#supplementary[
+  Let $H$ and $K$ be subgroups of $G$. Prove that their union $H union K$ is a subgroup if and only if $H subset.eq K$ or $K subset.eq H$.
+]
+
+#supplementary[
+  Find all subgroups of $Z_8$.
 ]

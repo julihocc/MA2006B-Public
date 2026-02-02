@@ -8,7 +8,10 @@
 ]
 
 #example[
-  The map $exp: (RR, +) arrow (RR^+, dot)$ defined by $x mapsto e^x$ is a homomorphism because $e^(x+y) = e^x dot e^y$.
+  The map $exp: (RR, +) arrow (RR^+, dot)$ defined by $x mapsto e^x$ is a homomorphism.
+  - Domain operation is addition ($+$).
+  - Codomain operation is multiplication ($dot$).
+  - Property check: $exp(x+y) = e^(x+y) = e^x dot e^y = exp(x) dot exp(y)$.
 ]
 
 #proposition("Properties of Homomorphisms")[
@@ -26,11 +29,17 @@
 ]
 
 #example[
-  For the homomorphism $phi: ZZ arrow ZZ_2$ given by $phi(x) = x mod 2$, the kernel corresponds to the set of even integers $2ZZ$, as these are exactly the integers mapped to $0$.
+  For the homomorphism $phi: ZZ arrow ZZ_2$ given by $phi(x) = x mod 2$:
+  - $phi(0) = 0, phi(1) = 1, phi(2) = 0, phi(3) = 1$.
+  - The kernel is $ker(phi) = {x in ZZ | phi(x) = 0} = {..., -2, 0, 2, ...} = 2ZZ$.
+  - This kernel is a normal subgroup of $ZZ$.
 ]
 
 #example[
-  *Homomorphic Encryption*: Homomorphisms are implicit in many reduction steps in cryptography. For example, the security reduction of many protocols relies on mapping a complex problem instance to another structure where relations are preserved. They are also fundamental in constructing "Homomorphic Encryption" schemes, where computations can be performed on encrypted data ($phi("enc"(m_1) dot "enc"(m_2)) = phi("enc"(m_1 dot m_2))$), allowing operations on the ciphertext to map to operations on the plaintext.
+  *Homomorphic Encryption (HE)*: Allows computation on encrypted data.
+  If $E$ is an encryption function that is homomorphic with respect to operation $+$, then:
+  $ E(m_1) +_{"cipher"} E(m_2) = E(m_1 +_{"plain"} m_2) $
+  This allows a server to compute the sum of encrypted numbers without knowing the numbers themselves.
 ]
 
 === Solved Problems
@@ -85,4 +94,16 @@
 
 #supplementary[
   Let $G$ be abelian and $n$ be an integer. Show that $phi: G arrow G$ defined by $phi(x) = x^n$ is a homomorphism.
+]
+
+#supplementary[
+  Let $phi: G arrow H$ and $psi: H arrow K$ be group homomorphisms. Show that their composition $psi circle phi: G arrow K$ is also a group homomorphism.
+]
+
+#supplementary[
+  Prove that if $phi: G arrow H$ is a homomorphism, then $phi(e_G) = e_H$.
+]
+
+#supplementary[
+  Let $phi: G arrow H$ be a group homomorphism. Prove that the kernel $ker(phi)$ is a normal subgroup of $G$.
 ]

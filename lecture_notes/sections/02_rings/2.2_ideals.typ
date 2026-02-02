@@ -67,7 +67,7 @@
 ]
 
 #solved_problem[
-  In $ZZ[x]$, let $I = angle.l x^2 + 1 angle.r$. Describe the elements of $ZZ[x] / I$.
+  In $ZZ[x]$, let $I = chevron.l x^2 + 1 chevron.r$. Describe the elements of $ZZ[x] / I$.
 ]
 #solution[
   Elements of the quotient are polynomials modulo $x^2 + 1$.

@@ -7,7 +7,10 @@
 ]
 
 #example[
-  For the additive group of integers $ZZ$, the map $phi(x) = -x$ is an automorphism. It is a bijection and preserves addition: $phi(x+y) = -(x+y) = (-x) + (-y) = phi(x) + phi(y)$.
+  For the additive group of integers $ZZ$, the only automorphisms are $id(x)=x$ and $phi(x)=-x$.
+  - $phi(x)=-x$ is a homomorphism: $-(x+y) = (-x) + (-y)$.
+  - It is bijective (its own inverse).
+  - Mappings like $f(x)=2x$ are homomorphisms but not surjective (onto), so not automorphisms.
 ]
 
 #proposition[
@@ -26,7 +29,9 @@
 ]
 
 #example[
-  In the symmetric group $S_3$, conjugation by an element can permute the cycles. However, as noted in the solved problems, in any abelian group, the only inner automorphism is the identity map since $g x g^(-1) = x g g^(-1) = x$.
+  In the symmetric group $S_3$, conjugation by $g=(1 space 2)$ acts as an inner automorphism $phi_g(x) = g x g^(-1)$.
+  - If $x=(1 space 3)$, then $phi_g(x) = (1 space 2)(1 space 3)(1 space 2)^(-1) = (1 space 2)(1 space 3)(1 space 2) = (2 space 3)$.
+  - Conjugation generally "relabels" the elements in the cycle notation.
 ]
 
 #example[
@@ -81,4 +86,16 @@
 
 #supplementary[
   Let $G = S_3$. Find the inner automorphism defined by $g = (1 2)$.
+]
+
+#supplementary[
+  Let $G$ be an abelian group. Show that the map $f: G arrow G$ given by $f(x) = x^(-1)$ is an automorphism.
+]
+
+#supplementary[
+  Let $phi$ be an automorphism of a group $G$. Let $H = {g in G | phi(g) = g}$ be the set of fixed points. Prove that $H$ is a subgroup of $G$.
+]
+
+#supplementary[
+  Determining the automorphism group of $Z_8$, i.e., find $"Aut"(Z_8)$.
 ]
