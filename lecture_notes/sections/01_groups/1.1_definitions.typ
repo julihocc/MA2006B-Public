@@ -96,6 +96,48 @@
     ("Cyclic", "Abelian", "Finite", "Simple"),
     1,
   )
+
+  #question(
+    [Which of the following is an example of an infinite group?],
+    ([(ZZ, +)], [(Z_n, +)], [(S_n, circle)], [(U(n), dot)]),
+    0,
+  )
+
+  #question(
+    [The order of a group $G$, denoted $|G|$, is defined as:],
+    ([The number of elements in $G$], [The largest element in $G$], [The order of the identity], [Infinite]),
+    0,
+  )
+
+  #question(
+    [True or False: The identity element of a group is unique.],
+    ("True", "False", "Depends on the group", "Only for abelian groups"),
+    0,
+  )
+
+  #question(
+    [For any elements $a, b$ in a group $G$, the inverse $(a b)^(-1)$ is equal to:],
+    ([$a^(-1) b^(-1)$], [$b^(-1) a^(-1)$], [$a b$], [$b a$]),
+    1,
+  )
+
+  #question(
+    [The left cancellation law states that if $a b = a c$, then:],
+    ([$b = c$], [$b != c$], [$a = e$], [$b = a$]),
+    0,
+  )
+
+  #question(
+    [In a group $G$, the linear equation $a x = b$ has:],
+    ([A unique solution $x = a^(-1) b$], [A unique solution $x = b a^(-1)$], [No solution], [Many solutions]),
+    0,
+  )
+
+  #question(
+    [A semigroup is a set with an associative binary operation. A group requires which additional properties?],
+    ([Commutativity], [Identity and Inverses], [Distributivity], [Finite order]),
+    1,
+  )
 ]
 
 === Supplementary Problems

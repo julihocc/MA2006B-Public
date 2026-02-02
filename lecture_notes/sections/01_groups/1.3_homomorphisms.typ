@@ -91,26 +91,73 @@
 
 #quiz[
   #question(
-    "A function $phi: G arrow H$ is a homomorphism if for all $x, y in G$:",
+    [A function $phi: G arrow H$ is a homomorphism if for all $x, y in G$:],
     (
-      "$phi(x + y) = phi(x) dot phi(y)$",
-      "$phi(x y) = phi(x) phi(y)$",
-      "$phi(x y) = phi(x) + phi(y)$",
-      "$phi(x) = phi(y)$",
+      [$phi(x + y) = phi(x) dot phi(y)$],
+      [$phi(x y) = phi(x) phi(y)$],
+      [$phi(x y) = phi(x) + phi(y)$],
+      [$phi(x) = phi(y)$],
     ),
     1,
   )
 
   #question(
-    "The kernel of a homomorphism $phi: G arrow H$ consists of element mapping to:",
-    ("The identity of G", "The identity of H", "Any element of H", "The generators of G"),
+    [The kernel of a homomorphism $phi: G arrow H$ consists of element mapping to:],
+    ([The identity of $G$], [The identity of $H$], [Any element of $H$], [The generators of $G$]),
     1,
   )
 
   #question(
-    "An isomorphism is a homomorphism that is also:",
+    [An isomorphism is a homomorphism that is also:],
     ("Injective only", "Surjective only", "Bijective", "Constant"),
     2,
+  )
+
+  #question(
+    [For any homomorphism $phi: G arrow H$, which property always holds?],
+    ([$phi(e_G) = e_H$], [$phi(e_G) = phi(e_H)$], [$phi(e_H) = e_G$], [$phi(x) = x$]),
+    0,
+  )
+
+  #question(
+    [For any homomorphism $phi: G arrow H$, the inverse maps as:],
+    ([$phi(x^(-1)) = phi(x)$], [$phi(x^(-1)) = phi(x)^(-1)$], [$phi(x^(-1)) = e_H$], [$phi(x^(-1)) = x$]),
+    1,
+  )
+
+  #question(
+    [The image of a homomorphism $phi(G)$ is always a subgroup of:],
+    ([$G$], [$H$], [$"Ker"(phi)$], [$G times H$]),
+    1,
+  )
+
+  #question(
+    [The kernel of a homomorphism is always which type of subgroup?],
+    ([Cyclic], [Abelian], [Normal], [Finite]),
+    2,
+  )
+
+  #question(
+    [The First Isomorphism Theorem states that if $phi: G arrow H$ is a homomorphism, then:],
+    (
+      [$G / "Ker"(phi) tilde.eq "Im"(phi)$],
+      [$G / "Im"(phi) tilde.eq "Ker"(phi)$],
+      [$G tilde.eq "Im"(phi)$],
+      [$G tilde.eq H$],
+    ),
+    0,
+  )
+
+  #question(
+    [The canonical homomorphism $pi: ZZ arrow ZZ_n$ is defined by:],
+    ([$pi(x) = x$], [$pi(x) = x "mod" n$], [$pi(x) = n x$], [$pi(x) = 1$]),
+    1,
+  )
+
+  #question(
+    [An embedding of a group $G$ into $H$ is a homomorphism that is:],
+    ([Surjective], [Injective], [Bijective], [Constant]),
+    1,
   )
 ]
 

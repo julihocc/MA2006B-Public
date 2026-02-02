@@ -100,6 +100,48 @@
     ([$S_n$], [$S_(2n)$], [$S_(n^2)$], [$S_(n-1)$]),
     0,
   )
+
+  #question(
+    [The left regular representation $L: G arrow S_G$ is always:],
+    ([Surjective], [Injective], [Bijective], [Constant]),
+    1,
+  )
+
+  #question(
+    [In the left regular representation, the permutation $lambda_g$ has the same order as:],
+    ([The group $G$], [The element $g$], [The identity], [$n!$]),
+    1,
+  )
+
+  #question(
+    [For $g != e$, how many fixed points does the permutation $lambda_g(x) = g x$ have?],
+    ([0], [1], [2], [$|G|$]),
+    0,
+  )
+
+  #question(
+    [The right regular representation $rho_g(x) = x g^(-1)$ is used because:],
+    ([$x g$ is not a permutation], [$x g$ is not a homomorphism], [It matches the left regular rep], [It is simpler]),
+    1,
+  )
+
+  #question(
+    [Cayley's Theorem implies that every finite group of order $n$ is a subgroup of:],
+    ([$"GL"(n, RR)$], [$S_n$], [$Z_n$], [$D_n$]),
+    1,
+  )
+
+  #question(
+    [The main significance of Cayley's Theorem is that it allows us to view abstract groups as:],
+    ([Matrices], [Concrete permutation groups], [Vector spaces], [Fields]),
+    1,
+  )
+
+  #question(
+    [The size of the symmetric group $S_G$ where $|G|=n$ is:],
+    ([$n$], [$n^2$], [$n!$], [$2^n$]),
+    2,
+  )
 ]
 
 === Supplementary Problems

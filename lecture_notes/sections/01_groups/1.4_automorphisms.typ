@@ -105,6 +105,53 @@
     ([Addition], [Multiplication], [Function composition], [Convolution]),
     2,
   )
+
+  #question(
+    [The identity map $id: G arrow G$ defined by $id(x) = x$ is:],
+    ([Always an automorphism], [Never an automorphism], [Only for abelian groups], [Only for finite groups]),
+    0,
+  )
+
+  #question(
+    [If $phi, psi in "Aut"(G)$, then their composition $phi circle psi$ is:],
+    ([Also in $"Aut"(G)$], [Not in $"Aut"(G)$], [The identity], [Undefined]),
+    0,
+  )
+
+  #question(
+    [The group of inner automorphisms $"Inn"(G)$ is a normal subgroup of:],
+    ([$G$], [$"Aut"(G)$], [$Z(G)$], [$\{e\}$]),
+    1,
+  )
+
+  #question(
+    [The automorphism group of the integers, $"Aut"(ZZ)$, is isomorphic to:],
+    ([$ZZ$], [$ZZ_2$], [$\{e\}$], [$ZZ_4$]),
+    1,
+  )
+
+  #question(
+    [Which isomorphism relates the central quotient to inner automorphisms?],
+    (
+      [$G / Z(G) tilde.eq "Inn"(G)$],
+      [$G / "Inn"(G) tilde.eq Z(G)$],
+      [$G tilde.eq "Inn"(G)$],
+      [$Z(G) tilde.eq "Aut"(G)$],
+    ),
+    0,
+  )
+
+  #question(
+    [An automorphism $phi$ always preserves which property of element $g$?],
+    ([The sign of $g$], [The order of $g$], [The value of $g$], [The inverse as identity]),
+    1,
+  )
+
+  #question(
+    [A subgroup $H$ is called characteristic if it is invariant under:],
+    ([All inner automorphisms], [All automorphisms], [Conjugation], [Left multplication]),
+    1,
+  )
 ]
 
 === Supplementary Problems

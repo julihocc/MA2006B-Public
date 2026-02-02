@@ -114,6 +114,48 @@
     ("Cycles", "Transpositions", "Inversions", "Fixed points"),
     1,
   )
+
+  #question(
+    [Two disjoint cycles in a permutation always:],
+    ([Commute], [Invert each other], [Cancel out], [Have the same length]),
+    0,
+  )
+
+  #question(
+    [The order of a permutation written as a product of disjoint cycles is the:],
+    ([Sum of lengths], [Product of lengths], [Least Common Multiple (LCM) of lengths], [Maximum length]),
+    2,
+  )
+
+  #question(
+    [The order of the Alternating Group $A_n$ (for $n >= 2$) is:],
+    ([$n!$], [$n! / 2$], [$(n-1)!$], [$n^2$]),
+    1,
+  )
+
+  #question(
+    [A group is called simple if it has no non-trivial:],
+    ([Subgroups], [Normal subgroups], [Abelian subgroups], [Cyclic subgroups]),
+    1,
+  )
+
+  #question(
+    [A transposition is a cycle of length:],
+    ([1], [2], [3], [n]),
+    1,
+  )
+
+  #question(
+    [The identity permutation is always:],
+    ([Even], [Odd], [Both], [Neither]),
+    0,
+  )
+
+  #question(
+    [The product of two odd permutations is:],
+    ([Odd], [Even], [Undefined], [Identity]),
+    1,
+  )
 ]
 
 === Supplementary Problems
