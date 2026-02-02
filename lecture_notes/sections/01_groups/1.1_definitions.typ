@@ -43,31 +43,37 @@
   In $ZZ_(26)$ (often used for classical ciphers), compute $15 + 18 mod 26$.
 ]
 #solution[
-  $ 15 + 18 = 33 $
-  Dividing by 26: $33 = 1 dot 26 + 7$.
-  $ 33 equiv 7 (mod 26) $
+  1. Perform integer addition: $15 + 18 = 33$.
+  2. Apply the division algorithm simply by dividing by the modulus $n=26$:
+    $ 33 = 1 dot 26 + 7 $
+  3. The remainder is 7.
+  Thus, $33 equiv 7 (mod 26)$.
 ]
 
 #solved_problem[
   Verify if the set of non-zero real numbers $RR^*$ under multiplication forms a group.
 ]
 #solution[
-  Yes, $(RR^*, dot)$ is a group.
-  - *Closure*: The product of two non-zero real numbers is non-zero ($a != 0, b != 0 => a b != 0$).
-  - *Associativity*: Multiplication is associative in $RR$.
-  - *Identity*: $1 in RR^*$ satisfies $1 dot a = a$.
-  - *Inverse*: For every $a in RR^*$, $1/a in RR^*$ is the inverse ($a dot 1/a = 1$).
+  Yes, $(RR^*, dot)$ is a group. We verify the four axioms:
+  - *Closure*: Let $a, b in RR^*$. Since both are non-zero, their product $a b$ is also non-zero ($a != 0, b != 0 => a b != 0$). Thus $a b in RR^*$.
+  - *Associativity*: Multiplication of real numbers is associative: $(a b)c = a(b c)$.
+  - *Identity*: The number $1$ is observing the property $1 dot a = a dot 1 = a$. Since $1 != 0$, $1 in RR^*$.
+  - *Inverse*: For any $a in RR^*$, we have $a != 0$. Thus the real number $1/a$ exists and is non-zero. $a dot (1/a) = 1$. So $a^(-1) = 1/a$.
 ]
 
 #solved_problem[
   Compute the inverse of $3$ in the group $ZZ_(11)$ under multiplication.
 ]
 #solution[
-  We need $x$ such that $3x equiv 1 (mod 11)$.
-  Testing values:
-  $3(1)=3, 3(2)=6, 3(3)=9, 3(4)=12$.
-  Since $12 equiv 1 (mod 11)$, then $3(4) equiv 1$.
-  Thus, $3^(-1) = 4$.
+  We seek an integer $x$ such that $3x equiv 1 (mod 11)$.
+  Since 11 is small, we can test multiples of 3:
+  - $3 times 1 = 3$
+  - $3 times 2 = 6$
+  - $3 times 3 = 9$
+  - $3 times 4 = 12$. Notice that $12 = 1 dot 11 + 1$, so $12 equiv 1 (mod 11)$.
+
+  Since $3(4) equiv 1$, the multiplicative inverse of 3 is 4.
+  $3^(-1) = 4$ in $ZZ_(11)$.
 ]
 
 === Supplementary Problems

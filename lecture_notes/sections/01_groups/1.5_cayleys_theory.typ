@@ -37,29 +37,46 @@
   Consider the group $G = {1, -1}$ under multiplication. Find its permutation representation.
 ]
 #solution[
-  Elements: $1, -1$.
-  Permutations correspond to left multiplication:
-  - $lambda_1$: $1 arrow 1, -1 arrow -1$. Disjoint cycle form: $(1)(-1)$ or $e$.
-  - $lambda_(-1)$: $1 arrow -1, -1 arrow 1$. Disjoint cycle form: $(1, -1)$.
+  Elements of $G$: $1, -1$.
+  Permutations correspond to left multiplication $lambda_g(x) = g dot x$.
+  - For $g=1$:
+    $1 dot 1 = 1$
+    $1 dot (-1) = -1$
+    This is the identity map. In cycle notation: $e$ or $(1)(-1)$.
+  - For $g=-1$:
+    $(-1) dot 1 = -1$
+    $(-1) dot (-1) = 1$
+    This swaps 1 and -1. In cycle notation: $(1, -1)$.
 
-  Thus $G tilde.eq {e, (1, -1)} subset S_2$.
+  The image of $G$ under the Cayley map is the subgroup ${e, (1, -1)}$ of $S_2$.
 ]
 
 #solved_problem[
   Write down the permutation representation of $ZZ_3 = {0, 1, 2}$ given by Cayley's Theorem.
 ]
 #solution[
-  Elements: $0, 1, 2$. Operation is addition mod 3.
-  - $lambda_0$: $0 arrow 0, 1 arrow 1, 2 arrow 2 arrow (0)(1)(2) = e$
-  - $lambda_1$: $0 arrow 1, 1 arrow 2, 2 arrow 0 arrow (0 space 1 space 2)$
-  - $lambda_2$: $0 arrow 2, 1 arrow 0, 2 arrow 1 arrow (0 space 2 space 1)$
+  Elements: $0, 1, 2$. Operation is addition modulo 3.
+  We calculate $lambda_g(x) = g + x$ for each $g$.
+  - $g=0$:
+    $0+0=0, 0+1=1, 0+2=2$.
+    Cycle: $(0)(1)(2) = e$ (Identity).
+  - $g=1$:
+    $1+0=1, 1+1=2, 1+2=0$.
+    Cycle: $(0 space 1 space 2)$.
+  - $g=2$:
+    $2+0=2, 2+1=0, 2+2=1$.
+    Cycle: $(0 space 2 space 1)$.
+
+  Representation: $\{e, (0 space 1 space 2), (0 space 2 space 1)\}$.
 ]
 
 #solved_problem[
   Explain why the image of the map $g mapsto lambda_g$ is a subgroup of $S_G$.
 ]
 #solution[
-  The map $phi: G arrow S_G$ given by $phi(g) = lambda_g$ is a homomorphism. A fundamental property of homomorphisms is that the image of a group is always a subgroup of the codomain. Since $G$ is a group and $phi$ is a homomorphism, $"Im"(phi)$ is a subgroup of $S_G$.
+  The map $phi: G arrow S_G$ given by $phi(g) = lambda_g$ is a group homomorphism.
+  One of the fundamental theorems of homomorphisms states that the image of a homomorphism $Im(phi)$ is always a subgroup of the codomain.
+  Since $S_G$ is the codomain and $G$ is a group, the set of permutations ${lambda_g | g in G}$ forms a subgroup of the symmetric group $S_G$.
 ]
 
 === Supplementary Problems

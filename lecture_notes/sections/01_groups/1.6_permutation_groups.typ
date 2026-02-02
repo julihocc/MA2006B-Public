@@ -37,50 +37,60 @@
   In $S_5$, let $sigma = (1 space 2 space 3)(4 space 5)$. Find the order of $sigma$ and compute $sigma^2$.
 ]
 #solution[
-  This is a composition of a 3-cycle and a 2-cycle, which are disjoint.
-  Order of $sigma = "lcm"(3, 2) = 6$.
-
-  Computing $sigma^2$:
-  $sigma^2 = ((1 space 2 space 3)(4 space 5))^2$
-  Since they are disjoint, they commute:
-  $= (1 space 2 space 3)^2 (4 space 5)^2$
-  $= (1 space 3 space 2) (e)$
-  $= (1 space 3 space 2)$
+  The permutation $sigma = (1 space 2 space 3)(4 space 5)$ consists of a 3-cycle and a 2-cycle.
+  1. *Order*: Since the cycles are disjoint, the order is the Least Common Multiple (LCM) of their lengths.
+    Order $= lcm(3, 2) = 6$.
+  2. *Compute $sigma^2$*:
+    $sigma^2 = ((1 space 2 space 3)(4 space 5))^2$
+    Since disjoint cycles commute:
+    $= (1 space 2 space 3)^2 (4 space 5)^2$
+    - Square of 3-cycle $(a b c)$ is $(a c b)$: $(1 space 2 space 3)^2 = (1 space 3 space 2)$.
+    - Square of 2-cycle $(d e)$ is identity: $(4 space 5)^2 = e$.
+    Result: $(1 space 3 space 2)$.
 ]
 
 #solved_problem[
   Calculate the product of permutations $pi = (1 space 3 space 4)$ and $sigma = (1 space 2)(3 space 4)$ in $S_4$.
 ]
 #solution[
-  Compute from right to left (standard function composition): $pi sigma$.
-  - $1 arrow^sigma 2 arrow^pi 2$
-  - $2 arrow^sigma 1 arrow^pi 3$
-  - $3 arrow^sigma 4 arrow^pi 1$
-  - $4 arrow^sigma 3 arrow^pi 4$
+  We compute the composition $pi sigma$ from right to left.
+  $sigma = (1 space 2)(3 space 4)$ and $pi = (1 space 3 space 4)$.
+  Track each element:
+  - $1$: $sigma(1)=2$, then $pi(2)=2$ (since 2 is fixed by $pi$). Result: $1 arrow 2$.
+  - $2$: $sigma(2)=1$, then $pi(1)=3$. Result: $2 arrow 3$.
+  - $3$: $sigma(3)=4$, then $pi(4)=1$. Result: $3 arrow 1$.
+    (Cycle closes: $(1 space 2 space 3)$).
+  - $4$: $sigma(4)=3$, then $pi(3)=4$. Result: $4 arrow 4$ (Fixed point).
 
-  Result: $(1 space 2 space 3)(4) = (1 space 2 space 3)$.
+  Final result in disjoint cycle notation: $(1 space 2 space 3)$.
 ]
 
 #solved_problem[
   Find the order of the permutation $(1 space 2 space 4)(3 space 5 space 6)$ in $S_6$.
 ]
 #solution[
-  The permutation is a product of two disjoint cycles of length 3.
-  Order = $"lcm"(3, 3) = 3$.
+  The permutation is given as a product of two cycles: $(1 space 2 space 4)$ and $(3 space 5 space 6)$.
+  1. Check if they are disjoint: The sets of numbers $\{1, 2, 4\}$ and $\{3, 5, 6\}$ have no common elements. They are disjoint.
+  2. Determine lengths:
+    - $(1 space 2 space 4)$ has length 3.
+    - $(3 space 5 space 6)$ has length 3.
+  3. Calculate order:
+    Order $= lcm(3, 3) = 3$.
 ]
 
 #solved_problem[
   How many elements does $S_4$ have? List 5 different elements.
 ]
 #solution[
-  $|S_4| = 4! = 4 times 3 times 2 times 1 = 24$.
+  The order of the symmetric group $S_n$ is $n!$.
+  For $n=4$: $|S_4| = 4! = 4 times 3 times 2 times 1 = 24$.
 
-  Examples:
-  1. $e$ (Identity)
-  2. $(1 space 2)$
-  3. $(1 space 3)$
-  4. $(1 space 2 space 3)$
-  5. $(1 space 2)(3 space 4)$
+  Five distinct elements (by cycle structure):
+  1. Identity: $e$
+  2. Transpositions (2-cycles): $(1 space 2)$
+  3. 3-cycles: $(1 space 2 space 3)$
+  4. 4-cycles: $(1 space 2 space 3 space 4)$
+  5. Product of disjoint transpositions: $(1 space 2)(3 space 4)$
 ]
 
 === Supplementary Problems

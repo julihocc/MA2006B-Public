@@ -44,38 +44,44 @@
   Let $G = ZZ_5$ (additive). Find all automorphisms of $ZZ_5$.
 ]
 #solution[
-  Any automorphism must map a generator to a generator.
-  Generators of $ZZ_5$ are ${1, 2, 3, 4}$ (since 5 is prime).
-  Maps $phi(x) = k x$ where $k$ is a generator:
-  - $sigma_1(x) = 1 x = x$ (Identity)
-  - $sigma_2(x) = 2 x mod 5$
-  - $sigma_3(x) = 3 x mod 5$
-  - $sigma_4(x) = 4 x mod 5$
-
-  Each of these is an automorphism. Thus $|"Aut"(ZZ_5)| = 4$.
+  An automorphism $sigma: ZZ_5 arrow ZZ_5$ is determined by where it maps a generator, and it must map a generator to another generator.
+  1. Identify generators of $ZZ_5$: Since 5 is prime, all non-zero elements $\{1, 2, 3, 4\}$ are generators.
+  2. Define the possible maps $sigma_k(x) = k x \pmod 5$:
+    - $sigma_1(x) = 1x$: Identity map.
+    - $sigma_2(x) = 2x$: Bijective because $gcd(2, 5)=1$.
+    - $sigma_3(x) = 3x$: Bijective because $gcd(3, 5)=1$.
+    - $sigma_4(x) = 4x$: Bijective because $gcd(4, 5)=1$.
+  Since there are 4 generators, there are exactly 4 automorphisms.
+  $"Aut"(ZZ_5) tilde.eq ZZ_5^* tilde.eq ZZ_4$.
 ]
 
 #solved_problem[
   Determine all automorphisms of the group $ZZ_6$.
 ]
 #solution[
-  Automorphisms of $ZZ_n$ are determined by where they map $1$. Since $1$ generates $ZZ_n$, $phi(1)$ must be a generator of $ZZ_n$.
-  The generators of $ZZ_6$ are elements coprime to 6: ${1, 5}$.
-  Two possible maps:
-  - $sigma_1(x) = 1 dot x = x$ (Identity)
-  - $sigma_5(x) = 5 dot x equiv -x mod 6$.
-
-  Thus, $"Aut"(ZZ_6) tilde.eq Z_2$.
+  Automorphisms of the cyclic group $ZZ_n$ are of the form $f(x) = k x$, where $gcd(k, n) = 1$.
+  For $n=6$:
+  1. Find integers $k in \{1, ..., 5\}$ coprime to 6.
+  2. Check GCDs:
+    - $gcd(1, 6) = 1$ (Generator)
+    - $gcd(2, 6) = 2$
+    - $gcd(3, 6) = 3$
+    - $gcd(4, 6) = 2$
+    - $gcd(5, 6) = 1$ (Generator)
+  3. The valid maps are $x mapsto 1x$ and $x mapsto 5x$.
+  Thus, there are only 2 automorphisms. The group $"Aut"(ZZ_6)$ is isomorphic to $ZZ_2$.
 ]
 
 #solved_problem[
   Show that for an abelian group $G$, the only inner automorphism is the identity map.
 ]
 #solution[
-  Let $G$ be abelian. An inner automorphism is defined by $phi_g(x) = g x g^(-1)$ for some $g in G$.
-  Since $G$ is abelian, $g x = x g$.
-  Therefore, $phi_g(x) = (x g) g^(-1) = x (g g^(-1)) = x e = x$.
-  This is the identity map for all $g in G$.
+  Let $G$ be an abelian group. An inner automorphism is defined by conjugation: $phi_g(x) = g x g^(-1)$.
+  We simplify the expression using commutativity ($g x = x g$):
+  $ phi_g(x) = g x g^(-1) = x g g^(-1) = x (g g^(-1)) = x e = x $
+  The map $phi_g$ sends every $x$ to $x$. This is the Identity Map.
+  Since this holds for any $g \in G$, the only inner automorphism is the identity.
+  (In correct terms, the Inner Automorphism group $"Inn"(G)$ is trivial).
 ]
 
 === Supplementary Problems
