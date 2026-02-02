@@ -107,3 +107,23 @@
 #supplementary[
   Let $phi: G arrow H$ be a group homomorphism. Prove that the kernel $ker(phi)$ is a normal subgroup of $G$.
 ]
+
+#supplementary[
+  Show that the determinant map $det: "GL"(n, RR) arrow RR^*$ is a group homomorphism.
+]
+
+#supplementary[
+  Prove that if $G$ is abelian and $phi: G arrow H$ is a surjective homomorphism, then $H$ is abelian.
+]
+
+#supplementary[
+  Determine if the map $phi: ZZ arrow ZZ$ defined by $phi(x) = x^2$ is a homomorphism.
+]
+
+#supplementary[
+  Give an example of a homomorphism $phi: G arrow H$ where $H$ is abelian but $G$ is non-abelian.
+]
+
+#supplementary[
+  Let $N$ be a normal subgroup of $G$. Show that the map $pi: G arrow G/N$ defined by $pi(g) = g N$ is a surjective homomorphism (called the canonical homomorphism) and find its kernel.
+]

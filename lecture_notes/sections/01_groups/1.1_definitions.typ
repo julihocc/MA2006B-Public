@@ -97,3 +97,23 @@
 #supplementary[
   Let $G$ be a group such that $x^2 = e$ for all $x in G$. Prove that $G$ is abelian.
 ]
+
+#supplementary[
+  Determine the order of every element in the group $ZZ_(12)$.
+]
+
+#supplementary[
+  Let $(G, dot)$ be a group. Prove that for all $a, b in G$, $(a b)^(-1) = b^(-1) a^(-1)$.
+]
+
+#supplementary[
+  Find the group of units $U(10)$ (also denoted $ZZ_(10)^*$) and write its multiplication table.
+]
+
+#supplementary[
+  Show that the general linear group $"GL"(2, RR)$ is non-abelian by finding two matrices $A, B$ such that $A B != B A$.
+]
+
+#supplementary[
+  Show that if a finite group $G$ has even order, there must exist an element $a != e$ such that $a^2 = e$.
+]

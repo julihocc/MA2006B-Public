@@ -105,3 +105,23 @@
 #supplementary[
   Determining the automorphism group of $Z_8$, i.e., find $"Aut"(Z_8)$.
 ]
+
+#supplementary[
+  Prove that the set of inner automorphisms $"Inn"(G)$ is a normal subgroup of the automorphism group $"Aut"(G)$.
+]
+
+#supplementary[
+  Find the automorphism group of $Z_{10}$. To what familiar group is it isomorphic?
+]
+
+#supplementary[
+  Show that the automorphism group of the Klein 4-group $V_4 tilde.eq Z_2 times Z_2$ is isomorphic to $S_3$.
+]
+
+#supplementary[
+  Let $G$ be a non-abelian group. Prove that the group of inner automorphisms $"Inn"(G)$ is non-trivial (i.e., contains more than just the identity map).
+]
+
+#supplementary[
+  Show that $"Aut"(S_3) tilde.eq S_3$.
+]

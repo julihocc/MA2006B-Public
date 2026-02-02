@@ -100,3 +100,23 @@
 #supplementary[
   If $G$ is a group of order 3, show explicitly that it is isomorphic to the subgroup $A_3$ of $S_3$.
 ]
+
+#supplementary[
+  Find the left regular representation of the element $2$ in the group $Z_5$. That is, find the permutation $lambda_2$ in $S_5$.
+]
+
+#supplementary[
+  Let $rho_g: G arrow S_G$ be defined by $rho_g(x) = x g^(-1)$. This is called the *Right Regular Representation*. Show that the map $g mapsto rho_g$ is a group homomorphism.
+]
+
+#supplementary[
+  Show that for any non-identity element $g != e$, the permutation $lambda_g$ has no fixed points. That is, $lambda_g(x) != x$ for all $x in G$.
+]
+
+#supplementary[
+  Use Cayley's Theorem to explicitly embed the cyclic group $Z_2 = {0, 1}$ into the symmetric group $S_4$.
+]
+
+#supplementary[
+  Verify Cayley's theorem for the group of units $U(8) = {1, 3, 5, 7}$ by explicitly writing down the permutation corresponding to the element $3$.
+]

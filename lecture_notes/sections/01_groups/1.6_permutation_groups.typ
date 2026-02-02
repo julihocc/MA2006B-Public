@@ -114,3 +114,23 @@
 #supplementary[
   Find the number of elements of order 2 in $S_3$.
 ]
+
+#supplementary[
+  Show that the set of even permutations $A_n$ forms a subgroup of $S_n$. This subgroup is called the *Alternating Group*.
+]
+
+#supplementary[
+  Calculate the number of distinct 3-cycles in $S_5$.
+]
+
+#supplementary[
+  Prove that any two disjoint cycles commute. That is, if $alpha = (a_1 ... a_k)$ and $beta = (b_1 ... b_m)$ have no common elements, then $alpha beta = beta alpha$.
+]
+
+#supplementary[
+  Show that the permutations $(1 space 2)$ and $(1 space 2 space 3)$ generate the entire group $S_3$.
+]
+
+#supplementary[
+  Find the largest possible order of an element in $S_5$. (Hint: Consider the possible cycle structures that sum to 5).
+]
