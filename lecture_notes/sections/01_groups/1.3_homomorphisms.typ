@@ -86,6 +86,34 @@
   Thus, $ker(phi) = {0, 4, 8}$.
 ]
 
+
+=== Self-Evaluation Quiz
+
+#quiz[
+  #question(
+    "A function $phi: G arrow H$ is a homomorphism if for all $x, y in G$:",
+    (
+      "$phi(x + y) = phi(x) dot phi(y)$",
+      "$phi(x y) = phi(x) phi(y)$",
+      "$phi(x y) = phi(x) + phi(y)$",
+      "$phi(x) = phi(y)$",
+    ),
+    1,
+  )
+
+  #question(
+    "The kernel of a homomorphism $phi: G arrow H$ consists of element mapping to:",
+    ("The identity of G", "The identity of H", "Any element of H", "The generators of G"),
+    1,
+  )
+
+  #question(
+    "An isomorphism is a homomorphism that is also:",
+    ("Injective only", "Surjective only", "Bijective", "Constant"),
+    2,
+  )
+]
+
 === Supplementary Problems
 
 #supplementary[

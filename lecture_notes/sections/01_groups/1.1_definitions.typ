@@ -76,6 +76,28 @@
   $3^(-1) = 4$ in $ZZ_(11)$.
 ]
 
+=== Self-Evaluation Quiz
+
+#quiz[
+  #question(
+    [Which of the following is NOT a required axiom for a group $(G, dot)$?],
+    ("Associativity", "Commutativity", "Identity element", "Inverses"),
+    1,
+  )
+
+  #question(
+    [In the group $(ZZ, +)$, what is the inverse of the element 5?],
+    ("1/5", "5", "0", "-5"),
+    3,
+  )
+
+  #question(
+    [If $a dot b = b dot a$ for all $a, b in G$, the group is called:],
+    ("Cyclic", "Abelian", "Finite", "Simple"),
+    1,
+  )
+]
+
 === Supplementary Problems
 
 #supplementary[

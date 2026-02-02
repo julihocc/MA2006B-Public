@@ -93,6 +93,29 @@
   5. Product of disjoint transpositions: $(1 space 2)(3 space 4)$
 ]
 
+
+=== Self-Evaluation Quiz
+
+#quiz[
+  #question(
+    [The order of the symmetric group $S_n$ is:],
+    ([$n^2$], [$2^n$], [$n!$], [$n(n-1)$]),
+    2,
+  )
+
+  #question(
+    [Every permutation can be written uniquely (up to order) as a product of:],
+    ("Transpositions", "Disjoint cycles", "3-cycles", "Inversions"),
+    1,
+  )
+
+  #question(
+    [A permutation is called 'even' if it can be written as a product of an even number of:],
+    ("Cycles", "Transpositions", "Inversions", "Fixed points"),
+    1,
+  )
+]
+
 === Supplementary Problems
 
 #supplementary[

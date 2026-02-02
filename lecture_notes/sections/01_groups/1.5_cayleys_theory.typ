@@ -79,6 +79,29 @@
   Since $S_G$ is the codomain and $G$ is a group, the set of permutations ${lambda_g | g in G}$ forms a subgroup of the symmetric group $S_G$.
 ]
 
+
+=== Self-Evaluation Quiz
+
+#quiz[
+  #question(
+    [Cayley's Theorem states that every group is isomorphic to a group of:],
+    ([Matrices], [Permutations], [Integers], [Complex numbers]),
+    1,
+  )
+
+  #question(
+    [In the proof of Cayley's Theorem, we associate each element $g in G$ with a permutation $lambda_g$ defined by:],
+    ([$lambda_g(x) = g + x$], [$lambda_g(x) = g x$], [$lambda_g(x) = x^g$], [$lambda_g(x) = g^(-1) x$]),
+    1,
+  )
+
+  #question(
+    [If $|G|=n$, Cayley's Theorem embeds $G$ into the symmetric group:],
+    ([$S_n$], [$S_(2n)$], [$S_(n^2)$], [$S_(n-1)$]),
+    0,
+  )
+]
+
 === Supplementary Problems
 
 #supplementary[

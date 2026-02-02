@@ -80,6 +80,29 @@
   - By choosing a group of *prime order* $p$, the only subgroups are the trivial one $\{e\}$ and $G$ itself. This forces the attacker to solve the problem in the full group $G$, maximizing security.
 ]
 
+
+=== Self-Evaluation Quiz
+
+#quiz[
+  #question(
+    [Which result states that the order of a subgroup divides the order of the group?],
+    ("Cayley's Theorem", "Lagrange's Theorem", "Euler's Theorem", "Fermat's Little Theorem"),
+    1,
+  )
+
+  #question(
+    [The intersection of two subgroups $H$ and $K$ is:],
+    ("Always a subgroup", "Never a subgroup", [A subgroup only if $G$ is abelian], "Empty"),
+    0,
+  )
+
+  #question(
+    [The center of a group $Z(G)$ acts as the:],
+    ("Set of generators", "Identity subgroup", [Set of elements that commute with all of $G$], "Set of inverses"),
+    2,
+  )
+]
+
 === Supplementary Problems
 
 #supplementary[

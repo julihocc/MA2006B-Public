@@ -64,3 +64,33 @@
 
 // Solutions
 #let solution = thmproof("solution", "Solution")
+
+// Self-Evaluation Quiz
+#let quiz(body) = {
+  set text(size: 0.95em)
+  block(
+    fill: rgb("e3f2fd"),
+    inset: 16pt,
+    radius: 4pt,
+    stroke: rgb("1565c0") + 1pt,
+    width: 100%,
+    [
+      #text(weight: "bold", size: 1.2em, fill: rgb("0d47a1"))[Self-Evaluation Quiz]
+      #v(8pt)
+      #body
+    ],
+  )
+}
+
+#let question(query, options, correct-idx) = {
+  pad(bottom: 12pt, [
+    *#query*
+    #v(4pt)
+    #for (i, opt) in options.enumerate() {
+      let marker = if i == correct-idx { " (Correct)" } else { "" }
+      // In a real interactive PDF we could hide the answer, but for static notes:
+      text(style: "italic")[ #numbering("a)", i + 1) #opt ]
+      h(2em)
+    }
+  ])
+}

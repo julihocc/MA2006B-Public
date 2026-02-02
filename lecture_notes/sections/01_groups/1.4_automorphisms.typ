@@ -84,6 +84,29 @@
   (In correct terms, the Inner Automorphism group $"Inn"(G)$ is trivial).
 ]
 
+
+=== Self-Evaluation Quiz
+
+#quiz[
+  #question(
+    [An automorphism is an isomorphism from a group $G$ to:],
+    ([A subgroup of $G$], [A quotient group of $G$], [Itself], [The identity group]),
+    2,
+  )
+
+  #question(
+    [For $g in G$, the map $phi_g(x) = g x g^(-1)$ is called:],
+    ([Outer automorphism], [Inner automorphism], [Identity automorphism], [Inverse automorphism]),
+    1,
+  )
+
+  #question(
+    [The set of all automorphisms of $G$, denoted $"Aut"(G)$, forms a group under:],
+    ([Addition], [Multiplication], [Function composition], [Convolution]),
+    2,
+  )
+]
+
 === Supplementary Problems
 
 #supplementary[
