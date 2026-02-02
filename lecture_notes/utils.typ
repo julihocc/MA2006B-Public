@@ -66,8 +66,12 @@
 #let solution = thmproof("solution", "Solution")
 
 // Self-Evaluation Quiz
+// Self-Evaluation Quiz
+#let quiz-counter = counter("quiz-question")
+
 #let quiz(body) = {
   set text(size: 0.95em)
+  quiz-counter.update(0) // Reset counter for each quiz
   block(
     fill: rgb("e3f2fd"),
     inset: 16pt,
@@ -83,7 +87,9 @@
 }
 
 #let question(query, options, correct-idx) = {
+  quiz-counter.step()
   pad(bottom: 12pt, [
+    #context text(weight: "bold", fill: rgb("0d47a1"))[#quiz-counter.display(). ]
     *#query*
     #v(4pt)
     #for (i, opt) in options.enumerate() {
