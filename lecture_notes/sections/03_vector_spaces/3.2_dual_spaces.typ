@@ -53,3 +53,109 @@
   Prove that for any $v in V$ (finite dimensional), $v = 0$ if and only if $f(v) = 0$ for all $f in V^*$.
 ]
 
+=== Self-Evaluation Quiz
+
+#quiz[
+  #question(
+    [A linear functional is a linear map from:],
+    ("$V$ to its field $K$", "$K$ to $V$", "$V$ to $V$", "$K$ to $K$"),
+    0,
+  )
+
+  #question(
+    [The dual space $V^*$ consists of:],
+    ("All linear functionals on $V$", "All vectors in $V$", "All subspaces of $V$", "All bases of $V$"),
+    0,
+  )
+
+  #question(
+    [If $dim(V) = n$ (finite), then $dim(V^*) =$ :],
+    ("$n$", "$n-1$", "$2n$", "Infinite"),
+    0,
+  )
+
+  #question(
+    [The dual basis ${f_1, ..., f_n}$ satisfies $f_i (v_j) =$ :],
+    ("$delta_(i j)$ (Kronecker delta)", "1 for all $i, j$", "0 for all $i, j$", "$i + j$"),
+    0,
+  )
+
+  #question(
+    [The double dual $V^(**)$ is isomorphic to $V$ when:],
+    ("$V$ is finite-dimensional", "$V$ is infinite-dimensional", "Never", "Always, regardless of dimension"),
+    0,
+  )
+
+  #question(
+    [The annihilator of a subspace $W subset.eq V$ is:],
+    ("${f in V^* : f(w) = 0 \"for all\" w in W}$", "${w in W : f(w) = 0}$", "The zero vector", "The dual of $W$"),
+    0,
+  )
+
+  #question(
+    [If $f in V^*$ and $f != 0$, then $\"ker\"(f)$ has dimension:],
+    ("$dim(V) - 1$", "$dim(V)$", "0", "1"),
+    0,
+  )
+
+  #question(
+    [The transpose (or dual) of a linear map $T: V arrow W$ is:],
+    ("$T^*: W^* arrow V^*$", "$T^*: V^* arrow W^*$", "$T^*: V arrow W$", "$T^*: K arrow K$"),
+    0,
+  )
+
+  #question(
+    [For $f, g in V^*$ and $c in K$, $(f + g)(v) =$ :],
+    ("$f(v) + g(v)$", "$f(v) g(v)$", "$f(v) - g(v)$", "$f(g(v))$"),
+    0,
+  )
+
+  #question(
+    [The evaluation map $"ev"_v: V^* arrow K$ defined by $"ev"_v (f) = f(v)$ is:],
+    ("Linear", "Nonlinear", "Undefined", "Bijective only"),
+    0,
+  )
+]
+
+=== Supplementary Problems
+
+#supplementary[
+  Let $V = RR^3$ with standard basis. Find the dual basis ${f_1, f_2, f_3}$ and verify $f_i (e_j) = delta_(i j)$.
+]
+
+#supplementary[
+  Define $f: P_2[x] arrow RR$ by $f(p) = integral_0^1 p(t) dif t$. Show that $f$ is a linear functional.
+]
+
+#supplementary[
+  Let $W = "span"{(1, 0, 0), (0, 1, 0)}$ in $RR^3$. Find the annihilator $W^0$ in $(RR^3)^*$.
+]
+
+#supplementary[
+  Prove that if $T: V arrow W$ is injective, then $T^*: W^* arrow V^*$ is surjective.
+]
+
+#supplementary[
+  Show that the map $Phi: V arrow V^(**)$ defined by $Phi(v)(f) = f(v)$ is linear and injective.
+]
+
+#supplementary[
+  Let $f, g in V^*$ be linearly independent. Prove that $"ker"(f) inter "ker"(g)$ has dimension $dim(V) - 2$.
+]
+
+#supplementary[
+  Find a basis for the dual space of $M_2(RR)$ (the space of $2 times 2$ matrices).
+]
+
+#supplementary[
+  If $dim(V) = 4$ and $W$ is a 2-dimensional subspace, what is $dim(W^0)$?
+]
+
+#supplementary[
+  Prove that $(W_1 + W_2)^0 = W_1^0 inter W_2^0$ for subspaces $W_1, W_2$ of $V$.
+]
+
+#supplementary[
+  Let $T: RR^3 arrow RR^2$ be defined by $T(x, y, z) = (x+y, y+z)$. Find the matrix of $T^*$ with respect to the standard bases.
+]
+
