@@ -80,6 +80,70 @@
   Since there are no roots, the polynomial is irreducible.
 ]
 
+=== Self-Evaluation Quiz
+
+#quiz[
+  #question(
+    [A polynomial ring $R[x]$ consists of polynomials with coefficients in a:],
+    ("Ring R", "Field F", "Group G", "Vector Space V"),
+    0,
+  )
+
+  #question(
+    [The degree of the zero polynomial is typically defined as:],
+    ("0", "1", "-1 or -infinity", "Undefined"),
+    2,
+  )
+
+  #question(
+    [If $R$ is an integral domain, then $deg(f dot g) =$ :],
+    ([$deg(f) + deg(g)$], [$deg(f) dot deg(g)$], [$max(deg(f), deg(g))$], [$deg(f) - deg(g)$]),
+    0,
+  )
+
+  #question(
+    [A polynomial $P(x)$ is irreducible over a field $F$ if it cannot be factored into two polynomials of:],
+    ("Lower degree", "Same degree", "Higher degree", "Zero degree"),
+    0,
+  )
+
+  #question(
+    [Over $RR$, the polynomial $x^2 + 1$ is:],
+    ("Irreducible", "Reducible", "Linear", "Zero"),
+    0,
+  )
+
+  #question(
+    [Finite fields of order $p^n$, denoted $"GF"(p^n)$, are constructed using an irreducible polynomial of degree:],
+    ("n", "p", "p^n", "1"),
+    0,
+  )
+
+  #question(
+    [The number of elements in the quotient ring $ZZ_p[x] / chevron.l P(x) chevron.r$ where $deg(P)=n$ is:],
+    ([$p^n$], [$p$], [$n$], [$p n$]),
+    0,
+  )
+
+  #question(
+    [If $f(alpha) = 0$, then which term divides $f(x)$?],
+    ([$x - alpha$], [$x + alpha$], [$alpha$], [$f(alpha)$]),
+    0,
+  )
+
+  #question(
+    [AES encryption uses arithmetic in which finite field?],
+    ([$"GF"(2^8)$], [$"GF"(2)$], [$"GF"(128)$], [$ZZ_{256}$]),
+    0,
+  )
+
+  #question(
+    [Eisenstein's Criterion is a test for:],
+    ("Irreducibility", "Reducibility", "Linearity", "Continuity"),
+    0,
+  )
+]
+
 === Supplementary Problems
 
 #supplementary[
@@ -88,4 +152,36 @@
 
 #supplementary[
   Construct the multiplication table for the field $"GF"(4)$ constructed as $ZZ_2[x] / chevron.l x^2+x+1 chevron.r$.
+]
+
+#supplementary[
+  Factor $x^4 - 1$ over $ZZ_5$.
+]
+
+#supplementary[
+  Determine if $x^3 + 2x + 1$ is irreducible over $ZZ_3$.
+]
+
+#supplementary[
+  Find the inverse of $x+1$ in the field $"GF"(2^3)$ defined by modulus $x^3+x+1$.
+]
+
+#supplementary[
+  Compute $(x^2+1)(x+1)$ in $"GF"(2^4)$ with irreducible polynomial $x^4+x+1$.
+]
+
+#supplementary[
+  Show that $x^4+1$ is reducible over $ZZ_2$.
+]
+
+#supplementary[
+  Use the Remainder Theorem to find the remainder when $x^3 + 2x^2 + 2$ is divided by $x-1$ in $ZZ_3[x]$.
+]
+
+#supplementary[
+  Find a polynomial $f(x) in ZZ_5[x]$ of degree 2 that has roots 1 and 3.
+]
+
+#supplementary[
+  Prove that if $F$ is a field, then $F[x]$ is a Principal Ideal Domain.
 ]

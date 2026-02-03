@@ -73,6 +73,70 @@
   Since $sqrt(2)/2 < 1$, $|r| < |w|$, so $N(r) < N(w)$.
 ]
 
+=== Self-Evaluation Quiz
+
+#quiz[
+  #question(
+    [A Euclidean Domain is an integral domain equipped with a norm $N$ that allows for:],
+    ("Differentiation", "Integration", "Division Algorithm", "Matrix Inversion"),
+    2,
+  )
+
+  #question(
+    [In a Euclidean Domain, for any $a, b (b != 0)$ there exist $q, r$ such that $a = b q + r$ where:],
+    ([$r=0$ or $N(r) < N(b)$], [$N(r) > N(b)$], [$r=1$], [$q=0$]),
+    0,
+  )
+
+  #question(
+    [The Extended Euclidean Algorithm (EEA) is used to find integers $x, y$ such that $a x + b y =$ :],
+    ([$lcm(a, b)$], [$gcd(a, b)$], [$a dot b$], [$a - b$]),
+    1,
+  )
+
+  #question(
+    [In the ring of integers $ZZ$, the Euclidean norm $N(a)$ is usually defined as:],
+    ([$a^2$], [$|a|$], [$a+1$], [$1$]),
+    1,
+  )
+
+  #question(
+    [In the polynomial ring $F[x]$, the Euclidean norm $N(f)$ is:],
+    ([$deg(f)$], [$f(0)$], [Leading coefficient], [Number of terms]),
+    0,
+  )
+
+  #question(
+    [An element $u$ in a Euclidean domain is a unit if and only if $N(u) =$ :],
+    ([$N(1)$], [$0$], [$1$], [Undefined]),
+    0,
+  )
+
+  #question(
+    [If $gcd(a, n) = 1$, then $a$ has a multiplicative inverse modulo $n$. This inverse can be found using:],
+    ("EEA", "Prime Factorization", "Sieve of Eratosthenes", "Lagrange Interpolation"),
+    0,
+  )
+
+  #question(
+    [Every Euclidean Domain is a:],
+    ("Principal Ideal Domain (PID)", "Field", "Finite Ring", "Non-commutative Ring"),
+    0,
+  )
+
+  #question(
+    [The Gaussian Integers $ZZ[i]$ form a Euclidean Domain with norm $N(a+b i) =$ :],
+    ([$a+b$], [$a^2+b^2$], [$sqrt(a^2+b^2)$], [$a^2-b^2$]),
+    1,
+  )
+
+  #question(
+    [In the EEA steps $r_(i-2) = q_i r_(i-1) + r_i$, the process terminates when:],
+    ([$r_k = 1$], [$r_k = 0$], [$q_k = 0$], [$r_k < 0$]),
+    1,
+  )
+]
+
 === Supplementary Problems
 
 #supplementary[
@@ -81,4 +145,36 @@
 
 #supplementary[
   In $ZZ[i]$, divide $11+3i$ by $1+i$ to find a quotient and remainder.
+]
+
+#supplementary[
+  Find integers $x, y$ such that $17x + 101y = 1$. What is the inverse of $17$ modulo $101$?
+]
+
+#supplementary[
+  Prove that every field is a Euclidean Domain.
+]
+
+#supplementary[
+  In $ZZ[x]$, is it possible to define a Euclidean norm? Explain why or why not.
+]
+
+#supplementary[
+  Use the EEA to find the inverse of $x+1$ in $ZZ_2[x]$ modulo $x^3+x+1$.
+]
+
+#supplementary[
+  Calculate the GCD of $f(x) = x^3 - 1$ and $g(x) = x^2 - 1$ in $QQ[x]$.
+]
+
+#supplementary[
+  Let $N(a + b sqrt(2)) = |a^2 - 2b^2|$ for the ring $ZZ[sqrt(2)]$. Calculate the norm of $3 + 2 sqrt(2)$. Is it a unit?
+]
+
+#supplementary[
+  Prove that if $d = gcd(a, b)$, then $d$ divides any linear combination $a x + b y$.
+]
+
+#supplementary[
+  Solve the linear congruence $12x equiv 6 (mod 21)$.
 ]

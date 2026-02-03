@@ -76,6 +76,75 @@
   The group of units is $ZZ_(10)^* = {1, 3, 7, 9}$.
 ]
 
+=== Self-Evaluation Quiz
+
+#quiz[
+  #question(
+    [Which set is NOT a ring under standard addition and multiplication?],
+    ("Integers", "Natural Numbers", "Rational Numbers", "Complex Numbers"),
+    1,
+  )
+
+  #question(
+    [A ring $(R, +, dot)$ must form which structure under addition?],
+    ("Semigroup", "Monoid", "Abelian Group", "Cyclic Group"),
+    2,
+  )
+
+  #question(
+    [In a ring, the distributive law connects which two operations?],
+    (
+      "Addition and Subtraction",
+      "Multiplication and Division",
+      "Multiplication over Addition",
+      "Addition over Multiplication",
+    ),
+    2,
+  )
+
+  #question(
+    [Which element is the multiplicative identity in a ring with unity?],
+    ("0", "1", "-1", "e"),
+    1,
+  )
+
+  #question(
+    [A Commutative Ring requires which operation to be commutative?],
+    ("Addition", "Subtraction", "Multiplication", "Division"),
+    2,
+  )
+
+  #question(
+    [A Field is a commutative ring with unity where every non-zero element has a:],
+    ("Additive inverse", "Multiplicative inverse", "Zero divisor", "Polynomial root"),
+    1,
+  )
+
+  #question(
+    [Which of the following is a finite field?],
+    ([$ZZ_(12)$], [$ZZ_(10)$], [$ZZ_7$], [$ZZ$]),
+    2,
+  )
+
+  #question(
+    [Zero divisors are non-zero elements $a, b$ such that:],
+    ([$a + b = 0$], [$a dot b = 1$], [$a dot b = 0$], [$a = b$]),
+    2,
+  )
+
+  #question(
+    [An Integral Domain is a commutative ring with unity and no:],
+    ("Inverses", "Ideals", "Zero Divisors", "Subrings"),
+    2,
+  )
+
+  #question(
+    [The characteristic of a ring is the smallest positive integer $n$ such that:],
+    ([$n dot 1 = 0$], [$n dot a = 1$], [$a^n = 0$], [$a^n = 1$]),
+    0,
+  )
+]
+
 === Supplementary Problems
 
 #supplementary[
@@ -84,4 +153,36 @@
 
 #supplementary[
   Solve the equation $x^2 - 5x + 6 = 0$ in the ring $ZZ_{12}$. (Hint: There may be more than 2 solutions).
+]
+
+#supplementary[
+  Prove that in any ring $R$, $0 dot x = 0$ for all $x in R$.
+]
+
+#supplementary[
+  Show that the set of matrices of the form $mat(a, b; 0, c)$ forms a subring of $M_2(RR)$.
+]
+
+#supplementary[
+  Determine the units of the ring $ZZ_{12}$.
+]
+
+#supplementary[
+  Give an example of a ring that is not commutative and has no unity.
+]
+
+#supplementary[
+  Prove that if $R$ is a ring with unity, then $(-1) dot a = -a$ for all $a in R$.
+]
+
+#supplementary[
+  Find all zero divisors in the ring $ZZ_{12}$.
+]
+
+#supplementary[
+  An element $a$ in a ring is *idempotent* if $a^2 = a$. Find all idempotent elements in $ZZ_{10}$.
+]
+
+#supplementary[
+  Prove that the intersection of two subrings of $R$ is also a subring of $R$.
 ]
