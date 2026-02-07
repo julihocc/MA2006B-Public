@@ -12,7 +12,18 @@
 ]
 
 #theorem("Complexity Benefit")[
-  Using an ONB allows for field multiplication with complexity roughly proportional to $n$, significantly faster than standard bases for large $n$. This is standard in IEEE 1363 and NIST standards for ECDSA.
+  Using an ONB allows for field multiplication with complexity roughly proportional to $n$, significantly faster than standard bases for large $n$.
+  This is standard in IEEE 1363 and NIST standards for ECDSA.
+  - *Hardware Efficiency*: ONB multiplication mainly involves cyclic shifts and XORs, which are very cheap in hardware (FPGA/ASIC).
+  - *Parallelism*: The operations can be highly parallelized.
+]
+
+#example("NIST Recommended Fields")[
+  Common binary fields with Optimal Normal Bases used in standards:
+  - $n=163$ (Type I does not exist, checked for Type II)
+  - $n=233$ (Type II)
+  - $n=409$ (Type II)
+  - $n=571$ (Type II)
 ]
 
 === Solved Problems
@@ -24,6 +35,22 @@
   A Type I optimal normal basis exists for $"GF"(2^n)$ if and only if:
   1. $n+1$ is a prime $p$.
   2. $2$ is a primitive root modulo $p$.
+]
+
+#solved_problem[
+  Check if a Type I ONB exists for $"GF"(2^4)$.
+]
+#solution[
+  Check conditions for $n=4$:
+  1. $n+1 = 5$, which is prime.
+  2. Check if 2 is a primitive root mod 5:
+    $2^1 equiv 2$
+    $2^2 equiv 4$
+    $2^3 equiv 8 equiv 3$
+    $2^4 equiv 16 equiv 1$
+    The order of 2 is 4, which is $phi(5)$.
+  Yes, 2 is a primitive root mod 5.
+  Therefore, a Type I ONB exists for $"GF"(2^4)$.
 ]
 
 === Supplementary Problems

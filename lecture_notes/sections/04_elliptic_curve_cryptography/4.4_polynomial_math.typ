@@ -10,12 +10,27 @@
 ]
 
 #definition("Irreducible Polynomial")[
-  A polynomial $P(x)$ is *irreducible* over a field $K$ if it cannot be factored into two non-constant polynomials over $K$. It plays the role of a prime number for polynomial arithmetic.
+  A polynomial $P(x)$ is *irreducible* over a field $K$ if it cannot be factored into two non-constant polynomials over $K$. It plays the role of a prime number for polynomial arithmetic. To check if a polynomial of degree $n$ is irreducible, one must verify it has no factors of degree up to $n/2$.
+]
+
+#definition("Generator Polynomial")[
+  A *primitive polynomial* or *generator polynomial* is an irreducible polynomial $P(x)$ of degree $n$ such that $x$ is a generator of the multiplicative group $"GF"(p^n)^*$. Using a primitive polynomial ensures that powers of $x$ generate all non-zero elements of the field.
 ]
 
 #theorem("Field Arithmetic")[
   - *Addition*: Performed coefficient-wise in $ZZ_p$. (For $p=2$, this is XOR).
   - *Multiplication*: Polynomial multiplication modulo $P(x)$.
+  - *Division*: Performed using the Extended Euclidean Algorithm for polynomials to find the multiplicative inverse.
+]
+
+#example("Polynomial Division")[
+  Divide $A(x) = x^3 + x + 1$ by $B(x) = x + 1$ over $ZZ_2$:
+  1. $x^3 / x = x^2$. Multiply $B(x)$ by $x^2$: $x^2(x+1) = x^3 + x^2$.
+  2. Subtract (XOR): $(x^3 + x + 1) - (x^3 + x^2) = x^2 + x + 1$.
+  3. $x^2 / x = x$. Multiply $B(x)$ by $x$: $x(x+1) = x^2 + x$.
+  4. Subtract (XOR): $(x^2 + x + 1) - (x^2 + x) = 1$.
+  5. Quotient is $x^2 + x$, Remainder is $1$.
+  So $x^3 + x + 1 = (x^2 + x)(x + 1) + 1$.
 ]
 
 === Solved Problems
