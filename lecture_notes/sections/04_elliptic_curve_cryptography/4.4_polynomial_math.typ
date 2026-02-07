@@ -55,48 +55,6 @@
   So the result is $1$.
 ]
 
-=== Supplementary Problems
-
-#supplementary[
-  List all irreducible polynomials of degree 2 over $ZZ_2$.
-]
-
-#supplementary[
-  Construct the multiplication table for $"GF"(2^2)$ using the irreducible polynomial $x^2 + x + 1$.
-]
-
-#supplementary[
-  Determine if $x^3 + x^2 + 1$ is irreducible over $ZZ_2$.
-]
-
-#supplementary[
-  Compute the sum and product of $(x^2 + x + 1)$ and $(x + 1)$ in $"GF"(2^4)$ with reduction polynomial $P(x) = x^4 + x + 1$.
-]
-
-#supplementary[
-  Find the multiplicative inverse of $x$ modulo $x^3 + x + 1$ over $ZZ_2$.
-]
-
-#supplementary[
-  Show that $x^4 + 1$ is reducible over $ZZ_2$. (Hint: $(x+1)^4$).
-]
-
-#supplementary[
-  In $"GF"(2^8)$ (AES field), the reduction polynomial is $x^8 + x^4 + x^3 + x + 1$. Write the byte 0x53 (ASCII 'S') as a polynomial in this field.
-]
-
-#supplementary[
-  Perform long division of $x^5 + x^2 + 1$ by $x^2 + x + 1$ over $ZZ_2$. What is the remainder?
-]
-
-#supplementary[
-  Explain why we use irreducible polynomials to construct finite fields (analogy to prime numbers).
-]
-
-#supplementary[
-  Find a generator polynomial for $"GF"(2^3)$. Show that it generates all 7 non-zero elements.
-]
-
 === Self-Evaluation Quiz
 
 #quiz[
@@ -211,3 +169,44 @@
   )
 ]
 
+=== Supplementary Problems
+
+#supplementary[
+  List all irreducible polynomials of degree 2 over $ZZ_2$.
+]
+
+#supplementary[
+  Construct the multiplication table for $"GF"(2^2)$ using the irreducible polynomial $x^2 + x + 1$.
+]
+
+#supplementary[
+  Determine if $x^3 + x^2 + 1$ is irreducible over $ZZ_2$.
+]
+
+#supplementary[
+  Compute the sum and product of $(x^2 + x + 1)$ and $(x + 1)$ in $"GF"(2^4)$ with reduction polynomial $P(x) = x^4 + x + 1$.
+]
+
+#supplementary[
+  Find the multiplicative inverse of $x$ modulo $x^3 + x + 1$ over $ZZ_2$.
+]
+
+#supplementary[
+  Show that $x^4 + 1$ is reducible over $ZZ_2$. (Hint: $(x+1)^4$).
+]
+
+#supplementary[
+  In $"GF"(2^8)$ (AES field), the reduction polynomial is $x^8 + x^4 + x^3 + x + 1$. Write the byte 0x53 (ASCII 'S') as a polynomial in this field.
+]
+
+#supplementary[
+  Perform long division of $x^5 + x^2 + 1$ by $x^2 + x + 1$ over $ZZ_2$. What is the remainder?
+]
+
+#supplementary[
+  Explain why we use irreducible polynomials to construct finite fields (analogy to prime numbers).
+]
+
+#supplementary[
+  Find a generator polynomial for $"GF"(2^3)$. Show that it generates all 7 non-zero elements.
+]

@@ -39,48 +39,6 @@
   2. *Computation*: ECC operations (signatures, handshakes) are generally faster and consume less energy than RSA for equivalent security levels.
 ]
 
-=== Supplementary Problems
-
-#supplementary[
-  Research and list three major internet protocols that use ECC today (e.g., TLS, SSH, Bitcoin).
-]
-
-#supplementary[
-  If an RSA key length doubles, does the security level double? Compare this behavior with ECC key lengths.
-]
-
-#supplementary[
-  Calculate the bandwidth saving in percentage when sending a 256-bit ECC public key vs a 3072-bit RSA public key.
-]
-
-#supplementary[
-  Investigate the "Quantum Threat" to ECC. Roughly how many logical qubits would be needed to break a 256-bit ECC key using Shor's algorithm?
-]
-
-#supplementary[
-  Describe the "Small Subgroup Attack" on ECC and simply state how it is prevented (validating point order).
-]
-
-#supplementary[
-  Compare the signature generation speed of RSA-2048 vs ECDSA-256 on a typical embedded microcontroller (e.g., ARM Cortex-M4). Which is faster and why?
-]
-
-#supplementary[
-  What is "Point Compression" in ECC? How much space does it save for a point $(x, y)$ on a curve over a 256-bit field?
-]
-
-#supplementary[
-  Explain why ECC is particularly suitable for smart cards and IoT devices compared to RSA.
-]
-
-#supplementary[
-  Look up the "Curve25519" curve. Who designed it and what specific implementation properties does it optimize for?
-]
-
-#supplementary[
-  What is the difference between "Prime Field" curves ($"GF"(p)$) and "Binary Field" curves ($"GF"(2^n)$) in terms of hardware implementation efficiency?
-]
-
 === Self-Evaluation Quiz
 
 #quiz[
@@ -195,3 +153,44 @@
   )
 ]
 
+=== Supplementary Problems
+
+#supplementary[
+  Research and list three major internet protocols that use ECC today (e.g., TLS, SSH, Bitcoin).
+]
+
+#supplementary[
+  If an RSA key length doubles, does the security level double? Compare this behavior with ECC key lengths.
+]
+
+#supplementary[
+  Calculate the bandwidth saving in percentage when sending a 256-bit ECC public key vs a 3072-bit RSA public key.
+]
+
+#supplementary[
+  Investigate the "Quantum Threat" to ECC. Roughly how many logical qubits would be needed to break a 256-bit ECC key using Shor's algorithm?
+]
+
+#supplementary[
+  Describe the "Small Subgroup Attack" on ECC and simply state how it is prevented (validating point order).
+]
+
+#supplementary[
+  Compare the signature generation speed of RSA-2048 vs ECDSA-256 on a typical embedded microcontroller (e.g., ARM Cortex-M4). Which is faster and why?
+]
+
+#supplementary[
+  What is "Point Compression" in ECC? How much space does it save for a point $(x, y)$ on a curve over a 256-bit field?
+]
+
+#supplementary[
+  Explain why ECC is particularly suitable for smart cards and IoT devices compared to RSA.
+]
+
+#supplementary[
+  Look up the "Curve25519" curve. Who designed it and what specific implementation properties does it optimize for?
+]
+
+#supplementary[
+  What is the difference between "Prime Field" curves ($"GF"(p)$) and "Binary Field" curves ($"GF"(2^n)$) in terms of hardware implementation efficiency?
+]

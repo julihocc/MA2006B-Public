@@ -66,48 +66,6 @@
   Check: $17 times 23 = 391 = 15(26) + 1$. Correct.
 ]
 
-=== Supplementary Problems
-
-#supplementary[
-  Estimate the number of atomic operations (additions/multiplications) required to multiply two 2048-bit numbers using the standard grammar school algorithm versus Karatsuba algorithm.
-]
-
-#supplementary[
-  Why is the efficiency of modular inverse (Euclidean Algorithm) crucial for RSA key generation?
-]
-
-#supplementary[
-  Perform the addition of two 3-bit integers $A=101_2$ and $B=110_2$ word-by-word (assuming 1-bit word size) and track the carry bit at each step.
-]
-
-#supplementary[
-  Trace the "Square-and-Multiply" algorithm to compute $5^9 mod 13$. Show the value of the accumulator at each step.
-]
-
-#supplementary[
-  Explain why constant-time implementations of modular exponentiation are necessary to prevent Side-Channel Attacks (e.g., Timing Attacks).
-]
-
-#supplementary[
-  Compute the modular inverse of $7 mod 16$ using the Extended Euclidean Algorithm.
-]
-
-#supplementary[
-  What is the "Montgomery Form" of the integer $a=5$ modulo $n=13$ with $R=16$?
-]
-
-#supplementary[
-  Compare the complexity of addition ($O(n)$) vs multiplication ($O(n^2)$) for $n=4096$ bits. How many additions is one multiplication roughly equivalent to (ignoring constants)?
-]
-
-#supplementary[
-  Describe "Barrett Reduction" and efficient modular reduction. How does it differ from Montgomery Reduction?
-]
-
-#supplementary[
-  In RSA, we often choose $e=65537$ ($2^16 + 1$). How many multiplications are needed to compute $m^e mod n$ using Square-and-Multiply?
-]
-
 === Self-Evaluation Quiz
 
 #quiz[
@@ -222,3 +180,44 @@
   )
 ]
 
+=== Supplementary Problems
+
+#supplementary[
+  Estimate the number of atomic operations (additions/multiplications) required to multiply two 2048-bit numbers using the standard grammar school algorithm versus Karatsuba algorithm.
+]
+
+#supplementary[
+  Why is the efficiency of modular inverse (Euclidean Algorithm) crucial for RSA key generation?
+]
+
+#supplementary[
+  Perform the addition of two 3-bit integers $A=101_2$ and $B=110_2$ word-by-word (assuming 1-bit word size) and track the carry bit at each step.
+]
+
+#supplementary[
+  Trace the "Square-and-Multiply" algorithm to compute $5^9 mod 13$. Show the value of the accumulator at each step.
+]
+
+#supplementary[
+  Explain why constant-time implementations of modular exponentiation are necessary to prevent Side-Channel Attacks (e.g., Timing Attacks).
+]
+
+#supplementary[
+  Compute the modular inverse of $7 mod 16$ using the Extended Euclidean Algorithm.
+]
+
+#supplementary[
+  What is the "Montgomery Form" of the integer $a=5$ modulo $n=13$ with $R=16$?
+]
+
+#supplementary[
+  Compare the complexity of addition ($O(n)$) vs multiplication ($O(n^2)$) for $n=4096$ bits. How many additions is one multiplication roughly equivalent to (ignoring constants)?
+]
+
+#supplementary[
+  Describe "Barrett Reduction" and efficient modular reduction. How does it differ from Montgomery Reduction?
+]
+
+#supplementary[
+  In RSA, we often choose $e=65537$ ($2^16 + 1$). How many multiplications are needed to compute $m^e mod n$ using Square-and-Multiply?
+]

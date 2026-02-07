@@ -53,48 +53,6 @@
   Therefore, a Type I ONB exists for $"GF"(2^4)$.
 ]
 
-=== Supplementary Problems
-
-#supplementary[
-  Compare the hardware gate count for a multiplier using Polynomial Basis vs Optimal Normal Basis.
-]
-
-#supplementary[
-  Determine if a Type I ONB exists for $n=10$ in $"GF"(2^10)$.
-]
-
-#supplementary[
-  Check if a Type II ONB exists for $n=2$ in $"GF"(2^2)$.
-]
-
-#supplementary[
-  Verify that for a Type I ONB, the field elements are permuted roots of unity.
-]
-
-#supplementary[
-  Why are Type II ONBs more common in standards (like NIST) than Type I ONBs?
-]
-
-#supplementary[
-  Calculate the "Complexity" $C_N$ of a normal basis multiplication for a Type I ONB. (Hint: $C_N = 2n-1$).
-]
-
-#supplementary[
-  If neither Type I nor Type II ONB exists for a given $n$, what involves using a "Gaussian Normal Basis"?
-]
-
-#supplementary[
-  Explain the relationship between the condition "$n+1$ is prime" for Type I ONB and Mersenne primes.
-]
-
-#supplementary[
-  For $n=4$, we found a Type I ONB. Explicitly list the basis elements in terms of $\beta$.
-]
-
-#supplementary[
-  Discuss the impact of using ONB on power consumption for mobile devices compared to software-based polynomial basis multiplication.
-]
-
 === Self-Evaluation Quiz
 
 #quiz[
@@ -209,3 +167,44 @@
   )
 ]
 
+=== Supplementary Problems
+
+#supplementary[
+  Compare the hardware gate count for a multiplier using Polynomial Basis vs Optimal Normal Basis.
+]
+
+#supplementary[
+  Determine if a Type I ONB exists for $n=10$ in $"GF"(2^10)$.
+]
+
+#supplementary[
+  Check if a Type II ONB exists for $n=2$ in $"GF"(2^2)$.
+]
+
+#supplementary[
+  Verify that for a Type I ONB, the field elements are permuted roots of unity.
+]
+
+#supplementary[
+  Why are Type II ONBs more common in standards (like NIST) than Type I ONBs?
+]
+
+#supplementary[
+  Calculate the "Complexity" $C_N$ of a normal basis multiplication for a Type I ONB. (Hint: $C_N = 2n-1$).
+]
+
+#supplementary[
+  If neither Type I nor Type II ONB exists for a given $n$, what involves using a "Gaussian Normal Basis"?
+]
+
+#supplementary[
+  Explain the relationship between the condition "$n+1$ is prime" for Type I ONB and Mersenne primes.
+]
+
+#supplementary[
+  For $n=4$, we found a Type I ONB. Explicitly list the basis elements in terms of $\beta$.
+]
+
+#supplementary[
+  Discuss the impact of using ONB on power consumption for mobile devices compared to software-based polynomial basis multiplication.
+]
