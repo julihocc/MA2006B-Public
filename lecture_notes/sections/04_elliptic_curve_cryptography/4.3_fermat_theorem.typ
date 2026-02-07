@@ -51,21 +51,21 @@
   #question(
     [Fermat's Little Theorem states that if $p$ is prime and $p$ does not divide $a$, then:],
     (
-      "$a^(p-1) equiv 1 (mod p)$",
-      "$a^p equiv 1 (mod p)$",
-      "$a^(p-1) equiv a (mod p)$",
-      "$a^2 equiv 1 (mod p)$",
+      [$a^p equiv a (mod p)$],
+      [$a^(p-1) equiv 1 (mod p)$],
+      [$a^(p+1) equiv 1 (mod p)$],
+      [$a^p equiv 1 (mod p)$],
     ),
-    0,
+    1,
   )
 
   #question(
     [Euler's totient function $phi(n)$ for $n = p q$ (where $p, q$ are distinct primes) is:],
     (
-      "$(p-1)(q-1)$",
-      "$pq - 1$",
-      "$p-1 + q-1$",
-      "$pq$",
+      [$(p-1)(q-1)$],
+      [$p q - 1$],
+      [$p-1 + q-1$],
+      [$p q$],
     ),
     0,
   )
@@ -80,6 +80,83 @@
     ),
     0,
   )
+
+  #question(
+    [If $n$ is a composite number and $a^(n-1) equiv 1 (mod n)$, then $n$ is called:],
+    (
+      "A prime number",
+      "A Carmichael number (or pseudoprime)",
+      "A primitive root",
+      "A generator",
+    ),
+    1,
+  )
+
+  #question(
+    [What is the value of $phi(p)$ if $p$ is a prime?],
+    (
+      [$p$],
+      [$p-1$],
+      [$p+1$],
+      [$1$],
+    ),
+    1,
+  )
+
+  #question(
+    [Primitive roots modulo $n$ generate:],
+    (
+      "All integers modulo $n$",
+      "The set of integers coprime to $n$",
+      "Only prime inclusions",
+      "The additive group $ZZ_n$",
+    ),
+    1,
+  )
+
+  #question(
+    [Which algorithm relies on the difficulty of the Discrete Logarithm Problem?],
+    (
+      "Diffie-Hellman Key Exchange",
+      "RSA",
+      "AES",
+      "SHA-256",
+    ),
+    0,
+  )
+
+  #question(
+    [If $a$ is a primitive root modulo $p$, then $a^k equiv 1 (mod p)$ implies:],
+    (
+      [$k$ is a multiple of $p-1$],
+      [$k = p$],
+      [$k = 1$],
+      [$k$ divides $p$],
+    ),
+    0,
+  )
+
+  #question(
+    [Euler's Theorem generalizes Fermat's Little Theorem to:],
+    (
+      "Any modulus $n$",
+      "Only even moduli",
+      "Only prime moduli",
+      "Complex numbers",
+    ),
+    0,
+  )
+
+  #question(
+    [For RSA, the public exponent $e$ and private exponent $d$ satisfy:],
+    (
+      [$e d equiv 1 (mod phi(n))$],
+      [$e d equiv 0 (mod phi(n))$],
+      [$e + d = n$],
+      [$e = d$],
+    ),
+    0,
+  )
 ]
 
 === Supplementary Problems
@@ -90,4 +167,36 @@
 
 #supplementary[
   Explain how Fermat's Little Theorem is used in the primality test "Fermat Primality Test" and what its limitation is (discuss Carmichael numbers).
+]
+
+#supplementary[
+  Calculate $phi(n)$ for $n = 45$. Hint: $45 = 9 times 5 = 3^2 times 5$.
+]
+
+#supplementary[
+  Find a primitive root modulo 7. Verify it generates all non-zero elements.
+]
+
+#supplementary[
+  Given $g=3$ is a primitive root modulo 7, find the discrete logarithm of 6 base 3. (i.e., solve $3^x equiv 6 (mod 7)$).
+]
+
+#supplementary[
+  Show that if $p$ is a prime, $(p-1)! equiv -1 (mod p)$ (Wilson's Theorem). Use this to check if 11 is prime.
+]
+
+#supplementary[
+  Compute $3^201 mod 11$ using Fermat's Little Theorem.
+]
+
+#supplementary[
+  Why is the Discrete Logarithm Problem considered harder in general than the Integer Factorization Problem (conceptually)?
+]
+
+#supplementary[
+  Verify Euler's Theorem for $a=5$ and $n=6$.
+]
+
+#supplementary[
+  If $p=11$ and $q=13$ (RSA primes), compute $phi(n)$ where $n=p q$.
 ]

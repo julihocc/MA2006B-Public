@@ -75,3 +75,150 @@
 #supplementary[
   Why is the efficiency of modular inverse (Euclidean Algorithm) crucial for RSA key generation?
 ]
+
+#supplementary[
+  Perform the addition of two 3-bit integers $A=101_2$ and $B=110_2$ word-by-word (assuming 1-bit word size) and track the carry bit at each step.
+]
+
+#supplementary[
+  Trace the "Square-and-Multiply" algorithm to compute $5^9 mod 13$. Show the value of the accumulator at each step.
+]
+
+#supplementary[
+  Explain why constant-time implementations of modular exponentiation are necessary to prevent Side-Channel Attacks (e.g., Timing Attacks).
+]
+
+#supplementary[
+  Compute the modular inverse of $7 mod 16$ using the Extended Euclidean Algorithm.
+]
+
+#supplementary[
+  What is the "Montgomery Form" of the integer $a=5$ modulo $n=13$ with $R=16$?
+]
+
+#supplementary[
+  Compare the complexity of addition ($O(n)$) vs multiplication ($O(n^2)$) for $n=4096$ bits. How many additions is one multiplication roughly equivalent to (ignoring constants)?
+]
+
+#supplementary[
+  Describe "Barrett Reduction" and efficient modular reduction. How does it differ from Montgomery Reduction?
+]
+
+#supplementary[
+  In RSA, we often choose $e=65537$ ($2^16 + 1$). How many multiplications are needed to compute $m^e mod n$ using Square-and-Multiply?
+]
+
+=== Self-Evaluation Quiz
+
+#quiz[
+  #question(
+    [Which operation is generally the most computationally expensive in public key cryptography?],
+    (
+      "Modular Addition",
+      "Bitwise XOR",
+      "Modular Exponentiation",
+      "Modular Subtraction",
+    ),
+    2,
+  )
+
+  #question(
+    [The "Square-and-Multiply" algorithm reduces the complexity of exponentiation from $O(e)$ to:],
+    (
+      [$O(log e)$],
+      [$O(e^2)$],
+      [$O(sqrt(e))$],
+      [$O(1)$],
+    ),
+    0,
+  )
+
+  #question(
+    [What is the time complexity of the standard "schoolbook" multiplication for two $n$-bit integers?],
+    (
+      [$O(n)$],
+      [$O(n^2)$],
+      [$O(n^3)$],
+      [$O(log n)$],
+    ),
+    1,
+  )
+
+  #question(
+    [Karatsuba multiplication improves the complexity of multiplication to approximately:],
+    (
+      [$O(n^1.585)$],
+      [$O(n log n)$],
+      [$O(n^2)$],
+      [$O(n)$],
+    ),
+    0,
+  )
+
+  #question(
+    [Montgomery Multiplication is primarily used to optimize:],
+    (
+      "Modular Addition",
+      "Modular Multiplication (avoiding division)",
+      "Prime Factorization",
+      "Hashing",
+    ),
+    1,
+  )
+
+  #question(
+    [The Extended Euclidean Algorithm is used to efficiently find:],
+    (
+      "The product of two numbers",
+      "The modular multiplicative inverse",
+      "The square root of a number",
+      "The logarithm of a number",
+    ),
+    1,
+  )
+
+  #question(
+    [A "Side-Channel Attack" might exploit:],
+    (
+      "Weak passwords",
+      "Variations in execution time or power consumption",
+      "Social engineering",
+      "Brute force",
+    ),
+    1,
+  )
+
+  #question(
+    [In big integer arithmetic, a 2048-bit integer is typically represented as:],
+    (
+      "A floating point number",
+      "A string of characters",
+      "An array of smaller words (e.g., 64-bit)",
+      "A single CPU register",
+    ),
+    2,
+  )
+
+  #question(
+    [If $gcd(a, n) != 1$, then the modular inverse of $a$ modulo $n$:],
+    (
+      [Is always 1],
+      [Does not exist],
+      [Is 0],
+      [Is $a^(n-2)$],
+    ),
+    1,
+  )
+
+  #question(
+    [To compute $b^e mod m$ where $e$ has $k$ bits, Square-and-Multiply requires approx how many squarings?],
+    (
+      [$k$ squarings],
+      [$k/2$ squarings],
+      [$2^k$ squarings],
+      [1 squaring],
+    ),
+    0,
+  )
+]
+

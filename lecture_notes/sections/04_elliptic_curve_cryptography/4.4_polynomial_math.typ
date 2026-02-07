@@ -64,3 +64,150 @@
 #supplementary[
   Construct the multiplication table for $"GF"(2^2)$ using the irreducible polynomial $x^2 + x + 1$.
 ]
+
+#supplementary[
+  Determine if $x^3 + x^2 + 1$ is irreducible over $ZZ_2$.
+]
+
+#supplementary[
+  Compute the sum and product of $(x^2 + x + 1)$ and $(x + 1)$ in $"GF"(2^4)$ with reduction polynomial $P(x) = x^4 + x + 1$.
+]
+
+#supplementary[
+  Find the multiplicative inverse of $x$ modulo $x^3 + x + 1$ over $ZZ_2$.
+]
+
+#supplementary[
+  Show that $x^4 + 1$ is reducible over $ZZ_2$. (Hint: $(x+1)^4$).
+]
+
+#supplementary[
+  In $"GF"(2^8)$ (AES field), the reduction polynomial is $x^8 + x^4 + x^3 + x + 1$. Write the byte 0x53 (ASCII 'S') as a polynomial in this field.
+]
+
+#supplementary[
+  Perform long division of $x^5 + x^2 + 1$ by $x^2 + x + 1$ over $ZZ_2$. What is the remainder?
+]
+
+#supplementary[
+  Explain why we use irreducible polynomials to construct finite fields (analogy to prime numbers).
+]
+
+#supplementary[
+  Find a generator polynomial for $"GF"(2^3)$. Show that it generates all 7 non-zero elements.
+]
+
+=== Self-Evaluation Quiz
+
+#quiz[
+  #question(
+    [A Finite Field $"GF"(p^n)$ contains exactly how many elements?],
+    (
+      "$p times n$",
+      "$p^n$",
+      "$n^p$",
+      "Infinite",
+    ),
+    1,
+  )
+
+  #question(
+    [A polynomial is called irreducible if:],
+    (
+      "It has no factors other than constants (and itself)",
+      "It has only even coefficients",
+      "It has degree 0",
+      "It can be divided by $x$",
+    ),
+    0,
+  )
+
+  #question(
+    [Addition of polynomials over $"GF"(2^n)$ corresponds to which bitwise operation?],
+    (
+      "AND",
+      "OR",
+      "XOR",
+      "NOT",
+    ),
+    2,
+  )
+
+  #question(
+    [Multiplication in a finite field involves polynomial multiplication followed by:],
+    (
+      "Integer division",
+      "Modulo reduction by an irreducible polynomial",
+      "Square root extraction",
+      "Bit shifting only",
+    ),
+    1,
+  )
+
+  #question(
+    [The degree of an irreducible polynomial used to construct $"GF"(2^n)$ must be:],
+    (
+      "$n$",
+      "$n-1$",
+      "$2n$",
+      "Any integer",
+    ),
+    0,
+  )
+
+  #question(
+    [In $"GF"(2)$, $1 + 1 =$ ?],
+    (
+      "2",
+      "0",
+      "1",
+      "-1",
+    ),
+    1,
+  )
+
+  #question(
+    [A generator (or primitive element) of a finite field generates:],
+    (
+      "The additive group of the field",
+      "The multiplicative group of non-zero elements",
+      "Only the prime subfield",
+      "All irreducible polynomials",
+    ),
+    1,
+  )
+
+  #question(
+    [To find the multiplicative inverse of a polynomial $A(x)$ modulo $P(x)$, we use:],
+    (
+      "Long division",
+      "Extended Euclidean Algorithm for polynomials",
+      "Synthetic division",
+      "Factoring",
+    ),
+    1,
+  )
+
+  #question(
+    [Which of these is NOT a property of a field?],
+    (
+      "Commutativity of addition",
+      "Existence of multiplicative inverses for non-zero elements",
+      "Distributivity of multiplication over addition",
+      "Non-associativity of multiplication",
+    ),
+    3,
+  )
+
+  #question(
+    [If $P(x)$ is reducible, the structure $"GF"(p)[x] \/ P(x)$ forms a:],
+    (
+      "Field",
+      "Ring (with zero divisors)",
+      "Group",
+      "Vector Space",
+    ),
+    1,
+  )
+]
+
