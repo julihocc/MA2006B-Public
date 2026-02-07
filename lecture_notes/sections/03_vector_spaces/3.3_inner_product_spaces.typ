@@ -5,23 +5,23 @@
 === Theory
 
 #definition("Inner Product")[
-  Let $V$ be a vector space over field $F$ (where $F$ is $RR$ or $CC$). An *inner product* on $V$ is a function $angle.l dot, dot angle.r: V times V arrow F$ such that for all $u, v, w in V$ and scalar $c in F$:
-  + *Linearity in first argument*: $angle.l u + v, w angle.r = angle.l u, w angle.r + angle.l v, w angle.r$ and $angle.l c u, v angle.r = c angle.l u, v angle.r$.
-  + *Symmetry* (or Conjugate Symmetry): $angle.l u\, v angle.r = overline(angle.l v\, u angle.r)$ (for $RR$, $angle.l u\, v angle.r = angle.l v\, u angle.r$).
-  + *Positive Definiteness*: $angle.l v, v angle.r >= 0$, and $angle.l v, v angle.r = 0$ if and only if $v = 0$.
+  Let $V$ be a vector space over field $F$ (where $F$ is $RR$ or $CC$). An *inner product* on $V$ is a function $chevron.l dot, dot chevron.r: V times V arrow F$ such that for all $u, v, w in V$ and scalar $c in F$:
+  + *Linearity in first argument*: $chevron.l u + v, w chevron.r = chevron.l u, w chevron.r + chevron.l v, w chevron.r$ and $chevron.l c u, v chevron.r = c chevron.l u, v chevron.r$.
+  + *Symmetry* (or Conjugate Symmetry): $chevron.l u\, v chevron.r = overline(chevron.l v\, u chevron.r)$ (for $RR$, $chevron.l u\, v chevron.r = chevron.l v\, u chevron.r$).
+  + *Positive Definiteness*: $chevron.l v, v chevron.r >= 0$, and $chevron.l v, v chevron.r = 0$ if and only if $v = 0$.
 ]
 
 #definition("Norm")[
-  The *norm* (or length) of a vector $v$ induced by the inner product is $||v|| = sqrt(angle.l v\, v angle.r)$.
+  The *norm* (or length) of a vector $v$ induced by the inner product is $||v|| = sqrt(chevron.l v\, v chevron.r)$.
 ]
 
 #theorem("Cauchy-Schwarz Inequality")[
   For all $u, v in V$:
-  $ |angle.l u, v angle.r| <= ||u|| ||v|| $
+  $ |chevron.l u, v chevron.r| <= ||u|| ||v|| $
 ]
 
 #definition("Orthogonality")[
-  Two vectors $u, v$ are *orthogonal* if $angle.l u, v angle.r = 0$.
+  Two vectors $u, v$ are *orthogonal* if $chevron.l u, v chevron.r = 0$.
   A set of vectors is *orthogonal* if all pairs of distinct vectors are orthogonal.
   A set is *orthonormal* if it is orthogonal and every vector has norm 1.
 ]
@@ -29,22 +29,22 @@
 #algorithm("Gram-Schmidt Process")[
   Given a basis ${v_1, ..., v_n}$, we can construct an orthogonal basis ${u_1, ..., u_n}$ as follows:
   $ u_1 = v_1 $
-  $ u_2 = v_2 - (angle.l v_2, u_1 angle.r)/(||u_1||^2) u_1 $
+  $ u_2 = v_2 - (chevron.l v_2, u_1 chevron.r)/(||u_1||^2) u_1 $
   $ ... $
-  $ u_k = v_k - sum_(j=1)^(k-1) (angle.l v_k, u_j angle.r)/(||u_j||^2) u_j $
+  $ u_k = v_k - sum_(j=1)^(k-1) (chevron.l v_k, u_j chevron.r)/(||u_j||^2) u_j $
   To get an orthonormal basis ${e_1, ..., e_n}$, set $e_i = u_i / ||u_i||$.
 ]
 
 === Solved Problems
 
 #solved_problem[
-  Let $V = RR^2$ with inner product $angle.l x, y angle.r = 2x_1 y_1 + x_2 y_2$. Verify this is an inner product.
+  Let $V = RR^2$ with inner product $chevron.l x, y chevron.r = 2x_1 y_1 + x_2 y_2$. Verify this is an inner product.
 ]
 #solution[
   Let $x = (x_1, x_2), y = (y_1, y_2), z = (z_1, z_2)$.
-  1. *Symmetry*: $angle.l x, y angle.r = 2x_1 y_1 + x_2 y_2 = 2y_1 x_1 + y_2 x_2 = angle.l y, x angle.r$.
-  2. *Linearity*: $angle.l x+z, y angle.r = 2(x_1+z_1)y_1 + (x_2+z_2)y_2 = (2x_1 y_1 + x_2 y_2) + (2z_1 y_1 + z_2 y_2)$.
-  3. *Positive Definite*: $angle.l x, x angle.r = 2x_1^2 + x_2^2$. Since squares are non-negative, this is $>= 0$. It is 0 iff $x_1=0$ and $x_2=0$, i.e., $x=0$.
+  1. *Symmetry*: $chevron.l x, y chevron.r = 2x_1 y_1 + x_2 y_2 = 2y_1 x_1 + y_2 x_2 = chevron.l y, x chevron.r$.
+  2. *Linearity*: $chevron.l x+z, y chevron.r = 2(x_1+z_1)y_1 + (x_2+z_2)y_2 = (2x_1 y_1 + x_2 y_2) + (2z_1 y_1 + z_2 y_2)$.
+  3. *Positive Definite*: $chevron.l x, x chevron.r = 2x_1^2 + x_2^2$. Since squares are non-negative, this is $>= 0$. It is 0 iff $x_1=0$ and $x_2=0$, i.e., $x=0$.
   So it is an inner product.
 ]
 
@@ -60,7 +60,7 @@
 
 #quiz[
   #question(
-    [An inner product on a real vector space $V$ is a function $angle.l dot, dot angle.r: V times V arrow RR$ that is:],
+    [An inner product on a real vector space $V$ is a function $chevron.l dot, dot chevron.r: V times V arrow RR$ that is:],
     (
       "Symmetric, linear in first argument, and positive definite",
       "Antisymmetric and bilinear",
@@ -73,10 +73,10 @@
   #question(
     [The Cauchy-Schwarz inequality states that:],
     (
-      "$|angle.l u, v angle.r| <= ||u|| ||v||$",
-      "$angle.l u, v angle.r = ||u|| + ||v||$",
+      "$|chevron.l u, v chevron.r| <= ||u|| ||v||$",
+      "$chevron.l u, v chevron.r = ||u|| + ||v||$",
       "$||u + v|| <= ||u|| + ||v||$",
-      "$angle.l u, v angle.r >= 0$",
+      "$chevron.l u, v chevron.r >= 0$",
     ),
     0,
   )
@@ -84,7 +84,7 @@
   #question(
     [Two vectors $u$ and $v$ are orthogonal if:],
     (
-      "$angle.l u, v angle.r = 0$",
+      "$chevron.l u, v chevron.r = 0$",
       "$||u|| = ||v||$",
       "$u = v$",
       "$u + v = 0$",
@@ -106,8 +106,8 @@
   #question(
     [An orthonormal basis ${e_1, ..., e_n}$ satisfies:],
     (
-      "$angle.l e_i, e_j angle.r = delta_(i j)$",
-      "$angle.l e_i, e_j angle.r = 1$ for all $i, j$",
+      "$chevron.l e_i, e_j chevron.r = delta_(i j)$",
+      "$chevron.l e_i, e_j chevron.r = 1$ for all $i, j$",
       "$||e_i|| = i$",
       "$e_i = e_j$ for all $i, j$",
     ),
@@ -117,8 +117,8 @@
   #question(
     [The orthogonal projection of $v$ onto $u$ is:],
     (
-      "$\"proj\"_u (v) = (angle.l v, u angle.r)/(||u||^2) u$",
-      "$\"proj\"_u (v) = angle.l v, u angle.r$",
+      "$\"proj\"_u (v) = (chevron.l v, u chevron.r)/(||u||^2) u$",
+      "$\"proj\"_u (v) = chevron.l v, u chevron.r$",
       "$\"proj\"_u (v) = v - u$",
       "$\"proj\"_u (v) = ||v|| u$",
     ),
@@ -126,7 +126,7 @@
   )
 
   #question(
-    [In $RR^n$ with the standard inner product, $angle.l x, y angle.r =$ :],
+    [In $RR^n$ with the standard inner product, $chevron.l x, y chevron.r =$ :],
     (
       "$sum_(i=1)^n x_i y_i$",
       "$sum_(i=1)^n (x_i - y_i)$",
@@ -173,7 +173,7 @@
 === Supplementary Problems
 
 #supplementary[
-  Verify that $angle.l p, q angle.r = integral_0^1 p(x) q(x) dif x$ defines an inner product on $P[x]$.
+  Verify that $chevron.l p, q chevron.r = integral_0^1 p(x) q(x) dif x$ defines an inner product on $P[x]$.
 ]
 
 #supplementary[
