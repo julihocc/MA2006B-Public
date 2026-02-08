@@ -28,71 +28,71 @@
 #quiz[
   #question(
     [Which NIST publication defines the standardized MQV scheme?],
-    ("SP 800-53", "SP 800-56A", "FIPS 140-2", "SP 800-90A"),
+    ([SP 800-53], [SP 800-56A], [FIPS 140-2], [SP 800-90A]),
     1,
   )
 
   #question(
     [What is the main security goal achieved by standard MQV?],
-    ("Confidentiality only", "Authenticated Key Agreement", "Digital Signatures", "Data Integrity"),
+    ([Confidentiality only], [Authenticated Key Agreement], [Digital Signatures], [Data Integrity]),
     1,
   )
 
   #question(
     [In the MQV certificate $s = (k + overline(R) a) mod n$, what does $overline(R)$ represent?],
     (
-      "Public key of the CA",
-      "Truncated hash of the ephemeral public key",
-      "The shared secret",
-      "Bob's static private key",
+      [Public key of the CA],
+      [Truncated hash of the ephemeral public key],
+      [The shared secret],
+      [Bob's static private key],
     ),
     1,
   )
 
   #question(
     [Resilience to which attack prevents an attacker from impersonating others to a compromised user?],
-    ("Brute force", "UKS", "KCI", "Replay"),
+    ([Brute force], [UKS], [KCI], [Replay]),
     2,
   )
 
   #question(
     [Standard MQV is approximately how many times as expensive as basic Diffie-Hellman?],
-    ("0.5x", "1.5x", "2x", "5x"),
+    ([0.5x], [1.5x], [2x], [5x]),
     1,
   )
 
   #question(
     [What type of keys are mathematically combined in the MQV protocol?],
-    ("Symmetric only", "Static and Ephemeral public keys", "Identity strings", "One-time pads"),
+    ([Symmetric only], [Static and Ephemeral public keys], [Identity strings], [One-time pads]),
     1,
   )
 
   #question(
     [What does "Implicit Authentication" mean in MQV?],
     (
-      "Auth is verified by successful use of the resulting key",
-      "Parties send certificates",
-      "A third party verifies signatures",
-      "Encryption is not used",
+      [Auth is verified by successful use of the resulting key],
+      [Parties send certificates],
+      [A third party verifies signatures],
+      [Encryption is not used],
     ),
     0,
   )
 
   #question(
     [Which cryptographic standard includes MQV alongside ECDSA?],
-    ("SEC 1", "IEEE 754", "RFC 1918", "PKCS #1"),
+    ([SEC 1], [IEEE 754], [RFC 1918], [PKCS #1]),
     0,
   )
 
   #question(
     [The session key $S$ is typically derived from the shared secret $K$ using:],
-    ("RSA", "A Key Derivation Function (KDF)", "Simple addition", "Discarding bits"),
+    ([RSA], [A Key Derivation Function (KDF)], [Simple addition], [Discarding bits]),
     1,
   )
 
   #question(
     [The modulus $n$ used in MQV is usually:],
-    ("A prime order of the group", "Any composite number", "The x-coordinate", "A random seed"),
+    ([A prime order of the group], [Any composite number], [The x-coordinate], [A random seed]),
     0,
   )
 ]
@@ -136,5 +136,5 @@
 ]
 
 #supplementary[
-  Calculate the value of $overline(R)$ for a 256-bit prime if the ephemeral public key coordinate is $R=2^{128} + 7$.
+  Calculate the value of $overline(R)$ for a 256-bit prime if the ephemeral public key coordinate is $R=2^(128) + 7$.
 ]

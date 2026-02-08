@@ -23,26 +23,73 @@
   A *Normal Basis* (specifically an Optimal Normal Basis) is generally preferred. This is because the frequent squaring operations in finite field arithmetic (used in exponentiation for point multiplication) become simple cyclic shifts of bits, which consumes negligible logic area and clock cycles compared to denominator basis squaring.
 ]
 
+=== Self-Evaluation Quiz
+
 #quiz[
-  #question([Which basis is generally preferred for general-purpose software implementations of MQV?], ("Normal Basis", "Polynomial Basis", "Dual Basis", "Logarithmic Basis"), 1)
+  #question(
+    [Which basis is generally preferred for general-purpose software implementations of MQV?],
+    ([Normal Basis], [Polynomial Basis], [Dual Basis], [Logarithmic Basis]),
+    1,
+  )
 
-  #question([Why is Normal Basis (NB) particularly advantageous for hardware implementations?], ("Multiplication is easier", "It uses less memory", "Squaring is a simple cyclic shift", "It is more secure"), 2)
+  #question(
+    [Why is Normal Basis (NB) particularly advantageous for hardware implementations?],
+    ([Multiplication is easier], [It uses less memory], [Squaring is a simple cyclic shift], [It is more secure]),
+    2,
+  )
 
-  #question([What does the acronym ONB stand for?], ("Orthogonal Normal Basis", "Optimal Normal Basis", "Order-N Basis", "Offset Number Basis"), 1)
+  #question(
+    [What does the acronym ONB stand for?],
+    ([Orthogonal Normal Basis], [Optimal Normal Basis], [Order-N Basis], [Offset Number Basis]),
+    1,
+  )
 
-  #question([In Polynomial Basis, which operation is typically more complex than its Normal Basis equivalent?], ("Addition", "Subtraction", "Squaring", "Bitwise AND"), 2)
+  #question(
+    [In Polynomial Basis, which operation is typically more complex than its Normal Basis equivalent?],
+    ([Addition], [Subtraction], [Squaring], [Bitwise AND]),
+    2,
+  )
 
-  #question([How many common types of Optimal Normal Bases (ONB) are defined in standards?], ("1", "2", "3", "4"), 1)
+  #question(
+    [How many common types of Optimal Normal Bases (ONB) are defined in standards?],
+    (["1"], ["2"], ["3"], ["4"]),
+    1,
+  )
 
-  #question([Does changing the field basis change the high-level MQV algebraic formulas?], ("Yes", "No", "Only for signatures", "Only for ElGamal"), 1)
+  #question(
+    [Does changing the field basis change the high-level MQV algebraic formulas?],
+    ([Yes], [No], [Only for signatures], [Only for ElGamal]),
+    1,
+  )
 
-  #question([Squaring a field element in Normal Basis is mathematically equivalent to:], ("A XOR operation", "A cyclic shift of the bit vector", "A modular reduction", "Matrix inversion"), 1)
+  #question(
+    [Squaring a field element in Normal Basis is mathematically equivalent to:],
+    ([A XOR operation], [A cyclic shift of the bit vector], [A modular reduction], [Matrix inversion]),
+    1,
+  )
 
-  #question([The "optimality" of an ONB refers to:], ("The speed of addition", "Having the minimum number of non-zero terms in field multiplication", "The size of the prime", "Resistance to quantum attacks"), 1)
+  #question(
+    [The "optimality" of an ONB refers to:],
+    (
+      [The speed of addition],
+      [Having the minimum number of non-zero terms in field multiplication],
+      [The size of the prime],
+      [Resistance to quantum attacks],
+    ),
+    1,
+  )
 
-  #question([Which structure is used to convert an element from Polynomial to Normal Basis?], ("A hash function", "A change-of-basis matrix", "A random seed", "An elliptic curve"), 1)
+  #question(
+    [Which structure is used to convert an element from Polynomial to Normal Basis?],
+    ([A hash function], [A change-of-basis matrix], [A random seed], [An elliptic curve]),
+    1,
+  )
 
-  #question([Normal basis is most often used with which type of finite fields?], ("Prime fields $ZZ_p$", "Binary extension fields $upright("GF")(2^m)$", "Complex fields", "Rational fields"), 1)
+  #question(
+    [Normal basis is most often used with which type of finite fields?],
+    ([Prime fields $ZZ_p$], [Binary extension fields $upright("GF")(2^m)$], [Complex fields], [Rational fields]),
+    1,
+  )
 ]
 
 === Supplementary Problems
@@ -52,7 +99,7 @@
 ]
 
 #supplementary[
-  Given a normal basis $\{beta, beta^2, ..., beta^{2^{m-1}}\}$, calculate the bit-vector result of squaring a general element $alpha$.
+  Given a normal basis ${beta, beta^2, ..., beta^(2^(m-1))}$, calculate the bit-vector result of squaring a general element $alpha$.
 ]
 
 #supplementary[
