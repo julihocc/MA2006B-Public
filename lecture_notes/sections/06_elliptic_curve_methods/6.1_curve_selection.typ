@@ -31,6 +31,80 @@
   Verifiably random generation uses a seed and a hash function to generate parameters $a, b$. This provides assurance that the curve parameters were not specifically crafted to belong to a special class of weak curves or to contain a backdoor known only to the designer.
 ]
 
+=== Self-Evaluation Quiz
+
+#quiz[
+  #question(
+    [What is the primary goal of elliptic curve selection in cryptography?],
+    ("Interoperability", "Choosing secure parameters $a, b, p$", "Speed optimization", "Compatibility with RSA"),
+    1,
+  )
+
+  #question(
+    [Which organization publishes standard curves in FIPS 186-4?],
+    ("ISO", "IEEE", "NIST", "SEC"),
+    2,
+  )
+
+  #question(
+    [What type of curve is Curve25519?],
+    ("Weierstrass curve", "Montgomery curve", "Edwards curve", "Binary curve"),
+    1,
+  )
+
+  #question(
+    [Pollard's rho attack is resisted by choosing a curve with:],
+    ("A small characteristic", "A large prime group order", "A zero trace of Frobenius", "A specific embedding degree"),
+    1,
+  )
+
+  #question(
+    [The MOV attack reduces the ECDLP to a DLP in a finite field extension using:],
+    ("The Frobenius map", "The double-and-add algorithm", "The Weil pairing", "The Pollard's rho algorithm"),
+    2,
+  )
+
+  #question(
+    [A curve is called "anomalous" if its trace of Frobenius is:],
+    ("0", "1", "Positive", "Prime"),
+    1,
+  )
+
+  #question(
+    [What is the benefit of using "verifiably random" curve parameters?],
+    (
+      "They are always faster",
+      "They prevent backdoors in parameters",
+      "They require less memory",
+      "They are compatible with char 2 fields",
+    ),
+    1,
+  )
+
+  #question(
+    [NIST P-256 is defined over:],
+    ("A binary field", "A prime field", "An extension field", "The real numbers"),
+    1,
+  )
+
+  #question(
+    [What is the "rigidity" property of an elliptic curve?],
+    (
+      "The inability to change parameters easily",
+      "The lack of choice in parameter selection to prevent manipulation",
+      "The structural strength against all attacks",
+      "The use of fixed-point arithmetic",
+    ),
+    1,
+  )
+
+  #question(
+    [Curve25519 offers approximately how many bits of security?],
+    ("64 bits", "128 bits", "192 bits", "256 bits"),
+    1,
+  )
+]
+
 === Supplementary Problems
 
 #supplementary[
@@ -39,4 +113,36 @@
 
 #supplementary[
   What is the "Rigidity" of a curve, and why is it desirable?
+]
+
+#supplementary[
+  Explain why the embedding degree $k$ must be large for a curve to be secure.
+]
+
+#supplementary[
+  Compare the Montgomery form with the short Weierstrass form in terms of performance and implementation.
+]
+
+#supplementary[
+  What are "brainpool" curves, and how do they differ from NIST curves?
+]
+
+#supplementary[
+  Describe the "Twist Security" property of an elliptic curve.
+]
+
+#supplementary[
+  Research the SECG (Standards for Efficient Cryptography Group) and their SEC 2 document.
+]
+
+#supplementary[
+  Why might some applications prefer custom curves over standardized ones?
+]
+
+#supplementary[
+  Explain the process of "Point Validation" and why it is critical for curve selection.
+]
+
+#supplementary[
+  Research the impact of the "Curve25519" design on modern cryptography protocols.
 ]
