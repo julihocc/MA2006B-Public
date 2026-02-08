@@ -4,53 +4,89 @@
 
 === Theory
 
-#definition("Massey-Omura Protocol")[
-  The *Massey-Omura* protocol is a *three-pass* protocol that allows two parties to exchange a message without sharing any initial key. It relies on the commutativity of encryption functions.
-
-  *Setup*: Defined over a finite field $"GF"(q)$.
-
-  *Protocol*: To send message $m$:
-  1. Alice encrypts $m$ with her key $e_A$: $m_1 = m^(e_A)$. Sends $m_1$ to Bob.
-  2. Bob encrypts $m_1$ with his key $e_B$: $m_2 = m_1^(e_B) = m^(e_A e_B)$. Sends $m_2$ to Alice.
-  3. Alice decrypts with her key $d_A$ (inverse of $e_A$): $m_3 = m_2^(d_A) = m^(e_A e_B d_A) = m^(e_B)$. Sends $m_3$ to Bob.
-  4. Bob decrypts with his key $d_B$ (inverse of $e_B$): $m_("final") = m_3^(d_B) = m^(e_B d_B) = m$.
-
+#definition("Three-Pass Protocol")[
+  The *Massey-Omura* protocol is a cryptographic scheme that allows two parties to exchange a message without a shared secret or public-key infrastructure (PKI). It relies on the commutativity of encryption.
+  
   Requires $gcd(e, q-1) = 1$ for exponentiation in field group $G$.
 ]
 
-#theorem("Security")[
-  Security relies on the difficulty of the Discrete Logarithm Problem to recover the exponents. However, it requires authentication to prevent Man-in-the-Middle attacks.
+#theorem("Commutativity Property")[
+  For a message $m$ in $upright("GF")(q)$, if $E_A(m) = m^{e_A}$ and $E_B(m) = m^{e_B}$, then:
+  $ E_A(E_B(m)) = (m^{e_B})^{e_A} = m^{e_B e_A} = (m^{e_A})^{e_B} = E_B(E_A(m)) $
+  This allows locks to be applied and removed in any order.
 ]
 
 === Solved Problems
 
 #solved_problem[
-  Demonstrate Massey-Omura over $ZZ_23$ for message $m=10$. Alice's key $e_A=7$, Bob's key $e_B=5$.
+  In Massey-Omura, why is it necessary for the encryption key $e$ to be coprime to $q-1$?
 ]
 #solution[
-  1. Alice sends $m_1 = 10^7 mod 23$.
-    $10^2 = 100 equiv 8$. $10^4 = 64 equiv 18 equiv -5$.
-    $10^7 = 10^4 dot 10^2 dot 10 equiv -5 dot 8 dot 10 = -400$.
-    $-400 = -17(23) - 9 equiv 14$. So $m_1 = 14$.
-  2. Bob sends $m_2 = 14^5 mod 23$.
-    $14^2 = 196 = 8(23) + 12 equiv 12$.
-    $14^4 = 144 = 6(23) + 6 equiv 6$.
-    $14^5 = 6 dot 14 = 84 = 3(23) + 15 equiv 15$. So $m_2 = 15$.
-  3. Alice calculates $d_A = e_A^(-1) mod 22$.
-    $7 d_A equiv 1 mod 22$. $d_A = 19$. ($7(19) = 133 = 6(22)+1$).
-    Alice sends $m_3 = 15^19 mod 23$.
-    Result $m_3 = 20$.
-  4. Bob calculates $d_B = e_B^(-1) mod 22$.
-    $5 d_B equiv 1 mod 22$. $d_B = 9$.
-    Bob computes $20^9 mod 23$ to recover $10$.
+  The protocol requires the existence of a decryption key $d$ such that $e d eq.triple 1 mod (q-1)$. If $gcd(e, q-1) != 1$, then $e$ has no modular inverse modulo $q-1$, and the receiver would be unable to 'unlock' the exponentiation, making the original message $m$ unrecoverable.
+]
+
+=== Self-Evaluation Quiz
+
+#quiz[
+  #question([What is the primary characteristic of the Massey-Omura protocol?], ("Single-round exchange", "Three-pass transmission", "Requires a shared symmetric key", "Public-key infrastructure only"), 1)
+
+  #question([Which mathematical property does Massey-Omura rely on for successful decryption?], ("Associativity of addition", "Commutativity of exponentiation", "Hardness of factoring", "Linearity of hash functions"), 1)
+
+  #question([In which field is the Massey-Omura protocol primarily defined?], ("Real numbers", "Complex numbers", "Finite field $upright("GF")(q)$", "Rational numbers"), 2)
+
+  #question([To initiate the protocol, what does Alice first compute and send?], ("$m^{e_A}$", "$m^{d_A}$", "$m^{e_B}$", "$m^{d_B}$"), 0)
+
+  #question([After Bob receives and encrypts Alice's message, the value becomes:], ("$m^{e_A}$", "$m^{e_B}$", "$m^{e_{A} e_{B}}$", "$m^{e_A d_B}$"), 2)
+
+  #question([How does Alice 'remove' her part of the encryption during the third pass?], ("Subtract $e_A$", "Divide by $e_A$", "Raise power by $d_A$", "Apply XOR with $e_A$"), 2)
+
+  #question([What condition must Alice's encryption key $e_A$ satisfy relative to the group order $q-1$?], ("$gcd(e_A, q-1) = 1$", "$e_A < q/2$", "$e_A$ is prime", "$e_A$ is even"), 0)
+
+  #question([Without authentication, Massey-Omura is highly vulnerable to:], ("Power analysis", "MITM attacks", "Frequency analysis", "Timing attacks"), 1)
+
+  #question([How many actual message transmissions occur between Alice and Bob?], ("1", "2", "3", "4"), 2)
+
+  #question([In $ZZ_{11}$, if Alice's encryption key is $e_A = 3$, what is her decryption key $d_A$?], ("3", "7", "9", "5"), 1)
 ]
 
 === Supplementary Problems
 
 #supplementary[
-  Explain why the commutativity property $E_B(E_A(m)) = E_A(E_B(m))$ is essential for this protocol.
+  Calculate Bob's decryption key $d_B$ if his encryption key is $e_B = 5$ in the field $ZZ_{11}$.
 ]
 
 #supplementary[
-  Contrast the number of messages exchanged in Massey-Omura vs Diffie-Hellman + Encryption.
+  Perform a step-by-step Massey-Omura exchange over $ZZ_7$ for message $m=2$, given $e_A=5, e_B=5$.
+]
+
+#supplementary[
+  Formalize the proof that $m^{e_A e_B d_A} = m^{e_B}$ in the group of units of $upright("GF")(q)$.
+]
+
+#supplementary[
+  Explain why the message $m$ cannot be the zero element in most practical implementations of Massey-Omura.
+]
+
+#supplementary[
+  Analyze the consequence if a party chooses an encryption key $e$ such that $gcd(e, q-1) != 1$.
+]
+
+#supplementary[
+  Describe the "Physical Lockbox" analogy used to explain the Massey-Omura three-pass protocol.
+]
+
+#supplementary[
+  Show that while Massey-Omura provides confidentiality (against passive Eves), it does not inherently provide authentication.
+]
+
+#supplementary[
+  Discuss how Massey-Omura could be implemented using Elliptic Curve point multiplication instead of modular exponentiation.
+]
+
+#supplementary[
+  Compare the communication overhead (number of messages) of Massey-Omura with ElGamal encryption.
+]
+
+#supplementary[
+  Solve for the original message $m$ in $ZZ_{13}$ if Alice sends $m_1 = 5$ as her first pass, and her encryption key is $e_A = 5$.
 ]
