@@ -200,7 +200,7 @@
 ]
 
 #supplementary[
-  If $dim(V) = 5$ and $W$ is a 3-dimensional subspace of $V$, what are the possible dimensions of a subspace $U$ such that $V = W plus.o U$ (direct sum)?
+  If $dim(V) = 5$ and $W$ is a 3-dimensional subspace of $V$, what are the possible dimensions of a subspace $U$ such that $V = W plus.circle U$ (direct sum)?
 ]
 
 #supplementary[

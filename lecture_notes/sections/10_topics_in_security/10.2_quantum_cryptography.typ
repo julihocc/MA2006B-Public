@@ -129,7 +129,7 @@
 ]
 
 #supplementary[
-  If Alice sends bits in the Rectilinear ($+$) and Diagonal ($times$) bases: $A_{basis}: +, times, times, +, times$ and $A_{bits}: 0, 1, 0, 1, 1$. If Bob measures with $B_{basis}: +, +, times, times, times$, which bits are kept?
+  If Alice sends bits in the Rectilinear ($+$) and Diagonal ($times$) bases: $A_("basis"): +, times, times, +, times$ and $A_("bits"): 0, 1, 0, 1, 1$. If Bob measures with $B_("basis"): +, +, times, times, times$, which bits are kept?
 ]
 
 #supplementary[

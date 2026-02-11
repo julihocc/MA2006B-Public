@@ -6,6 +6,7 @@
 #let QQ = $bb(Q)$
 #let CC = $bb(C)$
 #let NN = $bb(N)$
+#let chevron = (l: [⟨], r: [⟩])
 
 // Initialize the counters and rules. This function must be called in a show rule in main.typ
 // #show: thmrules
