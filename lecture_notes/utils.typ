@@ -38,6 +38,9 @@
   numbering: "1.1",
 )
 
+// Notes
+#let note = thmbox("note", "Note", fill: rgb("f5f5f5"), stroke: rgb("616161") + 1pt, base: "heading")
+
 // Solved Problems (Schaum's Style)
 #let solved_problem = thmbox(
   "solved_problem",

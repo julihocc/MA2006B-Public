@@ -29,7 +29,7 @@
   - Closure is satisfied modulo $n$ (e.g., $2+3 = 5 equiv 1 mod 4$).
 ]
 
-#example[
+#note[
   *Cryptography*: Groups are the foundation of many cryptographic primitives.
   - *Diffie-Hellman Key Exchange*: Relies on the difficulty of the Discrete Logarithm Problem (DLP) in a cyclic group $G$. Given $g$ and $g^x$, it is computationally hard to find $x$.
   - *RSA*: Uses the multiplicative group of integers modulo $n$, denoted $ZZ_n^*$. This group consists of integers coprime to $n$. Its order is given by Euler's totient function $phi(n)$.
