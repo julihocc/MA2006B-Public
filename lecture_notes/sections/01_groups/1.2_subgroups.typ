@@ -18,6 +18,17 @@
   A non-empty subset $H subset.eq G$ is a subgroup if and only if for all $a, b in H$, $a dot b^(-1) in H$.
 ]
 
+#proof[
+  $(=>)$ Suppose $H$ is a subgroup of $G$. Let $a, b in H$. Since $H$ is a group, $b^(-1) in H$. By closure, $a dot b^(-1) in H$.
+
+  $(<=)$ Suppose $H != emptyset$ and for all $a, b in H$, $a dot b^(-1) in H$.
+  1. *Identity*: Since $H != emptyset$, there exists $x in H$. Let $a = x, b = x$. Then $x dot x^(-1) = e in H$.
+  2. *Inverses*: Let $x in H$. Set $a = e, b = x$. Then $e dot x^(-1) = x^(-1) in H$.
+  3. *Closure*: Let $x, y in H$. Since $y in H$, we have $y^(-1) in H$ (from 2). Set $a = x, b = y^(-1)$. Then $x dot (y^(-1))^(-1) = x dot y in H$.
+  4. *Associativity*: Inherited from $G$.
+  Thus, $H$ is a subgroup.
+]
+
 #theorem("Lagrange's Theorem")[
   If $G$ is a finite group and $H$ is a subgroup of $G$, then the order (number of elements) of $H$ divides the order of $G$. i.e., $|H|$ divides $|G|$.
 ]
