@@ -24,6 +24,13 @@
   2. $e_H = phi(e_G) = phi(a dot a^(-1)) = phi(a) * phi(a^(-1))$. Thus $phi(a^(-1))$ is the inverse of $phi(a)$.
 ]
 
+#definition("Normal Subgroup")[
+  A subgroup $N$ of a group $G$ is *normal* in $G$ if for every $g in G$ and $n in N$, we have
+  $ g dot n dot g^(-1) in N $.
+
+  Equivalently, $g N g^(-1) = N$ for all $g in G$.
+]
+
 #definition(title: "Kernel")[
   The *Kernel* of $phi$, denoted $ker(phi)$, is the set ${g in G | phi(g) = e_H}$. It is always a normal subgroup of $G$.
 ]
