@@ -43,7 +43,19 @@
 ]
 
 #definition(title: "Kernel")[
-  The *Kernel* of $phi$, denoted $ker(phi)$, is the set ${g in G | phi(g) = e_H}$. It is always a normal subgroup of $G$.
+  The *Kernel* of $phi$, denoted $ker(phi)$, is the set ${g in G | phi(g) = e_H}$.
+]
+
+#proposition("Kernel is Normal")[
+  For a group homomorphism $phi: G arrow H$, the subgroup $ker(phi)$ is normal in $G$.
+]
+
+#proof[
+  Let $k in ker(phi)$ and $g in G$. Then $phi(k) = e_H$.
+  Since $phi$ is a homomorphism,
+  $ phi(g dot k dot g^(-1)) = phi(g) * phi(k) * phi(g)^(-1) = phi(g) * e_H * phi(g)^(-1) = e_H $.
+  Hence $g dot k dot g^(-1) in ker(phi)$.
+  By the definition of normal subgroup, $ker(phi)$ is normal in $G$.
 ]
 
 #example[
