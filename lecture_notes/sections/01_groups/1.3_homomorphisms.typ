@@ -27,8 +27,19 @@
 #definition("Normal Subgroup")[
   A subgroup $N$ of a group $G$ is *normal* in $G$ if for every $g in G$ and $n in N$, we have
   $ g dot n dot g^(-1) in N $.
+]
 
-  Equivalently, $g N g^(-1) = N$ for all $g in G$.
+#proposition("Equivalent Characterization of Normality")[
+  A subgroup $N subset.eq G$ is normal if and only if $g N g^(-1) = N$ for all $g in G$.
+]
+
+#proof[
+  *Forward direction:* Assume $N$ is normal. Then for any $g in G$ and $n in N$, we have $g n g^(-1) in N$, so $g N g^(-1) subset.eq N$.
+  Applying the same property to $g^(-1)$ gives $g^(-1) N g subset.eq N$. Conjugating by $g$ yields $N subset.eq g N g^(-1)$.
+  Hence $g N g^(-1) = N$.
+
+  *Reverse direction:* If $g N g^(-1) = N$ for all $g in G$, then every element of the form $g n g^(-1)$ (with $n in N$) lies in $N$.
+  Therefore $N$ is normal by definition.
 ]
 
 #definition(title: "Kernel")[
