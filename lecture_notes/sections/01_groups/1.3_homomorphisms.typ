@@ -60,9 +60,22 @@
 
 #example[
   For the homomorphism $phi: ZZ arrow ZZ_2$ given by $phi(x) = x mod 2$:
-  - $phi(0) = 0, phi(1) = 1, phi(2) = 0, phi(3) = 1$.
-  - The kernel is $ker(phi) = {x in ZZ | phi(x) = 0} = {..., -2, 0, 2, ...} = 2ZZ$.
-  - This kernel is a normal subgroup of $ZZ$.
+  Sample values are $phi(0) = 0, phi(1) = 1, phi(2) = 0, phi(3) = 1$, so parity is exactly what the map records.
+
+  For addition,
+  $ phi(a+b) = (a+b) mod 2 = ((a mod 2) + (b mod 2)) mod 2 = phi(a) +_2 phi(b), $
+  so as a map $(ZZ,+) arrow (ZZ_2,+_2)$, $phi$ is a group homomorphism.
+
+  Also,
+  $ phi(a b) = (a b) mod 2 = ((a mod 2)(b mod 2)) mod 2 = phi(a) phi(b), $
+  so reduction modulo $2$ preserves multiplication as well (hence it is also a ring homomorphism $ZZ arrow ZZ_2$).
+
+  Now compute the kernel:
+  $ ker(phi) = {x in ZZ | phi(x) = 0} = {x in ZZ | x mod 2 = 0}. $
+  This means $x$ is even, i.e., $x = 2k$ for some $k in ZZ$, so
+  $ ker(phi) = 2ZZ = {..., -4, -2, 0, 2, 4, ...}. $
+
+  By the proposition "Kernel is Normal", this kernel is a normal subgroup of $ZZ$.
 ]
 
 #example[
