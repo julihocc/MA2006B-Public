@@ -121,7 +121,9 @@
 ]
 
 #example[
-  *RSA Encryption* provides a concrete example of a homomorphic property. Consider the RSA encryption setup where $N$ is the modulus and $e$ is the public exponent. The encryption function $E: ZZ_N^* arrow ZZ_N^*$ on the multiplicative group of integers modulo $N$ is defined by:
+  *RSA Encryption* provides a concrete example of a homomorphic property. Consider the RSA encryption setup where $N$ is the modulus and $e$ is the public exponent. In practice, $N$ is chosen as the product of two distinct large prime numbers ($N = p q$) to provide the cryptographic trapdoor; knowing these primes allows the receiver to compute Euler's totient function $phi(N)$ and derive the private decryption key, while keeping it computationally infeasible for adversaries who only know $N$.
+
+  The encryption function $E: ZZ_N^* arrow ZZ_N^*$ on the multiplicative group of integers modulo $N$ is defined by:
   $ E(m) = m^e mod N. $
   We can compute the product of two encrypted messages $E(m_1)$ and $E(m_2)$ without decrypting them. Observe that:
   $ E(m_1) E(m_2) = (m_1^e mod N)(m_2^e mod N) equiv (m_1 m_2)^e mod N = E(m_1 m_2). $
