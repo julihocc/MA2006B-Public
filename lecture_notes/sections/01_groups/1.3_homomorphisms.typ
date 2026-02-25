@@ -125,6 +125,13 @@
 ]
 
 #example[
+  Let us compute Euler's Totient function for a few small integers:
+  - For a prime number such as $p = 7$, all positive integers strictly less than $7$ are coprime to $7$. Thus, $phi(7) = 6$.
+  - For $N = 10$, the integers between $1$ and $10$ that are coprime to $10$ are ${1, 3, 7, 9}$. Thus, $phi(10) = 4$. This is consistent with $10$ being the product of two distinct primes, $2$ and $5$, giving $phi(10) = (2-1)(5-1) = 1 times 4 = 4$.
+  - For $N = 15$, the coprime integers are ${1, 2, 4, 7, 8, 11, 13, 14}$, so $phi(15) = 8$. This matches our formula for distinct primes $3$ and $5$: $phi(15) = (3-1)(5-1) = 2 times 4 = 8$.
+]
+
+#example[
   *RSA Encryption* provides a concrete example of a homomorphic property. Consider the RSA encryption setup where $N$ is the modulus and $e$ is the public exponent. In practice, $N$ is chosen as the product of two distinct large prime numbers ($N = p q$) to provide the cryptographic trapdoor; knowing these primes allows the receiver to compute Euler's totient function $phi(N)$ and derive the private decryption key, while keeping it computationally infeasible for adversaries who only know $N$.
 
   The encryption function $E: ZZ_N^* arrow ZZ_N^*$ on the multiplicative group of integers modulo $N$ is defined by:
