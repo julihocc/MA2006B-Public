@@ -34,7 +34,7 @@
 
 // Examples (Keeping as alias or for minor inline examples if needed, but primary focus is Solved Problems)
 // Examples
-#let example = thmbox("example", "Example", fill: rgb("e8f5e9"), stroke: rgb("2e7d32") + 1pt, base: "heading").with(
+#let example = thmplain("example", "Example", base: "heading").with(
   numbering: "1.1",
 )
 

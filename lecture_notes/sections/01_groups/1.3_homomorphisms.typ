@@ -8,20 +8,20 @@
 ]
 
 #example[
-  The map $exp: (RR, +) arrow (RR^+, dot)$ defined by $x mapsto e^x$ is a homomorphism.
-  - Domain operation is addition ($+$).
-  - Codomain operation is multiplication ($dot$).
-  - Property check: $exp(x+y) = e^(x+y) = e^x dot e^y = exp(x) dot exp(y)$.
+  The map $exp: (RR, +) arrow (RR^+, dot)$ defined by $x |-> e^x$ is a homomorphism. The operation in the domain is the standard addition of real numbers, while the operation in the codomain is the standard multiplication of positive real numbers. We can verify the homomorphism property by observing that for any $x, y in RR$, we have
+  $ exp(x+y) = e^(x+y) = e^x dot e^y = exp(x) dot exp(y). $
 ]
 
 #proposition("Properties of Homomorphisms")[
-  - $phi(e_G) = e_H$ (maps identity to identity)
-  - $phi(a^(-1)) = phi(a)^(-1)$ (maps inverses to inverses)
+  Let $phi: G arrow H$ be a group homomorphism. Then the following properties hold:
+  1. $phi(e_G) = e_H$, meaning $phi$ maps the identity of $G$ to the identity of $H$.
+  2. $phi(a^(-1)) = phi(a)^(-1)$ for all $a in G$, meaning $phi$ maps inverses to inverses.
 ]
 
 #proof[
-  1. $phi(e_G) = phi(e_G dot e_G) = phi(e_G) * phi(e_G)$. Multiplying by $phi(e_G)^(-1)$ gives $e_H = phi(e_G)$.
-  2. $e_H = phi(e_G) = phi(a dot a^(-1)) = phi(a) * phi(a^(-1))$. Thus $phi(a^(-1))$ is the inverse of $phi(a)$.
+  For the first property, observe that $e_G = e_G dot e_G$. Applying $phi$ to both sides yields $phi(e_G) = phi(e_G dot e_G) = phi(e_G) * phi(e_G)$. Right-multiplying both sides by the inverse $phi(e_G)^(-1)$ in $H$ gives $e_H = phi(e_G)$.
+
+  For the second property, we use the fact that $a dot a^(-1) = e_G$. Applying $phi$ yields $phi(a dot a^(-1)) = phi(e_G)$. Since $phi$ is a homomorphism and preserves the identity, we have $phi(a) * phi(a^(-1)) = e_H$. Therefore, $phi(a^(-1))$ is the inverse of $phi(a)$ in $H$, which means $phi(a^(-1)) = phi(a)^(-1)$.
 ]
 
 #definition("Normal Subgroup")[
@@ -42,7 +42,7 @@
   Therefore $N$ is normal by definition.
 ]
 
-#definition(title: "Kernel")[
+#definition("Kernel")[
   The *Kernel* of $phi$, denoted $ker(phi)$, is the set ${g in G | phi(g) = e_H}$.
 ]
 
@@ -56,6 +56,23 @@
   $ phi(g dot k dot g^(-1)) = phi(g) * phi(k) * phi(g)^(-1) = phi(g) * e_H * phi(g)^(-1) = e_H $.
   Hence $g dot k dot g^(-1) in ker(phi)$.
   By the definition of normal subgroup, $ker(phi)$ is normal in $G$.
+]
+
+#definition("Image")[
+  The *Image* of a homomorphism $phi: G arrow H$, denoted $"Im"(phi)$ or $phi(G)$, is the set ${phi(g) | g in G}$.
+]
+
+#proposition("Image is a Subgroup")[
+  For a group homomorphism $phi: G arrow H$, the image $"Im"(phi)$ is a subgroup of $H$.
+]
+
+#definition("Isomorphism")[
+  An *isomorphism* is a bijective group homomorphism. If such a map exists between $G$ and $H$, they are said to be *isomorphic*, denoted $G tilde.eq H$.
+]
+
+#theorem("First Isomorphism Theorem")[
+  Let $phi: G arrow H$ be a group homomorphism. Then the quotient group $G slash ker(phi)$ is isomorphic to the image of $phi$:
+  $ G slash ker(phi) tilde.eq "Im"(phi) $
 ]
 
 #example[
@@ -79,26 +96,26 @@
 ]
 
 #example[
-  *Homomorphic Encryption (HE)*: Allows computation on encrypted data.
-  If $E$ is an encryption function that is homomorphic with respect to operation $+$, then:
-  $ E(m_1) +_{"cipher"} E(m_2) = E(m_1 +_{"plain"} m_2) $
-  This allows a server to compute the sum of encrypted numbers without knowing the numbers themselves.
+  *Homomorphic Encryption (HE)* is a cryptographic scheme that allows computation on encrypted data without first decrypting it. If $E$ is an encryption function that is homomorphic with respect to an operation $+$, then the encryption scheme satisfies the property:
+  $ E(m_1) +_{"cipher"} E(m_2) = E(m_1 +_{"plain"} m_2). $
+  This property allows a server or an untrusted third party to compute the sum of two encrypted numbers without ever having access to the plain text numbers themselves, which forms the basis for secure cloud computing and privacy-preserving data analysis.
 ]
 
 === Solved Problems
 
 #solved_problem[
-  Consider $phi: ZZ arrow ZZ_n$ defined by $phi(x) = x mod n$. Prove it is a homomorphism.
+  Consider the map $phi: ZZ arrow ZZ_n$ defined by $phi(x) = x mod n$. Prove that $phi$ is a group homomorphism.
 ]
 #solution[
-  We need to check the homomorphism property $phi(x+y) = phi(x) +_n phi(y)$.
+  We must verify that $phi$ satisfies the homomorphism property, namely that $phi(x+y) = phi(x) +_n phi(y)$ for any integers $x, y in ZZ$.
 
-  $phi(x+y) = (x+y) mod n$
+  By the definition of our map, applying $phi$ to the sum $x+y$ gives:
+  $ phi(x+y) = (x+y) mod n. $
 
-  From modular arithmetic properties: $(x+y) mod n = ((x mod n) + (y mod n)) mod n$.
+  From the fundamental properties of modular arithmetic, we know that the modulo operation distributes over addition, meaning:
+  $ (x+y) mod n = ((x mod n) + (y mod n)) mod n. $
 
-  This is exactly the definition of addition in $ZZ_n$, i.e., $phi(x) +_n phi(y)$.
-  Thus, $phi$ is a homomorphism.
+  This expression corresponds exactly to the definition of modular addition $+_n$ in the group $ZZ_n$. Substituting our function $phi$ back into this expression yields $phi(x) +_n phi(y)$. Thus, we have shown that $phi(x+y) = phi(x) +_n phi(y)$, establishing that $phi$ is indeed a homomorphism.
 ]
 
 #solved_problem[
@@ -145,14 +162,14 @@
   )
 
   #question(
-    [The kernel of a homomorphism $phi: G arrow H$ consists of element mapping to:],
+    [The kernel of a homomorphism $phi: G arrow H$ consists of elements mapping to:],
     ([The identity of $G$], [The identity of $H$], [Any element of $H$], [The generators of $G$]),
     1,
   )
 
   #question(
     [An isomorphism is a homomorphism that is also:],
-    ("Injective only", "Surjective only", "Bijective", "Constant"),
+    ([Injective only], [Surjective only], [Bijective], [Constant]),
     2,
   )
 
