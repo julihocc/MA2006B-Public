@@ -120,6 +120,10 @@
   This formalizes the intuitive idea that the group of integers divided into "even" and "odd" cosets behaves exactly like integer arithmetic modulo $2$.
 ]
 
+#definition("Euler's Totient Function")[
+  For a positive integer $N$, *Euler's Totient Function*, denoted as $phi(N)$, counts the number of integers in the range $1 <= k <= N$ that are coprime to $N$ (i.e., their greatest common divisor with $N$ is $1$). This value corresponds to the order of the multiplicative group of integers modulo $N$, denoted $|ZZ_N^*|$. If $N$ is the product of two distinct primes $p$ and $q$, then $phi(N) = (p-1)(q-1)$.
+]
+
 #example[
   *RSA Encryption* provides a concrete example of a homomorphic property. Consider the RSA encryption setup where $N$ is the modulus and $e$ is the public exponent. In practice, $N$ is chosen as the product of two distinct large prime numbers ($N = p q$) to provide the cryptographic trapdoor; knowing these primes allows the receiver to compute Euler's totient function $phi(N)$ and derive the private decryption key, while keeping it computationally infeasible for adversaries who only know $N$.
 
