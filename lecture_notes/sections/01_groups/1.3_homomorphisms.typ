@@ -96,9 +96,11 @@
 ]
 
 #example[
-  *Homomorphic Encryption (HE)* is a cryptographic scheme that allows computation on encrypted data without first decrypting it. If $E$ is an encryption function that is homomorphic with respect to an operation $+$, then the encryption scheme satisfies the property:
-  $ E(m_1) +_{"cipher"} E(m_2) = E(m_1 +_{"plain"} m_2). $
-  This property allows a server or an untrusted third party to compute the sum of two encrypted numbers without ever having access to the plain text numbers themselves, which forms the basis for secure cloud computing and privacy-preserving data analysis.
+  *RSA Encryption* provides a concrete example of a homomorphic property. Consider the RSA encryption setup where $N$ is the modulus and $e$ is the public exponent. The encryption function $E: ZZ_N^* arrow ZZ_N^*$ on the multiplicative group of integers modulo $N$ is defined by:
+  $ E(m) = m^e mod N. $
+  We can compute the product of two encrypted messages $E(m_1)$ and $E(m_2)$ without decrypting them. Observe that:
+  $ E(m_1) E(m_2) = (m_1^e mod N)(m_2^e mod N) equiv (m_1 m_2)^e mod N = E(m_1 m_2). $
+  Thus, $E$ forms a group homomorphism from $(ZZ_N^*, dot)$ to itself, preserving the multiplicative structure.
 ]
 
 === Solved Problems
