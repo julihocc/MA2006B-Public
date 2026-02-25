@@ -139,6 +139,9 @@
   Now compute the encryption of their formal product $m_1 m_2 = 2 times 4 = 8$:
   $ E(m_1 m_2) = E(8) = 8^3 mod 15 = 512 mod 15 = 2. $
   As expected, $E(2)E(4) = E(2 times 4) = 2$, verifying the homomorphic property.
+
+  To decrypt a ciphertext $c$, the receiver uses the private key $d$, which is the modular multiplicative inverse of $e$ modulo $phi(N)$. The decryption function is $D(c) = c^d mod N$. In our example where $N = 3 times 5 = 15$, we have $phi(15) = (3-1)(5-1) = 8$. We find $d$ such that $3d equiv 1 mod 8$, which yields $d = 3$. Thus, to decrypt the ciphertext $c = 8$ back to $m_1$:
+  $ D(8) = 8^3 mod 15 = 512 mod 15 = 2. $
 ]
 
 === Solved Problems
