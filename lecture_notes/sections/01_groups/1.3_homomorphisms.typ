@@ -126,6 +126,17 @@
   We can compute the product of two encrypted messages $E(m_1)$ and $E(m_2)$ without decrypting them. Observe that:
   $ E(m_1) E(m_2) = (m_1^e mod N)(m_2^e mod N) equiv (m_1 m_2)^e mod N = E(m_1 m_2). $
   Thus, $E$ forms a group homomorphism from $(ZZ_N^*, dot)$ to itself, preserving the multiplicative structure.
+
+  For a concrete numerical example, let $N = 15$ and $e = 3$. Our encryption map is $E(m) = m^3 mod 15$.
+  Consider two plaintext messages $m_1 = 2$ and $m_2 = 4$ in $ZZ_(15)^*$.
+  Their encryptions are:
+  $ E(2) = 2^3 mod 15 = 8 mod 15 = 8, $
+  $ E(4) = 4^3 mod 15 = 64 mod 15 = 4. $
+  The product of the encrypted messages is $E(2) E(4) = 8 times 4 = 32 equiv 2 mod 15$.
+
+  Now compute the encryption of their formal product $m_1 m_2 = 2 times 4 = 8$:
+  $ E(m_1 m_2) = E(8) = 8^3 mod 15 = 512 mod 15 = 2. $
+  As expected, $E(2)E(4) = E(2 times 4) = 2$, verifying the homomorphic property.
 ]
 
 === Solved Problems
