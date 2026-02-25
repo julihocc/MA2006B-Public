@@ -1,6 +1,5 @@
 = Group Theory
 
-== Introduction
 Group theory is the study of algebraic structures known as groups. The concept of a group is central to abstract algebra and has fundamental applications in cryptography, particularly in public-key cryptosystems like RSA and Elliptic Curve Cryptography (ECC). Understanding groups, subgroups, and mappings between them (homomorphisms) is essential for grasping the security mechanisms of modern encryption protocols.
 
 #include "1.1_definitions.typ"
