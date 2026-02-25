@@ -58,6 +58,26 @@
   By the definition of normal subgroup, $ker(phi)$ is normal in $G$.
 ]
 
+#example[
+  For the homomorphism $phi: ZZ arrow ZZ_2$ given by $phi(x) = x mod 2$:
+  Sample values are $phi(0) = 0, phi(1) = 1, phi(2) = 0, phi(3) = 1$, so parity is exactly what the map records.
+
+  For addition,
+  $ phi(a+b) = (a+b) mod 2 = ((a mod 2) + (b mod 2)) mod 2 = phi(a) +_2 phi(b), $
+  so as a map $(ZZ,+) arrow (ZZ_2,+_2)$, $phi$ is a group homomorphism.
+
+  Also,
+  $ phi(a b) = (a b) mod 2 = ((a mod 2)(b mod 2)) mod 2 = phi(a) phi(b), $
+  so reduction modulo $2$ preserves multiplication as well (hence it is also a ring homomorphism $ZZ arrow ZZ_2$).
+
+  Now compute the kernel:
+  $ ker(phi) = {x in ZZ | phi(x) = 0} = {x in ZZ | x mod 2 = 0}. $
+  This means $x$ is even, i.e., $x = 2k$ for some $k in ZZ$, so
+  $ ker(phi) = 2ZZ = {..., -4, -2, 0, 2, 4, ...}. $
+
+  By the proposition "Kernel is Normal", this kernel is a normal subgroup of $ZZ$.
+]
+
 #definition("Image")[
   The *Image* of a homomorphism $phi: G arrow H$, denoted $"Im"(phi)$ or $phi(G)$, is the set ${phi(g) | g in G}$.
 ]
@@ -93,23 +113,11 @@
 ]
 
 #example[
-  For the homomorphism $phi: ZZ arrow ZZ_2$ given by $phi(x) = x mod 2$:
-  Sample values are $phi(0) = 0, phi(1) = 1, phi(2) = 0, phi(3) = 1$, so parity is exactly what the map records.
+  Recall the homomorphism $phi: ZZ arrow ZZ_2$ given by $phi(x) = x mod 2$. We previously determined that its kernel is the set of even integers, $ker(phi) = 2ZZ$. Because $phi(0) = 0$ and $phi(1) = 1$, the map is surjective onto $ZZ_2$, meaning $"Im"(phi) = ZZ_2$.
 
-  For addition,
-  $ phi(a+b) = (a+b) mod 2 = ((a mod 2) + (b mod 2)) mod 2 = phi(a) +_2 phi(b), $
-  so as a map $(ZZ,+) arrow (ZZ_2,+_2)$, $phi$ is a group homomorphism.
-
-  Also,
-  $ phi(a b) = (a b) mod 2 = ((a mod 2)(b mod 2)) mod 2 = phi(a) phi(b), $
-  so reduction modulo $2$ preserves multiplication as well (hence it is also a ring homomorphism $ZZ arrow ZZ_2$).
-
-  Now compute the kernel:
-  $ ker(phi) = {x in ZZ | phi(x) = 0} = {x in ZZ | x mod 2 = 0}. $
-  This means $x$ is even, i.e., $x = 2k$ for some $k in ZZ$, so
-  $ ker(phi) = 2ZZ = {..., -4, -2, 0, 2, 4, ...}. $
-
-  By the proposition "Kernel is Normal", this kernel is a normal subgroup of $ZZ$.
+  By applying the First Isomorphism Theorem with $G = ZZ$ and $K = 2ZZ$, we establish the standard isomorphism between the quotient group of integers modulo $2$ and the group $ZZ_2$:
+  $ ZZ slash 2ZZ tilde.eq ZZ_2. $
+  This formalizes the intuitive idea that the group of integers divided into "even" and "odd" cosets behaves exactly like integer arithmetic modulo $2$.
 ]
 
 #example[
