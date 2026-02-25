@@ -75,6 +75,23 @@
   $ G slash ker(phi) tilde.eq "Im"(phi) $
 ]
 
+#proof[
+  Let $K = ker(phi)$. We define a map $tilde(phi): G slash K arrow "Im"(phi)$ by $tilde(phi)(g K) = phi(g)$. We must show this map is well-defined, a homomorphism, and bijective.
+
+  1. *Well-defined:* Suppose $g_1 K = g_2 K$. Then $g_1^(-1) g_2 in K$. By the definition of the kernel, $phi(g_1^(-1) g_2) = e_H$. Since $phi$ is a homomorphism, we have $phi(g_1)^(-1) phi(g_2) = e_H$, which implies $phi(g_1) = phi(g_2)$. Thus, $tilde(phi)(g_1 K) = tilde(phi)(g_2 K)$, so the map does not depend on the choice of the coset representative.
+
+  2. *Homomorphism property:* Using the group operation of the quotient group, we have
+  $
+    tilde(phi)((g_1 K)(g_2 K)) = tilde(phi)((g_1 g_2) K) = phi(g_1 g_2) = phi(g_1) phi(g_2) = tilde(phi)(g_1 K) tilde(phi)(g_2 K).
+  $
+
+  3. *Surjectivity:* For any element $h in "Im"(phi)$, there exists some $g in G$ such that $phi(g) = h$. But then $tilde(phi)(g K) = phi(g) = h$, so every element in $"Im"(phi)$ is mapped to.
+
+  4. *Injectivity:* Suppose $tilde(phi)(g K) = e_H$. Then $phi(g) = e_H$, which means $g in K$. Thus, the coset $g K = K$, which is the identity element of the quotient group $G slash K$. Since the kernel of $tilde(phi)$ contains only the identity element, $tilde(phi)$ is injective.
+
+  Since $tilde(phi)$ is a well-defined, bijective homomorphism, it is an isomorphism. Therefore, $G slash K tilde.eq "Im"(phi)$.
+]
+
 #example[
   For the homomorphism $phi: ZZ arrow ZZ_2$ given by $phi(x) = x mod 2$:
   Sample values are $phi(0) = 0, phi(1) = 1, phi(2) = 0, phi(3) = 1$, so parity is exactly what the map records.
