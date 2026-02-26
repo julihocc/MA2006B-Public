@@ -32,11 +32,23 @@
 // Algorithms
 #let algorithm = thmbox("algorithm", "Algorithm", fill: rgb("f3e5f5"), stroke: rgb("6a1b9a") + 1pt, base: "heading")
 
-// Examples (Keeping as alias or for minor inline examples if needed, but primary focus is Solved Problems)
 // Examples
-#let example = thmplain("example", "Example", base: "heading").with(
+#let _example = thmplain("example", "Example", base: "heading").with(
   numbering: "1.1",
 )
+
+#let example(..args) = {
+  block(
+    breakable: true,
+    fill: rgb("eef7ff"),
+    inset: 8pt,
+    radius: 4pt,
+    width: 100%,
+    [
+      #_example(..args)
+    ],
+  )
+}
 
 // Notes
 #let note = thmbox("note", "Note", fill: rgb("f5f5f5"), stroke: rgb("616161") + 1pt, base: "heading")
