@@ -40,7 +40,7 @@
 #let example(..args) = {
   block(
     breakable: true,
-    fill: rgb("eef7ff"),
+    fill: rgb("f5f5f5"),
     inset: 8pt,
     radius: 4pt,
     width: 100%,
@@ -51,7 +51,7 @@
 }
 
 // Notes
-#let note = thmbox("note", "Note", fill: rgb("f5f5f5"), stroke: rgb("616161") + 1pt, base: "heading")
+#let note = thmbox("note", "Note", fill: rgb("e8f5e9"), stroke: rgb("2e7d32") + 1pt, base: "heading")
 
 // Solved Problems (Schaum's Style)
 #let solved_problem = thmbox(
