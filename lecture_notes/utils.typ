@@ -92,13 +92,14 @@
   set text(size: 0.95em)
   quiz-counter.update(0) // Reset counter for each quiz
   block(
-    fill: rgb("e3f2fd"),
+    breakable: true,
+    fill: rgb("e0f7fa"),
     inset: 16pt,
     radius: 4pt,
-    stroke: rgb("1565c0") + 1pt,
+    stroke: rgb("00838f") + 0.8pt,
     width: 100%,
     [
-      #text(weight: "bold", size: 1.2em, fill: rgb("0d47a1"))[Self-Evaluation Quiz]
+      #text(weight: "bold", size: 1.2em, fill: rgb("006064"))[Self-Evaluation Quiz]
       #v(8pt)
       #body
     ],
