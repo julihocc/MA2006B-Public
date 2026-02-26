@@ -157,7 +157,7 @@
 === Supplementary Problems
 
 #supplementary[
-  Prove that the map $phi: C arrow C$ given by $phi(z) = overline(z)$ (complex conjugation) is an automorphism of the additive group of complex numbers.
+  Prove that the map $phi: CC arrow CC$ given by $phi(z) = overline(z)$ (complex conjugation) is an automorphism of the additive group of complex numbers.
 ]
 
 #supplementary[
