@@ -173,7 +173,7 @@
 ]
 
 #supplementary[
-  Determining the automorphism group of $Z_8$, i.e., find $"Aut"(Z_8)$.
+  Determine the automorphism group of $Z_8$, i.e., find $"Aut"(Z_8)$.
 ]
 
 #supplementary[
