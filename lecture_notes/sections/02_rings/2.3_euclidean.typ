@@ -9,9 +9,7 @@
   where either $r = 0$ or $N(r) < N(b)$.
 ]
 
-#example[
-  The ring of integers $ZZ$ is a Euclidean domain with norm $N(a) = |a|$. The ring of polynomials $F[x]$ over a field $F$ is a Euclidean domain with norm $N(f) = deg(f)$.
-]
+
 
 #theorem("Extended Euclidean Algorithm (EEA)")[
   The Extended Euclidean Algorithm (EEA) finds the greatest common divisor (GCD) and coefficients $x, y$ such that $a x + b y = "gcd"(a, b)$.
@@ -22,13 +20,25 @@
   Since $N(r_i)$ is a strictly decreasing sequence of non-negative integers, it must terminate with $r_k = 0$. The last non-zero remainder $r_(k-1)$ divides all previous remainders and linear combinations, so it is the GCD. Back-substitution yields $x, y$.
 ]
 
-#example[
-  *Key Generation*:
+
+
+=== Solved Problems
+
+#solved_problem[
+  Name two common examples of Euclidean domains and specify their Euclidean norm functions.
+]
+#solution[
+  - The ring of integers $ZZ$ is a Euclidean domain with norm $N(a) = |a|$.
+  - The ring of polynomials $F[x]$ over a field $F$ is a Euclidean domain with norm $N(f) = deg(f)$.
+]
+
+#solved_problem[
+  How is the Extended Euclidean Algorithm (EEA) applied in cryptographic key generation?
+]
+#solution[
   - *RSA Key Generation*: The EEA is used to compute the modular multiplicative inverse of the public exponent $e$ to find the private key $d$ ($e d equiv 1 (mod phi(n))$).
   - *Determining Inverses*: In any finite field, finding inverses is done via the Euclidean algorithm.
 ]
-
-=== Solved Problems
 
 #solved_problem[
   Show that $ZZ$ is a Euclidean domain.

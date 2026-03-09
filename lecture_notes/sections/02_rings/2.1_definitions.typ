@@ -9,29 +9,48 @@
   + Distributive Laws hold: $a dot (b + c) = a dot b + a dot c$ and $(a + b) dot c = a dot c + b dot c$.
 ]
 
-#example[
-  The set of integers $ZZ$ with standard addition and multiplication is a ring. The set of even integers $2ZZ$ is also a ring (without unity). The set of $n times n$ matrices $M_n(RR)$ is a non-commutative ring.
-]
+
 
 #definition[
   - If there is a multiplicative identity (denoted $1$ such that $1 dot a = a dot 1 = a$), it is a *ring with unity*.
   - If multiplication is commutative, it is a *commutative ring*.
 ]
 
-#example[
-  The ring of integers $ZZ$ is a commutative ring with unity $1$. The ring of even integers $2ZZ$ is a commutative ring but has no multiplicative identity. The ring of $2 times 2$ matrices $M_2(RR)$ has a unity (the identity matrix $I$) but is not commutative.
-]
+
 
 #definition("Field")[
   A *field* is a commutative ring with unity where every non-zero element has a multiplicative inverse.
 ]
 
-#example[
-  - *Finite Fields*: $"GF"(p)$ (or $ZZ_p$) where $p$ is prime, are fields widely used in ECC.
-  - *Integers modulo n*: $ZZ_n$ is a ring used in RSA.
-]
+
 
 === Solved Problems
+
+#solved_problem[
+  Give examples of a standard commutative ring, a ring without unity, and a non-commutative ring.
+]
+#solution[
+  - The set of integers $ZZ$ with standard addition and multiplication is a commutative ring.
+  - The set of even integers $2ZZ$ is a ring but has no multiplicative identity (unity).
+  - The set of $n times n$ matrices $M_n(RR)$ is a non-commutative ring.
+]
+
+#solved_problem[
+  Compare the rings $ZZ$, $2ZZ$, and $M_2(RR)$ in terms of commutativity and having a multiplicative unity.
+]
+#solution[
+  - The ring of integers $ZZ$ is a commutative ring with unity $1$.
+  - The ring of even integers $2ZZ$ is a commutative ring but has no multiplicative identity.
+  - The ring of $2 times 2$ matrices $M_2(RR)$ has a unity (the identity matrix $I$) but is not commutative.
+]
+
+#solved_problem[
+  Give an example of a finite field and a commonly used ring in cryptography.
+]
+#solution[
+  - *Finite Fields*: $"GF"(p)$ (or $ZZ_p$) where $p$ is prime, are fields widely used in ECC (Elliptic Curve Cryptography).
+  - *Integers modulo n*: $ZZ_n$ is a ring used in RSA encryption.
+]
 
 #solved_problem[
   In the ring $ZZ_(12)$, compute $5 times 7$ and explain why $ZZ_(12)$ is not a field.

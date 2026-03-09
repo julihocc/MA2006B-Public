@@ -6,9 +6,7 @@
   An *ideal* $I$ of a ring $R$ is a subring such that for all $r in R$ and $x in I$, both $r dot x$ and $x dot r$ are in $I$. Ideals "absorb" multiplication by ring elements.
 ]
 
-#example[
-  The set of multiples of $n$, denoted $n ZZ$, is an ideal of $ZZ$. For any integer $r$ and any multiple $n k$, the product $r(n k) = n(r k)$ is still a multiple of $n$.
-]
+
 
 #definition("Quotient Ring")[
   Given an ideal $I$, we can form the *quotient ring* $R / I$. The elements of $R / I$ are cosets $a + I$, and operations are defined naturally:
@@ -16,9 +14,7 @@
   - $(a + I) dot (b + I) = (a dot b) + I$
 ]
 
-#example[
-  If $R = ZZ$ and $I = 3ZZ$, the quotient ring $ZZ / 3ZZ$ has elements $\{0+3ZZ, 1+3ZZ, 2+3ZZ\}$. This is isomorphic to the integers modulo 3, $ZZ_3$.
-]
+
 
 #proposition("Kernel is an Ideal")[
   The kernel of any ring homomorphism $phi: R arrow S$ is an ideal of $R$.
@@ -33,11 +29,30 @@
     Thus $r dot k in K$ and $k dot r in K$, so $K$ is an ideal.
 ]
 
-#example[
-  *AES S-Box*: Quotient rings are fundamental in constructing finite fields consisting of polynomial bases, e.g., $"GF"(2^8) tilde.eq ZZ_2[x] / P(x)$ where $P(x)$ is an irreducible polynomial. This structure is the basis for the AES S-box.
-]
+
 
 === Solved Problems
+
+#solved_problem[
+  Show intuitively why the set of multiples of $n$, $n ZZ$, forms an ideal of $ZZ$.
+]
+#solution[
+  For any integer $r$ and any multiple $n k$, the product $r(n k) = n(r k)$ is still a multiple of $n$. Thus, $n ZZ$ absorbs multiplication by any ring element from $ZZ$, making it an ideal.
+]
+
+#solved_problem[
+  Describe the elements of the quotient ring $ZZ / 3ZZ$ and identify what it is isomorphic to.
+]
+#solution[
+  If $R = ZZ$ and $I = 3ZZ$, the quotient ring $ZZ / 3ZZ$ has elements $\{0+3ZZ, 1+3ZZ, 2+3ZZ\}$. This is isomorphic to the integers modulo 3, $ZZ_3$.
+]
+
+#solved_problem[
+  Explain how quotient rings are used to construct the AES S-box.
+]
+#solution[
+  Quotient rings are fundamental in constructing finite fields consisting of polynomial bases. For example, $"GF"(2^8) tilde.eq ZZ_2[x] / chevron.l P(x) chevron.r$ where $P(x)$ is an irreducible polynomial. This field structure forms the mathematical basis for the AES S-box.
+]
 
 #solved_problem[
   Show that the set of even integers $2ZZ$ is an ideal of $ZZ$.

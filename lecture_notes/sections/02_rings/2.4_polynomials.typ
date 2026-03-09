@@ -7,18 +7,14 @@
   The division algorithm for polynomials holds if $R$ is a field.
 ]
 
-#example[
-  $ZZ[x]$ is the ring of polynomials with integer coefficients. $RR[x]$ is the ring of polynomials with real coefficients.
-]
+
 
 
 #definition("Irreducible Polynomial")[
   A polynomial $P(x)$ is *irreducible* over a field $F$ if it cannot be factored into two non-constant polynomials in $F[x]$.
 ]
 
-#example[
-  $x^2 + 1$ is irreducible over the reals $RR$ because it has no real roots. However, it is reducible over the complex numbers $CC$ as $(x-i)(x+i)$ and over $ZZ_2$ as $(x+1)^2 = x^2+1$.
-]
+
 
 #theorem("Finite Field Construction")[
   Finite fields of order $p^n$, denoted $"GF"(p^n)$, are constructed as $ZZ_p[x] / chevron.l P(x) chevron.r$ where $P(x)$ is an irreducible polynomial of degree $n$ over $ZZ_p$.
@@ -32,13 +28,33 @@
   Thus every non-zero element has an inverse, making $F$ a field.
 ]
 
-#example[
-  *Cryptography*:
+
+
+=== Solved Problems
+
+#solved_problem[
+  Give two examples of polynomial rings with different coefficient structures.
+]
+#solution[
+  - $ZZ[x]$ is the ring of polynomials with integer coefficients.
+  - $RR[x]$ is the ring of polynomials with real coefficients.
+]
+
+#solved_problem[
+  Analyze the reducibility of the polynomial $x^2 + 1$ over the fields $RR$, $CC$, and $ZZ_2$.
+]
+#solution[
+  The polynomial $x^2 + 1$ is irreducible over the reals $RR$ because it has no real roots.
+  However, it is reducible over the complex numbers $CC$ as $(x-i)(x+i)$ and over $ZZ_2$ as $(x+1)^2 = x^2+1$.
+]
+
+#solved_problem[
+  Which finite fields constructed from polynomials are used in modern cryptography (e.g., AES and ECC)?
+]
+#solution[
   - *AES*: Operates in $"GF"(2^8)$ constructed with the irreducible polynomial $x^8 + x^4 + x^3 + x + 1$.
   - *ECC*: Uses fields $"GF"(2^m)$ or $"GF"(p)$.
 ]
-
-=== Solved Problems
 
 #solved_problem[
   In $ZZ_2[x]$, perform addition and multiplication of $f(x) = x^2 + x + 1$ and $g(x) = x + 1$.
