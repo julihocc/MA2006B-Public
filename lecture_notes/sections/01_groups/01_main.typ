@@ -7,4 +7,3 @@ Group theory is the study of algebraic structures known as groups. The concept o
 #include "1.3_homomorphisms.typ"
 #include "1.4_automorphisms.typ"
 #include "1.5_cayleys_theory.typ"
-#include "1.6_permutation_groups.typ"

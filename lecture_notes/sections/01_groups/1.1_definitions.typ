@@ -48,6 +48,25 @@
   - *RSA*: Uses the multiplicative group of integers modulo $n$, denoted $ZZ_n^*$. This group consists of integers coprime to $n$. Its order is given by Euler's totient function $phi(n)$.
 ]
 
+#definition("Permutation Group")[
+  A *permutation group* is a group $G$ whose elements are permutations of a given set $M$ and whose group operation is function composition.
+]
+
+#definition("Symmetric and Alternating Groups")[
+  The *symmetric group* $S_n$ consists of all permutations of a finite set of $n$ elements. Its order is $|S_n| = n!$.
+
+  Every permutation in $S_n$ can be expressed as a product of transpositions (cycles of length 2). A permutation is *even* if it can be written as the product of an even number of transpositions, and *odd* otherwise.
+  The set of all even permutations in $S_n$ forms a normal subgroup called the *alternating group* $A_n$, with order $|A_n| = n!/2$.
+]
+
+#example[
+  The group $S_3$ contains $6$ elements:
+  - Identity: $e$ (order 1).
+  - Transpositions (2-cycles): $(1 space 2), (1 space 3), (2 space 3)$ (order 2).
+  - 3-Cycles: $(1 space 2 space 3), (1 space 3 space 2)$ (order 3).
+  Isomorphism: $S_3 tilde.eq D_3$ (symmetries of a triangle).
+]
+
 === Solved Problems
 
 #solved_problem[
@@ -87,6 +106,21 @@
 
   Since $3(4) equiv 1$, the multiplicative inverse of 3 is 4.
   $3^(-1) = 4$ in $ZZ_(11)$.
+]
+
+#solved_problem[
+  How many elements does $S_4$ have? List 5 different elements.
+]
+#solution[
+  The order of the symmetric group $S_n$ is $n!$.
+  For $n=4$: $|S_4| = 4! = 4 times 3 times 2 times 1 = 24$.
+
+  Five distinct elements (by cycle structure):
+  1. Identity: $e$
+  2. Transpositions (2-cycles): $(1 space 2)$
+  3. 3-cycles: $(1 space 2 space 3)$
+  4. 4-cycles: $(1 space 2 space 3 space 4)$
+  5. Product of disjoint transpositions: $(1 space 2)(3 space 4)$
 ]
 
 === Self-Evaluation Quiz

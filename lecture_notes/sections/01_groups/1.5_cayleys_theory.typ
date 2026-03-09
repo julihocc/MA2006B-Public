@@ -31,6 +31,23 @@
   *Significance*: Cayley's theorem is theoretically significant as it allows us to represent abstract groups concretely using permutations. In computational group theory, permutation representations are often easier to store and manipulate in a computer than abstract definitions, allowing for efficient algorithms to determine group properties.
 ]
 
+#proposition("Cycle Decomposition")[
+  Any permutation can be decomposed into disjoint cycles. The order of a permutation is the least common multiple (LCM) of the lengths of these disjoint cycles.
+]
+
+#proof[
+  Consider the limit of the sequence $x, sigma(x), sigma^2(x), ...$ for any $x$. Since the set is finite, it must loop back to $x$. This forms a cycle. Removing these elements and repeating the process decomposes the entire permutation into disjoint cycles.
+  For disjoint cycles, operations commute. Order is the smallest $k$ such that $"LCM"(l_1, ..., l_m)$ divides $k$.
+]
+
+#example[
+  *Ciphers*: Permutation groups are fundamental to cryptography.
+  - *Enigma Machine*: Used a series of rotors to generate a complex, changing permutation for each keystroke.
+  - *AES (SPN)*: Uses Substitution-Permutation Networks.
+    - *Substitution*: S-Boxes (nonlinear map).
+    - *Permutation*: ShiftRows and MixColumns operations permute bits/bytes to diffuse information across the state.
+]
+
 === Solved Problems
 
 #solved_problem[
@@ -77,6 +94,51 @@
   The map $phi: G arrow S_G$ given by $phi(g) = lambda_g$ is a group homomorphism.
   One of the fundamental theorems of homomorphisms states that the image of a homomorphism $Im(phi)$ is always a subgroup of the codomain.
   Since $S_G$ is the codomain and $G$ is a group, the set of permutations ${lambda_g | g in G}$ forms a subgroup of the symmetric group $S_G$.
+]
+
+#solved_problem[
+  In $S_5$, let $sigma = (1 space 2 space 3)(4 space 5)$. Find the order of $sigma$ and compute $sigma^2$.
+]
+#solution[
+  The permutation $sigma = (1 space 2 space 3)(4 space 5)$ consists of a 3-cycle and a 2-cycle.
+  1. *Order*: Since the cycles are disjoint, the order is the Least Common Multiple (LCM) of their lengths.
+    Order $= lcm(3, 2) = 6$.
+  2. *Compute $sigma^2$*:
+    $sigma^2 = ((1 space 2 space 3)(4 space 5))^2$
+    Since disjoint cycles commute:
+    $= (1 space 2 space 3)^2 (4 space 5)^2$
+    - Square of 3-cycle $(a b c)$ is $(a c b)$: $(1 space 2 space 3)^2 = (1 space 3 space 2)$.
+    - Square of 2-cycle $(d e)$ is identity: $(4 space 5)^2 = e$.
+    Result: $(1 space 3 space 2)$.
+]
+
+#solved_problem[
+  Calculate the product of permutations $pi = (1 space 3 space 4)$ and $sigma = (1 space 2)(3 space 4)$ in $S_4$.
+]
+#solution[
+  We compute the composition $pi sigma$ from right to left.
+  $sigma = (1 space 2)(3 space 4)$ and $pi = (1 space 3 space 4)$.
+  Track each element:
+  - $1$: $sigma(1)=2$, then $pi(2)=2$ (since 2 is fixed by $pi$). Result: $1 arrow 2$.
+  - $2$: $sigma(2)=1$, then $pi(1)=3$. Result: $2 arrow 3$.
+  - $3$: $sigma(3)=4$, then $pi(4)=1$. Result: $3 arrow 1$.
+    (Cycle closes: $(1 space 2 space 3)$).
+  - $4$: $sigma(4)=3$, then $pi(3)=4$. Result: $4 arrow 4$ (Fixed point).
+
+  Final result in disjoint cycle notation: $(1 space 2 space 3)$.
+]
+
+#solved_problem[
+  Find the order of the permutation $(1 space 2 space 4)(3 space 5 space 6)$ in $S_6$.
+]
+#solution[
+  The permutation is given as a product of two cycles: $(1 space 2 space 4)$ and $(3 space 5 space 6)$.
+  1. Check if they are disjoint: The sets of numbers $\{1, 2, 4\}$ and $\{3, 5, 6\}$ have no common elements. They are disjoint.
+  2. Determine lengths:
+    - $(1 space 2 space 4)$ has length 3.
+    - $(3 space 5 space 6)$ has length 3.
+  3. Calculate order:
+    Order $= lcm(3, 3) = 3$.
 ]
 
 
