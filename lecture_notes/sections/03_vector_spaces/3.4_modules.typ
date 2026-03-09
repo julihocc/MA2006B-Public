@@ -12,20 +12,31 @@
   + $1_R dot m = m$ (if $R$ has a multiplicative identity $1_R$)
 ]
 
-#example[
-  *Vector Spaces*: Every vector space cover a field $K$ is a $K$-module. The difference is just that in a module, the scalars come from a ring (which may not have division), whereas in a vector space they come from a field.
-]
 
-#example[
-  *Abelian Groups*: Every abelian group $G$ can be viewed as a $ZZ$-module.
-  For $n in ZZ$ and $g in G$, $n g$ is defined as repeated addition (if $n > 0$) or subtraction (if $n < 0$).
-]
+
+
 
 #definition("Submodule")[
   A subset $N$ of an $R$-module $M$ is a *submodule* if $N$ is a subgroup of $(M, +)$ and is closed under scalar multiplication by elements of $R$ (i.e., $r in R, n in N => r n in N$).
 ]
 
 === Solved Problems
+
+=== Solved Problems
+
+#solved_problem[
+  Contrast Vector Spaces and Modules. What is their primary structural difference?
+]
+#solution[
+  Every vector space over a field $K$ is a $K$-module. The primary difference is that in a module, the scalars come from a ring (which may not have division), whereas in a vector space they come from a field.
+]
+
+#solved_problem[
+  Explain how every Abelian group $G$ can be viewed as a module over $ZZ$.
+]
+#solution[
+  For $n in ZZ$ and $g in G$, scalar multiplication $n g$ is defined as repeated addition (if $n > 0$) or subtraction (if $n < 0$).
+]
 
 #solved_problem[
   Explain why $ZZ$ is a $ZZ$-module, but not a vector space over $QQ$.

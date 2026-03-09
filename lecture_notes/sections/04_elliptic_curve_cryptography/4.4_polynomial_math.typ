@@ -23,8 +23,14 @@
   - *Division*: Performed using the Extended Euclidean Algorithm for polynomials to find the multiplicative inverse.
 ]
 
-#example("Polynomial Division")[
-  Divide $A(x) = x^3 + x + 1$ by $B(x) = x + 1$ over $ZZ_2$:
+
+
+=== Solved Problems
+
+#solved_problem[
+  Perform Polynomial Division of $A(x) = x^3 + x + 1$ by $B(x) = x + 1$ over $ZZ_2$.
+]
+#solution[
   1. $x^3 / x = x^2$. Multiply $B(x)$ by $x^2$: $x^2(x+1) = x^3 + x^2$.
   2. Subtract (XOR): $(x^3 + x + 1) - (x^3 + x^2) = x^2 + x + 1$.
   3. $x^2 / x = x$. Multiply $B(x)$ by $x$: $x(x+1) = x^2 + x$.
@@ -32,8 +38,6 @@
   5. Quotient is $x^2 + x$, Remainder is $1$.
   So $x^3 + x + 1 = (x^2 + x)(x + 1) + 1$.
 ]
-
-=== Solved Problems
 
 #solved_problem[
   In $"GF"(2^3)$ represented by polynomials modulo $P(x) = x^3 + x + 1$, compute the sum of $(x^2 + 1)$ and $(x^2 + x)$.

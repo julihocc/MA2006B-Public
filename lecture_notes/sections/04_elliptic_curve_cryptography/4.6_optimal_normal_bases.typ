@@ -18,15 +18,20 @@
   - *Parallelism*: The operations can be highly parallelized.
 ]
 
-#example("NIST Recommended Fields")[
+
+
+=== Solved Problems
+
+#solved_problem[
+  Provide examples of NIST recommended binary fields that utilize Optimal Normal Bases.
+]
+#solution[
   Common binary fields with Optimal Normal Bases used in standards:
   - $n=163$ (Type I does not exist, checked for Type II)
   - $n=233$ (Type II)
   - $n=409$ (Type II)
   - $n=571$ (Type II)
 ]
-
-=== Solved Problems
 
 #solved_problem[
   Identify the condition for a Type I ONB to exist for $"GF"(2^n)$.
