@@ -1,0 +1,6 @@
+warning: `plus.circle` is deprecated, use `plus.o` instead
+    ┌─ \\?\C:\Users\julih\REPOSITORIES\MA2006B-Lecture-Notes\lecture_notes\sections\03_vector_spaces\3.1_linear_independence.typ:203:135
+    │
+203 │   If $dim(V) = 5$ and $W$ is a 3-dimensional subspace of $V$, what are the possible dimensions of a subspace $U$ such that $V = W plus.circle U$ (direct sum)?
+    │                                                                                                                                        ^^^^^^
+

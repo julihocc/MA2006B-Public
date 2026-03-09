@@ -12,6 +12,19 @@
   If the operation is also commutative (i.e., $a dot b = b dot a$ for all $a, b in G$), the group is called an *abelian group*.
 ]
 
+#definition("Integers Modulo n")[
+  The set $ZZ_n = {0, 1, ..., n-1}$ forms a group under addition modulo $n$. It is an abelian group of order $n$.
+  The multiplicative group of integers modulo $n$, denoted $ZZ_n^*$, consists of all integers in $ZZ_n$ that are coprime to $n$, equipped with multiplication modulo $n$.
+]
+
+#definition("Cyclic Group")[
+  A group $G$ is called *cyclic* if there exists an element $g in G$ such that every element of $G$ can be written as a power of $g$ (or a multiple of $g$ in additive notation). The element $g$ is called a *generator* of $G$, denoted $G = <g>$.
+]
+
+#definition("Direct Product")[
+  Given two groups $(G, dot)$ and $(H, *)$, their *direct product* $G times H$ is a group whose elements are ordered pairs $(g, h)$ with $g in G$ and $h in H$. The group operation is defined component-wise: $(g_1, h_1)(g_2, h_2) = (g_1 dot g_2, h_1 * h_2)$.
+]
+
 #example[
   The set of integers $ZZ$ under addition is an infinite abelian group.
   - *Closure*: $a + b$ is an integer for all $a, b in ZZ$.

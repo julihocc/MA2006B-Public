@@ -1,0 +1,20 @@
+error: unexpected closing bracket
+  ┌─ \\?\C:\Users\julih\REPOSITORIES\MA2006B-Lecture-Notes\lecture_notes\sections\01_groups\1.6_permutation_groups.typ:6:0
+  │
+6 │ ]
+  │ ^
+  │
+  = hint: try using a backslash escape: \]
+
+help: error occurred while importing this module
+   ┌─ \\?\C:\Users\julih\REPOSITORIES\MA2006B-Lecture-Notes\lecture_notes\sections\01_groups\01_main.typ:10:9
+   │
+10 │ #include "1.6_permutation_groups.typ"
+   │          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+help: error occurred while importing this module
+   ┌─ \\?\C:\Users\julih\REPOSITORIES\MA2006B-Lecture-Notes\lecture_notes\lecture_notes.typ:35:9
+   │
+35 │ #include "sections/01_groups/01_main.typ"
+   │          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+

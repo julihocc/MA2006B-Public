@@ -6,6 +6,18 @@
   A subset $H$ of a group $G$ is called a *subgroup* if $H$ itself forms a group under the same operation defined on $G$. We denote this as $H lt.eq G$.
 ]
 
+#definition("Center of a Group")[
+  The *center* of a group $G$, denoted $Z(G)$, is the subset of elements in $G$ that commute with every element of $G$:
+  $ Z(G) = {z in G | z g = g z " for all " g in G} $
+  The center is always a normal subgroup of $G$. If $G$ is abelian, then $Z(G) = G$.
+]
+
+#definition("Centralizer and Normalizer")[
+  For a subset $S$ of a group $G$, the *centralizer* of $S$, denoted $C(S)$, is the set of elements in $G$ that commute with every element of $S$.
+  The *normalizer* of $S$, denoted $N(S)$, is the set of elements $g in G$ such that $g S g^(-1) = S$.
+  Both $C(S)$ and $N(S)$ are subgroups of $G$, and $C(S) subset.eq N(S)$.
+]
+
 #example[
   The set of even integers $2ZZ = {..., -4, -2, 0, 2, 4, ...}$ is a subgroup of the integers $ZZ$ under addition.
   - *Subset*: Clearly $2ZZ subset ZZ$.
