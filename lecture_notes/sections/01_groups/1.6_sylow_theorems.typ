@@ -27,8 +27,18 @@
   3. $n_p = |G : N(P)|$, where $N(P)$ is the normalizer of any Sylow $p$-subgroup $P$.
 ]
 
+#note[
+  _The proofs of the primary Sylow Theorems involve complex combinatorial arguments via group actions and the orbit-stabilizer theorem. They are omitted here as they fall outside the introductory scope._
+]
+
 #proposition("Normal Sylow p-subgroups")[
   A Sylow $p$-subgroup $P$ of $G$ is a normal subgroup of $G$ ($P triangle.l G$) if and only if it is the *unique* Sylow $p$-subgroup of $G$ (i.e., $n_p = 1$).
+]
+
+#proof[
+  $(=>)$ Suppose $P triangle.l G$. Let $P'$ be another Sylow $p$-subgroup. By the Second Sylow Theorem, $P$ and $P'$ are conjugate, meaning there exists $g in G$ such that $P' = g P g^(-1)$. Since $P$ is normal, $g P g^(-1) = P$ for all $g in G$. Therefore, $P' = P$, so $P$ is unique ($n_p = 1$).
+
+  $(<=)$ Suppose $P$ is unique ($n_p = 1$). For any $g in G$, the conjugate subgoup $g P g^(-1)$ is also a Sylow $p$-subgroup (conjugation preserves the order). Since $P$ is unique, we must have $g P g^(-1) = P$ for all $g in G$. Thus, $P triangle.l G$ by definition.
 ]
 
 

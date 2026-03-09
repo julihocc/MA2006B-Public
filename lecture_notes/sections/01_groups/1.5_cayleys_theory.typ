@@ -6,6 +6,10 @@
   Every group $G$ is isomorphic to a subgroup of the symmetric group acting on $G$. In other words, every group can be considered as a group of permutations.
 ]
 
+#proof[
+  The proof is constructive. We define a specific permutation for each element in the group (the left regular representation) and show this mapping is an injective homomorphism. This construction is detailed formally in the subsequent "Permutation Representation" proposition below.
+]
+
 
 
 #proposition("Permutation Representation")[

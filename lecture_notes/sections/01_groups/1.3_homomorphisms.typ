@@ -64,6 +64,15 @@
   For a group homomorphism $phi: G arrow H$, the image $"Im"(phi)$ is a subgroup of $H$.
 ]
 
+#proof[
+  Let $Im = "Im"(phi)$. We use the subgroup test: Let $h_1, h_2 in Im$. Then there exist $g_1, g_2 in G$ such that $phi(g_1) = h_1$ and $phi(g_2) = h_2$.
+  We need to show $h_1 dot h_2^(-1) in Im$.
+  Since $G$ is a group, $g_1 dot g_2^(-1) in G$.
+  Applying the homomorphism properties:
+  $phi(g_1 dot g_2^(-1)) = phi(g_1) * phi(g_2^(-1)) = phi(g_1) * phi(g_2)^(-1) = h_1 dot h_2^(-1)$.
+  Since $g_1 dot g_2^(-1) in G$, its image $h_1 dot h_2^(-1)$ is in $Im$. Thus $"Im"(phi)$ is a subgroup.
+]
+
 #definition("Isomorphism")[
   An *isomorphism* is a bijective group homomorphism. If such a map exists between $G$ and $H$, they are said to be *isomorphic*, denoted $G tilde.eq H$.
 ]
