@@ -91,10 +91,10 @@
   #question(
     [A $p$-group is a group where the order of every element is:],
     (
-      "A prime $p$",
-      "A power of $p$",
-      "A multiple of $p$",
-      "Coprime to $p$",
+      [A prime $p$],
+      [A power of $p$],
+      [A multiple of $p$],
+      [Coprime to $p$],
     ),
     1,
   )
@@ -102,10 +102,10 @@
   #question(
     [If $|G| = p^n m$ where $p$ is prime and $p$ does not divide $m$, a Sylow $p$-subgroup has order:],
     (
-      "$m$",
-      "$p$",
-      "$p^n$",
-      "$n$",
+      [$m$],
+      [$p$],
+      [$p^n$],
+      [$n$],
     ),
     2,
   )
@@ -124,10 +124,10 @@
   #question(
     [According to the Second Sylow Theorem, any two Sylow $p$-subgroups of $G$ are:],
     (
-      "Isomorphic but not conjugate",
-      "Conjugate (and thus isomorphic)",
-      "Disjoint",
-      "Normal",
+      [Isomorphic but not conjugate],
+      [Conjugate (and thus isomorphic)],
+      [Disjoint],
+      [Normal],
     ),
     1,
   )
@@ -179,10 +179,10 @@
   #question(
     [In a group of order 15, the unique Sylow 3-subgroup and Sylow 5-subgroup implies the group is:],
     (
-      "Non-abelian",
-      "Simple",
-      "Cyclic",
-      "Symmetric",
+      [Non-abelian],
+      [Simple],
+      [Cyclic],
+      [Symmetric],
     ),
     2,
   )
