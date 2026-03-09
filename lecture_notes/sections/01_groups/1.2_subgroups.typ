@@ -18,13 +18,6 @@
   Both $C(S)$ and $N(S)$ are subgroups of $G$, and $C(S) subset.eq N(S)$.
 ]
 
-#example[
-  The set of even integers $2ZZ = {..., -4, -2, 0, 2, 4, ...}$ is a subgroup of the integers $ZZ$ under addition.
-  - *Subset*: Clearly $2ZZ subset ZZ$.
-  - *Identity*: $0 = 2(0) in 2ZZ$.
-  - *Closure*: If $a = 2m$ and $b = 2n$, then $a + b = 2(m+n)$, which is even.
-  - *Inverses*: If $a = 2m$, then $-a = 2(-m)$, which is even.
-]
 
 #proposition("Subgroup Test")[
   A non-empty subset $H subset.eq G$ is a subgroup if and only if for all $a, b in H$, $a dot b^(-1) in H$.
@@ -49,13 +42,28 @@
   The left cosets of $H$ in $G$ form a partition of $G$. The map $h mapsto g h$ is a bijection between $H$ and $g H$, so every coset has the same size $|H|$. If there are $k$ distinct cosets, then $|G| = k |H|$. Thus $|H|$ divides $|G|$.
 ]
 
-#example[
-  *Small Subgroup Attacks*: Subgroups play a crucial role in preventing "small subgroup attacks".
-  In Diffie-Hellman, we work in a group $Z_p^*$. If order $p-1$ has a small factor $q$, there exists a subgroup of order $q$. An attacker can send a value $h$ of order $q$. Then the shared secret $s = h^a$ will also be in this small subgroup. The attacker can brute-force $s$ in $O(q)$ steps, revealing information about the private key $a$.
-  *Mitigation*: Use groups of prime order, or verify that received elements are in the correct subgroup.
-]
 
 === Solved Problems
+
+#solved_problem[
+  Prove that the set of even integers $2ZZ$ is a subgroup of the integers $ZZ$ under addition.
+]
+#solution[
+  We verify the subgroup properties for $2ZZ = {..., -4, -2, 0, 2, 4, ...}$:
+  - *Subset*: Clearly $2ZZ subset ZZ$.
+  - *Identity*: $0 = 2(0) in 2ZZ$.
+  - *Closure*: If $a = 2m$ and $b = 2n$, then $a + b = 2(m+n)$, which is even.
+  - *Inverses*: If $a = 2m$, then $-a = 2(-m)$, which is even.
+]
+
+#solved_problem[
+  Explain how subgroups can lead to "small subgroup attacks" in cryptographic protocols like Diffie-Hellman, and how to mitigate them.
+]
+#solution[
+  In Diffie-Hellman, we work in a group $Z_p^*$. If order $p-1$ has a small factor $q$, there exists a subgroup of order $q$.
+  An attacker can send a value $h$ of order $q$. Then the shared secret $s = h^a$ will also be in this small subgroup. The attacker can brute-force $s$ in $O(q)$ steps, revealing information about the private key $a$.
+  *Mitigation*: Use groups of prime order, or verify that received elements are in the correct subgroup.
+]
 
 #solved_problem[
   *Finding Subgroups*

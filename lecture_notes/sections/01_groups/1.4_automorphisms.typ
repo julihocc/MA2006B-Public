@@ -6,12 +6,7 @@
   An *automorphism* of a group $G$ is an isomorphism from $G$ to itself. That is, a bijection $phi: G arrow G$ that is also a homomorphism.
 ]
 
-#example[
-  For the additive group of integers $ZZ$, the only automorphisms are $id(x)=x$ and $phi(x)=-x$.
-  - $phi(x)=-x$ is a homomorphism: $-(x+y) = (-x) + (-y)$.
-  - It is bijective (its own inverse).
-  - Mappings like $f(x)=2x$ are homomorphisms but not surjective (onto), so not automorphisms.
-]
+
 
 #proposition[
   The set of all automorphisms of $G$, denoted $"Aut"(G)$, forms a group under function composition.
@@ -28,17 +23,36 @@
   For any $g in G$, the conjugation map $phi_g(x) = g x g^(-1)$ is an automorphism of $G$ called an *inner automorphism*.
 ]
 
-#example[
-  In the symmetric group $S_3$, conjugation by $g=(1 space 2)$ acts as an inner automorphism $phi_g(x) = g x g^(-1)$.
-  - If $x=(1 space 3)$, then $phi_g(x) = (1 space 2)(1 space 3)(1 space 2)^(-1) = (1 space 2)(1 space 3)(1 space 2) = (2 space 3)$.
-  - Conjugation generally "relabels" the elements in the cycle notation.
-]
 
-#example[
-  *Structure Weaknesses*: Automorphisms describe the symmetries of the algebraic structure. In cryptography, understanding the automorphism group of the underlying structure (like an elliptic curve) is vital for understanding potential weaknesses or for optimizing arithmetic (e.g., using Frobenius automorphisms for faster scalar multiplication on Koblitz curves).
-]
 
 === Solved Problems
+
+#solved_problem[
+  Find all automorphisms of the additive group of integers $ZZ$.
+]
+#solution[
+  For the additive group of integers $ZZ$, the only automorphisms are $id(x)=x$ and $phi(x)=-x$.
+  - $phi(x)=-x$ is a homomorphism: $-(x+y) = (-x) + (-y)$.
+  - It is bijective (its own inverse).
+  - Mappings like $f(x)=2x$ are homomorphisms but not surjective (onto), so not automorphisms.
+]
+
+#solved_problem[
+  Consider the symmetric group $S_3$. Compute the inner automorphism defined by conjugation with $g=(1 space 2)$ mapping the element $x=(1 space 3)$.
+]
+#solution[
+  In $S_3$, conjugation by $g=(1 space 2)$ acts as an inner automorphism $phi_g(x) = g x g^(-1)$.
+  For $x=(1 space 3)$:
+  $ phi_g(x) = (1 space 2)(1 space 3)(1 space 2)^(-1) = (1 space 2)(1 space 3)(1 space 2) = (2 space 3). $
+  Conjugation generally "relabels" the elements in the cycle notation.
+]
+
+#solved_problem[
+  Discuss the significance of automorphisms in cryptography.
+]
+#solution[
+  Automorphisms describe the symmetries of the algebraic structure. In cryptography, understanding the automorphism group of the underlying structure (like an elliptic curve) is vital for understanding potential weaknesses or for optimizing arithmetic (e.g., using Frobenius automorphisms for faster scalar multiplication on Koblitz curves).
+]
 
 #solved_problem[
   Let $G = ZZ_5$ (additive). Find all automorphisms of $ZZ_5$.

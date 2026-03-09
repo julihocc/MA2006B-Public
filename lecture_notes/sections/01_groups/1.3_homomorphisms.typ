@@ -7,10 +7,7 @@
   $ phi(a dot b) = phi(a) * phi(b) $
 ]
 
-#example[
-  The map $exp: (RR, +) arrow (RR^+, dot)$ defined by $x |-> e^x$ is a homomorphism. The operation in the domain is the standard addition of real numbers, while the operation in the codomain is the standard multiplication of positive real numbers. We can verify the homomorphism property by observing that for any $x, y in RR$, we have
-  $ exp(x+y) = e^(x+y) = e^x dot e^y = exp(x) dot exp(y). $
-]
+
 
 #proposition("Properties of Homomorphisms")[
   Let $phi: G arrow H$ be a group homomorphism. Then the following properties hold:
@@ -58,25 +55,6 @@
   By the definition of normal subgroup, $ker(phi)$ is normal in $G$.
 ]
 
-#example[
-  For the homomorphism $phi: ZZ arrow ZZ_2$ given by $phi(x) = x mod 2$:
-  Sample values are $phi(0) = 0, phi(1) = 1, phi(2) = 0, phi(3) = 1$, so parity is exactly what the map records.
-
-  For addition,
-  $ phi(a+b) = (a+b) mod 2 = ((a mod 2) + (b mod 2)) mod 2 = phi(a) +_2 phi(b), $
-  so as a map $(ZZ,+) arrow (ZZ_2,+_2)$, $phi$ is a group homomorphism.
-
-  Also,
-  $ phi(a b) = (a b) mod 2 = ((a mod 2)(b mod 2)) mod 2 = phi(a) phi(b), $
-  so reduction modulo $2$ preserves multiplication as well (hence it is also a ring homomorphism $ZZ arrow ZZ_2$).
-
-  Now compute the kernel:
-  $ ker(phi) = {x in ZZ | phi(x) = 0} = {x in ZZ | x mod 2 = 0}. $
-  This means $x$ is even, i.e., $x = 2k$ for some $k in ZZ$, so
-  $ ker(phi) = 2ZZ = {..., -4, -2, 0, 2, 4, ...}. $
-
-  By the proposition "Kernel is Normal", this kernel is a normal subgroup of $ZZ$.
-]
 
 #definition("Image")[
   The *Image* of a homomorphism $phi: G arrow H$, denoted $"Im"(phi)$ or $phi(G)$, is the set ${phi(g) | g in G}$.
@@ -119,50 +97,75 @@
   Since $tilde(phi)$ is a well-defined, bijective homomorphism, it is an isomorphism. Therefore, $G slash K tilde.eq "Im"(phi)$.
 ]
 
-#example[
-  Recall the homomorphism $phi: ZZ arrow ZZ_2$ given by $phi(x) = x mod 2$. We previously determined that its kernel is the set of even integers, $ker(phi) = 2ZZ$. Because $phi(0) = 0$ and $phi(1) = 1$, the map is surjective onto $ZZ_2$, meaning $"Im"(phi) = ZZ_2$.
-
-  By applying the First Isomorphism Theorem with $G = ZZ$ and $K = 2ZZ$, we establish the standard isomorphism between the quotient group of integers modulo $2$ and the group $ZZ_2$:
-  $ ZZ slash 2ZZ tilde.eq ZZ_2. $
-  This formalizes the intuitive idea that the group of integers divided into "even" and "odd" cosets behaves exactly like integer arithmetic modulo $2$.
-]
 
 #definition("Euler's Totient Function")[
   For a positive integer $N$, *Euler's Totient Function*, denoted as $phi(N)$, counts the number of integers in the range $1 <= k <= N$ that are coprime to $N$ (i.e., their greatest common divisor with $N$ is $1$). This value corresponds to the order of the multiplicative group of integers modulo $N$, denoted $|ZZ_N^*|$. If $N$ is the product of two distinct primes $p$ and $q$, then $phi(N) = (p-1)(q-1)$.
 ]
 
-#example[
-  Let us compute Euler's Totient function for a few small integers:
-  - For a prime number such as $p = 7$, all positive integers strictly less than $7$ are coprime to $7$. Thus, $phi(7) = 6$.
-  - For $N = 10$, the integers between $1$ and $10$ that are coprime to $10$ are ${1, 3, 7, 9}$. Thus, $phi(10) = 4$. This is consistent with $10$ being the product of two distinct primes, $2$ and $5$, giving $phi(10) = (2-1)(5-1) = 1 times 4 = 4$.
-  - For $N = 15$, the coprime integers are ${1, 2, 4, 7, 8, 11, 13, 14}$, so $phi(15) = 8$. This matches our formula for distinct primes $3$ and $5$: $phi(15) = (3-1)(5-1) = 2 times 4 = 8$.
-]
-
-#example[
-  *RSA Encryption* provides a concrete example of a homomorphic property. Consider the RSA encryption setup where $N$ is the modulus and $e$ is the public exponent. In practice, $N$ is chosen as the product of two distinct large prime numbers ($N = p q$) to provide the cryptographic trapdoor; knowing these primes allows the receiver to compute Euler's totient function $phi(N)$ and derive the private decryption key, while keeping it computationally infeasible for adversaries who only know $N$.
-
-  The encryption function $E: ZZ_N^* arrow ZZ_N^*$ on the multiplicative group of integers modulo $N$ is defined by:
-  $ E(m) = m^e mod N. $
-  We can compute the product of two encrypted messages $E(m_1)$ and $E(m_2)$ without decrypting them. Observe that:
-  $ E(m_1) E(m_2) = (m_1^e mod N)(m_2^e mod N) equiv (m_1 m_2)^e mod N = E(m_1 m_2). $
-  Thus, $E$ forms a group homomorphism from $(ZZ_N^*, dot)$ to itself, preserving the multiplicative structure.
-
-  For a concrete numerical example, let $N = 15$ and $e = 3$. Our encryption map is $E(m) = m^3 mod 15$.
-  Consider two plaintext messages $m_1 = 2$ and $m_2 = 4$ in $ZZ_(15)^*$.
-  Their encryptions are:
-  $ E(2) = 2^3 mod 15 = 8 mod 15 = 8, $
-  $ E(4) = 4^3 mod 15 = 64 mod 15 = 4. $
-  The product of the encrypted messages is $E(2) E(4) = 8 times 4 = 32 equiv 2 mod 15$.
-
-  Now compute the encryption of their formal product $m_1 m_2 = 2 times 4 = 8$:
-  $ E(m_1 m_2) = E(8) = 8^3 mod 15 = 512 mod 15 = 2. $
-  As expected, $E(2)E(4) = E(2 times 4) = 2$, verifying the homomorphic property.
-
-  To decrypt a ciphertext $c$, the receiver uses the private key $d$, which is the modular multiplicative inverse of $e$ modulo $phi(N)$. The decryption function is $D(c) = c^d mod N$. In our example where $N = 3 times 5 = 15$, we have $phi(15) = (3-1)(5-1) = 8$. We find $d$ such that $3d equiv 1 mod 8$, which yields $d = 3$. Thus, to decrypt the ciphertext $c = 8$ back to $m_1$:
-  $ D(8) = 8^3 mod 15 = 512 mod 15 = 2. $
-]
 
 === Solved Problems
+
+#solved_problem[
+  Verify that the exponential map $exp: (RR, +) arrow (RR^+, dot)$ defined by $x |-> e^x$ is a homomorphism.
+]
+#solution[
+  The operation in the domain is the standard addition of real numbers, while the operation in the codomain is the standard multiplication of positive real numbers. We can verify the homomorphism property by observing that for any $x, y in RR$, we have
+  $ exp(x+y) = e^(x+y) = e^x dot e^y = exp(x) dot exp(y). $
+]
+
+#solved_problem[
+  Show that the mapping $phi: ZZ arrow ZZ_2$ defined by $phi(x) = x mod 2$ is a group homomorphism under addition, and compute its kernel.
+]
+#solution[
+  For addition,
+  $ phi(a+b) = (a+b) mod 2 = ((a mod 2) + (b mod 2)) mod 2 = phi(a) +_2 phi(b). $
+  Thus, as a map $(ZZ,+) arrow (ZZ_2,+_2)$, $phi$ is a group homomorphism mapping parity.
+
+  Now compute the kernel:
+  $ ker(phi) = {x in ZZ | phi(x) = 0} = {x in ZZ | x mod 2 = 0}. $
+  This means $x$ is even, so
+  $ ker(phi) = 2ZZ = {..., -4, -2, 0, 2, 4, ...}. $
+]
+
+#solved_problem[
+  Apply the First Isomorphism Theorem to the homomorphism $phi: ZZ arrow ZZ_2$ mapping integers to their modulo 2 remainder.
+]
+#solution[
+  Recall the homomorphism $phi: ZZ arrow ZZ_2$ given by $phi(x) = x mod 2$. Its kernel is the set of even integers, $ker(phi) = 2ZZ$. Because $phi(0) = 0$ and $phi(1) = 1$, the map is surjective onto $ZZ_2$, meaning $"Im"(phi) = ZZ_2$.
+
+  By applying the First Isomorphism Theorem with $G = ZZ$ and $K = 2ZZ$, we establish the standard isomorphism:
+  $ ZZ slash 2ZZ tilde.eq ZZ_2. $
+  This formalizes the intuitive idea that the group of integers divided into "even" and "odd" cosets behaves exactly like integer arithmetic modulo $2$.
+]
+
+#solved_problem[
+  Compute Euler's Totient function $phi(N)$ for the integers $N = 7$, $10$, and $15$.
+]
+#solution[
+  - For a prime number such as $p = 7$, all positive integers strictly less than $7$ are coprime to $7$. Thus, $phi(7) = 6$.
+  - For $N = 10$ ($2 times 5$), $phi(10) = (2-1)(5-1) = 1 times 4 = 4$.
+  - For $N = 15$ ($3 times 5$), $phi(15) = (3-1)(5-1) = 2 times 4 = 8$.
+]
+
+#solved_problem[
+  Demonstrate that the RSA encryption function $E(m) = m^e mod N$ forms a group homomorphism on $(ZZ_N^*, dot)$, and provide a concrete numerical example using $N=15, e=3$.
+]
+#solution[
+  The encryption function $E: ZZ_N^* arrow ZZ_N^*$ is defined by $E(m) = m^e mod N$.
+  Observe that:
+  $ E(m_1) E(m_2) = (m_1^e mod N)(m_2^e mod N) equiv (m_1 m_2)^e mod N = E(m_1 m_2). $
+  Thus, $E$ forms a group homomorphism from $(ZZ_N^*, dot)$ to itself.
+
+  Let $N = 15$ and $e = 3$. The encryption map is $E(m) = m^3 mod 15$.
+  Take $m_1 = 2$ and $m_2 = 4$ in $ZZ_(15)^*$.
+  $ E(2) = 2^3 mod 15 = 8 $
+  $ E(4) = 4^3 mod 15 = 64 mod 15 = 4 $
+  The product of the encrypted messages is $E(2) E(4) = 8 times 4 = 32 equiv 2 mod 15$.
+
+  Compute the encryption of their formal product $m_1 m_2 = 8$:
+  $ E(8) = 8^3 mod 15 = 512 mod 15 = 2. $
+  As expected, $E(2)E(4) = E(2 times 4) = 2$, verifying the homomorphic property.
+]
 
 #solved_problem[
   Consider the map $phi: ZZ arrow ZZ_n$ defined by $phi(x) = x mod n$. Prove that $phi$ is a group homomorphism.

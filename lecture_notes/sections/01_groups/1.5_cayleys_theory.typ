@@ -6,15 +6,7 @@
   Every group $G$ is isomorphic to a subgroup of the symmetric group acting on $G$. In other words, every group can be considered as a group of permutations.
 ]
 
-#example[
-  For the cyclic group $ZZ_3 = \{0, 1, 2\}$:
-  - Elements $\{0, 1, 2\}$.
-  - Cayley's representation associates each $x$ with $lambda_x(y) = x + y (mod 3)$.
-  - $lambda_0 = (0)(1)(2) = id$.
-  - $lambda_1$: $0 mapsto 1, 1 mapsto 2, 2 mapsto 0 => (0 space 1 space 2)$.
-  - $lambda_2$: $0 mapsto 2, 1 mapsto 0, 2 mapsto 1 => (0 space 2 space 1)$.
-  Thus $ZZ_3 tilde.eq \{id, (0 space 1 space 2), (0 space 2 space 1)\} subset S_3$.
-]
+
 
 #proposition("Permutation Representation")[
   Specifically, for each $g in G$, we can define a permutation $lambda_g: G arrow G$ by $lambda_g(x) = g dot x$. The mapping $g mapsto lambda_g$ is an injective homomorphism from $G$ into $S_G$ (the group of all permutations of the set $G$).
@@ -27,9 +19,7 @@
   Thus $G$ is isomorphic to the image ${lambda_g | g in G}$, which is a subgroup of $S_G$.
 ]
 
-#example[
-  *Significance*: Cayley's theorem is theoretically significant as it allows us to represent abstract groups concretely using permutations. In computational group theory, permutation representations are often easier to store and manipulate in a computer than abstract definitions, allowing for efficient algorithms to determine group properties.
-]
+
 
 #proposition("Cycle Decomposition")[
   Any permutation can be decomposed into disjoint cycles. The order of a permutation is the least common multiple (LCM) of the lengths of these disjoint cycles.
@@ -40,15 +30,27 @@
   For disjoint cycles, operations commute. Order is the smallest $k$ such that $"LCM"(l_1, ..., l_m)$ divides $k$.
 ]
 
-#example[
-  *Ciphers*: Permutation groups are fundamental to cryptography.
+
+
+=== Solved Problems
+
+#solved_problem[
+  Explain the theoretical and computational significance of Cayley's Theorem.
+]
+#solution[
+  Cayley's theorem is theoretically significant as it allows us to represent abstract groups concretely using permutations. In computational group theory, permutation representations are often easier to store and manipulate in a computer than abstract definitions, allowing for efficient algorithms to determine group properties.
+]
+
+#solved_problem[
+  How are permutation groups fundamental to block ciphers and cryptography? Give examples.
+]
+#solution[
+  Permutation groups are fundamental to cryptography for scrambling data.
   - *Enigma Machine*: Used a series of rotors to generate a complex, changing permutation for each keystroke.
   - *AES (SPN)*: Uses Substitution-Permutation Networks.
     - *Substitution*: S-Boxes (nonlinear map).
     - *Permutation*: ShiftRows and MixColumns operations permute bits/bytes to diffuse information across the state.
 ]
-
-=== Solved Problems
 
 #solved_problem[
   Consider the group $G = {1, -1}$ under multiplication. Find its permutation representation.

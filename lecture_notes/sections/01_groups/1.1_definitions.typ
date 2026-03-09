@@ -25,22 +25,6 @@
   Given two groups $(G, dot)$ and $(H, *)$, their *direct product* $G times H$ is a group whose elements are ordered pairs $(g, h)$ with $g in G$ and $h in H$. The group operation is defined component-wise: $(g_1, h_1)(g_2, h_2) = (g_1 dot g_2, h_1 * h_2)$.
 ]
 
-#example[
-  The set of integers $ZZ$ under addition is an infinite abelian group.
-  - *Closure*: $a + b$ is an integer for all $a, b in ZZ$.
-  - *Associativity*: $(a + b) + c = a + (b + c)$.
-  - *Identity*: $0$ is the identity ($a + 0 = a$).
-  - *Inverse*: The inverse of $a$ is $-a$ ($a + (-a) = 0$).
-  - *Commutativity*: $a + b = b + a$.
-]
-
-#example[
-  The set $ZZ_n = {0, 1, ..., n-1}$ under addition modulo $n$ is a finite abelian group of order $n$.
-  For instance, in $Z_4 = {0, 1, 2, 3}$:
-  - The identity is $0$.
-  - Inverses: $0^(-1)=0, 1^(-1)=3, 2^(-1)=2, 3^(-1)=1$.
-  - Closure is satisfied modulo $n$ (e.g., $2+3 = 5 equiv 1 mod 4$).
-]
 
 #note[
   *Cryptography*: Groups are the foundation of many cryptographic primitives.
@@ -59,15 +43,42 @@
   The set of all even permutations in $S_n$ forms a normal subgroup called the *alternating group* $A_n$, with order $|A_n| = n!/2$.
 ]
 
-#example[
+
+=== Solved Problems
+
+#solved_problem[
+  Prove that the set of integers $ZZ$ forms an infinite abelian group under addition.
+]
+#solution[
+  We verify the group axioms for $ZZ$ under addition:
+  - *Closure*: $a + b$ is an integer for all $a, b in ZZ$.
+  - *Associativity*: $(a + b) + c = a + (b + c)$.
+  - *Identity*: $0$ is the identity ($a + 0 = a$).
+  - *Inverse*: The inverse of $a$ is $-a$ ($a + (-a) = 0$).
+  - *Commutativity*: $a + b = b + a$.
+]
+
+#solved_problem[
+  Show that the set $ZZ_n = {0, 1, ..., n-1}$ under addition modulo $n$ is a finite abelian group of order $n$, using $ZZ_4$ as an example.
+]
+#solution[
+  For $ZZ_n$ under modulo $n$ addition, the properties hold.
+  For instance, in $Z_4 = {0, 1, 2, 3}$:
+  - The identity is $0$.
+  - Inverses: $0^(-1)=0, 1^(-1)=3, 2^(-1)=2, 3^(-1)=1$.
+  - Closure is satisfied modulo $n$ (e.g., $2+3 = 5 equiv 1 mod 4$).
+]
+
+#solved_problem[
+  For the symmetric group $S_3$, list its 6 elements, state their orders, and indicate an isomorphism.
+]
+#solution[
   The group $S_3$ contains $6$ elements:
   - Identity: $e$ (order 1).
   - Transpositions (2-cycles): $(1 space 2), (1 space 3), (2 space 3)$ (order 2).
   - 3-Cycles: $(1 space 2 space 3), (1 space 3 space 2)$ (order 3).
   Isomorphism: $S_3 tilde.eq D_3$ (symmetries of a triangle).
 ]
-
-=== Solved Problems
 
 #solved_problem[
   *Modular Addition*
