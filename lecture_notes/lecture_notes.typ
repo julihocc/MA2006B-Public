@@ -34,4 +34,6 @@
 
 #include "sections/01_groups/01_main.typ"
 #include "sections/02_rings/02_main.typ"
-
+#include "sections/03_elliptic_curves/03_main.typ"
+#include "sections/A_number_theory/A_main.typ"
+#include "sections/B_matrix_theory/B_main.typ"
