@@ -34,11 +34,4 @@
 
 #include "sections/01_groups/01_main.typ"
 #include "sections/02_rings/02_main.typ"
-#include "sections/03_vector_spaces/03_main.typ"
-#include "sections/04_elliptic_curve_cryptography/04_main.typ"
-#include "sections/05_elliptic_curves/05_main.typ"
-#include "sections/06_elliptic_curve_methods/06_main.typ"
-#include "sections/07_simple_protocols/07_main.typ"
-#include "sections/08_advanced_key_exchange/08_main.typ"
-#include "sections/09_advanced_signature_protocols/09_main.typ"
-#include "sections/10_topics_in_security/10_main.typ"
+
