@@ -6,7 +6,7 @@
 #definition("Elliptic Curve over $FF_p$")[
   Let $p > 3$ be a prime. An *elliptic curve over $FF_p$* is the set of points $(x, y) in FF_p times FF_p$ satisfying:
   $ y^2 equiv x^3 + a x + b space (mod p) $
-  where $a, b in FF_p$ and $4a^3 + 27b^2 not equiv 0 space (mod p)$, together with the point at infinity $cal(O)$.
+  where $a, b in FF_p$ and $4 a^3 + 27 b^2 not equiv 0 space (mod p)$, together with the point at infinity $cal(O)$.
 
   We denote this set $E(FF_p)$.
 ]
@@ -32,11 +32,11 @@
 ]
 
 #note[
-  *Finding points on $E(FF_p)$*: For each $x in FF_p$, compute $r = x^3 + ax + b space (mod p)$. If $r = 0$, then $(x, 0)$ is a point. If $r$ is a quadratic residue mod $p$ (i.e., $r^{(p-1)/2} equiv 1$), there are two points $(x, y)$ and $(x, -y)$. Otherwise, no point exists for that $x$.
+  *Finding points on $E(FF_p)$*: For each $x in FF_p$, compute $r = x^3 + a x + b space (mod p)$. If $r = 0$, then $(x, 0)$ is a point. If $r$ is a quadratic residue mod $p$ (i.e., $r^{(p-1)/2} equiv 1$), there are two points $(x, y)$ and $(x, -y)$. Otherwise, no point exists for that $x$.
 ]
 
 #definition("Subgroup and Generator")[
-  Since $E(FF_p)$ is a finite abelian group, it may contain cyclic subgroups. A *generator* (or *base point*) $G in E(FF_p)$ is a point of large prime order $n$, meaning $n G = cal(O)$ and no smaller positive multiple equals $cal(O)$. The subgroup $angle.l G angle.r = {cal(O), G, 2G, ..., (n-1)G}$ is used in cryptographic protocols.
+  Since $E(FF_p)$ is a finite abelian group, it may contain cyclic subgroups. A *generator* (or *base point*) $G in E(FF_p)$ is a point of large prime order $n$, meaning $n G = cal(O)$ and no smaller positive multiple equals $cal(O)$. The subgroup $chevron.l G chevron.r = {cal(O), G, 2G, ..., (n-1)G}$ is used in cryptographic protocols.
 ]
 
 === Solved Problems
@@ -45,13 +45,13 @@
   Let $E: y^2 equiv x^3 + x + 1 space (mod 5)$. Find all points on $E(FF_5)$ by testing each $x in {0,1,2,3,4}$.
 ]
 #solution[
-  For each $x$, compute $r = x^3 + x + 1 space (mod 5)$, then check if $r$ has a square root mod 5. The squares mod 5 are $0^2=0, 1^2=1, 2^2=4, 3^2=4, 4^2=1$, so the quadratic residues are $QR = {0, 1, 4}$.
+  For each $x$, compute $r = x^3 + x + 1 space (mod 5)$, then check if $r$ has a square root mod 5. The squares mod 5 are $0^2=0, 1^2=1, 2^2=4, 3^2=4, 4^2=1$, so the quadratic residues are $Q R = {0, 1, 4}$.
 
-  - $x=0$: $r = 0 + 0 + 1 = 1 in QR$. $y^2 equiv 1$: $y = 1, 4$. Points: $(0,1), (0,4)$.
-  - $x=1$: $r = 1 + 1 + 1 = 3 notin QR$. No points.
-  - $x=2$: $r = 8 + 2 + 1 = 11 equiv 1 in QR$. $y = 1, 4$. Points: $(2,1), (2,4)$.
-  - $x=3$: $r = 27 + 3 + 1 = 31 equiv 1 in QR$. $y = 1, 4$. Points: $(3,1), (3,4)$.
-  - $x=4$: $r = 64 + 4 + 1 = 69 equiv 4 in QR$. $y^2 equiv 4$: $y = 2, 3$. Points: $(4,2),(4,3)$.
+  - $x=0$: $r = 0 + 0 + 1 = 1 in Q R$. $y^2 equiv 1$: $y = 1, 4$. Points: $(0,1), (0,4)$.
+  - $x=1$: $r = 1 + 1 + 1 = 3 in.not Q R$. No points.
+  - $x=2$: $r = 8 + 2 + 1 = 11 equiv 1 in Q R$. $y = 1, 4$. Points: $(2,1), (2,4)$.
+  - $x=3$: $r = 27 + 3 + 1 = 31 equiv 1 in Q R$. $y = 1, 4$. Points: $(3,1), (3,4)$.
+  - $x=4$: $r = 64 + 4 + 1 = 69 equiv 4 in Q R$. $y^2 equiv 4$: $y = 2, 3$. Points: $(4,2),(4,3)$.
 
   Total affine points: 8. Including $cal(O)$: $\#E(FF_5) = 9$.
 ]
@@ -78,7 +78,7 @@
 
   Try $P = (3, 4)$: LHS $= 16 equiv 2$. RHS $= 27 + 6 + 3 = 36 equiv 1$. Try $P = (1, 6)$: LHS $= 36 equiv 1$. RHS $= 1 + 2 + 3 = 6 equiv 6$. Not equal.
 
-  Try $P = (0, b)$: RHS $= 3$. $y^2 equiv 3 space (mod 7)$. Squares mod 7: $\{0,1,2,4\}$. Since $3 notin QR_7$, no point at $x=0$.
+  Try $P = (0, b)$: RHS $= 3$. $y^2 equiv 3 space (mod 7)$. Squares mod 7: $\{0,1,2,4\}$. Since $3 in.not Q R_7$, no point at $x=0$.
 
   This illustrates that not every pair is on the curve. *Finding $-P$* for any point $P = (x, y) in E(FF_p)$: $-P = (x, -y mod p) = (x, p - y)$.
 ]
@@ -129,7 +129,7 @@
   )
 
   #question(
-    [For an $x in FF_p$, a point $(x, y)$ exists on $E(FF_p)$ if and only if $x^3 + ax + b$ is:],
+    [For an $x in FF_p$, a point $(x, y)$ exists on $E(FF_p)$ if and only if $x^3 + a x + b$ is:],
     (["Zero or a quadratic residue mod $p$"], ["Any value"], ["A prime mod $p$"], ["A quadratic non-residue mod $p$"]),
     0,
   )
@@ -170,5 +170,5 @@
 ]
 
 #supplementary[
-  What goes wrong if $4a^3 + 27b^2 equiv 0 space (mod p)$? Give a concrete example.
+  What goes wrong if $4 a^3 + 27 b^2 equiv 0 space (mod p)$? Give a concrete example.
 ]

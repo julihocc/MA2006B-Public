@@ -17,7 +17,7 @@
 
 #theorem("Fundamental Theorem of Arithmetic")[
   Every integer $n > 1$ can be expressed as a product of primes, unique up to the order of the factors:
-  $ n = p_1^{e_1} p_2^{e_2} cdots p_k^{e_k} $
+  $ n = p_1^{e_1} p_2^{e_2} dots.c p_k^{e_k} $
   where $p_1 < p_2 < ... < p_k$ are primes and $e_i >= 1$.
 ]
 
@@ -40,7 +40,7 @@
 ]
 
 #theorem("Infinitude of Primes")[
-  There are infinitely many prime numbers. (Euclid's proof: if $p_1,...,p_k$ were all primes, then $N = p_1 cdots p_k + 1$ has a prime factor not in the list.)
+  There are infinitely many prime numbers. (Euclid's proof: if $p_1,...,p_k$ were all primes, then $N = p_1 dots.c p_k + 1$ has a prime factor not in the list.)
 ]
 
 #definition("Euler's Totient Function")[
@@ -89,7 +89,7 @@
   )
 
   #question(
-    [$gcd(a, b) = 1$ means $a$ and $b$ are:],
+    [$s a + t b = gcd(a, b) = 1$ means $a$ and $b$ are:],
     (["Both prime"], ["Coprime (relatively prime)"], ["Multiples of each other"], ["Equal"]),
     1,
   )
@@ -125,14 +125,14 @@
   )
 
   #question(
-    [If $n = pq$ for distinct primes $p, q$, then $phi(n) =$],
+    [If $n = p q$ for distinct primes $p, q$, then $phi(n) =$],
     ([$p q$], [$(p-1)(q-1)$], [$p + q - 1$], [$p - q$]),
     1,
   )
 
   #question(
     [RSA security relies on the hardness of:],
-    (["Computing GCDs"], ["Factoring $n = pq$"], ["Finding $phi(p)$"], ["The Euclidean algorithm"]),
+    (["Computing GCDs"], ["Factoring $n = p q$"], ["Finding $phi(p)$"], ["The Euclidean algorithm"]),
     1,
   )
 

@@ -4,7 +4,7 @@
 === Theory
 
 #definition("Point Addition Formula")[
-  Let $E: y^2 = x^3 + ax + b$ be an elliptic curve over $FF_p$ ($p > 3$ prime), and let $P = (x_1, y_1)$, $Q = (x_2, y_2)$ be two points on $E$ with $P, Q != cal(O)$ and $P != -Q$.
+  Let $E: y^2 = x^3 + a x + b$ be an elliptic curve over $FF_p$ ($p > 3$ prime), and let $P = (x_1, y_1)$, $Q = (x_2, y_2)$ be two points on $E$ with $P, Q != cal(O)$ and $P != -Q$.
 
   The sum $R = P + Q = (x_3, y_3)$ is computed algebraically as follows:
 
@@ -19,7 +19,7 @@
   #align(center)[
     *Case 2: $P = Q$ (Point Doubling)*
 
-    $ lambda = (3x_1^2 + a)(2y_1)^(-1) mod p $
+    $ lambda = (3 x_1^2 + a)(2y_1)^(-1) mod p $
     $ x_3 = lambda^2 - 2x_1 mod p $
     $ y_3 = lambda(x_1 - x_3) - y_1 mod p $
   ]
@@ -28,8 +28,8 @@
 ]
 
 #note[
-  The formula for $lambda$ in Case 2 is derived by implicit differentiation of $y^2 = x^3 + ax + b$:
-  $ 2y (d y)/(d x) = 3x^2 + a => (d y)/(d x) = (3x^2 + a)/(2y) $
+  The formula for $lambda$ in Case 2 is derived by implicit differentiation of $y^2 = x^3 + a x + b$:
+  $ 2y (d y)/(d x) = 3 x^2 + a => (d y)/(d x) = (3 x^2 + a)/(2y) $
   This is the tangent slope at $(x_1, y_1)$, carried over to finite field arithmetic.
 ]
 
@@ -60,7 +60,7 @@
 ]
 
 #note[
-  Scalar multiplication is the *one-way function* at the heart of ECC. Computing $k P$ from $P$ and $k$ is fast (polynomial in $log k$). The reverse problem — finding $k$ given $P$ and $kP$ — is the *Elliptic Curve Discrete Logarithm Problem (ECDLP)*, believed to be computationally intractable for properly chosen parameters.
+  Scalar multiplication is the *one-way function* at the heart of ECC. Computing $k P$ from $P$ and $k$ is fast (polynomial in $log k$). The reverse problem — finding $k$ given $P$ and $k P$ — is the *Elliptic Curve Discrete Logarithm Problem (ECDLP)*, believed to be computationally intractable for properly chosen parameters.
 ]
 
 === Solved Problems
@@ -115,7 +115,7 @@
     (
       [$(y_2 + y_1)/(x_2 + x_1)$],
       [$(y_2 - y_1)/(x_2 - x_1)$],
-      [$(3x_1^2 + a)/(2y_1)$],
+      [$(3 x_1^2 + a)/(2y_1)$],
       [$(x_2 - x_1)/(y_2 - y_1)$],
     ),
     1,
@@ -133,13 +133,13 @@
   )
 
   #question(
-    [Scalar multiplication $kP$ is computed efficiently in $O(log k)$ operations using:],
+    [Scalar multiplication $k P$ is computed efficiently in $O(log k)$ operations using:],
     (["Trial division"], ["Double-and-add algorithm"], ["Sieve of Eratosthenes"], ["Extended Euclidean algorithm"]),
     1,
   )
 
   #question(
-    [The ECDLP asks: given $P$ and $Q = kP$, find:],
+    [The ECDLP asks: given $P$ and $Q = k P$, find:],
     ([$P$], [$Q$], [$k$], [$-P$]),
     2,
   )
@@ -170,13 +170,13 @@
 
   #question(
     [Which property of scalar multiplication makes ECC secure?],
-    (["It is reversible in polynomial time"], ["Finding $k$ from $P$ and $kP$ is computationally hard"], ["It requires large keys"], ["It is slow to compute"]),
+    (["It is reversible in polynomial time"], ["Finding $k$ from $P$ and $k P$ is computationally hard"], ["It requires large keys"], ["It is slow to compute"]),
     1,
   )
 
   #question(
     [True or False: Point doubling uses the same $lambda$ formula as point addition.],
-    (["True"], ["False — doubling uses the tangent slope $(3x_1^2 + a)/(2y_1)$"], ["Only for prime fields"], ["Depends on $a$"]),
+    (["True"], ["False — doubling uses the tangent slope $(3 x_1^2 + a)/(2y_1)$"], ["Only for prime fields"], ["Depends on $a$"]),
     1,
   )
 ]
@@ -204,5 +204,5 @@
 ]
 
 #supplementary[
-  On $E(FF_7)$ with $\#E = 9$, if $G$ has order 9. How many distinct points does $angle.l G angle.r$ contain?
+  On $E(FF_7)$ with $\#E = 9$, if $G$ has order 9. How many distinct points does $chevron.l G chevron.r$ contain?
 ]

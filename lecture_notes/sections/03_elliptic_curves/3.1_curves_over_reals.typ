@@ -16,7 +16,7 @@
 ]
 
 #note[
-  The condition $Delta != 0$ ensures three distinct roots for $x^3 + ax + b$, which guarantees the curve is smooth. Singular curves (where $Delta = 0$) do not form groups under the chord-and-tangent law.
+  The condition $Delta != 0$ ensures three distinct roots for $x^3 + a x + b$, which guarantees the curve is smooth. Singular curves (where $Delta = 0$) do not form groups under the chord-and-tangent law.
 ]
 
 #definition("The Point at Infinity")[
@@ -79,7 +79,7 @@
 #quiz[
   #question(
     [The short Weierstrass form of an elliptic curve is:],
-    ([$y = x^3 + ax + b$], [$y^2 = x^3 + ax + b$], [$y^2 = x^2 + ax + b$], [$y^3 = x^2 + ax + b$]),
+    ([$y = x^3 + a x + b$], [$y^2 = x^3 + a x + b$], [$y^2 = x^2 + a x + b$], [$y^3 = x^2 + a x + b$]),
     1,
   )
 

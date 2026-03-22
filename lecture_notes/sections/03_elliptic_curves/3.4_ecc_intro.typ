@@ -107,7 +107,7 @@
 
 #quiz[
   #question(
-    [The ECDLP problem is: given $G$ and $Q = kG$, find:],
+    [The ECDLP problem is: given $G$ and $Q = k G$, find:],
     ([$G$], [$Q$], [$k$], [$-G$]),
     2,
   )

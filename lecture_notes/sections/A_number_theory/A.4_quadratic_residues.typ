@@ -4,9 +4,9 @@
 === Theory
 
 #definition("Quadratic Residue")[
-  Let $p$ be an odd prime and $a in ZZ$ with $gcd(a, p) = 1$. We say $a$ is a *quadratic residue* modulo $p$ (written $a in QR_p$) if there exists $x in ZZ$ such that $x^2 equiv a space (mod p)$.
+  Let $p$ be an odd prime and $a in ZZ$ with $gcd(a, p) = 1$. We say $a$ is a *quadratic residue* modulo $p$ (written $a in Q R_p$) if there exists $x in ZZ$ such that $x^2 equiv a space (mod p)$.
 
-  If no such $x$ exists, $a$ is called a *quadratic non-residue* (written $a in QNR_p$).
+  If no such $x$ exists, $a$ is called a *quadratic non-residue* (written $a in Q N R_p$).
 ]
 
 #theorem[
@@ -17,8 +17,8 @@
   The *Legendre symbol* $\( a/p \)$ for an odd prime $p$ and $gcd(a,p)=1$ is defined as:
   $
     \( a / p \) = cases(
-      1 & "if" a in QR_p,
-      -1 & "if" a in QNR_p,
+      1 & "if" a in Q R_p,
+      -1 & "if" a in Q N R_p,
       0 & "if" p divides a
     )
   $
@@ -34,14 +34,14 @@
   Euler's criterion provides an efficient way to check whether a number is a quadratic residue: simply compute $a^{(p-1)/2} mod p$ using fast modular exponentiation.
 ]
 
-#corollary("Square Root of a QR")[
-  If $p equiv 3 space (mod 4)$ and $a in QR_p$, then the square roots of $a$ modulo $p$ are:
+#corollary("Square Root of a Q R")[
+  If $p equiv 3 space (mod 4)$ and $a in Q R_p$, then the square roots of $a$ modulo $p$ are:
   $ x equiv plus.minus a^{(p+1)/4} space (mod p) $
   This is used in elliptic curve point decompression.
 ]
 
 #note[
-  *ECC connection*: When working over $FF_p$, determining whether $r = x^3 + ax + b$ has a square root (i.e., whether there is a point $(x, y)$ on the curve) requires checking if $r$ is a quadratic residue mod $p$. This is fundamental to point enumeration and point decompression in compressed ECC public keys.
+  *ECC connection*: When working over $FF_p$, determining whether $r = x^3 + a x + b$ has a square root (i.e., whether there is a point $(x, y)$ on the curve) requires checking if $r$ is a quadratic residue mod $p$. This is fundamental to point enumeration and point decompression in compressed ECC public keys.
 ]
 
 === Solved Problems
@@ -51,7 +51,7 @@
 ]
 #solution[
   Compute squares mod 7: $1^2=1, 2^2=4, 3^2=2, 4^2=2, 5^2=4, 6^2=1$.
-  The distinct values are $QR_7 = {1, 2, 4}$, and $QNR_7 = {3, 5, 6}$.
+  The distinct values are $Q R_7 = {1, 2, 4}$, and $Q N R_7 = {3, 5, 6}$.
   There are $(7-1)/2 = 3$ residues and 3 non-residues, confirming the theorem.
 ]
 
@@ -89,7 +89,7 @@
   )
 
   #question(
-    [Euler's criterion says $a in QR_p$ iff:],
+    [Euler's criterion says $a in Q R_p$ iff:],
     ([$a^{p-1} equiv 1$], [$a^{(p-1)/2} equiv 1 space (mod p)$], [$a^{(p-1)/2} equiv -1 space (mod p)$], [$a^p equiv a$]),
     1,
   )
@@ -101,13 +101,13 @@
   )
 
   #question(
-    [$QR_7 = $],
+    [$Q R_7 = $],
     ([${1, 4, 6}$], [${1, 2, 4}$], [${2, 3, 5}$], [${3, 5, 6}$]),
     1,
   )
 
   #question(
-    [If $p equiv 3 space (mod 4)$, the square root of $a in QR_p$ is:],
+    [If $p equiv 3 space (mod 4)$, the square root of $a in Q R_p$ is:],
     ([$a^{(p-1)/2}$], [$a^{(p+1)/4}$], [$a^{(p-1)/4}$], [$a^{p/2}$]),
     1,
   )
@@ -132,7 +132,7 @@
 
   #question(
     [The Legendre symbol is used to check:],
-    (["GCD"], ["Whether $a$ is prime"], ["Whether $a$ is a QR mod $p$"], ["Multiplicative order of $a$"]),
+    (["GCD"], ["Whether $a$ is prime"], ["Whether $a$ is a Q R mod $p$"], ["Multiplicative order of $a$"]),
     2,
   )
 ]
@@ -152,7 +152,7 @@
 ]
 
 #supplementary[
-  Prove that the product of a QR and a QNR is a QNR mod $p$.
+  Prove that the product of a Q R and a Q N R is a Q N R mod $p$.
 ]
 
 #supplementary[

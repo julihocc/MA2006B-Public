@@ -36,7 +36,7 @@
 #definition("Chinese Remainder Theorem (CRT)")[
   Let $n_1, n_2, ..., n_k$ be pairwise coprime positive integers. For any integers $a_1, ..., a_k$, the system:
   $ x equiv a_1 space (mod n_1), quad x equiv a_2 space (mod n_2), quad ..., quad x equiv a_k space (mod n_k) $
-  has a unique solution modulo $N = n_1 n_2 cdots n_k$.
+  has a unique solution modulo $N = n_1 n_2 dots.c n_k$.
 ]
 
 === Solved Problems
