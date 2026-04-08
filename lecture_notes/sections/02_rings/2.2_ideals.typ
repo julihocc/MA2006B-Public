@@ -114,16 +114,22 @@
 ]
 
 #solved_problem[
-  Consider $R = ZZ$ and $I = 5 ZZ$. Describe the quotient ring $ZZ slash I$.
+  Let $p$ be a prime integer. Show that $p ZZ$ is a maximal ideal of $ZZ$, and conclude that the quotient ring $ZZ slash p ZZ$ is a field.
 ]
-#solution[
-  The elements of $ZZ slash 5 ZZ$ are the cosets $a + 5ZZ$.
-  Two cosets are equal if their representatives differ by a multiple of 5.
-  Distinct cosets correspond to the remainders modulo 5:
-  $0 + 5ZZ, 1 + 5ZZ, 2 + 5ZZ, 3 + 5ZZ, 4 + 5ZZ$.
+#proof[
+  *Step 1: $p ZZ$ is an ideal of $ZZ$.*
 
-  Addition and multiplication exactly mirror arithmetic in $ZZ_5$.
-  Thus, $ZZ / 5 ZZ tilde.eq ZZ_5$.
+  By the first solved problem (applied with $n = p$), $p ZZ$ is an ideal of $ZZ$.
+
+  *Step 2: $p ZZ$ is maximal.*
+
+  Suppose $I$ is an ideal of $ZZ$ with $p ZZ subset.neq I subset.eq ZZ$. Since every ideal of $ZZ$ is principal, $I = d ZZ$ for some $d in ZZ$. The inclusion $p ZZ subset.eq d ZZ$ means $d divides p$. Since $p$ is prime, its only divisors are $plus.minus 1$ and $plus.minus p$, giving either $d ZZ = ZZ$ or $d ZZ = p ZZ$. The strict inclusion forces $I = d ZZ = ZZ$. Hence no ideal lies strictly between $p ZZ$ and $ZZ$, so $p ZZ$ is maximal.
+
+  *Step 3: $ZZ slash p ZZ$ is a field.*
+
+  A standard theorem states that an ideal $M$ of a commutative ring $R$ is maximal if and only if $R slash M$ is a field. Since $p ZZ$ is maximal in $ZZ$, we conclude
+  $ ZZ slash p ZZ tilde.eq ZZ_p $
+  is a field. $square$
 ]
 
 #solved_problem[
