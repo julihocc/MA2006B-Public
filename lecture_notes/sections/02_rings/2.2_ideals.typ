@@ -42,8 +42,31 @@
   An ideal $M$ of a ring $R$ is called *maximal* if $M eq.not R$ and there is no ideal $I$ of $R$ such that $M subset.neq I subset.neq R$. Equivalently, $M$ is maximal if the only ideals containing $M$ are $M$ itself and $R$.
 ]
 
-#note[
-  For commutative rings with unity: every maximal ideal is prime, but the converse does not hold in general. Moreover, $M$ is maximal if and only if $R slash M$ is a field, and $P$ is prime if and only if $R slash P$ is an integral domain.
+#proposition("Characterizations of Prime and Maximal Ideals")[
+  Let $R$ be a commutative ring with unity and $I$ a proper ideal of $R$. Then:
+  + $I$ is prime if and only if $R slash I$ is an integral domain.
+  + $I$ is maximal if and only if $R slash I$ is a field.
+  + Every maximal ideal is prime.
+]
+
+#proof[
+  *Part (1): $I$ prime $arrow.l.r.double$ $R slash I$ integral domain.*
+
+  Recall that $R slash I$ is a commutative ring with unity $1 + I$ (inherited from $R$). We show the equivalence of the zero-divisor condition.
+
+  Suppose $I$ is prime and $(a + I)(b + I) = 0 + I$ in $R slash I$. Then $a b in I$. Since $I$ is prime, $a in I$ or $b in I$, i.e., $a + I = 0$ or $b + I = 0$. Hence $R slash I$ has no zero divisors and is an integral domain.
+
+  Conversely, suppose $R slash I$ is an integral domain and $a b in I$. Then $(a + I)(b + I) = a b + I = 0 + I$. Since $R slash I$ is an integral domain, $a + I = 0$ or $b + I = 0$, i.e., $a in I$ or $b in I$. Hence $I$ is prime.
+
+  *Part (2): $I$ maximal $arrow.l.r.double$ $R slash I$ is a field.*
+
+  Suppose $I$ is maximal. Since $R slash I$ is a commutative ring with unity, we need only show every non-zero element is invertible. Let $a + I eq.not 0 + I$, i.e., $a in.not I$. Consider the ideal $I + chevron.l a chevron.r = {i + r a : i in I, r in R}$. This strictly contains $I$ (since $a in.not I$), so by maximality $I + chevron.l a chevron.r = R$. Then $1 in R = I + chevron.l a chevron.r$, so $1 = i + r a$ for some $i in I, r in R$. In $R slash I$: $(r + I)(a + I) = r a + I = (1 - i) + I = 1 + I$. Thus $a + I$ has inverse $r + I$, and $R slash I$ is a field.
+
+  Conversely, suppose $R slash I$ is a field. Let $J$ be an ideal with $I subset.neq J subset.eq R$ and pick $a in J without I$. Then $a + I eq.not 0$, so it has an inverse $b + I$ in $R slash I$: $a b + I = 1 + I$, giving $1 - a b in I subset.eq J$. Since $a in J$ we get $a b in J$, and thus $1 = (1 - a b) + a b in J$. Then $J = R$, so no proper ideal strictly contains $I$, making $I$ maximal.
+
+  *Part (3): Every maximal ideal is prime.*
+
+  If $I$ is maximal, then by Part (2) $R slash I$ is a field. Every field is an integral domain (a non-zero element has a multiplicative inverse, so it cannot be a zero divisor). By Part (1), $I$ is prime. $square$
 ]
 
 
@@ -267,4 +290,5 @@
 #supplementary[
   Find a non-trivial ideal in the ring $Z_{10}$.
 ]
+
 
