@@ -59,10 +59,14 @@
 ]
 
 #solved_problem[
-  Describe the elements of the quotient ring $ZZ / 3ZZ$ and identify what it is isomorphic to.
+  Describe the elements of the quotient ring $ZZ slash 3ZZ$ and identify what it is isomorphic to.
 ]
 #solution[
-  If $R = ZZ$ and $I = 3ZZ$, the quotient ring $ZZ / 3ZZ$ has elements $\{0+3ZZ, 1+3ZZ, 2+3ZZ\}$. This is isomorphic to the integers modulo 3, $ZZ_3$.
+  Let $R = ZZ$ and $I = 3ZZ$. The elements of the quotient ring $ZZ slash 3ZZ$ are the cosets of $3ZZ$ in $ZZ$. By the Division Algorithm, every integer is congruent modulo 3 to exactly one of $0, 1, 2$, so there are exactly three distinct cosets:
+  $ ZZ slash 3ZZ = {0 + 3ZZ,quad 1 + 3ZZ,quad 2 + 3ZZ}. $
+  Addition and multiplication of cosets are defined by
+  $ (a + 3ZZ) + (b + 3ZZ) = (a + b) + 3ZZ, quad (a + 3ZZ)(b + 3ZZ) = a b + 3ZZ. $
+  The map $phi: ZZ slash 3ZZ -> ZZ_3$ defined by $phi(a + 3ZZ) = overline(a)$ is a well-defined ring isomorphism, so $ZZ slash 3ZZ tilde.eq ZZ_3$.
 ]
 
 #solved_problem[
