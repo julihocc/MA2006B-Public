@@ -34,10 +34,28 @@
 === Solved Problems
 
 #solved_problem[
-  Show intuitively why the set of multiples of $n$, $n ZZ$, forms an ideal of $ZZ$.
+  Let $n in ZZ$. Prove formally that $n ZZ = {n k : k in ZZ}$ is an ideal of $ZZ$.
 ]
-#solution[
-  For any integer $r$ and any multiple $n k$, the product $r(n k) = n(r k)$ is still a multiple of $n$. Thus, $n ZZ$ absorbs multiplication by any ring element from $ZZ$, making it an ideal.
+#proof[
+  We verify the two conditions required by the definition of an ideal.
+
+  *1. $n ZZ$ is an additive subgroup of $ZZ$.*
+
+  - *Non-empty.* Since $n dot 0 = 0$, we have $0 in n ZZ$.
+
+  - *Closed under subtraction.* Let $a, b in n ZZ$. Then $a = n j$ and $b = n k$ for some $j, k in ZZ$. Hence
+    $ a - b = n j - n k = n(j - k). $
+    Since $j - k in ZZ$, it follows that $a - b in n ZZ$.
+
+  By the subgroup criterion, $n ZZ$ is an additive subgroup of $(ZZ, +)$.
+
+  *2. $n ZZ$ absorbs multiplication by elements of $ZZ$.*
+
+  Let $x in n ZZ$ and $r in ZZ$. Then $x = n k$ for some $k in ZZ$. We compute
+  $ r x = r(n k) = n(r k) quad "and" quad x r = (n k) r = n(k r). $
+  Since $ZZ$ is closed under multiplication, $r k in ZZ$ and $k r in ZZ$, so both $r x$ and $x r$ belong to $n ZZ$. (Note: because $ZZ$ is commutative, $r x = x r$, so the left and right absorption conditions coincide.)
+
+  *Conclusion.* Since $n ZZ$ is a non-empty additive subgroup of $ZZ$ that is closed under left and right multiplication by any element of $ZZ$, it satisfies the definition of an ideal. Therefore $n ZZ$ is an ideal of $ZZ$. $square$
 ]
 
 #solved_problem[
