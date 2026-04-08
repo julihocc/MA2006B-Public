@@ -31,6 +31,23 @@
 
 
 
+#definition("Prime Ideal")[
+  An ideal $P$ of a commutative ring $R$ is called *prime* if $P eq.not R$ and, for all $a, b in R$,
+  $ a b in P quad arrow.r.double quad a in P quad "or" quad b in P. $
+]
+
+
+
+#definition("Maximal Ideal")[
+  An ideal $M$ of a ring $R$ is called *maximal* if $M eq.not R$ and there is no ideal $I$ of $R$ such that $M subset.neq I subset.neq R$. Equivalently, $M$ is maximal if the only ideals containing $M$ are $M$ itself and $R$.
+]
+
+#note[
+  For commutative rings with unity: every maximal ideal is prime, but the converse does not hold in general. Moreover, $M$ is maximal if and only if $R slash M$ is a field, and $P$ is prime if and only if $R slash P$ is an integral domain.
+]
+
+
+
 === Solved Problems
 
 #solved_problem[
