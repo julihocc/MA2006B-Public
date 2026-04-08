@@ -70,10 +70,24 @@
 ]
 
 #solved_problem[
-  Explain how quotient rings are used to construct the AES S-box.
+  Let $R$ be a ring and let $I, J$ be ideals of $R$. Show that the interinterion $I inter J$ is also an ideal of $R$.
 ]
-#solution[
-  Quotient rings are fundamental in constructing finite fields consisting of polynomial bases. For example, $"GF"(2^8) tilde.eq ZZ_2[x] / chevron.l P(x) chevron.r$ where $P(x)$ is an irreducible polynomial. This field structure forms the mathematical basis for the AES S-box.
+#proof[
+  We verify the two ideal conditions for $I inter J$.
+
+  *1. $I inter J$ is an additive subgroup of $R$.*
+
+  - *Non-empty.* Since $I$ and $J$ are ideals they both contain $0$, so $0 in I inter J$.
+
+  - *Closed under subtraction.* Let $a, b in I inter J$. Then $a, b in I$ and $a, b in J$. Since $I$ is an additive subgroup, $a - b in I$; since $J$ is an additive subgroup, $a - b in J$. Therefore $a - b in I inter J$.
+
+  By the subgroup criterion, $I inter J$ is an additive subgroup of $(R, +)$.
+
+  *2. $I inter J$ absorbs multiplication by elements of $R$.*
+
+  Let $x in I inter J$ and $r in R$. Then $x in I$, and since $I$ is an ideal, $r x in I$ and $x r in I$. Likewise $x in J$, so $r x in J$ and $x r in J$. Therefore $r x in I inter J$ and $x r in I inter J$.
+
+  *Conclusion.* $I inter J$ is a non-empty additive subgroup of $R$ that absorbs multiplication on both sides, so it is an ideal of $R$. $square$
 ]
 
 #solved_problem[
@@ -211,7 +225,7 @@
 ]
 
 #supplementary[
-  Show that the intersection of two ideals $I$ and $J$ is also an ideal.
+  Show that the interinterion of two ideals $I$ and $J$ is also an ideal.
 ]
 
 #supplementary[
@@ -221,3 +235,4 @@
 #supplementary[
   Find a non-trivial ideal in the ring $Z_{10}$.
 ]
+
