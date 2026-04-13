@@ -3,8 +3,9 @@
 
 === Theory
 #definition(title: "Euclidean Domain")[
-  A *Euclidean Domain* (or Euclidean Ring) is an integral domain $R$ equipped with a Euclidean value function (or norm) $N: R without {0} arrow NN$ allowing a division algorithm.
-  For any $a, b in R$ with $b eq.not 0$, there exist $q, r in R$ such that:
+  A *Euclidean Domain* (or Euclidean Ring) is an integral domain $R$ equipped with a Euclidean value function (or norm) $N: R without {0} arrow NN$ that satisfies the following *division algorithm*:
+
+  For any $a, b in R$ with $b eq.not 0$, there exist elements $q$ (the *quotient*) and $r$ (the *remainder*) in $R$ such that:
   $ a = b q + r $
   where either $r = 0$ or $N(r) < N(b)$.
 ]
