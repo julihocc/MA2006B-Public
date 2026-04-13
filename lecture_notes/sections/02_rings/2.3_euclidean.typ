@@ -55,62 +55,85 @@
 === Solved Problems
 
 #solved_problem[
-  Name two common examples of Euclidean domains and specify their Euclidean norm functions.
+  Use the Extended Euclidean Algorithm to find the greatest common divisor of $252$ and $198$, and express it as a linear combination $252x + 198y$.
 ]
 #solution[
-  - The ring of integers $ZZ$ is a Euclidean domain with norm $N(a) = |a|$.
-  - The ring of polynomials $F[x]$ over a field $F$ is a Euclidean domain with norm $N(f) = deg(f)$.
+  We systematically apply the division step $r_(i-1) = r_i q_i + r_(i+1)$ and track the coefficients for Bézout's Identity using the update rules $x_(i+1) = x_(i-1) - q_i x_i$ and $y_(i+1) = y_(i-1) - q_i y_i$.
+
+  #align(center)[
+    #table(
+      columns: 5,
+      align: center,
+      [$i$], [$r_i$], [$q_i$], [$x_i$], [$y_i$],
+      [0], [252], [-], [1], [0],
+      [1], [198], [1], [0], [1],
+      [2], [54], [3], [1], [-1],
+      [3], [36], [1], [-3], [4],
+      [4], [18], [2], [4], [-5],
+      [5], [0], [-], [-], [-]
+    )
+  ]
+  The algorithm terminates when $r_5 = 0$. The last non-zero remainder is $r_4 = 18$, so $"gcd"(252, 198) = 18$.
+  The coefficients are $x = 4$ and $y = -5$.
+  Check: $252(4) + 198(-5) = 1008 - 990 = 18$.
 ]
 
 #solved_problem[
-  How is the Extended Euclidean Algorithm (EEA) applied in cryptographic key generation?
+  Find the greatest common divisor of the polynomials $f(x) = x^4 + x^2 + 1$ and $g(x) = x^3 - 1$ in $QQ[x]$ using the Euclidean Algorithm.
 ]
 #solution[
-  - *RSA Key Generation*: The EEA is used to compute the modular multiplicative inverse of the public exponent $e$ to find the private key $d$ ($e d equiv 1 (mod phi(n))$).
-  - *Determining Inverses*: In any finite field, finding inverses is done via the Euclidean algorithm.
+  We perform polynomial long division successively:
+  1. Divide $x^4 + x^2 + 1$ by $x^3 - 1$:
+    $ x^4 + x^2 + 1 = x(x^3 - 1) + (x^2 + x + 1) $
+    The quotient is $x$ and the remainder is $x^2 + x + 1$.
+  2. Divide $x^3 - 1$ by $x^2 + x + 1$:
+    $ x^3 - 1 = (x - 1)(x^2 + x + 1) + 0 $
+    The quotient is $x - 1$ and the remainder is $0$.
+
+  Since the remainder is $0$, the algorithm terminates. The greatest common divisor is the last non-zero remainder, which is $x^2 + x + 1$.
 ]
 
 #solved_problem[
-  Show that $ZZ$ is a Euclidean domain.
+  Use the tabular Extended Euclidean Algorithm to find the multiplicative inverse of $17$ modulo $26$.
 ]
 #solution[
-  Let $N(a) = |a|$. The standard division algorithm for integers states that for any $a, b in ZZ (b != 0)$, there exist $q, r$ such that $a = b q + r$ with $0 <= r < |b|$.
-  Thus either $r=0$ or $N(r) = |r| < |b| = N(b)$, satisfying the Euclidean condition.
+  We seek $y$ such that $17y equiv 1 (mod 26)$. This is equivalent to finding integers $x, y$ satisfying $26x + 17y = 1$. Let $a = 26, b = 17$:
+
+  #align(center)[
+    #table(
+      columns: 5,
+      align: center,
+      [$i$], [$r_i$], [$q_i$], [$x_i$], [$y_i$],
+      [0], [26], [-], [1], [0],
+      [1], [17], [1], [0], [1],
+      [2], [9],  [1], [1], [-1],
+      [3], [8],  [1], [-1], [2],
+      [4], [1],  [8], [2], [-3],
+      [5], [0],  [-], [-], [-]
+    )
+  ]
+  From the algorithm, $26(2) + 17(-3) = 1$.
+  Evaluating modulo 26, we get $17(-3) equiv 1$.
+  The negative inverse $-3$ is equivalent to $-3 + 26 = 23$.
+  Thus, the inverse of $17$ modulo $26$ is $23$.
 ]
 
 #solved_problem[
-  Use the Extended Euclidean Algorithm to find the inverse of $17$ modulo $26$.
+  In the Euclidean Domain of Gaussian Integers $ZZ[i]$, find the quotient and remainder when dividing $7+2i$ by $2-i$.
 ]
 #solution[
-  We seek $x$ such that $17 x equiv 1 (mod 26)$. This is equivalent to finding $x, y$ such that $17 x + 26 y = 1$.
-  Steps:
-  1. $26 = 1(17) + 9$
-  2. $17 = 1(9) + 8$
-  3. $9 = 1(8) + 1$ (GCD is 1)
+  We aim to find $q, r in ZZ[i]$ such that $7+2i = (2-i)q + r$ with $N(r) < N(2-i) = 5$.
+  First, perform normal complex division to find the exact value of $z/w$:
+  $ (7+2i)/(2-i) = ((7+2i)(2+i)) / (2^2 + 1^2) = (14 + 7i + 4i - 2) / 5 = (12+11i) / 5 = 2.4 + 2.2i $
 
-  Back substitution:
-  $1 = 9 - 8$
-  $1 = 9 - (17 - 9) = 2(9) - 17$
-  $1 = 2(26 - 17) - 17 = 2(26) - 3(17)$
+  Next, find the closest Gaussian integer $q$ by rounding the real and imaginary parts to the nearest integers:
+  $ q = 2 + 2i $
 
-  Thus $17(-3) + 26(2) = 1$.
-  Modulo 26: $17(-3) equiv 1$.
-  Inverse is $-3 equiv 23 (mod 26)$.
-]
+  Finally, compute the remainder $r = (7+2i) - (2-i)q$:
+  $ r = (7+2i) - (2-i)(2+2i) = (7+2i) - (4 + 4i - 2i + 2) = (7+2i) - (6+2i) = 1 $
 
-#solved_problem[
-  Prove that the ring of Gaussian Integers $ZZ[i]$ is a Euclidean domain.
-]
-#solution[
-  Define norm $N(a+b i) = a^2 + b^2$.
-  For any $z, w in ZZ[i]$ ($w != 0$), consider the complex number $z/w$.
-  This point lies somewhere in the complex plane. The Gaussian integers form a square lattice in $CC$.
-  Any point in the plane is at distance at most $sqrt(2)/2$ from the nearest lattice point.
-  Let $q$ be the Gaussian integer closest to $z/w$.
-  Then $|z/w - q| <= sqrt(2)/2$.
-  Let $r = z - w q$.
-  Then $|r| = |w| |z/w - q| <= |w| sqrt(2)/2$.
-  Since $sqrt(2)/2 < 1$, $|r| < |w|$, so $N(r) < N(w)$.
+  Check the Euclidean condition: $N(r) = N(1) = 1$. Since $1 < 5$, the condition is satisfied.
+  The quotient is $2+2i$ and the remainder is $1$.
 ]
 
 === Self-Evaluation Quiz
