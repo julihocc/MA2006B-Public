@@ -25,10 +25,29 @@
   Because the norm $N(r)$ produces a strictly decreasing sequence of non-negative integers, it must terminate with some $r_k = 0$. The last non-zero remainder $r_(k-1)$ divides all previous remainders and is the GCD $d$.
 ]
 
-#theorem("Bézout's Identity & Extended Euclidean Algorithm")[
+#theorem("Bézout's Identity")[
   For any elements $a, b$ in a Euclidean Domain $R$, there exist coefficients $x, y in R$ such that:
   $ a x + b y = "gcd"(a, b) $
-  The *Extended Euclidean Algorithm (EEA)* is the constructive procedure used to compute these coefficients $x, y$ by running the Euclidean Algorithm and substituting the intermediate remainders backward.
+]
+
+#proof[
+  We prove this constructively using the remainders from the Euclidean Algorithm.
+  Notice that the initial elements can be trivially written as linear combinations of $a$ and $b$:
+  $ r_0 &= a = 1 dot a + 0 dot b \
+    r_1 &= b = 0 dot a + 1 dot b $
+  From the division algorithm step $r_(i-1) = r_i q_i + r_(i+1)$, we can express the next remainder as $r_(i+1) = r_(i-1) - r_i q_i$.
+  If $r_(i-1)$ and $r_i$ can be written as linear combinations of $a$ and $b$, then $r_(i+1)$ can also be written as a linear combination. By induction, since the sequence terminates at the GCD ($r_k$), the GCD can be written as $a x + b y$.
+]
+
+#algorithm("Extended Euclidean Algorithm (EEA)")[
+  To systematically find the GCD and coefficients $x, y$:
+  1. Initialize $x_0 = 1, y_0 = 0$ and $x_1 = 0, y_1 = 1$. Let $r_0 = a, r_1 = b$.
+  2. For $i >= 1$, apply the division algorithm: $r_(i-1) = r_i q_i + r_(i+1)$.
+  3. If $r_(i+1) = 0$, stop. The GCD is $r_i$, and the coefficients are $x = x_i, y = y_i$.
+  4. Otherwise, update the coefficients:
+     $ x_(i+1) &= x_(i-1) - q_i x_i \
+       y_(i+1) &= y_(i-1) - q_i y_i $
+  5. Increment $i$ and repeat from step 2.
 ]
 
 
