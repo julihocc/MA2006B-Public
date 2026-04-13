@@ -12,13 +12,23 @@
 
 
 
-#theorem("Extended Euclidean Algorithm (EEA)")[
-  The Extended Euclidean Algorithm (EEA) finds the greatest common divisor (GCD) and coefficients $x, y$ such that $a x + b y = "gcd"(a, b)$.
+#theorem("The Euclidean Algorithm")[
+  In a Euclidean Domain $R$, the greatest common divisor $d = "gcd"(a, b)$ of any two non-zero elements $a, b$ can be found using sequential divisions.
 ]
 
 #proof[
-  The algorithm proceeds by successive divisions: $r_(i-2) = q_i r_(i-1) + r_i$.
-  Since $N(r_i)$ is a strictly decreasing sequence of non-negative integers, it must terminate with $r_k = 0$. The last non-zero remainder $r_(k-1)$ divides all previous remainders and linear combinations, so it is the GCD. Back-substitution yields $x, y$.
+  Applying the division algorithm repeatedly:
+  $ a &= b q_1 + r_1 quad &("with " N(r_1) < N(b)) \
+    b &= r_1 q_2 + r_2 quad &("with " N(r_2) < N(r_1)) \
+      &dots.v \
+    r_(i-2) &= r_(i-1) q_i + r_i quad &("with " N(r_i) < N(r_(i-1))) $
+  Because the norm $N(r)$ produces a strictly decreasing sequence of non-negative integers, it must terminate with some $r_k = 0$. The last non-zero remainder $r_(k-1)$ divides all previous remainders and is the GCD $d$.
+]
+
+#theorem("Bézout's Identity & Extended Euclidean Algorithm")[
+  For any elements $a, b$ in a Euclidean Domain $R$, there exist coefficients $x, y in R$ such that:
+  $ a x + b y = "gcd"(a, b) $
+  The *Extended Euclidean Algorithm (EEA)* is the constructive procedure used to compute these coefficients $x, y$ by running the Euclidean Algorithm and substituting the intermediate remainders backward.
 ]
 
 
