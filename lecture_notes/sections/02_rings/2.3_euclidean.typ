@@ -139,6 +139,21 @@
   The quotient is $2+2i$ and the remainder is $1$.
 ]
 
+#solved_problem[
+  In the ring $ZZ[sqrt(2)]$ with norm $N(a + b sqrt(2)) = |a^2 - 2b^2|$, determine whether the element $3 + 2sqrt(2)$ is a unit.
+]
+#solution[
+  In the Euclidean domain $ZZ[sqrt(2)]$, the norm is defined as $N(a + b sqrt(2)) = |a^2 - 2b^2|$. An element $u$ is a unit if and only if $N(u) = N(1) = 1$.
+
+  Compute the norm of $3 + 2sqrt(2)$:
+  $ N(3 + 2sqrt(2)) = |3^2 - 2(2^2)| = |9 - 8| = 1 $
+
+  Since $N(3 + 2sqrt(2)) = 1$, the element $3 + 2sqrt(2)$ is indeed a unit.
+  Its inverse can be found by multiplying by the conjugate:
+  $ (3 + 2sqrt(2))(3 - 2sqrt(2)) = 9 - 8 = 1 $
+  Thus $(3 + 2sqrt(2))^(-1) = 3 - 2sqrt(2)$.
+]
+
 === Self-Evaluation Quiz
 
 #quiz[
@@ -242,5 +257,5 @@
 ]
 
 #supplementary[
-  Solve the linear congruence $12x equiv 6 (mod 21)$.
+  Solve the linear congruence $12x equiv 6 (mod 21)$. (_Hint_: First verify that $"gcd"(12, 21)$ divides 6, then use the EEA to reduce the congruence to a simpler equivalent.)
 ]
