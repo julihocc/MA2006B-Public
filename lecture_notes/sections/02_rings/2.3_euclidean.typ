@@ -58,6 +58,7 @@
   Use the Extended Euclidean Algorithm to find the greatest common divisor of $252$ and $198$, and express it as a linear combination $252x + 198y$.
 ]
 #solution[
+  In the Euclidean domain $ZZ$, the norm is defined as the absolute value: $N(a) = |a|$.
   We systematically apply the division step $r_(i-1) = r_i q_i + r_(i+1)$ and track the coefficients for Bézout's Identity using the update rules $x_(i+1) = x_(i-1) - q_i x_i$ and $y_(i+1) = y_(i-1) - q_i y_i$.
 
   #align(center)[
@@ -82,6 +83,7 @@
   Find the greatest common divisor of the polynomials $f(x) = x^4 + x^2 + 1$ and $g(x) = x^3 - 1$ in $QQ[x]$ using the Euclidean Algorithm.
 ]
 #solution[
+  In the Euclidean domain $QQ[x]$, the norm is defined as the polynomial degree: $N(p) = deg(p)$.
   We perform polynomial long division successively:
   1. Divide $x^4 + x^2 + 1$ by $x^3 - 1$:
     $ x^4 + x^2 + 1 = x(x^3 - 1) + (x^2 + x + 1) $
@@ -97,7 +99,7 @@
   Use the tabular Extended Euclidean Algorithm to find the multiplicative inverse of $17$ modulo $26$.
 ]
 #solution[
-  We seek $y$ such that $17y equiv 1 (mod 26)$. This is equivalent to finding integers $x, y$ satisfying $26x + 17y = 1$. Let $a = 26, b = 17$:
+  Working in $ZZ$ where the norm is $N(a) = |a|$, we seek $y$ such that $17y equiv 1 (mod 26)$. This is equivalent to finding integers $x, y$ satisfying $26x + 17y = 1$. Let $a = 26, b = 17$:
 
   #align(center)[
     #table(
@@ -122,6 +124,7 @@
   In the Euclidean Domain of Gaussian Integers $ZZ[i]$, find the quotient and remainder when dividing $7+2i$ by $2-i$.
 ]
 #solution[
+  In the Euclidean domain $ZZ[i]$, the norm is defined as $N(a+b i) = a^2 + b^2$.
   We aim to find $q, r in ZZ[i]$ such that $7+2i = (2-i)q + r$ with $N(r) < N(2-i) = 5$.
   First, perform normal complex division to find the exact value of $z/w$:
   $ (7+2i)/(2-i) = ((7+2i)(2+i)) / (2^2 + 1^2) = (14 + 7i + 4i - 2) / 5 = (12+11i) / 5 = 2.4 + 2.2i $
