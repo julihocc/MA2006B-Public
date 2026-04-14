@@ -17,21 +17,21 @@
 ]
 
 #proof[
-  Applying the division algorithm repeatedly yields the following sequence of equations:
-  $ a &= b q_1 + r_1 quad &("with " N(r_1) < N(b)) \
-    b &= r_1 q_2 + r_2 quad &("with " N(r_2) < N(r_1)) \
+  Let $r_0 = a$ and $r_1 = b$. Applying the division algorithm repeatedly yields the following sequence of equations:
+  $ r_0 &= r_1 q_1 + r_2 quad &("with " N(r_2) < N(r_1)) \
+    r_1 &= r_2 q_2 + r_3 quad &("with " N(r_3) < N(r_2)) \
     &dots.v \
-    r_(k-2) &= r_(k-1) q_k + r_k quad &("with " r_k = 0) $
+    r_(k-2) &= r_(k-1) q_(k-1) + r_k quad &("with " r_k = 0) $
 
   We first establish that this sequence of divisions must terminate. By definition of the Euclidean norm, the remainders form a sequence of strictly decreasing, non-negative integers:
-  $ N(b) > N(r_1) > N(r_2) > dots.h >= 0 $
+  $ N(r_1) > N(r_2) > N(r_3) > dots.h >= 0 $
   By the Well-Ordering Principle, any strictly decreasing sequence of non-negative integers must be finite. Therefore, there exists some index $k$ such that $r_k = 0$, ending the algorithm.
 
   Next, we demonstrate that the last non-zero remainder, $r_(k-1)$, is precisely the greatest common divisor of $a$ and $b$. We evaluate this by verifying the two criteria of a greatest common divisor:
   
-  *First, $r_(k-1)$ is a common divisor:* From the final step of the algorithm, $r_(k-2) = r_(k-1) q_k$, so $r_(k-1)$ divides $r_(k-2)$. The preceding step is $r_(k-3) = r_(k-2) q_(k-1) + r_(k-1)$. Since $r_(k-1)$ divides both terms on the right-hand side, it divides $r_(k-3)$. Proceeding inductively backwards through the equations, we conclude that $r_(k-1)$ divides both $b$ and $a$.
+  *First, $r_(k-1)$ is a common divisor:* From the final step of the algorithm, $r_(k-2) = r_(k-1) q_(k-1)$, so $r_(k-1)$ divides $r_(k-2)$. The preceding step is $r_(k-3) = r_(k-2) q_(k-2) + r_(k-1)$. Since $r_(k-1)$ divides both terms on the right-hand side, it divides $r_(k-3)$. Proceeding inductively backwards through the equations, we conclude that $r_(k-1)$ divides both $r_1$ and $r_0$ (which are $b$ and $a$).
 
-  *Second, $r_(k-1)$ is divisible by any other common divisor:* Let $c$ be an arbitrary common divisor of $a$ and $b$. Rearranging the first equation gives $r_1 = a - b q_1$. Because $c$ divides both $a$ and $b$, it must divide their linear combination, hence $c$ divides $r_1$. The next equation yields $r_2 = b - r_1 q_2$; since $c$ divides $b$ and $r_1$, it must divide $r_2$. By an inductive argument marching forward through the sequence, we find that $c$ inevitably divides $r_(k-1)$.
+  *Second, $r_(k-1)$ is divisible by any other common divisor:* Let $c$ be an arbitrary common divisor of $r_0$ and $r_1$. Rearranging the first equation gives $r_2 = r_0 - r_1 q_1$. Because $c$ divides both $r_0$ and $r_1$, it must divide their linear combination, hence $c$ divides $r_2$. The next equation yields $r_3 = r_1 - r_2 q_2$; since $c$ divides $r_1$ and $r_2$, it must divide $r_3$. By an inductive argument marching forward through the sequence, we find that $c$ inevitably divides $r_(k-1)$.
 
   Since $r_(k-1)$ is a common divisor that is divisible by every common divisor, we conclude that $"gcd"(a, b) = r_(k-1)$.
 ]
