@@ -17,13 +17,25 @@
 ]
 
 #proof[
-  Applying the division algorithm repeatedly:
+  Applying the division algorithm repeatedly yields the following sequence of equations:
   $ a &= b q_1 + r_1 quad &("with " N(r_1) < N(b)) \
     b &= r_1 q_2 + r_2 quad &("with " N(r_2) < N(r_1)) \
-      &dots.v \
-    r_(i-2) &= r_(i-1) q_i + r_i quad &("with " N(r_i) < N(r_(i-1))) $
-  Because the norm $N(r)$ produces a strictly decreasing sequence of non-negative integers, it must terminate with some $r_k = 0$. The last non-zero remainder $r_(k-1)$ divides all previous remainders and is the GCD $d$.
+    &dots.v \
+    r_(k-2) &= r_(k-1) q_k + r_k quad &("with " r_k = 0) $
+
+  We first establish that this sequence of divisions must terminate. By definition of the Euclidean norm, the remainders form a sequence of strictly decreasing, non-negative integers:
+  $ N(b) > N(r_1) > N(r_2) > dots.h >= 0 $
+  By the Well-Ordering Principle, any strictly decreasing sequence of non-negative integers must be finite. Therefore, there exists some index $k$ such that $r_k = 0$, ending the algorithm.
+
+  Next, we demonstrate that the last non-zero remainder, $r_(k-1)$, is precisely the greatest common divisor of $a$ and $b$. We evaluate this by verifying the two criteria of a greatest common divisor:
+  
+  *First, $r_(k-1)$ is a common divisor:* From the final step of the algorithm, $r_(k-2) = r_(k-1) q_k$, so $r_(k-1)$ divides $r_(k-2)$. The preceding step is $r_(k-3) = r_(k-2) q_(k-1) + r_(k-1)$. Since $r_(k-1)$ divides both terms on the right-hand side, it divides $r_(k-3)$. Proceeding inductively backwards through the equations, we conclude that $r_(k-1)$ divides both $b$ and $a$.
+
+  *Second, $r_(k-1)$ is divisible by any other common divisor:* Let $c$ be an arbitrary common divisor of $a$ and $b$. Rearranging the first equation gives $r_1 = a - b q_1$. Because $c$ divides both $a$ and $b$, it must divide their linear combination, hence $c$ divides $r_1$. The next equation yields $r_2 = b - r_1 q_2$; since $c$ divides $b$ and $r_1$, it must divide $r_2$. By an inductive argument marching forward through the sequence, we find that $c$ inevitably divides $r_(k-1)$.
+
+  Since $r_(k-1)$ is a common divisor that is divisible by every common divisor, we conclude that $"gcd"(a, b) = r_(k-1)$.
 ]
+
 
 #theorem("Bézout's Identity")[
   For any elements $a, b$ in a Euclidean Domain $R$, there exist coefficients $x, y in R$ such that:
@@ -36,7 +48,7 @@
   $ r_0 &= a = 1 dot a + 0 dot b \
     r_1 &= b = 0 dot a + 1 dot b $
   From the division algorithm step $r_(i-1) = r_i q_i + r_(i+1)$, we can express the next remainder as $r_(i+1) = r_(i-1) - r_i q_i$.
-  If $r_(i-1)$ and $r_i$ can be written as linear combinations of $a$ and $b$, then $r_(i+1)$ can also be written as a linear combination. By induction, since the sequence terminates at the GCD ($r_k$), the GCD can be written as $a x + b y$.
+  If $r_(i-1)$ and $r_i$ can be written as linear combinations of $a$ and $b$, then $r_(i+1)$ can also be written as a linear combination. By induction, since the sequence terminates at the GCD ($r_(k-1)$), the GCD can be written as $a x + b y$.
 ]
 
 #algorithm("Extended Euclidean Algorithm (EEA)")[
