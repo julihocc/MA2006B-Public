@@ -96,15 +96,23 @@
 ]
 #solution[
   In the Euclidean domain $QQ[x]$, the norm is defined as the polynomial degree: $N(p) = deg(p)$.
-  We perform polynomial long division successively:
-  1. Divide $x^4 + x^2 + 1$ by $x^3 - 1$:
-    $ x^4 + x^2 + 1 = x(x^3 - 1) + (x^2 + x + 1) $
-    The quotient is $x$ and the remainder is $x^2 + x + 1$.
-  2. Divide $x^3 - 1$ by $x^2 + x + 1$:
-    $ x^3 - 1 = (x - 1)(x^2 + x + 1) + 0 $
-    The quotient is $x - 1$ and the remainder is $0$.
+  We apply the division step $r_(i-1) = r_i q_i + r_(i+1)$ successively:
 
-  Since the remainder is $0$, the algorithm terminates. The greatest common divisor is the last non-zero remainder, which is $x^2 + x + 1$.
+  #align(center)[
+    #table(
+      columns: 3,
+      align: center,
+      [$i$], [$r_i (x)$], [$q_i (x)$],
+      [0], [$x^4 + x^2 + 1$], [---],
+      [1], [$x^3 - 1$], [$x$],
+      [2], [$x^2 + x + 1$], [$x - 1$],
+      [3], [$0$], [---],
+    )
+  ]
+
+  The algorithm terminates when $r_3 = 0$. The last non-zero remainder is $r_2 = x^2 + x + 1$, so $gcd(f, g) = x^2 + x + 1$.
+
+  Check: $x^4 + x^2 + 1 = x(x^3-1) + (x^2+x+1)$ and $x^3-1 = (x-1)(x^2+x+1) + 0$. #sym.checkmark
 ]
 
 #solved_problem[
