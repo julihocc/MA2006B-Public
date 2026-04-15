@@ -10,6 +10,34 @@
   where either $r = 0$ or $N(r) < N(b)$.
 ]
 
+  #definition(title: "Gaussian Integers as a Euclidean Domain")[
+    The Gaussian integers are
+    $ ZZ[i] = {a + b i : a,b in ZZ}. $
+    A standard Euclidean norm is
+    $ N(a+b i) = a^2 + b^2. $
+    This norm is multiplicative:
+    $ N(alpha beta) = N(alpha) N(beta). $
+  ]
+
+  #algorithm("Division Algorithm in $ZZ[i]$")[
+    Given $alpha, beta in ZZ[i]$ with $beta != 0$:
+    1. Write
+      $ alpha/beta = x + y i $
+      with $x,y in QQ$.
+    2. Choose integers $m,n in ZZ$ such that
+      $ |x-m| <= 1/2 quad "and" quad |y-n| <= 1/2. $
+    3. Set $q = m + n i$ and $r = alpha - beta q$.
+    4. Then
+      $ r = beta ((alpha/beta) - q), $
+      so by multiplicativity of $N$,
+      $ N(r) = N(beta) N((alpha/beta)-q). $
+    5. If we write $(alpha/beta)-q = (x-m) + (y-n)i$, then
+      $ N((alpha/beta)-q) = (x-m)^2 + (y-n)^2 <= 1/4 + 1/4 = 1/2. $
+      Therefore
+      $ N(r) <= (1/2) N(beta) < N(beta), $
+      which gives the Euclidean division condition.
+  ]
+
 
 
 #theorem("The Euclidean Algorithm")[
