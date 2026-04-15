@@ -19,7 +19,7 @@
     $ N(alpha beta) = N(alpha) N(beta). $
   ]
 
-  #algorithm("Division Algorithm in $ZZ[i]$")[
+  #algorithm(title: [Division Algorithm in $ZZ[i]$])[
     Given $alpha, beta in ZZ[i]$ with $beta != 0$:
     1. Write
       $ alpha/beta = x + y i $
