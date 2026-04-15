@@ -96,23 +96,23 @@
 ]
 #solution[
   In the Euclidean domain $QQ[x]$, the norm is defined as the polynomial degree: $N(p) = deg(p)$.
-  We apply the division step $r_(i-1) = r_i q_i + r_(i+1)$ successively:
+  We apply the division step $r_(i-1) = r_i q_i + r_(i+1)$ and track the Bézout coefficients via $x_(i+1) = x_(i-1) - q_i x_i$ and $y_(i+1) = y_(i-1) - q_i y_i$:
 
   #align(center)[
     #table(
-      columns: 3,
+      columns: 5,
       align: center,
-      [$i$], [$r_i (x)$], [$q_i (x)$],
-      [0], [$x^4 + x^2 + 1$], [---],
-      [1], [$x^3 - 1$], [$x$],
-      [2], [$x^2 + x + 1$], [$x - 1$],
-      [3], [$0$], [---],
+      [$i$], [$r_i (x)$], [$q_i (x)$], [$x_i$], [$y_i$],
+      [0], [$x^4 + x^2 + 1$], [---], [$1$],   [$0$],
+      [1], [$x^3 - 1$],       [$x$], [$0$],   [$1$],
+      [2], [$x^2 + x + 1$], [$x-1$], [$1$],   [$-x$],
+      [3], [$0$],             [---], [---],    [---],
     )
   ]
 
   The algorithm terminates when $r_3 = 0$. The last non-zero remainder is $r_2 = x^2 + x + 1$, so $gcd(f, g) = x^2 + x + 1$.
-
-  Check: $x^4 + x^2 + 1 = x(x^3-1) + (x^2+x+1)$ and $x^3-1 = (x-1)(x^2+x+1) + 0$. #sym.checkmark
+  The Bézout coefficients are $x_2 = 1$ and $y_2 = -x$.
+  Check: $(x^4+x^2+1)(1) + (x^3-1)(-x) = x^2+x+1$. #sym.checkmark
 ]
 
 #solved_problem[
