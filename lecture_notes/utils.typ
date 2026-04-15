@@ -30,7 +30,14 @@
 #let corollary = thmbox("corollary", "Corollary", fill: rgb("e0f2f1"), stroke: rgb("00695c") + 1pt, base: "heading")
 
 // Algorithms
-#let algorithm = thmbox("algorithm", "Algorithm", fill: rgb("f3e5f5"), stroke: rgb("6a1b9a") + 1pt, base: "heading")
+#let algorithm = thmbox(
+  "algorithm",
+  "Algorithm",
+  fill: rgb("f3e5f5"),
+  stroke: rgb("6a1b9a") + 1pt,
+  breakable: true,
+  base: "heading",
+)
 
 // Examples
 #let _example = thmplain("example", "Example", base: "heading").with(
