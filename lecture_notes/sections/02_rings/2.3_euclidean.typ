@@ -145,18 +145,23 @@
 ]
 #solution[
   In the Euclidean domain $ZZ[i]$, the norm is defined as $N(a+b i) = a^2 + b^2$.
-  We aim to find $q, r in ZZ[i]$ such that $7+2i = (2-i)q + r$ with $N(r) < N(2-i) = 5$.
-  First, perform normal complex division to find the exact value of $z/w$:
-  $ (7+2i)/(2-i) = ((7+2i)(2+i)) / (2^2 + 1^2) = (14 + 7i + 4i - 2) / 5 = (12+11i) / 5 = 2.4 + 2.2i $
+  Write $q = a + b i$ with $a, b in ZZ$, and set
+  $ r = (7+2i) - (2-i)q = u + v i. $
+  Expanding $(2-i)(a+b i) = (2a+b) + (2b-a)i$, we get
+  $ u = 7 - (2a+b), quad v = 2 - (2b-a). $
+  So Euclidean division asks for integers $a,b,u,v$ such that
+  $ 7+2i = (2-i)(a+b i) + (u+v i), quad u^2 + v^2 < 5. $
 
-  Next, find the closest Gaussian integer $q$ by rounding the real and imaginary parts to the nearest integers:
-  $ q = 2 + 2i $
+  Solve for $a,b$ in terms of $u,v$:
+  $ 5a = 12 - 2u - v, quad 5b = 11 - u - 2v. $
+  We choose small $u,v$ with $u^2+v^2 < 5$ and making both right-hand sides divisible by $5$.
+  Taking $(u,v) = (1,0)$ gives
+  $ 5a = 10 => a = 2, quad 5b = 10 => b = 2. $
 
-  Finally, compute the remainder $r = (7+2i) - (2-i)q$:
-  $ r = (7+2i) - (2-i)(2+2i) = (7+2i) - (4 + 4i - 2i + 2) = (7+2i) - (6+2i) = 1 $
-
-  Check the Euclidean condition: $N(r) = N(1) = 1$. Since $1 < 5$, the condition is satisfied.
-  The quotient is $2+2i$ and the remainder is $1$.
+  Hence $q = 2+2i$ and $r = 1$.
+  Check:
+  $ (2-i)(2+2i) = 6+2i, quad (7+2i) - (6+2i) = 1. $
+  Finally, $N(r) = N(1) = 1 < 5 = N(2-i)$, so this is a valid Euclidean division in $ZZ[i]$.
 ]
 
 #solved_problem[
