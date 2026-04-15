@@ -214,39 +214,50 @@
   In the Euclidean Domain of Gaussian Integers $ZZ[i]$, find the quotient and remainder when dividing $7+2i$ by $2-i$.
 ]
 #solution[
-  In the Euclidean domain $ZZ[i]$, the norm is defined as $N(a+b i) = a^2 + b^2$.
-  Write $q = a + b i$ with $a, b in ZZ$, and set
-  $ r = (7+2i) - (2-i)q = u + v i. $
-  Expanding $(2-i)(a+b i) = (2a+b) + (2b-a)i$, we get
-  $ u = 7 - (2a+b), quad v = 2 - (2b-a). $
-  So Euclidean division asks for integers $a,b,u,v$ such that
-  $ 7+2i = (2-i)(a+b i) + (u+v i), quad u^2 + v^2 < 5. $
+  We follow the division algorithm in $ZZ[i]$ from the theory section, with
+  $ alpha = 7 + 2i, quad beta = 2 - i. $
 
-  Solve for $a,b$ in terms of $u,v$:
-  $ 5a = 12 - 2u - v, quad 5b = 11 - u - 2v. $
-  We choose small $u,v$ with $u^2+v^2 < 5$ and making both right-hand sides divisible by $5$.
-  Taking $(u,v) = (1,0)$ gives
-  $ 5a = 10 => a = 2, quad 5b = 10 => b = 2. $
+  Step 1: Compute
+  $ z = alpha / beta = (7 + 2i)/(2 - i). $
+  Multiply by the conjugate $2 + i$:
+  $ z = ((7 + 2i)(2 + i))/((2 - i)(2 + i)) = (12 + 11i)/5 = 12/5 + 11/5 i. $
 
-  Hence $q = 2+2i$ and $r = 1$.
-  Check:
-  $ (2-i)(2+2i) = 6+2i, quad (7+2i) - (6+2i) = 1. $
-  Finally, $N(r) = N(1) = 1 < 5 = N(2-i)$, so this is a valid Euclidean division in $ZZ[i]$.
+  Step 2: Round real and imaginary parts to nearest integers:
+  $ "Re"(z) = 12/5 = 2.4 "rounds to" 2, quad "Im"(z) = 11/5 = 2.2 "rounds to" 2. $
+  So choose
+  $ q = 2 + 2i in ZZ[i]. $
+
+  Step 3: Define the remainder
+  $ r = alpha - beta q = (7 + 2i) - (2 - i)(2 + 2i). $
+  Since $(2 - i)(2 + 2i) = 6 + 2i$, we get
+  $ r = (7 + 2i) - (6 + 2i) = 1. $
+
+  Step 4: Verify the Euclidean inequality:
+  $ N(r) = N(1) = 1, quad N(beta) = N(2 - i) = 2^2 + (-1)^2 = 5, $
+  hence $N(r) < N(beta)$.
+
+  Therefore,
+  $ 7 + 2i = (2 - i)(2 + 2i) + 1, $
+  so the quotient is $q = 2 + 2i$ and the remainder is $r = 1$.
 ]
 
 #solved_problem[
   In the ring $ZZ[sqrt(2)]$ with norm $N(a + b sqrt(2)) = |a^2 - 2b^2|$, determine whether the element $3 + 2sqrt(2)$ is a unit.
 ]
 #solution[
-  In the Euclidean domain $ZZ[sqrt(2)]$, the norm is defined as $N(a + b sqrt(2)) = |a^2 - 2b^2|$. An element $u$ is a unit if and only if $N(u) = N(1) = 1$.
+  We apply the Unit Test algorithm in $ZZ[sqrt(2)]$ to
+  $ u = 3 + 2sqrt(2). $
 
-  Compute the norm of $3 + 2sqrt(2)$:
-  $ N(3 + 2sqrt(2)) = |3^2 - 2(2^2)| = |9 - 8| = 1 $
+  Step 1: Compute
+  $ Delta = a^2 - 2b^2 = 3^2 - 2(2^2) = 9 - 8 = 1. $
 
-  Since $N(3 + 2sqrt(2)) = 1$, the element $3 + 2sqrt(2)$ is indeed a unit.
-  Its inverse can be found by multiplying by the conjugate:
-  $ (3 + 2sqrt(2))(3 - 2sqrt(2)) = 9 - 8 = 1 $
-  Thus $(3 + 2sqrt(2))^(-1) = 3 - 2sqrt(2)$.
+  Step 2: Since $Delta = 1$, the algorithm says $u$ is a unit and
+  $ u^(-1) = a - b sqrt(2) = 3 - 2sqrt(2). $
+
+  Check:
+  $ (3 + 2sqrt(2))(3 - 2sqrt(2)) = 9 - 8 = 1. $
+
+  Therefore, $3 + 2sqrt(2)$ is a unit, with inverse $3 - 2sqrt(2)$.
 ]
 
 === Self-Evaluation Quiz
