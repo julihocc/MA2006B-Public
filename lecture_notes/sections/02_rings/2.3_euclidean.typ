@@ -20,22 +20,29 @@
   ]
 
   #algorithm(title: [Division Algorithm in $ZZ[i]$])[
-    Given $alpha, beta in ZZ[i]$ with $beta != 0$:
-    1. Write
-      $ alpha/beta = x + y i $
-      with $x,y in QQ$.
-    2. Choose integers $m,n in ZZ$ such that
-      $ |x-m| <= 1/2 quad "and" quad |y-n| <= 1/2. $
-    3. Set $q = m + n i$ and $r = alpha - beta q$.
-    4. Then
-      $ r = beta ((alpha/beta) - q), $
-      so by multiplicativity of $N$,
-      $ N(r) = N(beta) N((alpha/beta)-q). $
-    5. If we write $(alpha/beta)-q = (x-m) + (y-n)i$, then
-      $ N((alpha/beta)-q) = (x-m)^2 + (y-n)^2 <= 1/4 + 1/4 = 1/2. $
-      Therefore
-      $ N(r) <= (1/2) N(beta) < N(beta), $
-      which gives the Euclidean division condition.
+    Let
+    $ alpha = a + b i, quad beta = c + d i quad (beta != 0), $
+     with $a,b,c,d in ZZ$.
+     We seek $q = m + n i$ and $r = u + v i$ in $ZZ[i]$ such that
+     $ alpha = beta q + r, quad N(r) < N(beta). $
+
+     1. Work in $ZZ^2$: identify each Gaussian integer $x + y i$ with its coordinate pair $(x,y)$.
+       For $q = m + n i$, we have
+       $ beta q = (c + d i)(m + n i) = (c m - d n) + (c n + d m)i. $
+       So the coordinate pair of $beta q$ is $(c m - d n, c n + d m)$.
+       Therefore the set of all multiples of $beta$ corresponds to the lattice
+       $ L_beta = {(c m - d n, c n + d m) : m,n in ZZ}. $
+     2. The vectors $(c,d)$ and $(-d,c)$ generate $L_beta$, so a fundamental cell is
+       $ P = {s(c,d) + t(-d,c) : -1/2 <= s,t < 1/2}. $
+     3. Choose $(x,y) in L_beta$ such that $(a,b) - (x,y) in P$ (translate by lattice points).
+      Write $(x,y) = (c m - d n, c n + d m)$ for some $m,n in ZZ$, and set
+      $ q = m + n i, quad r = alpha - beta q. $
+     4. Let $(u,v)$ be coordinates of $r$, so $(u,v) in P$.
+       Then $(u,v) = s(c,d) + t(-d,c)$ for some $|s|,|t| <= 1/2$, hence
+       $ u^2 + v^2 = (s^2+t^2)(c^2+d^2) <= (1/2) (c^2+d^2) < c^2+d^2. $
+     5. Therefore
+       $ N(r) = u^2+v^2 < c^2+d^2 = N(beta), $
+       proving the Euclidean division condition in $ZZ[i]$ without leaving the ring framework.
   ]
 
 
