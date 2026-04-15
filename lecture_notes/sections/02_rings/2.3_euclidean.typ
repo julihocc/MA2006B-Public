@@ -41,6 +41,47 @@
     Therefore the Euclidean division condition holds in $ZZ[i]$.
   ]
 
+  #definition(title: [The Ring $ZZ[sqrt(2)]$ and Its Norm])[
+    The ring
+    $ ZZ[sqrt(2)] = {a + b sqrt(2) : a,b in ZZ} $
+    is closed under addition and multiplication.
+
+    For $u = a + b sqrt(2)$, define the conjugate
+    $ overline(u) = a - b sqrt(2) $
+    and norm
+    $ N(u) = |a^2 - 2b^2| = |u overline(u)|. $
+
+    The norm is multiplicative:
+    $ N(u v) = N(u) N(v). $
+  ]
+
+  #theorem(title: [Unit Criterion in $ZZ[sqrt(2)]$])[
+    For $u in ZZ[sqrt(2)]$, the following are equivalent:
+    1. $u$ is a unit.
+    2. $N(u) = 1$.
+
+    More explicitly, for $u = a + b sqrt(2)$:
+    - if $a^2 - 2b^2 = 1$, then $u^(-1) = a - b sqrt(2)$;
+    - if $a^2 - 2b^2 = -1$, then $u^(-1) = -(a - b sqrt(2))$.
+  ]
+
+  #proof[
+    If $u$ is a unit, there exists $v$ with $u v = 1$. Applying multiplicativity gives
+    $ N(u) N(v) = N(1) = 1. $
+    Since norms are nonnegative integers, $N(u) = 1$.
+
+    Conversely, if $N(u) = 1$, then $|u overline(u)| = 1$, so $u overline(u)$ is either $1$ or $-1$.
+    Hence either $u (overline(u)) = 1$ or $u (-overline(u)) = 1$, showing $u$ has an inverse in $ZZ[sqrt(2)]$.
+  ]
+
+  #algorithm(title: [Unit Test in $ZZ[sqrt(2)]$])[
+    Given $u = a + b sqrt(2)$:
+    1. Compute $Delta = a^2 - 2b^2$.
+    2. If $Delta = 1$, then $u$ is a unit and $u^(-1) = a - b sqrt(2)$.
+    3. If $Delta = -1$, then $u$ is a unit and $u^(-1) = -(a - b sqrt(2))$.
+    4. Otherwise, $u$ is not a unit.
+  ]
+
 
 
 #theorem("The Euclidean Algorithm")[
