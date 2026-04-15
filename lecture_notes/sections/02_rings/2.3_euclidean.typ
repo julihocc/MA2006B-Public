@@ -10,6 +10,56 @@
   where either $r = 0$ or $N(r) < N(b)$.
 ]
 
+#theorem("The Euclidean Algorithm")[
+  In a Euclidean Domain $R$, the greatest common divisor $d = "gcd"(a, b)$ of any two non-zero elements $a, b$ can be found using sequential divisions.
+]
+
+#proof[
+  Let $r_0 = a$ and $r_1 = b$. Applying the division algorithm repeatedly yields the following sequence of equations:
+  $ r_0 &= r_1 q_1 + r_2 quad &("with " N(r_2) < N(r_1)) \
+    r_1 &= r_2 q_2 + r_3 quad &("with " N(r_3) < N(r_2)) \
+    &dots.v \
+    r_(k-2) &= r_(k-1) q_(k-1) + r_k quad &("with " r_k = 0) $
+
+  We first establish that this sequence of divisions must terminate. By definition of the Euclidean norm, the remainders form a sequence of strictly decreasing, non-negative integers:
+  $ N(r_1) > N(r_2) > N(r_3) > dots.h >= 0 $
+  By the Well-Ordering Principle, any strictly decreasing sequence of non-negative integers must be finite. Therefore, there exists some index $k$ such that $r_k = 0$, ending the algorithm.
+
+  Next, we demonstrate that the last non-zero remainder, $r_(k-1)$, is precisely the greatest common divisor of $a$ and $b$. We evaluate this by verifying the two criteria of a greatest common divisor:
+  
+  *First, $r_(k-1)$ is a common divisor:* From the final step of the algorithm, $r_(k-2) = r_(k-1) q_(k-1)$, so $r_(k-1)$ divides $r_(k-2)$. The preceding step is $r_(k-3) = r_(k-2) q_(k-2) + r_(k-1)$. Since $r_(k-1)$ divides both terms on the right-hand side, it divides $r_(k-3)$. Proceeding inductively backwards through the equations, we conclude that $r_(k-1)$ divides both $r_1$ and $r_0$ (which are $b$ and $a$).
+
+  *Second, $r_(k-1)$ is divisible by any other common divisor:* Let $c$ be an arbitrary common divisor of $r_0$ and $r_1$. Rearranging the first equation gives $r_2 = r_0 - r_1 q_1$. Because $c$ divides both $r_0$ and $r_1$, it must divide their linear combination, hence $c$ divides $r_2$. The next equation yields $r_3 = r_1 - r_2 q_2$; since $c$ divides $r_1$ and $r_2$, it must divide $r_3$. By an inductive argument marching forward through the sequence, we find that $c$ inevitably divides $r_(k-1)$.
+
+  Since $r_(k-1)$ is a common divisor that is divisible by every common divisor, we conclude that $"gcd"(a, b) = r_(k-1)$.
+]
+
+
+#theorem("Bézout's Identity")[
+  For any elements $a, b$ in a Euclidean Domain $R$, there exist coefficients $x, y in R$ such that:
+  $ a x + b y = "gcd"(a, b) $
+]
+
+#proof[
+  We prove this constructively using the remainders from the Euclidean Algorithm.
+  Notice that the initial elements can be trivially written as linear combinations of $a$ and $b$:
+  $ r_0 &= a = 1 dot a + 0 dot b \
+    r_1 &= b = 0 dot a + 1 dot b $
+  From the division algorithm step $r_(i-1) = r_i q_i + r_(i+1)$, we can express the next remainder as $r_(i+1) = r_(i-1) - r_i q_i$.
+  If $r_(i-1)$ and $r_i$ can be written as linear combinations of $a$ and $b$, then $r_(i+1)$ can also be written as a linear combination. By induction, since the sequence terminates at the GCD ($r_(k-1)$), the GCD can be written as $a x + b y$.
+]
+
+#algorithm("Extended Euclidean Algorithm (EEA)")[
+  To systematically find the GCD and coefficients $x, y$:
+  1. Initialize $x_0 = 1, y_0 = 0$ and $x_1 = 0, y_1 = 1$. Let $r_0 = a, r_1 = b$.
+  2. For $i >= 1$, apply the division algorithm: $r_(i-1) = r_i q_i + r_(i+1)$.
+  3. If $r_(i+1) = 0$, stop. The GCD is $r_i$, and the coefficients are $x = x_i, y = y_i$.
+  4. Otherwise, update the coefficients:
+     $ x_(i+1) &= x_(i-1) - q_i x_i \
+       y_(i+1) &= y_(i-1) - q_i y_i $
+  5. Increment $i$ and repeat from step 2.
+]
+
   #definition(title: "Gaussian Integers as a Euclidean Domain")[
     The Gaussian integers are
     $ ZZ[i] = {a + b i : a,b in ZZ}. $
@@ -81,58 +131,6 @@
     3. If $Delta = -1$, then $u$ is a unit and $u^(-1) = -(a - b sqrt(2))$.
     4. Otherwise, $u$ is not a unit.
   ]
-
-
-
-#theorem("The Euclidean Algorithm")[
-  In a Euclidean Domain $R$, the greatest common divisor $d = "gcd"(a, b)$ of any two non-zero elements $a, b$ can be found using sequential divisions.
-]
-
-#proof[
-  Let $r_0 = a$ and $r_1 = b$. Applying the division algorithm repeatedly yields the following sequence of equations:
-  $ r_0 &= r_1 q_1 + r_2 quad &("with " N(r_2) < N(r_1)) \
-    r_1 &= r_2 q_2 + r_3 quad &("with " N(r_3) < N(r_2)) \
-    &dots.v \
-    r_(k-2) &= r_(k-1) q_(k-1) + r_k quad &("with " r_k = 0) $
-
-  We first establish that this sequence of divisions must terminate. By definition of the Euclidean norm, the remainders form a sequence of strictly decreasing, non-negative integers:
-  $ N(r_1) > N(r_2) > N(r_3) > dots.h >= 0 $
-  By the Well-Ordering Principle, any strictly decreasing sequence of non-negative integers must be finite. Therefore, there exists some index $k$ such that $r_k = 0$, ending the algorithm.
-
-  Next, we demonstrate that the last non-zero remainder, $r_(k-1)$, is precisely the greatest common divisor of $a$ and $b$. We evaluate this by verifying the two criteria of a greatest common divisor:
-  
-  *First, $r_(k-1)$ is a common divisor:* From the final step of the algorithm, $r_(k-2) = r_(k-1) q_(k-1)$, so $r_(k-1)$ divides $r_(k-2)$. The preceding step is $r_(k-3) = r_(k-2) q_(k-2) + r_(k-1)$. Since $r_(k-1)$ divides both terms on the right-hand side, it divides $r_(k-3)$. Proceeding inductively backwards through the equations, we conclude that $r_(k-1)$ divides both $r_1$ and $r_0$ (which are $b$ and $a$).
-
-  *Second, $r_(k-1)$ is divisible by any other common divisor:* Let $c$ be an arbitrary common divisor of $r_0$ and $r_1$. Rearranging the first equation gives $r_2 = r_0 - r_1 q_1$. Because $c$ divides both $r_0$ and $r_1$, it must divide their linear combination, hence $c$ divides $r_2$. The next equation yields $r_3 = r_1 - r_2 q_2$; since $c$ divides $r_1$ and $r_2$, it must divide $r_3$. By an inductive argument marching forward through the sequence, we find that $c$ inevitably divides $r_(k-1)$.
-
-  Since $r_(k-1)$ is a common divisor that is divisible by every common divisor, we conclude that $"gcd"(a, b) = r_(k-1)$.
-]
-
-
-#theorem("Bézout's Identity")[
-  For any elements $a, b$ in a Euclidean Domain $R$, there exist coefficients $x, y in R$ such that:
-  $ a x + b y = "gcd"(a, b) $
-]
-
-#proof[
-  We prove this constructively using the remainders from the Euclidean Algorithm.
-  Notice that the initial elements can be trivially written as linear combinations of $a$ and $b$:
-  $ r_0 &= a = 1 dot a + 0 dot b \
-    r_1 &= b = 0 dot a + 1 dot b $
-  From the division algorithm step $r_(i-1) = r_i q_i + r_(i+1)$, we can express the next remainder as $r_(i+1) = r_(i-1) - r_i q_i$.
-  If $r_(i-1)$ and $r_i$ can be written as linear combinations of $a$ and $b$, then $r_(i+1)$ can also be written as a linear combination. By induction, since the sequence terminates at the GCD ($r_(k-1)$), the GCD can be written as $a x + b y$.
-]
-
-#algorithm("Extended Euclidean Algorithm (EEA)")[
-  To systematically find the GCD and coefficients $x, y$:
-  1. Initialize $x_0 = 1, y_0 = 0$ and $x_1 = 0, y_1 = 1$. Let $r_0 = a, r_1 = b$.
-  2. For $i >= 1$, apply the division algorithm: $r_(i-1) = r_i q_i + r_(i+1)$.
-  3. If $r_(i+1) = 0$, stop. The GCD is $r_i$, and the coefficients are $x = x_i, y = y_i$.
-  4. Otherwise, update the coefficients:
-     $ x_(i+1) &= x_(i-1) - q_i x_i \
-       y_(i+1) &= y_(i-1) - q_i y_i $
-  5. Increment $i$ and repeat from step 2.
-]
 
 
 
