@@ -33,67 +33,108 @@
 === Solved Problems
 
 #solved_problem[
-  Give two examples of polynomial rings with different coefficient structures.
+  Identify two polynomial rings with different coefficient systems and state how arithmetic differs.
 ]
 #solution[
-  - $ZZ[x]$ is the ring of polynomials with integer coefficients.
-  - $RR[x]$ is the ring of polynomials with real coefficients.
+  *Input*:
+  - Coefficient set 1: $ZZ$
+  - Coefficient set 2: $RR$
+
+  *Procedure*:
+  1. Build polynomials in $x$ with coefficients from each set.
+  2. Compare coefficient arithmetic in each case.
+
+  *Result*:
+  - $ZZ[x]$: coefficients are integers, so arithmetic uses integer operations.
+  - $RR[x]$: coefficients are real numbers, so arithmetic uses real-number operations.
 ]
 
 #solved_problem[
-  Analyze the reducibility of the polynomial $x^2 + 1$ over the fields $RR$, $CC$, and $ZZ_2$.
+  Determine whether $x^2 + 1$ is reducible over $RR$, $CC$, and $ZZ_(2)$.
 ]
 #solution[
-  The polynomial $x^2 + 1$ is irreducible over the reals $RR$ because it has no real roots.
-  However, it is reducible over the complex numbers $CC$ as $(x-i)(x+i)$ and over $ZZ_2$ as $(x+1)^2 = x^2+1$.
+  *Input*: polynomial $f(x) = x^2 + 1$.
+
+  *Procedure*:
+  1. Over $RR$: solve $x^2 + 1 = 0$. No real solution exists.
+  2. Over $CC$: roots are $x = i$ and $x = -i$, so factorization exists.
+  3. Over $ZZ_(2)$: evaluate candidate roots.
+    - $f(0) = 1 != 0$
+     - $f(1) = 1 + 1 = 0$ in $ZZ_(2)$
+     Hence $x+1$ is a factor.
+
+  *Result*:
+  - Over $RR$: irreducible.
+  - Over $CC$: reducible, $x^2 + 1 = (x-i)(x+i)$.
+  - Over $ZZ_(2)$: reducible, $x^2 + 1 = (x+1)^2$.
 ]
 
 #solved_problem[
-  Which finite fields constructed from polynomials are used in modern cryptography (e.g., AES and ECC)?
+  State the finite-field models used by AES and ECC and identify their defining polynomial or modulus.
 ]
 #solution[
-  - *AES*: Operates in $"GF"(2^8)$ constructed with the irreducible polynomial $x^8 + x^4 + x^3 + x + 1$.
-  - *ECC*: Uses fields $"GF"(2^m)$ or $"GF"(p)$.
+  *Input*: cryptographic systems AES and ECC.
+
+  *Procedure*:
+  1. For AES, identify byte arithmetic field representation.
+  2. For ECC, list the standard field families used for curve arithmetic.
+
+  *Result*:
+  - *AES*: arithmetic in $"GF"(2^8)$, represented via the irreducible polynomial $x^8 + x^4 + x^3 + x + 1$.
+  - *ECC*: arithmetic over $"GF"(p)$ or $"GF"(2^m)$ depending on curve family.
 ]
 
 #solved_problem[
-  In $(ZZ_(2))[x]$, perform addition and multiplication of $f(x) = x^2 + x + 1$ and $g(x) = x + 1$.
+  Compute $f(x) + g(x)$ and $f(x) g(x)$ in $(ZZ_(2))[x]$ for
+  $f(x) = x^2 + x + 1$ and $g(x) = x + 1$.
 ]
 #solution[
-  Coefficients are in $ZZ_(2) = {0, 1}$.
+  *Input*: $f(x) = x^2 + x + 1$, $g(x) = x + 1$, coefficients mod 2.
 
-  *Addition*:
-  $f(x) + g(x) = (x^2 + x + 1) + (x + 1) = x^2 + 2x + 2$.
-  Since $2 equiv 0 (mod 2)$,
-  $f(x) + g(x) = x^2$.
+  *Procedure*:
+  1. Add termwise:
+    $f+g = x^2 + x + 1 + x + 1 = x^2 + 2x + 2$.
+  2. Reduce coefficients mod 2:
+    $2 equiv 0$, so $f+g = x^2$.
+  3. Multiply and collect terms:
+    $f(x)g(x) = (x^2 + x + 1)(x+1) = x^3 + x^2 + x^2 + x + x + 1$.
+  4. Reduce mod 2:
+    $x^2 + x^2 = 0$, $x + x = 0$.
 
-  *Multiplication*:
-  $f(x) dot g(x) = (x^2 + x + 1)(x + 1)$
-  $= x^3 + x^2 + x + x^2 + x + 1$
-  $= x^3 + 2x^2 + 2x + 1$
-  $= x^3 + 1$.
+  *Result*:
+  - $f(x)+g(x) = x^2$
+  - $f(x)g(x) = x^3 + 1$
 ]
 
 #solved_problem[
-  Factor $x^2 - 1$ in $(ZZ_(5))[x]$.
+  Factor $x^2 - 1$ in $(ZZ_(5))[x]$ using modular arithmetic.
 ]
 #solution[
-  We use the difference of squares formula:
-  $x^2 - 1 = (x - 1)(x + 1)$.
-  In $ZZ_(5)$, $-1 equiv 4$.
-  So $x^2 - 1 = (x + 4)(x + 1)$.
+  *Input*: polynomial $x^2 - 1$ over $ZZ_(5)$.
+
+  *Procedure*:
+  1. Apply difference of squares: $x^2 - 1 = (x-1)(x+1)$.
+  2. Rewrite coefficients in $ZZ_(5)$: $-1 equiv 4$.
+
+  *Result*:
+  $x^2 - 1 = (x+4)(x+1)$ in $(ZZ_(5))[x]$.
 ]
 
 #solved_problem[
-  Determine if $x^3 + x + 1$ is irreducible in $(ZZ_(2))[x]$.
+  Test irreducibility of $x^3 + x + 1$ in $(ZZ_(2))[x]$.
 ]
 #solution[
-  A polynomial of degree 2 or 3 is reducible over a field if and only if it has a root in that field.
-  Test elements of $ZZ_(2) = {0, 1}$:
-  - $x=0: 0^3 + 0 + 1 = 1 != 0$.
-  - $x=1: 1^3 + 1 + 1 = 3 equiv 1 != 0$.
+  *Input*: $f(x)=x^3+x+1$ over $ZZ_(2)$.
 
-  Since there are no roots, the polynomial is irreducible.
+  *Procedure*:
+  1. Use the root test for degree 3 polynomials over a field:
+     reducible iff there is a root in the field.
+  2. Evaluate all elements of $ZZ_(2)=\{0,1\}$:
+    - $f(0)=1 != 0$
+    - $f(1)=1+1+1=1$ in $ZZ_(2)$, so $f(1) != 0$
+
+  *Result*:
+  No root exists in $ZZ_(2)$, so $x^3+x+1$ is irreducible in $(ZZ_(2))[x]$.
 ]
 
 === Self-Evaluation Quiz
