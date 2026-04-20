@@ -17,11 +17,11 @@
 
 
 #theorem("Finite Field Construction")[
-  Finite fields of order $p^n$, denoted $"GF"(p^n)$, are constructed as $ZZ_p[x] / chevron.l P(x) chevron.r$ where $P(x)$ is an irreducible polynomial of degree $n$ over $ZZ_p$.
+  Finite fields of order $p^n$, denoted $"GF"(p^n)$, are constructed as $ZZ_p[x] slash (P(x))$ where $P(x)$ is an irreducible polynomial of degree $n$ over $ZZ_p$.
 ]
 
 #proof[
-  Let $F = ZZ_p[x] / chevron.l P(x) chevron.r$. $F$ is a commutative ring with unity.
+  Let $F = ZZ_p[x] slash (P(x))$. $F$ is a commutative ring with unity.
   Let $f(x) in F$ be non-zero (meaning it is not a multiple of $P(x)$). Since $P(x)$ is irreducible and $deg(f) < deg(P)$, $gcd(f, P) = 1$.
   By EEA for polynomials, there exist $a(x), b(x)$ such that $a(x) f(x) + b(x) P(x) = 1$.
   Taking this equation modulo $P(x)$, we get $a(x) f(x) equiv 1$.
@@ -136,7 +136,7 @@
   )
 
   #question(
-    [The number of elements in the quotient ring $ZZ_p[x] / chevron.l P(x) chevron.r$ where $deg(P)=n$ is:],
+    [The number of elements in the quotient ring $ZZ_p[x] slash (P(x))$ where $deg(P)=n$ is:],
     ([$p^n$], [$p$], [$n$], [$p n$]),
     0,
   )
@@ -167,7 +167,7 @@
 ]
 
 #supplementary[
-  Construct the multiplication table for the field $"GF"(4)$ constructed as $ZZ_2[x] / chevron.l x^2+x+1 chevron.r$.
+  Construct the multiplication table for the field $"GF"(4)$ constructed as $ZZ_2[x] slash (x^2+x+1)$.
 ]
 
 #supplementary[
@@ -195,7 +195,7 @@
 ]
 
 #supplementary[
-  Find a polynomial $f(x) in ZZ_5[x]$ of degree 2 that has roots 1 and 3.
+  Find a polynomial $f(x) in ZZ_5[x]$ of degree 2 that has roots $1$ and $3$.
 ]
 
 #supplementary[
