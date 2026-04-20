@@ -17,11 +17,11 @@
 
 
 #theorem("Finite Field Construction")[
-  Finite fields of order $p^n$, denoted $"GF"(p^n)$, are constructed as $ZZ_p[x] slash (P(x))$ where $P(x)$ is an irreducible polynomial of degree $n$ over $ZZ_p$.
+  Finite fields of order $p^n$, denoted $"GF"(p^n)$, are constructed as $(ZZ_(p))[x] slash (P(x))$, where $ZZ_(p) = ZZ slash p ZZ$ and $P(x)$ is an irreducible polynomial of degree $n$.
 ]
 
 #proof[
-  Let $F = ZZ_p[x] slash (P(x))$. $F$ is a commutative ring with unity.
+  Let $F = (ZZ_(p))[x] slash (P(x))$. $F$ is a commutative ring with unity.
   Let $f(x) in F$ be non-zero (meaning it is not a multiple of $P(x)$). Since $P(x)$ is irreducible and $deg(f) < deg(P)$, $gcd(f, P) = 1$.
   By EEA for polynomials, there exist $a(x), b(x)$ such that $a(x) f(x) + b(x) P(x) = 1$.
   Taking this equation modulo $P(x)$, we get $a(x) f(x) equiv 1$.
@@ -57,10 +57,10 @@
 ]
 
 #solved_problem[
-  In $ZZ_2[x]$, perform addition and multiplication of $f(x) = x^2 + x + 1$ and $g(x) = x + 1$.
+  In $(ZZ_(2))[x]$, perform addition and multiplication of $f(x) = x^2 + x + 1$ and $g(x) = x + 1$.
 ]
 #solution[
-  Coefficients are in $ZZ_2 = {0, 1}$.
+  Coefficients are in $ZZ_(2) = {0, 1}$.
 
   *Addition*:
   $f(x) + g(x) = (x^2 + x + 1) + (x + 1) = x^2 + 2x + 2$.
@@ -75,21 +75,21 @@
 ]
 
 #solved_problem[
-  Factor $x^2 - 1$ in $ZZ_5[x]$.
+  Factor $x^2 - 1$ in $(ZZ_(5))[x]$.
 ]
 #solution[
   We use the difference of squares formula:
   $x^2 - 1 = (x - 1)(x + 1)$.
-  In $ZZ_5$, $-1 equiv 4$.
+  In $ZZ_(5)$, $-1 equiv 4$.
   So $x^2 - 1 = (x + 4)(x + 1)$.
 ]
 
 #solved_problem[
-  Determine if $x^3 + x + 1$ is irreducible in $ZZ_2[x]$.
+  Determine if $x^3 + x + 1$ is irreducible in $(ZZ_(2))[x]$.
 ]
 #solution[
   A polynomial of degree 2 or 3 is reducible over a field if and only if it has a root in that field.
-  Test elements of $ZZ_2 = {0, 1}$:
+  Test elements of $ZZ_(2) = {0, 1}$:
   - $x=0: 0^3 + 0 + 1 = 1 != 0$.
   - $x=1: 1^3 + 1 + 1 = 3 equiv 1 != 0$.
 
@@ -136,7 +136,7 @@
   )
 
   #question(
-    [The number of elements in the quotient ring $ZZ_p[x] slash (P(x))$ where $deg(P)=n$ is:],
+    [The number of elements in the quotient ring $(ZZ_(p))[x] slash (P(x))$ where $deg(P)=n$ is:],
     ([$p^n$], [$p$], [$n$], [$p n$]),
     0,
   )
@@ -163,19 +163,19 @@
 === Supplementary Problems
 
 #supplementary[
-  List all irreducible polynomials of degree 2 in $ZZ_2[x]$.
+  List all irreducible polynomials of degree 2 in $(ZZ_(2))[x]$.
 ]
 
 #supplementary[
-  Construct the multiplication table for the field $"GF"(4)$ constructed as $ZZ_2[x] slash (x^2+x+1)$.
+  Construct the multiplication table for the field $"GF"(4)$ constructed as $(ZZ_(2))[x] slash (x^2+x+1)$.
 ]
 
 #supplementary[
-  Factor $x^4 - 1$ over $ZZ_5$.
+  Factor $x^4 - 1$ over $ZZ_(5)$.
 ]
 
 #supplementary[
-  Determine if $x^3 + 2x + 1$ is irreducible over $ZZ_3$.
+  Determine if $x^3 + 2x + 1$ is irreducible over $ZZ_(3)$.
 ]
 
 #supplementary[
@@ -191,11 +191,11 @@
 ]
 
 #supplementary[
-  Use the Remainder Theorem to find the remainder when $x^3 + 2x^2 + 2$ is divided by $x-1$ in $ZZ_3[x]$.
+  Use the Remainder Theorem to find the remainder when $x^3 + 2x^2 + 2$ is divided by $x-1$ in $(ZZ_(3))[x]$.
 ]
 
 #supplementary[
-  Find a polynomial $f(x) in ZZ_5[x]$ of degree 2 that has roots $1$ and $3$.
+  Find a polynomial $f(x) in (ZZ_(5))[x]$ of degree 2 that has roots $1$ and $3$.
 ]
 
 #supplementary[
