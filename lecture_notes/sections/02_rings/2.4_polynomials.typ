@@ -157,7 +157,21 @@ Irreducible polynomials allow us to construct new fields, much like prime number
 ]
 
 #example[
-  To construct the finite field $"GF"(2^2) = "GF"(4)$, we take the polynomial ring $ZZ_2 [x]$ and quotient by the irreducible degree-2 polynomial $P(x) = x^2 + x + 1$. The elements of this field are the cosets represented by remainders ${0, 1, x, x+1}$, with arithmetic performed modulo $2$ and modulo $x^2 + x + 1$.
+  To construct the finite field $"GF"(2^2) = "GF"(4)$, we take the polynomial ring $ZZ_2 [x]$ and quotient by the degree-2 polynomial $P(x) = x^2 + x + 1$.
+  
+  *1. $P(x)$ is irreducible:* Since $P(x)$ has degree 2, it is irreducible over $ZZ_2$ if and only if it has no roots in $ZZ_2$. We check the elements of $ZZ_2$:
+  $ P(0) = 0^2 + 0 + 1 = 1 eq.not 0 $
+  $ P(1) = 1^2 + 1 + 1 = 3 equiv 1 eq.not 0 $
+  Since it has no roots, $P(x)$ is irreducible, guaranteeing the quotient ring forms a field.
+  
+  *2. The elements of the field:* By the Division Algorithm, any polynomial $f(x)$ divided by $P(x)$ yields a remainder $r(x) = a x + b$ where $deg(r) < 2$. Since $a, b in ZZ_2$, the exactly four possible remainders represent the elements of the field:
+  $ {0, 1, x, x+1} $
+  
+  *3. Field Arithmetic:* Operations are performed modulo $2$ (for coefficients) and modulo $x^2+x+1$ (for polynomials). For example, to prove that non-zero elements have inverses, we compute $x dot (x+1)$:
+  $ x(x + 1) = x^2 + x $
+  In our quotient field, $x^2 + x + 1 equiv 0$, which means $x^2 + x equiv -1$. Since coefficients are in $ZZ_2$, $-1 equiv 1$. Therefore:
+  $ x(x + 1) equiv 1 mod (x^2 + x + 1) $
+  This proves that $(x+1)$ is the multiplicative inverse of $x$.
 ]
 
 === Solved Problems
