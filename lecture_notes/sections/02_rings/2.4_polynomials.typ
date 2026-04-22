@@ -140,16 +140,16 @@ To test for irreducibility over the rational numbers, we can use Eisenstein's Cr
 Irreducible polynomials allow us to construct new fields, much like prime numbers create finite fields $ZZ_p$.
 
 #theorem("Finite Field Construction")[
-  Let $P(x) in ZZ_p[x]$ be an irreducible polynomial of degree $n$, where $p$ is prime. The quotient ring $F = ZZ_p[x] slash (P(x))$ forms a finite field of order $p^n$, denoted $"GF"(p^n)$.
+  Let $P(x) in ZZ_p [x]$ be an irreducible polynomial of degree $n$, where $p$ is prime. The quotient ring $F = ZZ_p [x] slash (P(x))$ forms a finite field of order $p^n$, denoted $"GF"(p^n)$.
 ]
 #proof[
-  Because $ZZ_p$ is a field, $ZZ_p[x]$ is a Euclidean Domain (due to the Division Algorithm), meaning we can use the Extended Euclidean Algorithm (EEA).
+  Because $ZZ_p$ is a field, $ZZ_p [x]$ is a Euclidean Domain (due to the Division Algorithm), meaning we can use the Extended Euclidean Algorithm (EEA).
   
   To show $F$ is a field, let $f(x) in F$ be non-zero. This means $P(x)$ does not divide $f(x)$.
   
   Since $P(x)$ is irreducible, its only divisors are units and multiples of itself. Thus, $gcd(f, P) = 1$.
   
-  By the EEA, there exist polynomials $a(x), b(x) in ZZ_p[x]$ such that $a(x) f(x) + b(x) P(x) = 1$.
+  By the EEA, there exist polynomials $a(x), b(x) in ZZ_p [x]$ such that $a(x) f(x) + b(x) P(x) = 1$.
   
   Taking this equation modulo $P(x)$, we obtain $a(x) f(x) equiv 1 mod P(x)$.
   
@@ -157,7 +157,7 @@ Irreducible polynomials allow us to construct new fields, much like prime number
 ]
 
 #example[
-  To construct the finite field $"GF"(2^2) = "GF"(4)$, we take the polynomial ring $ZZ_2[x]$ and quotient by the irreducible degree-2 polynomial $P(x) = x^2 + x + 1$. The elements of this field are the cosets represented by remainders ${0, 1, x, x+1}$, with arithmetic performed modulo $2$ and modulo $x^2 + x + 1$.
+  To construct the finite field $"GF"(2^2) = "GF"(4)$, we take the polynomial ring $ZZ_2 [x]$ and quotient by the irreducible degree-2 polynomial $P(x) = x^2 + x + 1$. The elements of this field are the cosets represented by remainders ${0, 1, x, x+1}$, with arithmetic performed modulo $2$ and modulo $x^2 + x + 1$.
 ]
 
 === Solved Problems
