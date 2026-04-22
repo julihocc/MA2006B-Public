@@ -21,6 +21,7 @@ The element $a_n$ is called the *leading coefficient*. If $a_n != 0$, we say tha
   If $R$ is an integral domain, and $f, g in R[x]$ are non-zero polynomials, then:
   $ deg(f g) = deg(f) + deg(g) $
 ]
+
 #proof[
   Let $f(x) = a_n x^n + dots + a_0$ with $a_n != 0$ and $g(x) = b_m x^m + dots + b_0$ with $b_m != 0$. 
   
@@ -50,6 +51,7 @@ When the coefficients are taken from a field rather than just a ring, the polyno
   $ f(x) = q(x)g(x) + r(x) $
   where either $r(x) = 0$ or $deg(r) < deg(g)$.
 ]
+
 #proof[
   *(Existence)*: If $f=0$ or $deg(f) < deg(g)$, we set $q=0$ and $r=f$. 
   
@@ -73,6 +75,7 @@ When the coefficients are taken from a field rather than just a ring, the polyno
 #theorem("Remainder Theorem")[
   Let $F$ be a field, $f(x) in F[x]$, and $alpha in F$. The remainder when $f(x)$ is divided by $(x - alpha)$ is $f(alpha)$.
 ]
+
 #proof[
   By the Division Algorithm, $f(x) = q(x)(x - alpha) + r(x)$. 
   
@@ -88,6 +91,7 @@ When the coefficients are taken from a field rather than just a ring, the polyno
 #theorem("Factor Theorem")[
   Let $F$ be a field, $f(x) in F[x]$, and $alpha in F$. Then $alpha$ is a root of $f$ (i.e., $f(alpha) = 0$) if and only if $(x - alpha)$ is a factor of $f(x)$.
 ]
+
 #proof[
   By the Remainder Theorem, $f(x) = q(x)(x - alpha) + f(alpha)$. 
   
@@ -119,6 +123,7 @@ To test for irreducibility over the rational numbers, we can use Eisenstein's Cr
   3. $p^2$ does not divide $a_0$,
   then $f(x)$ is irreducible over $QQ$.
 ]
+
 #proof[
   Assume for contradiction that $f(x)$ is reducible, so $f(x) = g(x)h(x)$ with non-constant polynomials $g, h in ZZ[x]$. Let $g(x) = b_r x^r + dots + b_0$ and $h(x) = c_s x^s + dots + c_0$.
   
@@ -142,6 +147,7 @@ Irreducible polynomials allow us to construct new fields, much like prime number
 #theorem("Finite Field Construction")[
   Let $P(x) in ZZ_p [x]$ be an irreducible polynomial of degree $n$, where $p$ is prime. The quotient ring $F = ZZ_p [x] slash (P(x))$ forms a finite field of order $p^n$, denoted $"GF"(p^n)$.
 ]
+
 #proof[
   Because $ZZ_p$ is a field, $ZZ_p [x]$ is a Euclidean Domain (due to the Division Algorithm), meaning we can use the Extended Euclidean Algorithm (EEA).
   
@@ -179,6 +185,7 @@ Irreducible polynomials allow us to construct new fields, much like prime number
 #solved_problem[
   Let $D$ be an integral domain such that the polynomial ring $D[x]$ is a Principal Ideal Domain (PID). Prove that $D$ is a field.
 ]
+
 #solution[
   To prove that $D$ is a field, we must show that every non-zero element $a in D$ has a multiplicative inverse.
   
@@ -211,6 +218,7 @@ Irreducible polynomials allow us to construct new fields, much like prime number
 #solved_problem[
   Identify two polynomial rings with different coefficient systems and state how their arithmetic differs.
 ]
+
 #solution[
   Consider the polynomial rings $ZZ[x]$ and $RR[x]$. 
   In $ZZ[x]$, the coefficients are restricted to integers. Arithmetic relies entirely on integer operations; thus, division is not always possible (e.g., $1/2 x$ is not in $ZZ[x]$), making $ZZ[x]$ an integral domain but not a Principal Ideal Domain.
@@ -220,6 +228,7 @@ Irreducible polynomials allow us to construct new fields, much like prime number
 #solved_problem[
   Perform polynomial long division to divide $f(x) = x^3 + x^2 + 2x + 1$ by $g(x) = x - 1$ in $RR[x]$, and verify the Remainder Theorem.
 ]
+
 #solution[
   We apply polynomial long division step-by-step:
   1. Divide leading terms: $x^3 / x = x^2$. We multiply $x^2(x - 1) = x^3 - x^2$ and subtract from $f$: 
@@ -237,6 +246,7 @@ Irreducible polynomials allow us to construct new fields, much like prime number
 #solved_problem[
   Determine whether $x^2 + 1$ is reducible over $RR$, $CC$, and $ZZ_2$.
 ]
+
 #solution[
   A quadratic polynomial is reducible over a field if and only if it has a root in that field.
   - *Over $RR$*: The equation $x^2 + 1 = 0$ implies $x^2 = -1$, which has no real solutions. Thus, it is irreducible.
@@ -250,6 +260,7 @@ Irreducible polynomials allow us to construct new fields, much like prime number
 #solved_problem[
   Use Eisenstein's Criterion to prove that $f(x) = x^4 + 6x^3 - 12x^2 + 30x - 24$ is irreducible over $QQ$.
 ]
+
 #solution[
   We examine the coefficients: $a_4 = 1$, $a_3 = 6$, $a_2 = -12$, $a_1 = 30$, $a_0 = -24$.
   We need to find a prime $p$ such that $p \nmid a_4$, $p | a_i$ for $i < 4$, and $p^2 \nmid a_0$.
@@ -262,6 +273,7 @@ Irreducible polynomials allow us to construct new fields, much like prime number
 #solved_problem[
   State the finite-field models used by AES and ECC and identify their defining polynomial or modulus.
 ]
+
 #solution[
   Finite fields form the mathematical foundation for many modern cryptographic systems.
   - *AES (Advanced Encryption Standard)* uses arithmetic in the binary extension field $"GF"(2^8)$. Bytes are represented as polynomials of degree at most 7 with coefficients in $ZZ_2$. The field is constructed using the irreducible polynomial $P(x) = x^8 + x^4 + x^3 + x + 1$.
@@ -271,6 +283,7 @@ Irreducible polynomials allow us to construct new fields, much like prime number
 #solved_problem[
   Compute $f(x) + g(x)$ and $f(x) g(x)$ in $ZZ_2[x]$ for $f(x) = x^2 + x + 1$ and $g(x) = x + 1$.
 ]
+
 #solution[
   All coefficients are reduced modulo 2. Recall that in $ZZ_2$, $1 + 1 = 0$, which also implies addition is equivalent to subtraction.
   
@@ -293,6 +306,7 @@ Irreducible polynomials allow us to construct new fields, much like prime number
 #solved_problem[
   Factor $x^2 - 1$ in $ZZ_5[x]$ using modular arithmetic.
 ]
+
 #solution[
   Using the standard difference of squares identity, we know:
   $ x^2 - 1 = (x - 1)(x + 1) $
@@ -305,6 +319,7 @@ Irreducible polynomials allow us to construct new fields, much like prime number
 #solved_problem[
   Test the irreducibility of $x^3 + x + 1$ in $ZZ_2[x]$.
 ]
+
 #solution[
   For a polynomial of degree 2 or 3 over a field, it is reducible if and only if it has a root in that field. (If it factors, at least one of the factors must be linear).
   
