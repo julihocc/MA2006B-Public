@@ -18,7 +18,13 @@ The element $a_n$ is called the *leading coefficient*. If $a_n != 0$, we say tha
   $ deg(f g) = deg(f) + deg(g) $
 ]
 #proof[
-  Let $f(x) = a_n x^n + dots + a_0$ with $a_n != 0$ and $g(x) = b_m x^m + dots + b_0$ with $b_m != 0$. The highest degree term of $f(x)g(x)$ is $a_n b_m x^(n+m)$. Since $R$ is an integral domain and $a_n, b_m != 0$, their product $a_n b_m != 0$. Thus, $deg(f g) = n + m$.
+  Let $f(x) = a_n x^n + dots + a_0$ with $a_n != 0$ and $g(x) = b_m x^m + dots + b_0$ with $b_m != 0$. 
+  
+  The highest degree term of $f(x)g(x)$ is $a_n b_m x^(n+m)$. 
+  
+  Since $R$ is an integral domain and $a_n, b_m != 0$, their product $a_n b_m != 0$. 
+  
+  Thus, $deg(f g) = n + m$.
 ]
 
 When the coefficients are taken from a field rather than just a ring, the polynomial ring gains a division structure similar to the integers.
@@ -29,17 +35,30 @@ When the coefficients are taken from a field rather than just a ring, the polyno
   where either $r(x) = 0$ or $deg(r) < deg(g)$.
 ]
 #proof[
-  *(Existence)*: If $f=0$ or $deg(f) < deg(g)$, we set $q=0$ and $r=f$. Otherwise, let $deg(f)=n >= m=deg(g)$. Let $f(x) = a_n x^n + dots$ and $g(x) = b_m x^m + dots$. Since $F$ is a field, $b_m$ is invertible. 
-  Construct $f_1(x) = f(x) - (a_n b_m^(-1) x^(n-m)) g(x)$. The leading term of $f$ is cancelled, so $deg(f_1) < deg(f)$. By induction on the degree, $f_1(x) = q_1(x)g(x) + r(x)$ with $deg(r) < deg(g)$ or $r=0$. Substituting back yields the desired $q$ and $r$.
+  *(Existence)*: If $f=0$ or $deg(f) < deg(g)$, we set $q=0$ and $r=f$. 
   
-  *(Uniqueness)*: If $f = q_1 g + r_1 = q_2 g + r_2$, then $(q_1 - q_2)g = r_2 - r_1$. If $q_1 != q_2$, the degree of the left side is at least $deg(g)$, but the degree of the right side is strictly less than $deg(g)$. This is a contradiction, so $q_1 = q_2$ and $r_1 = r_2$.
+  Otherwise, let $deg(f)=n >= m=deg(g)$. Let $f(x) = a_n x^n + dots$ and $g(x) = b_m x^m + dots$. Since $F$ is a field, $b_m$ is invertible. 
+  
+  Construct $f_1(x) = f(x) - (a_n b_m^(-1) x^(n-m)) g(x)$. The leading term of $f$ is cancelled, so $deg(f_1) < deg(f)$. 
+  
+  By induction on the degree, $f_1(x) = q_1(x)g(x) + r(x)$ with $deg(r) < deg(g)$ or $r=0$. Substituting back yields the desired $q$ and $r$.
+  
+  *(Uniqueness)*: If $f = q_1 g + r_1 = q_2 g + r_2$, then $(q_1 - q_2)g = r_2 - r_1$. 
+  
+  If $q_1 != q_2$, the degree of the left side is at least $deg(g)$, but the degree of the right side is strictly less than $deg(g)$. 
+  
+  This is a contradiction, so $q_1 = q_2$ and $r_1 = r_2$.
 ]
 
 #theorem("Remainder Theorem")[
   Let $F$ be a field, $f(x) in F[x]$, and $alpha in F$. The remainder when $f(x)$ is divided by $(x - alpha)$ is $f(alpha)$.
 ]
 #proof[
-  By the Division Algorithm, $f(x) = q(x)(x - alpha) + r(x)$. Since $deg(x - alpha) = 1$, the remainder $r(x)$ must have degree 0 or be the zero polynomial; in either case, $r(x)$ is a constant $r in F$. Evaluating at $x = alpha$ gives $f(alpha) = q(alpha)(alpha - alpha) + r = r$.
+  By the Division Algorithm, $f(x) = q(x)(x - alpha) + r(x)$. 
+  
+  Since $deg(x - alpha) = 1$, the remainder $r(x)$ must have degree 0 or be the zero polynomial; in either case, $r(x)$ is a constant $r in F$. 
+  
+  Evaluating at $x = alpha$ gives $f(alpha) = q(alpha)(alpha - alpha) + r = r$.
 ]
 
 #theorem("Factor Theorem")[
@@ -47,7 +66,9 @@ When the coefficients are taken from a field rather than just a ring, the polyno
 ]
 #proof[
   By the Remainder Theorem, $f(x) = q(x)(x - alpha) + f(alpha)$. 
+  
   If $f(alpha) = 0$, then $f(x) = q(x)(x - alpha)$, meaning $(x - alpha)$ is a factor. 
+  
   Conversely, if $(x - alpha)$ is a factor, then $f(x) = q(x)(x - alpha)$, so evaluating at $alpha$ yields $f(alpha) = 0$.
 ]
 
@@ -72,10 +93,15 @@ To test for irreducibility over the rational numbers, we can use Eisenstein's Cr
 ]
 #proof[
   Assume for contradiction that $f(x)$ is reducible, so $f(x) = g(x)h(x)$ with non-constant polynomials $g, h in ZZ[x]$. Let $g(x) = b_r x^r + dots + b_0$ and $h(x) = c_s x^s + dots + c_0$.
+  
   Since $a_0 = b_0 c_0$, and $p | a_0$ but $p^2 \nmid a_0$, $p$ must divide exactly one of $b_0$ or $c_0$. Assume $p | b_0$ and $p \nmid c_0$.
+  
   Not all coefficients of $g$ are divisible by $p$ (since $p \nmid a_n = b_r c_s$, so $p \nmid b_r$). Let $b_k$ be the first coefficient of $g$ not divisible by $p$.
+  
   The coefficient $a_k = b_k c_0 + b_(k-1) c_1 + dots + b_0 c_k$. 
+  
   By assumption, $p | a_k$. Also, $p$ divides all terms after $b_k c_0$ because $p$ divides $b_0, dots, b_(k-1)$. Therefore, $p$ must divide $b_k c_0$.
+  
   Since $p$ is prime, either $p | b_k$ or $p | c_0$, both of which are false. This contradiction shows $f(x)$ must be irreducible.
 ]
 
@@ -86,10 +112,15 @@ Irreducible polynomials allow us to construct new fields, much like prime number
 ]
 #proof[
   Because $ZZ_p$ is a field, $ZZ_p[x]$ is a Euclidean Domain (due to the Division Algorithm), meaning we can use the Extended Euclidean Algorithm (EEA).
+  
   To show $F$ is a field, let $f(x) in F$ be non-zero. This means $P(x)$ does not divide $f(x)$.
+  
   Since $P(x)$ is irreducible, its only divisors are units and multiples of itself. Thus, $gcd(f, P) = 1$.
+  
   By the EEA, there exist polynomials $a(x), b(x) in ZZ_p[x]$ such that $a(x) f(x) + b(x) P(x) = 1$.
+  
   Taking this equation modulo $P(x)$, we obtain $a(x) f(x) equiv 1 mod P(x)$.
+  
   Therefore, $a(x)$ is the multiplicative inverse of $f(x)$. Since every non-zero element has an inverse, $F$ is a field.
 ]
 
