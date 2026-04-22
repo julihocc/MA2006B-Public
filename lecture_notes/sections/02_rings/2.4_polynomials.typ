@@ -32,7 +32,15 @@ The element $a_n$ is called the *leading coefficient*. If $a_n != 0$, we say tha
 ]
 
 #example[
-  Let $f(x) = 2x^2 + 1$ and $g(x) = 3x^3 - x$ in $ZZ[x]$. Since $ZZ$ is an integral domain, $deg(f g) = deg(f) + deg(g) = 2 + 3 = 5$. If the coefficients were in $ZZ_6$ (which has zero divisors), the degree could be strictly less than 5 because $2 dot 3 = 0$ in $ZZ_6$.
+  Let $f(x) = 2x^2 + 1$ and $g(x) = 3x^3 - x$. 
+  
+  In $ZZ[x]$ (where $ZZ$ is an integral domain), their product is:
+  $ f(x)g(x) = (2x^2 + 1)(3x^3 - x) = 6x^5 + x^3 - x $
+  Here, $deg(f g) = 5$, which equals $deg(f) + deg(g) = 2 + 3 = 5$.
+  
+  However, if we consider these same polynomials in $ZZ_6[x]$ (where $ZZ_6$ has zero divisors like $2 dot 3 = 0$), the coefficient $6 equiv 0 mod 6$. Thus, the product becomes:
+  $ f(x)g(x) = x^3 - x $
+  In this case, $deg(f g) = 3$, which is strictly less than $deg(f) + deg(g)$. This shows why the integral domain property is required.
 ]
 
 When the coefficients are taken from a field rather than just a ring, the polynomial ring gains a division structure similar to the integers.
