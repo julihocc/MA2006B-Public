@@ -13,6 +13,10 @@ We begin by formalizing the structure of polynomials over a ring.
 
 The element $a_n$ is called the *leading coefficient*. If $a_n != 0$, we say that the polynomial has *degree* $n$, denoted $deg(f) = n$. The polynomial where all coefficients are zero is called the *zero polynomial* and its degree is typically defined as $-infinity$.
 
+#example[
+  Consider $f(x) = 3x^2 - x + 5 in ZZ[x]$. The coefficients are in the ring $ZZ$. The leading coefficient is $3$, and its degree is $deg(f) = 2$.
+]
+
 #proposition("Degree in Integral Domains")[
   If $R$ is an integral domain, and $f, g in R[x]$ are non-zero polynomials, then:
   $ deg(f g) = deg(f) + deg(g) $
@@ -25,6 +29,10 @@ The element $a_n$ is called the *leading coefficient*. If $a_n != 0$, we say tha
   Since $R$ is an integral domain and $a_n, b_m != 0$, their product $a_n b_m != 0$. 
   
   Thus, $deg(f g) = n + m$.
+]
+
+#example[
+  Let $f(x) = 2x^2 + 1$ and $g(x) = 3x^3 - x$ in $ZZ[x]$. Since $ZZ$ is an integral domain, $deg(f g) = deg(f) + deg(g) = 2 + 3 = 5$. If the coefficients were in $ZZ_6$ (which has zero divisors), the degree could be strictly less than 5 because $2 dot 3 = 0$ in $ZZ_6$.
 ]
 
 When the coefficients are taken from a field rather than just a ring, the polynomial ring gains a division structure similar to the integers.
@@ -50,6 +58,10 @@ When the coefficients are taken from a field rather than just a ring, the polyno
   This is a contradiction, so $q_1 = q_2$ and $r_1 = r_2$.
 ]
 
+#example[
+  Dividing $f(x) = x^2 + 2x + 3$ by $g(x) = x - 1$ in $RR[x]$ yields $f(x) = (x + 3)(x - 1) + 6$. The quotient is $q(x) = x + 3$ and the remainder is $r(x) = 6$. Notice that $deg(r) = 0 < deg(g) = 1$.
+]
+
 #theorem("Remainder Theorem")[
   Let $F$ be a field, $f(x) in F[x]$, and $alpha in F$. The remainder when $f(x)$ is divided by $(x - alpha)$ is $f(alpha)$.
 ]
@@ -61,6 +73,10 @@ When the coefficients are taken from a field rather than just a ring, the polyno
   Evaluating at $x = alpha$ gives $f(alpha) = q(alpha)(alpha - alpha) + r = r$.
 ]
 
+#example[
+  Let $f(x) = x^3 - 4x^2 + 2x + 5$ in $RR[x]$. If we divide $f(x)$ by $(x - 2)$, the remainder is exactly $f(2) = 2^3 - 4(2)^2 + 2(2) + 5 = 8 - 16 + 4 + 5 = 1$.
+]
+
 #theorem("Factor Theorem")[
   Let $F$ be a field, $f(x) in F[x]$, and $alpha in F$. Then $alpha$ is a root of $f$ (i.e., $f(alpha) = 0$) if and only if $(x - alpha)$ is a factor of $f(x)$.
 ]
@@ -70,6 +86,10 @@ When the coefficients are taken from a field rather than just a ring, the polyno
   If $f(alpha) = 0$, then $f(x) = q(x)(x - alpha)$, meaning $(x - alpha)$ is a factor. 
   
   Conversely, if $(x - alpha)$ is a factor, then $f(x) = q(x)(x - alpha)$, so evaluating at $alpha$ yields $f(alpha) = 0$.
+]
+
+#example[
+  Consider $f(x) = x^2 - 4$ in $QQ[x]$. Since $f(2) = 2^2 - 4 = 0$, $2$ is a root. By the Factor Theorem, $(x - 2)$ must be a factor of $f(x)$. Indeed, $x^2 - 4 = (x - 2)(x + 2)$.
 ]
 
 Just as integers can be factored into primes, polynomials can be factored into irreducible components.
@@ -105,6 +125,10 @@ To test for irreducibility over the rational numbers, we can use Eisenstein's Cr
   Since $p$ is prime, either $p | b_k$ or $p | c_0$, both of which are false. This contradiction shows $f(x)$ must be irreducible.
 ]
 
+#example[
+  The polynomial $f(x) = x^3 - 6x^2 + 15x - 3$ is irreducible over $QQ$ by Eisenstein's Criterion using $p = 3$. The prime $3$ divides $-6, 15$, and $-3$, but $3$ does not divide the leading coefficient $1$, and $3^2 = 9$ does not divide the constant term $-3$.
+]
+
 Irreducible polynomials allow us to construct new fields, much like prime numbers create finite fields $ZZ_p$.
 
 #theorem("Finite Field Construction")[
@@ -122,6 +146,10 @@ Irreducible polynomials allow us to construct new fields, much like prime number
   Taking this equation modulo $P(x)$, we obtain $a(x) f(x) equiv 1 mod P(x)$.
   
   Therefore, $a(x)$ is the multiplicative inverse of $f(x)$. Since every non-zero element has an inverse, $F$ is a field.
+]
+
+#example[
+  To construct the finite field $"GF"(2^2) = "GF"(4)$, we take the polynomial ring $ZZ_2[x]$ and quotient by the irreducible degree-2 polynomial $P(x) = x^2 + x + 1$. The elements of this field are the cosets represented by remainders ${0, 1, x, x+1}$, with arithmetic performed modulo $2$ and modulo $x^2 + x + 1$.
 ]
 
 === Solved Problems
