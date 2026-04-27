@@ -39,7 +39,7 @@ The element $a_n$ is called the *leading coefficient*. If $a_n != 0$, we say tha
   $ f(x)g(x) = (2x^2 + 1)(3x^3 - x) = 6x^5 + x^3 - x $
   Here, $deg(f g) = 5$, which equals $deg(f) + deg(g) = 2 + 3 = 5$.
   
-  However, if we consider these same polynomials in $ZZ_6[x]$ (where $ZZ_6$ has zero divisors like $2 dot 3 = 0$), the coefficient $6 equiv 0 mod 6$. Thus, the product becomes:
+  However, if we consider these same polynomials in $ZZ_(6)[x]$ (where $ZZ_(6)$ has zero divisors), the coefficient $6 equiv 0 mod 6$. Thus, the product becomes:
   $ f(x)g(x) = x^3 - x $
   In this case, $deg(f g) = 3$, which is strictly less than $deg(f) + deg(g)$. This shows why the integral domain property is required.
 ]
@@ -142,20 +142,20 @@ To test for irreducibility over the rational numbers, we can use Eisenstein's Cr
   The polynomial $f(x) = x^3 - 6x^2 + 15x - 3$ is irreducible over $QQ$ by Eisenstein's Criterion using $p = 3$. The prime $3$ divides $-6, 15$, and $-3$, but $3$ does not divide the leading coefficient $1$, and $3^2 = 9$ does not divide the constant term $-3$.
 ]
 
-Irreducible polynomials allow us to construct new fields, much like prime numbers create finite fields $ZZ_p$.
+Irreducible polynomials allow us to construct new fields, much like prime numbers create finite fields $ZZ_(p)$.
 
 #theorem("Finite Field Construction")[
-  Let $P(x) in ZZ_p [x]$ be an irreducible polynomial of degree $n$, where $p$ is prime. The quotient ring $F = ZZ_p [x] slash (P(x))$ forms a finite field of order $p^n$, denoted $"GF"(p^n)$.
+  Let $P(x) in ZZ_(p) [x]$ be an irreducible polynomial of degree $n$, where $p$ is prime. The quotient ring $F = ZZ_(p) [x] slash (P(x))$ forms a finite field of order $p^n$, denoted $"GF"(p^n)$.
 ]
 
 #proof[
-  Because $ZZ_p$ is a field, $ZZ_p [x]$ is a Euclidean Domain (due to the Division Algorithm), meaning we can use the Extended Euclidean Algorithm (EEA).
+  Because $ZZ_(p)$ is a field, $ZZ_(p) [x]$ is a Euclidean Domain (due to the Division Algorithm), meaning we can use the Extended Euclidean Algorithm (EEA).
   
   To show $F$ is a field, let $f(x) in F$ be non-zero. This means $P(x)$ does not divide $f(x)$.
   
   Since $P(x)$ is irreducible, its only divisors are units and multiples of itself. Thus, $gcd(f, P) = 1$.
   
-  By the EEA, there exist polynomials $a(x), b(x) in ZZ_p [x]$ such that $a(x) f(x) + b(x) P(x) = 1$.
+  By the EEA, there exist polynomials $a(x), b(x) in ZZ_(p) [x]$ such that $a(x) f(x) + b(x) P(x) = 1$.
   
   Taking this equation modulo $P(x)$, we obtain $a(x) f(x) equiv 1 mod P(x)$.
   
@@ -163,19 +163,16 @@ Irreducible polynomials allow us to construct new fields, much like prime number
 ]
 
 #example[
-  To construct the finite field $"GF"(2^2) = "GF"(4)$, we take the polynomial ring $ZZ_2 [x]$ and quotient by the degree-2 polynomial $P(x) = x^2 + x + 1$.
+  To construct the finite field $"GF"(2^2) = "GF"(4)$, we take the polynomial ring $ZZ_(2)[x]$ and a suitable irreducible polynomial of degree 2, such as $P(x) = x^2 + x + 1$.
   
-  *1. $P(x)$ is irreducible:* Since $P(x)$ has degree 2, it is irreducible over $ZZ_2$ if and only if it has no roots in $ZZ_2$. We check the elements of $ZZ_2$:
-  $ P(0) = 0^2 + 0 + 1 = 1 eq.not 0 $
-  $ P(1) = 1^2 + 1 + 1 = 3 equiv 1 eq.not 0 $
-  Since it has no roots, $P(x)$ is irreducible, guaranteeing the quotient ring forms a field.
+  *1. $P(x)$ is irreducible:* Since $P(x)$ has degree 2, it is irreducible over $ZZ_(2)$ if and only if it has no roots. Testing $P(0)=1$ and $P(1)=1$ confirms it is irreducible.
   
-  *2. The elements of the field:* By the Division Algorithm, any polynomial $f(x)$ divided by $P(x)$ yields a remainder $r(x) = a x + b$ where $deg(r) < 2$. Since $a, b in ZZ_2$, the exactly four possible remainders represent the elements of the field:
-  $ {0, 1, x, x+1} $
+  *2. The elements of the field:* By the Division Algorithm, any polynomial $f(x)$ divided by $P(x)$ yields a remainder $r(x) = a x + b$ where $deg(r) < 2$. Since $a, b in ZZ_(2)$, the exactly four possible remainders represent the elements of the field:
+  $ \{0, 1, x, x+1\} $
   
   *3. Field Arithmetic:* Operations are performed modulo $2$ (for coefficients) and modulo $x^2+x+1$ (for polynomials). For example, to prove that non-zero elements have inverses, we compute $x dot (x+1)$:
   $ x(x + 1) = x^2 + x $
-  In our quotient field, $x^2 + x + 1 equiv 0$, which means $x^2 + x equiv -1$. Since coefficients are in $ZZ_2$, $-1 equiv 1$. Therefore:
+  In our quotient field, $x^2 + x + 1 equiv 0$, which means $x^2 + x equiv -1$. Since coefficients are in $ZZ_(2)$, $-1 equiv 1$. Therefore:
   $ x(x + 1) equiv 1 mod (x^2 + x + 1) $
   This proves that $(x+1)$ is the multiplicative inverse of $x$.
 ]
@@ -244,17 +241,17 @@ Irreducible polynomials allow us to construct new fields, much like prime number
 ]
 
 #solved_problem[
-  Determine whether $x^2 + 1$ is reducible over $RR$, $CC$, and $ZZ_2$.
+  Determine whether $x^2 + 1$ is reducible over $RR$, $CC$, and $ZZ_(2)$.
 ]
 
 #solution[
   A quadratic polynomial is reducible over a field if and only if it has a root in that field.
   - *Over $RR$*: The equation $x^2 + 1 = 0$ implies $x^2 = -1$, which has no real solutions. Thus, it is irreducible.
   - *Over $CC$*: The roots are $x = i$ and $x = -i$. Therefore, it factors as $x^2 + 1 = (x-i)(x+i)$ and is reducible.
-  - *Over $ZZ_2$*: We test the elements of the field $\{0, 1\}$:
+  - *Over $ZZ_(2)$*: We test the elements of the field $\{0, 1\}$:
     $f(0) = 0^2 + 1 = 1 != 0$
     $f(1) = 1^2 + 1 = 2 equiv 0 mod 2$
-    Since $1$ is a root, $(x-1)$ (which is equivalent to $x+1$ in $ZZ_2$) is a factor. In fact, $x^2 + 1 = (x+1)^2$ over $ZZ_2$, making it reducible.
+    Since $1$ is a root, $(x-1)$ (which is equivalent to $x+1$ in $ZZ_(2)$) is a factor. Thus $x^2 + 1 = (x+1)^2$ over $ZZ_(2)$, so it is reducible.
 ]
 
 #solved_problem[
@@ -276,16 +273,16 @@ Irreducible polynomials allow us to construct new fields, much like prime number
 
 #solution[
   Finite fields form the mathematical foundation for many modern cryptographic systems.
-  - *AES (Advanced Encryption Standard)* uses arithmetic in the binary extension field $"GF"(2^8)$. Bytes are represented as polynomials of degree at most 7 with coefficients in $ZZ_2$. The field is constructed using the irreducible polynomial $P(x) = x^8 + x^4 + x^3 + x + 1$.
-  - *ECC (Elliptic Curve Cryptography)* relies on arithmetic over finite fields, typically either prime fields $"GF"(p)$ (where $p$ is a large prime) or binary fields $"GF"(2^m)$. In the binary case, a specific irreducible polynomial of degree $m$ over $ZZ_2$ is chosen as the modulus.
+  - *AES (Advanced Encryption Standard)* uses arithmetic in the binary extension field $"GF"(2^8)$. Bytes are represented as polynomials of degree at most 7 with coefficients in $ZZ_(2)$. The field is constructed using the irreducible polynomial $P(x) = x^8 + x^4 + x^3 + x + 1$.
+  - *ECC (Elliptic Curve Cryptography)* relies on arithmetic over finite fields, typically either prime fields $"GF"(p)$ (where $p$ is a large prime) or binary fields $"GF"(2^m)$. In the binary case, a specific irreducible polynomial of degree $m$ over $ZZ_(2)$ is chosen as the modulus.
 ]
 
 #solved_problem[
-  Compute $f(x) + g(x)$ and $f(x) g(x)$ in $ZZ_2[x]$ for $f(x) = x^2 + x + 1$ and $g(x) = x + 1$.
+  Compute $f(x) + g(x)$ and $f(x) g(x)$ in $ZZ_(2)[x]$ for $f(x) = x^2 + x + 1$ and $g(x) = x + 1$.
 ]
 
 #solution[
-  All coefficients are reduced modulo 2. Recall that in $ZZ_2$, $1 + 1 = 0$, which also implies addition is equivalent to subtraction.
+  All coefficients are reduced modulo 2. Recall that in $ZZ_(2)$, $1 + 1 = 0$, which also means $1 = -1$.
   
   *Addition:*
   $ f(x) + g(x) = (x^2 + x + 1) + (x + 1) = x^2 + (x + x) + (1 + 1) $
@@ -303,31 +300,26 @@ Irreducible polynomials allow us to construct new fields, much like prime number
   $ f(x) g(x) = x^3 + 1 $
 ]
 
-#solved_problem[
-  Factor $x^2 - 1$ in $ZZ_5[x]$ using modular arithmetic.
-]
-
 #solution[
   Using the standard difference of squares identity, we know:
   $ x^2 - 1 = (x - 1)(x + 1) $
-  In $ZZ_5[x]$, we often prefer to express coefficients as positive residues $\{0, 1, 2, 3, 4\}$. 
-  Since $-1 equiv 4 mod 5$, we can rewrite the factorization as:
+  In $ZZ_(5)[x]$, we often prefer to express coefficients as positive residues $\{0, 1, 2, 3, 4\}$. Thus, we can rewrite the factorization as:
   $ x^2 - 1 = (x + 4)(x + 1) $
-  This is the complete factorization of the polynomial over $ZZ_5$.
+  This is the complete factorization of the polynomial over $ZZ_(5)$.
 ]
 
 #solved_problem[
-  Test the irreducibility of $x^3 + x + 1$ in $ZZ_2[x]$.
+  Test the irreducibility of $x^3 + x + 1$ in $ZZ_(2)[x]$.
 ]
 
 #solution[
   For a polynomial of degree 2 or 3 over a field, it is reducible if and only if it has a root in that field. (If it factors, at least one of the factors must be linear).
   
-  We evaluate $f(x) = x^3 + x + 1$ for all elements in $ZZ_2 = \{0, 1\}$:
+  We evaluate $f(x) = x^3 + x + 1$ for all elements in $ZZ_(2) = \{0, 1\}$:
   - $f(0) = 0^3 + 0 + 1 = 1 != 0$
   - $f(1) = 1^3 + 1 + 1 = 3 equiv 1 != 0$
   
-  Since there are no roots in $ZZ_2$, there are no linear factors. Consequently, $x^3 + x + 1$ is irreducible over $ZZ_2$.
+  Since there are no roots in $ZZ_(2)$, there are no linear factors. Consequently, $x^3 + x + 1$ is irreducible over $ZZ_(2)$.
 ]
 
 === Self-Evaluation Quiz
@@ -383,7 +375,7 @@ Irreducible polynomials allow us to construct new fields, much like prime number
 
   #question(
     [AES encryption uses arithmetic in which finite field?],
-    ([$"GF"(2^8)$], [$"GF"(2)$], [$"GF"(128)$], [$ZZ_{256}$]),
+    ([$"GF"(2^8)$], [$"GF"(2)$], [$"GF"(128)$], [$ZZ_(256)$]),
     0,
   )
 
@@ -421,7 +413,7 @@ Irreducible polynomials allow us to construct new fields, much like prime number
 ]
 
 #supplementary[
-  Show that $x^4+1$ is reducible over $ZZ_2$.
+  Show that $x^4+1$ is reducible over $ZZ_(2)$.
 ]
 
 #supplementary[

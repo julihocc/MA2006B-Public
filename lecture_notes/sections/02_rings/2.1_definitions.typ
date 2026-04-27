@@ -92,7 +92,7 @@
   - $"gcd"(8, 10) = 2$
   - $"gcd"(9, 10) = 1$ (Unit)
 
-  The group of units is $ZZ_(10)^* = {1, 3, 7, 9}$.
+  The group of units is $ZZ_(10)^* = \{1, 3, 7, 9\}$.
 ]
 
 === Self-Evaluation Quiz
@@ -141,7 +141,7 @@
 
   #question(
     [Which of the following is a finite field?],
-    ([$ZZ_(12)$], [$ZZ_(10)$], [$ZZ_7$], [$ZZ$]),
+    ([$ZZ_(12)$], [$ZZ_(10)$], [$ZZ_(7)$], [$ZZ$]),
     2,
   )
 
@@ -171,7 +171,7 @@
 ]
 
 #supplementary[
-  Solve the equation $x^2 - 5x + 6 = 0$ in the ring $ZZ_{12}$. (Hint: There may be more than 2 solutions).
+  Solve the equation $x^2 - 5x + 6 = 0$ in the ring $ZZ_(12)$. (Hint: There may be more than 2 solutions).
 ]
 
 #supplementary[
@@ -183,7 +183,7 @@
 ]
 
 #supplementary[
-  Determine the units of the ring $ZZ_{12}$.
+  Determine the units of the ring $ZZ_(12)$.
 ]
 
 #supplementary[
@@ -195,11 +195,11 @@
 ]
 
 #supplementary[
-  Find all zero divisors in the ring $ZZ_{12}$.
+  Find all zero divisors in the ring $ZZ_(12)$.
 ]
 
 #supplementary[
-  An element $a$ in a ring is *idempotent* if $a^2 = a$. Find all idempotent elements in $ZZ_{10}$.
+  An element $a$ in a ring is *idempotent* if $a^2 = a$. Find all idempotent elements in $ZZ_(10)$.
 ]
 
 #supplementary[
