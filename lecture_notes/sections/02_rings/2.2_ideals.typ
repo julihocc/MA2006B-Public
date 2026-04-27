@@ -19,7 +19,7 @@
   The ring of integers $ZZ$ is a Principal Ideal Domain. Every ideal in $ZZ$ is of the form $n ZZ = chevron.l n chevron.r$ for some integer $n$.
 ]
 #definition("Quotient Ring")[
-  Given an ideal $I$, we can form the *quotient ring* $R / I$. The elements of $R / I$ are cosets $a + I$, and operations are defined naturally:
+  Given an ideal $I$, we can form the *quotient ring* $R slash I$. The elements of $R slash I$ are cosets $a + I$, and operations are defined naturally:
   - $(a + I) + (b + I) = (a + b) + I$
   - $(a + I) dot (b + I) = (a dot b) + I$
 ]
@@ -183,7 +183,7 @@
 ]
 
 #solved_problem[
-  In $ZZ[x]$, let $I = chevron.l x^2 + 1 chevron.r$. Describe the elements of $ZZ[x] / I$.
+  In $ZZ[x]$, let $I = chevron.l x^2 + 1 chevron.r$. Describe the elements of $ZZ[x] slash I$.
 ]
 #solution[
   Elements of the quotient are polynomials modulo $x^2 + 1$.
@@ -286,7 +286,7 @@
 ]
 
 #supplementary[
-  Consider the quotient ring $R = ZZ_(2)[x] / chevron.l x^2 + x + 1 chevron.r$. List all its elements.
+  Consider the quotient ring $R = ZZ_(2)[x] slash chevron.l x^2 + x + 1 chevron.r$. List all its elements.
 ]
 
 #supplementary[
