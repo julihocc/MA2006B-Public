@@ -108,6 +108,35 @@
   Total: 12 operations vs. 126. For a 256-bit scalar (typical in ECC), double-and-add uses ~512 operations vs. $2^{256}$ for naive.
 ]
 
+#solved_problem[
+  On the toy curve $E: y^2 equiv x^3 + 2x + 2 space (mod 17)$ with $G = (5, 1)$, compute $2G$, $3G$, $10G$, and verify that $19G = cal(O)$. These are the official test-vector cases for the miniproject.
+]
+#solution[
+  *Step 1 — $2G$ (point doubling, $a=2$)*:
+  $ lambda = (3 dot 25 + 2)(2 dot 1)^(-1) mod 17 = 77 dot 2^(-1) mod 17 $
+  $77 equiv 9$; $2^(-1) equiv 9$ (since $2 dot 9=18 equiv 1$). $lambda = 9 dot 9 = 81 equiv 13$.
+  $ x_3 = 169 - 10 = 159 equiv 6, quad y_3 = 13(5-6)-1 = -14 equiv 3 $
+  $bold(2G = (6, 3))$ ✓
+
+  *Step 2 — $3G = 2G + G = (6,3)+(5,1)$ (point addition)*:
+  $ lambda = (1-3)(5-6)^(-1) mod 17 = (-2)(-1)^(-1) $
+  $(-1)^(-1) equiv 16$; $lambda = (-2)(16) = -32 equiv 2$.
+  $ x_3 = 4 - 6 - 5 = -7 equiv 10, quad y_3 = 2(6-10)-3 = -11 equiv 6 $
+  $bold(3G = (10, 6))$ ✓
+
+  *Step 3 — $10G$ via repeated doubling*: Compute $4G=2(2G)$, $5G=4G+G$, $10G=2(5G)$.
+
+  $4G = 2(6,3)$: $lambda = (108+2)(6)^(-1) mod 17 = 110 dot 6^(-1)$. $110 equiv 8$; $6^(-1) equiv 3$. $lambda=24 equiv 7$. $x_3=49-12=37 equiv 3$; $y_3=7(6-3)-3=18 equiv 1$. $4G=(3,1)$.
+
+  $5G = (3,1)+(5,1)$: $lambda=(1-1)(5-3)^(-1)=0$. $x_3=0-3-5=-8 equiv 9$; $y_3=0-1=-1 equiv 16$. $5G=(9,16)$.
+
+  $10G = 2(9,16)$: $lambda=(3 dot 81+2)(2 dot 16)^(-1) mod 17 = 245 dot 32^(-1)$. $245 equiv 7$; $32 equiv 15$; $15^(-1) equiv 8$ (since $15 dot 8=120 equiv 1$). $lambda=56 equiv 5$. $x_3=25-18=7$; $y_3=5(9-7)-16=10-16=-6 equiv 11$.
+  $bold(10G = (7, 11))$ ✓
+
+  *Step 4 — $19G = cal(O)$*: Note $-G = (5, 17-1) = (5, 16)$. Compute $18G = -G$, so $19G = 18G + G = (5,16)+(5,1) = cal(O)$ because $x_1=x_2$ and $y_1+y_2=16+1=17 equiv 0$.
+  $bold(19G = cal(O))$ ✓
+]
+
 === Self-Evaluation Quiz
 
 #quiz[
@@ -180,35 +209,12 @@
     (["True"], ["False — doubling uses the tangent slope $(3 x_1^2 + a)/(2y_1)$"], ["Only for prime fields"], ["Depends on $a$"]),
     1,
   )
-]
 
-#solved_problem[
-  On the toy curve $E: y^2 equiv x^3 + 2x + 2 space (mod 17)$ with $G = (5, 1)$, compute $2G$, $3G$, $10G$, and verify that $19G = cal(O)$. These are the official test-vector cases for the miniproject.
-]
-#solution[
-  *Step 1 — $2G$ (point doubling, $a=2$)*:
-  $ lambda = (3 dot 25 + 2)(2 dot 1)^(-1) mod 17 = 77 dot 2^(-1) mod 17 $
-  $77 equiv 9$; $2^(-1) equiv 9$ (since $2 dot 9=18 equiv 1$). $lambda = 9 dot 9 = 81 equiv 13$.
-  $ x_3 = 169 - 10 = 159 equiv 6, quad y_3 = 13(5-6)-1 = -14 equiv 3 $
-  $bold(2G = (6, 3))$ ✓
-
-  *Step 2 — $3G = 2G + G = (6,3)+(5,1)$ (point addition)*:
-  $ lambda = (1-3)(5-6)^(-1) mod 17 = (-2)(-1)^(-1) $
-  $(-1)^(-1) equiv 16$; $lambda = (-2)(16) = -32 equiv 2$.
-  $ x_3 = 4 - 6 - 5 = -7 equiv 10, quad y_3 = 2(6-10)-3 = -11 equiv 6 $
-  $bold(3G = (10, 6))$ ✓
-
-  *Step 3 — $10G$ via repeated doubling*: Compute $4G=2(2G)$, $5G=4G+G$, $10G=2(5G)$.
-
-  $4G = 2(6,3)$: $lambda = (108+2)(6)^(-1) mod 17 = 110 dot 6^(-1)$. $110 equiv 8$; $6^(-1) equiv 3$. $lambda=24 equiv 7$. $x_3=49-12=37 equiv 3$; $y_3=7(6-3)-3=18 equiv 1$. $4G=(3,1)$.
-
-  $5G = (3,1)+(5,1)$: $lambda=(1-1)(5-3)^(-1)=0$. $x_3=0-3-5=-8 equiv 9$; $y_3=0-1=-1 equiv 16$. $5G=(9,16)$.
-
-  $10G = 2(9,16)$: $lambda=(3 dot 81+2)(2 dot 16)^(-1) mod 17 = 245 dot 32^(-1)$. $245 equiv 7$; $32 equiv 15$; $15^(-1) equiv 8$ (since $15 dot 8=120 equiv 1$). $lambda=56 equiv 5$. $x_3=25-18=7$; $y_3=5(9-7)-16=10-16=-6 equiv 11$.
-  $bold(10G = (7, 11))$ ✓
-
-  *Step 4 — $19G = cal(O)$*: Note $-G = (5, 17-1) = (5, 16)$. Compute $18G = -G$, so $19G = 18G + G = (5,16)+(5,1) = cal(O)$ because $x_1=x_2$ and $y_1+y_2=16+1=17 equiv 0$.
-  $bold(19G = cal(O))$ ✓
+  #question(
+    [What is the result of computing $2P$ when $P = (x_1, 0)$ on $E(FF_p)$?],
+    ([$cal(O)$], [$(2x_1, 0)$], [$(x_1, 0)$], ["Undefined — modular inverse does not exist"]),
+    0,
+  )
 ]
 
 === Supplementary Problems
