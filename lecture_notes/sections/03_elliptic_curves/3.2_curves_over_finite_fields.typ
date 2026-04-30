@@ -11,6 +11,14 @@
   We denote this set $E(FF_p)$.
 ]
 
+#example[
+  For $p=5$, $a=1$, $b=1$, the curve is
+  $ y^2 equiv x^3 + x + 1 space (mod 5). $
+  The non-singularity condition is
+  $ 4a^3 + 27b^2 = 4 + 27 = 31 equiv 1 != 0 space (mod 5), $
+  so this is a valid elliptic curve over $FF_5$.
+]
+
 #note[
   All arithmetic (addition, multiplication, and finding inverses) is performed *modulo $p$*. The curve $E(FF_p)$ has only finitely many points, making it suitable for cryptographic use.
 ]
@@ -19,12 +27,27 @@
   The *order* of an elliptic curve over $FF_p$, denoted $\#E(FF_p)$ or $|E(FF_p)|$, is the total number of points on the curve including the point at infinity $cal(O)$.
 ]
 
+#example[
+  For $E: y^2 equiv x^3 + x + 1 space (mod 5)$, counting all affine solutions gives 8 points.
+  Adding the point at infinity yields
+  $ \#E(FF_5) = 8 + 1 = 9. $
+  This is a concrete instance of curve order.
+]
+
 #theorem("Hasse's Theorem")[
   For an elliptic curve $E$ over $FF_p$, Hasse's theorem bounds the number of points:
   $ |space \#E(FF_p) - (p+1) space| <= 2 sqrt(p) $
   Equivalently, the order $\#E(FF_p)$ lies in the interval:
   $ p + 1 - 2sqrt(p) <= \#E(FF_p) <= p + 1 + 2sqrt(p) $
   This shows that the curve has approximately $p + 1$ points.
+]
+
+#example[
+  If $p=5$, Hasse gives
+  $ 5 + 1 - 2sqrt(5) <= \#E(FF_5) <= 5 + 1 + 2sqrt(5), $
+  so numerically $1.53 <= \#E(FF_5) <= 10.47$.
+  Therefore the only possible integer orders are from 2 to 10.
+  The value $\#E(FF_5)=9$ from the previous example is inside this interval.
 ]
 
 #definition("Trace of Frobenius")[
@@ -37,6 +60,14 @@
 
 #definition("Subgroup and Generator")[
   Since $E(FF_p)$ is a finite abelian group, it may contain cyclic subgroups. A *generator* (or *base point*) $G in E(FF_p)$ is a point of large prime order $n$, meaning $n G = cal(O)$ and no smaller positive multiple equals $cal(O)$. The subgroup $chevron.l G chevron.r = {cal(O), G, 2G, ..., (n-1)G}$ is used in cryptographic protocols.
+]
+
+#example[
+  On the toy curve $y^2 equiv x^3 + 2x + 2 space (mod 17)$, the point $G=(5,1)$ has order $n=19$.
+  Its generated subgroup is
+  $ chevron.l G chevron.r = {cal(O), G, 2G, ..., 18G}, $
+  and $19G = cal(O)$.
+  This toy model mirrors how real ECC picks a base point of large prime order.
 ]
 
 #note[

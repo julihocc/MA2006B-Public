@@ -15,6 +15,15 @@
   Geometrically, this means the curve has no cusps or self-intersections—it is a smooth curve.
 ]
 
+#example[
+  Compare two cubic models:
+  - $E_1: y^2 = x^3 - x + 1$ has $a=-1$, $b=1$, so
+    $Delta = -16(4(-1)^3 + 27(1)^2) = -16(23) != 0$.
+    Hence $E_1$ is a valid elliptic curve.
+  - $E_2: y^2 = x^3$ has $a=0$, $b=0$, so $Delta = 0$.
+    This is singular (a cusp), so it is not an elliptic curve for group-law purposes.
+]
+
 #note[
   The condition $Delta != 0$ ensures three distinct roots for $x^3 + a x + b$, which guarantees the curve is smooth. Singular curves (where $Delta = 0$) do not form groups under the chord-and-tangent law.
 ]
@@ -31,8 +40,24 @@
   + *Identity*: $P + cal(O) = cal(O) + P = P$ for any $P$.
 ]
 
+#example[
+  On $E: y^2 = x^3 - x + 1$, take $P = (0,1)$ and $Q = (1,1)$.
+  The line through them is $y=1$. Substituting into the curve gives
+  $ x^3 - x = 0 => x in {0,1,-1}. $
+  So the third intersection is $R' = (-1,1)$, and reflecting across the $x$-axis gives
+  $ P + Q = (-1,-1). $
+  This concrete picture is the geometric prototype of elliptic-curve addition.
+]
+
 #theorem("Elliptic Curve Group")[
   The set of points on a non-singular elliptic curve $E$ over $RR$, together with the point at infinity $cal(O)$, forms an *abelian group* $(E(RR), +)$ under the chord-and-tangent law. The identity is $cal(O)$, and the inverse of a point $P = (x, y)$ is $-P = (x, -y)$.
+]
+
+#example[
+  If $P = (2,3)$ is on a real elliptic curve, then its inverse is $-P = (2,-3)$.
+  Geometrically, these two points are mirror images across the $x$-axis, and the vertical line through $x=2$ implies
+  $ P + (-P) = cal(O). $
+  This is the same identity-inverse behavior as in any group.
 ]
 
 #note[

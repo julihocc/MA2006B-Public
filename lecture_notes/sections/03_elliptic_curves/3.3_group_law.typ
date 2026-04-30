@@ -27,6 +27,15 @@
   In both cases, $lambda$ is the *slope* of the chord/tangent line.
 ]
 
+#example[
+  On $E: y^2 equiv x^3 + 2x + 2 space (mod 17)$, add $P=(5,1)$ and $Q=(6,3)$:
+  $ lambda = (3-1)(6-5)^(-1) = 2. $
+  Then
+  $ x_3 = 2^2 - 5 - 6 = -7 equiv 10, $
+  $ y_3 = 2(5-10) - 1 = -11 equiv 6. $
+  So $P+Q = (10,6)$.
+]
+
 #note[
   The formula for $lambda$ in Case 2 is derived by implicit differentiation of $y^2 = x^3 + a x + b$:
   $ 2y (d y)/(d x) = 3 x^2 + a => (d y)/(d x) = (3 x^2 + a)/(2y) $
@@ -40,10 +49,24 @@
   - *Doubling with $y_1 = 0$*: If $P = (x_1, 0)$, the tangent at $P$ is vertical (denominator $2y_1 equiv 0$), so $2P = cal(O)$. In code, this must be checked *before* computing the modular inverse of $2y_1$.
 ]
 
+#example[
+  If $P=(x,0)$ lies on $E(FF_p)$, then $-P=(x,-0)=(x,0)$, so $P=-P$.
+  Therefore
+  $ 2P = P + P = P + (-P) = cal(O). $
+  This is exactly the edge case that prevents division by zero in doubling formulas.
+]
+
 #definition("Scalar Multiplication")[
   *Scalar multiplication* is the repeated addition of a point $P$ to itself $k$ times:
   $ k P = underbrace(P + P + ... + P)_{k "times") $
   For large $k$, this is computed efficiently using the *double-and-add algorithm*, analogous to repeated squaring for exponentiation.
+]
+
+#example[
+  For $k=13$, binary form is $1101_2$:
+  $ 13P = 8P + 4P + P. $
+  So we can build it with doublings ($2P,4P,8P$) and two additions.
+  This is far faster than adding $P$ to itself 13 times.
 ]
 
 #algorithm("Double-and-Add for Scalar Multiplication")[
@@ -58,6 +81,12 @@
   3. Return $Q$.
 
   *Complexity*: $O(log k)$ point additions/doublings, compared to $O(k)$ for naive addition.
+]
+
+#example[
+  For $k=29$, binary is $11101_2$ (5 bits).
+  Double-and-add uses at most 4 doublings and 4 additions, while naive repeated addition needs 28 additions.
+  The gap becomes dramatic for cryptographic scalars with 256 bits.
 ]
 
 #note[
