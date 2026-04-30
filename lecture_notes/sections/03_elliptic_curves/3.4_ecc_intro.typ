@@ -39,7 +39,12 @@
 
 #definition("Standardized Curves")[
   Several standardized elliptic curves are widely used:
-  - *secp256k1*: $y^2 = x^3 + 7$ over a 256-bit prime $p$. Used in Bitcoin and Ethereum.
+  - *secp256k1*: $y^2 = x^3 + 7$ over a 256-bit prime $p$. Used in Bitcoin and Ethereum. Parameters:
+    - $p = 2^{256} - 2^{32} - 2^9 - 2^8 - 2^7 - 2^6 - 2^4 - 1$
+    - $a = 0$, $b = 7$
+    - $G_x = 55066263022277343669578718895168534326250603453777594175500187360389116729240$
+    - $G_y = 32670510020758816978083085130507043184471273380659243275938904335757337482424$
+    - $n = $ (155-digit prime; order of $G$), $h = 1$
   - *P-256 (secp256r1)*: NIST-standardized 256-bit curve. Widely used in TLS/SSL.
   - *Curve25519*: Designed by Bernstein for high performance and security. Used in Signal protocol, WireGuard.
   These curves have been chosen with specific cofactors, large prime orders, and resistance to known attacks.
@@ -90,6 +95,31 @@
   *Shared secret*: Alice computes $d_A Q_B = 2 Q_B = 2(3G) = 6G = G$ (since order 5: $6G = G$). Bob computes $d_B Q_A = 3(2G) = 6G = G$. Shared secret = $G = (3, 6)$, specifically $x$-coordinate $= 3$.
 
   *(Note: In practice, the order $n$ is chosen to be very large — hundreds of bits — making enumeration infeasible.)*
+]
+
+#solved_problem[
+  Simulate a complete ECDH key exchange on the toy curve $E: y^2 equiv x^3 + 2x + 2 space (mod 17)$ with $G = (5, 1)$. Alice's private key is $d_A = 3$; Bob's is $d_B = 10$. Verify that both parties arrive at the shared secret $(13, 10)$.
+]
+#solution[
+  *Domain parameters*: $p=17$, $a=2$, $b=2$, $G=(5,1)$, $n=19$ (order of $G$).
+
+  *Public keys*: From Section 3.3,
+  $ Q_A = 3G = (10, 6), quad Q_B = 10G = (7, 11). $
+  Both keys are published.
+
+  *Alice computes shared secret*: $S = d_A dot Q_B = 3 dot (7, 11)$.
+
+  $2(7,11)$: $lambda=(3 dot 49+2)(2 dot 11)^(-1) mod 17 = 149 dot 22^(-1)$. $149 equiv 13$; $22 equiv 5$; $5^(-1) equiv 7$. $lambda=13 dot 7=91 equiv 6$. $x_3=36-14=22 equiv 5$; $y_3=6(7-5)-11=12-11=1$. So $2(7,11)=(5,1)$.
+
+  $3(7,11) = (5,1) + (7,11)$: $lambda=(11-1)(7-5)^(-1)=10 dot 2^(-1)=10 dot 9=90 equiv 5$. $x_3=25-5-7=13$; $y_3=5(5-13)-1=-41 equiv 10$.
+  $ S_A = (bold(13), bold(10)) $
+
+  *Bob computes shared secret*: $S = d_B dot Q_A = 10 dot (10, 6) = 30G$. Since $n=19$, $30G = (30 mod 19)G = 11G = 19G - 8G$... Equivalently $30G = 10 dot 3G$, and both computations follow the same double-and-add path.
+
+  By associativity, $d_B dot Q_A = 10(3G) = 3(10G) = d_A dot Q_B = (13, 10)$. ✓
+  $ S_B = (bold(13), bold(10)) $
+
+  *Shared secret*: Both parties hold $S = (13, 10)$. In practice, the $x$-coordinate $13$ (or a hash thereof) is used as the symmetric key material.
 ]
 
 #solved_problem[
@@ -178,7 +208,7 @@
 ]
 
 #supplementary[
-  Look up the secp256k1 curve parameters. What are $p$, $a$, $b$, and the order $n$?
+  Look up the secp256k1 curve parameters. Using the explicit values given in this section, write pseudocode for a function `validate_secp256k1_generator()` that confirms $G$ lies on the curve and has the correct order $n$.
 ]
 
 #supplementary[

@@ -39,6 +39,16 @@
   Since $E(FF_p)$ is a finite abelian group, it may contain cyclic subgroups. A *generator* (or *base point*) $G in E(FF_p)$ is a point of large prime order $n$, meaning $n G = cal(O)$ and no smaller positive multiple equals $cal(O)$. The subgroup $chevron.l G chevron.r = {cal(O), G, 2G, ..., (n-1)G}$ is used in cryptographic protocols.
 ]
 
+#note[
+  *Programmatic representation of $cal(O)$*: The point at infinity cannot be stored as a coordinate pair $(x, y) in FF_p^2$ because it lies in the projective closure of the curve, not in the affine plane. A standard implementation pattern uses a *sentinel value* — for example, representing $cal(O)$ as `None` in Python — and handling it explicitly in every arithmetic routine:
+
+  - If either input is $cal(O)$, return the other point immediately.
+  - Before applying the $lambda$ formula, check whether the inputs are inverses (same $x$, opposite $y$ mod $p$); if so, return $cal(O)$.
+  - For point doubling, check $y_1 equiv 0 space (mod p)$ first; if so, return $cal(O)$.
+
+  This guard structure must precede any modular-inverse computation, since a division by zero (e.g., $x_2 - x_1 equiv 0$) would otherwise cause a runtime error.
+]
+
 === Solved Problems
 
 #solved_problem[
@@ -81,6 +91,24 @@
   Try $P = (0, b)$: RHS $= 3$. $y^2 equiv 3 space (mod 7)$. Squares mod 7: $\{0,1,2,4\}$. Since $3 in.not Q R_7$, no point at $x=0$.
 
   This illustrates that not every pair is on the curve. *Finding $-P$* for any point $P = (x, y) in E(FF_p)$: $-P = (x, -y mod p) = (x, p - y)$.
+]
+
+#solved_problem[
+  Consider the *toy curve* $E: y^2 equiv x^3 + 2x + 2 space (mod 17)$. (a) Verify that $E$ is non-singular. (b) Confirm that $G = (5, 1)$ lies on $E$. (c) Determine the programmatic membership test a class `Curva(p=17, a=2, b=2)` must perform.
+]
+#solution[
+  *(a) Non-singularity check*: Compute the discriminant condition $4a^3 + 27b^2 equiv.not 0 space (mod 17)$:
+  $ 4(8) + 27(4) = 32 + 108 = 140 equiv 140 - 8(17) = 140 - 136 = 4 equiv.not 0 space (mod 17) $
+  The curve is non-singular. ✓
+
+  *(b) Point membership*: Check $y^2 equiv x^3 + 2x + 2 space (mod 17)$ for $(x,y) = (5,1)$:
+  - LHS: $1^2 = 1$
+  - RHS: $125 + 10 + 2 = 137 equiv 137 - 8(17) = 137 - 136 = 1$
+  LHS $=$ RHS, so $G = (5,1) in E(FF_{17})$. ✓
+
+  *(c) Membership test*: A `Curva.contains(punto)` method must evaluate
+  $ (y^2 - x^3 - a x - b) mod p == 0 $
+  and additionally handle the special case `punto is None` (representing $cal(O)$), which always belongs to the curve.
 ]
 
 === Self-Evaluation Quiz
