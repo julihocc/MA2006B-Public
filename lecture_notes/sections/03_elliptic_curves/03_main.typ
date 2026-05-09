@@ -1,6 +1,15 @@
 = Introduction to Elliptic Curves
 
-Elliptic curves are a powerful tool at the intersection of number theory and cryptography. Unlike the abstract algebraic structures studied in Groups and Rings, elliptic curves offer a concrete geometric object whose points naturally form an abelian group. This group structure, combined with the computational hardness of the Elliptic Curve Discrete Logarithm Problem (ECDLP), makes elliptic curves the foundation of modern public-key cryptography, offering equivalent security to RSA at much smaller key sizes.
+Elliptic curves connect geometry, algebra, and number theory in a way that is especially useful for cryptography. At first, an elliptic curve looks like a geometric object defined by an equation such as $y^2 = x^3 + a x + b$. The key idea is that the points on such a curve can be added together, and this addition turns the curve into an abelian group.
+
+This chapter develops that idea in stages:
+
+- Over the real numbers, we use the curve's shape to understand the chord-and-tangent rule geometrically.
+- Over finite fields, the same group law becomes a finite arithmetic system suitable for computation.
+- Point addition and scalar multiplication provide the basic operations used by elliptic-curve algorithms.
+- The difficulty of reversing scalar multiplication, known as the Elliptic Curve Discrete Logarithm Problem (ECDLP), gives modern ECC its security.
+
+The goal is to move from geometric intuition to the arithmetic used in protocols such as ECDH and ECDSA. Compared with RSA and classical Diffie-Hellman, elliptic-curve systems can provide similar security with much smaller keys.
 
 #include "3.1_curves_over_reals.typ"
 #include "3.2_curves_over_finite_fields.typ"
