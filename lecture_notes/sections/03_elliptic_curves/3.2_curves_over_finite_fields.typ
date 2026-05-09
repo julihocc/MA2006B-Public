@@ -110,18 +110,18 @@
 ]
 
 #solved_problem[
-  On $E: y^2 equiv x^3 + 2x + 3 space (mod 7)$, verify that $P = (2, 3)$ lies on the curve and find $-P$.
+  On $E: y^2 equiv x^3 + 2x + 3 space (mod 7)$, verify that $P = (2, 1)$ lies on the curve and find $-P$.
 ]
 #solution[
-  *Verification*: LHS: $3^2 = 9 equiv 2 space (mod 7)$. RHS: $8 + 4 + 3 = 15 equiv 1 space (mod 7)$.
+  *Verification*: LHS: $1^2 equiv 1 space (mod 7)$.
 
-  Hmm, $2 != 1$ — let's recheck. $2^3 = 8 equiv 1$, $2 dot 2 = 4$, so RHS $= 1 + 4 + 3 = 8 equiv 1 space (mod 7)$. LHS = 2. Not equal.
+  RHS:
+  $ 2^3 + 2 dot 2 + 3 = 8 + 4 + 3 = 15 equiv 1 space (mod 7). $
 
-  Try $P = (3, 4)$: LHS $= 16 equiv 2$. RHS $= 27 + 6 + 3 = 36 equiv 1$. Try $P = (1, 6)$: LHS $= 36 equiv 1$. RHS $= 1 + 2 + 3 = 6 equiv 6$. Not equal.
+  Since LHS $=$ RHS, $P = (2,1)$ lies on $E(FF_7)$.
 
-  Try $P = (0, b)$: RHS $= 3$. $y^2 equiv 3 space (mod 7)$. Squares mod 7: $\{0,1,2,4\}$. Since $3 in.not Q R_7$, no point at $x=0$.
-
-  This illustrates that not every pair is on the curve. *Finding $-P$* for any point $P = (x, y) in E(FF_p)$: $-P = (x, -y mod p) = (x, p - y)$.
+  The inverse is obtained by negating the $y$-coordinate modulo 7:
+  $ -P = (2, -1 mod 7) = (2, 6). $
 ]
 
 #solved_problem[
