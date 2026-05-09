@@ -65,7 +65,7 @@
     - $a = 0$, $b = 7$
     - $G_x = 55066263022277343669578718895168534326250603453777594175500187360389116729240$
     - $G_y = 32670510020758816978083085130507043184471273380659243275938904335757337482424$
-    - $n = $ (155-digit prime; order of $G$), $h = 1$
+    - $n = 115792089237316195423570985008687907852837564279074904382605163141518161494337$ (prime order of $G$), $h = 1$
   - *P-256 (secp256r1)*: NIST-standardized 256-bit curve. Widely used in TLS/SSL.
   - *Curve25519*: Designed by Bernstein for high performance and security. Used in Signal protocol, WireGuard.
   These curves have been chosen with specific cofactors, large prime orders, and resistance to known attacks.
@@ -119,7 +119,9 @@
   $lambda = (6-10)(3-80)^{-1} = (-4)(-77)^{-1} mod 97$.
   $-77 equiv 20$; $20^{-1} mod 97$: $20 dot 34 = 680 = 7(97)+1$, so $20^{-1}=34$.
   $lambda = (-4)(34) = -136 equiv -136 + 2(97) = 58$.
-  $x_3 = 58^2 - 80 - 3 = 3364 - 83 = 3281 equiv 3281 - 33(97) = 3281 - 3201 = 80$. Hmm, this happens for small order groups. $Q_B = 3G$.
+  $x_3 = 58^2 - 80 - 3 = 3364 - 83 = 3281 equiv 3281 - 33(97) = 3281 - 3201 = 80$.
+  $y_3 = 58(80 - 80) - 10 = -10 equiv 87 space (mod 97)$.
+  Thus $Q_B = 3G = (80, 87) = -2G$. This equality reflects the small order $n = 5$ in this toy group.
 
   *Shared secret*: Alice computes $d_A Q_B = 2 Q_B = 2(3G) = 6G = G$ (since order 5: $6G = G$). Bob computes $d_B Q_A = 3(2G) = 6G = G$. Shared secret = $G = (3, 6)$, specifically $x$-coordinate $= 3$.
 
