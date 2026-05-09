@@ -96,20 +96,19 @@
 === Solved Problems
 
 #solved_problem[
-  On $E: y^2 equiv x^3 + 3x + 8 space (mod 13)$, compute $P + Q$ where $P = (1, 5)$ and $Q = (4, 7)$.
+  On $E: y^2 equiv x^3 + 3x + 8 space (mod 13)$, compute $P + Q$ where $P = (1, 5)$ and $Q = (9, 6)$.
 ]
 #solution[
   Check $P$ and $Q$ are on the curve:
   - $P$: $5^2 = 25 equiv 12$; $1 + 3 + 8 = 12$. ✓
-  - $Q$: $7^2 = 49 equiv 10$; $64 + 12 + 8 = 84 equiv 84 - 6(13) = 84-78=6$. Let me recheck: $4^3=64 equiv 64-4(13)=64-52=12$; $3(4)=12$; $12+12+8=32 equiv 32-2(13)=6$. And $7^2=49 equiv 10$. So $Q = (4,7)$ is not on the curve. Take $Q = (4, 6)$: $6^2=36 equiv 10$; check matches. ✓
+  - $Q$: $6^2 = 36 equiv 10$; $9^3 + 3 dot 9 + 8 = 729 + 27 + 8 = 764 equiv 10 space (mod 13)$. ✓
 
-  Use $P = (1,5)$, $Q = (4, 6)$:
-  $ lambda = (6 - 5)(4 - 1)^(-1) = 1 dot 3^(-1) mod 13 $
-  Find $3^(-1) mod 13$: $3 dot 9 = 27 equiv 1$, so $3^(-1) = 9$.
-  $ lambda = 9 $
-  $ x_3 = 81 - 1 - 4 = 76 equiv 76 - 5(13) = 76 - 65 = 11 $
-  $ y_3 = 9(1 - 11) - 5 = 9(-10) - 5 = -90 - 5 = -95 equiv -95 + 8(13) = -95 + 104 = 9 $
-  So $P + Q = (11, 9)$.
+  Since $P != Q$, use the point addition formula:
+  $ lambda = (6 - 5)(9 - 1)^(-1) = 1 dot 8^(-1) equiv 5 space (mod 13), $
+  because $8 dot 5 = 40 equiv 1 space (mod 13)$.
+  $ x_3 = 5^2 - 1 - 9 = 15 equiv 2 space (mod 13), $
+  $ y_3 = 5(1 - 2) - 5 = -10 equiv 3 space (mod 13). $
+  Therefore $P + Q = (2, 3)$.
 ]
 
 #solved_problem[
