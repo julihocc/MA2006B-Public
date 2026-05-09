@@ -3,10 +3,10 @@
 
 === Theory
 
-#definition("Elliptic Curve over $FF_p$")[
+#definition("Elliptic Curve over a Prime Field")[
   Let $p > 3$ be a prime. An *elliptic curve over $FF_p$* is the set of points $(x, y) in FF_p times FF_p$ satisfying:
   $ y^2 equiv x^3 + a x + b space (mod p) $
-  where $a, b in FF_p$ and $4 a^3 + 27 b^2 not equiv 0 space (mod p)$, together with the point at infinity $cal(O)$.
+  where $a, b in FF_p$ and $4 a^3 + 27 b^2 equiv.not 0 space (mod p)$, together with the point at infinity $cal(O)$.
 
   We denote this set $E(FF_p)$.
 ]
