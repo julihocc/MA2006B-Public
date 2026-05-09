@@ -134,7 +134,7 @@
 #solution[
   *Domain parameters*: $p=17$, $a=2$, $b=2$, $G=(5,1)$, $n=19$ (order of $G$).
 
-  *Public keys*: From Section 3.3,
+  *Public keys*: From Section 3.4,
   $ Q_A = 3G = (10, 6), quad Q_B = 10G = (7, 11). $
   Both keys are published.
 

@@ -11,7 +11,7 @@
 ]
 
 #note[
-  The equation is called "short" Weierstrass form. More general Weierstrass equations exist, but over fields of characteristic not equal to 2 or 3 they can often be transformed into this simpler shape. Since $RR$ has characteristic 0, the short form is enough for the geometric intuition used in this section.
+  The equation is called "short" Weierstrass form. More general Weierstrass equations exist, but over the fields used in this chapter this simpler shape is enough. Section 3.1 reviews fields, finite fields, and characteristic.
 ]
 
 #definition("Non-Singularity")[
@@ -87,7 +87,7 @@
 ]
 
 #note[
-  *Cryptographic relevance*: The geometric construction over $RR$ gives the intuition, but cryptographic applications use elliptic curves over *finite fields* (Section 3.2), where the group is finite and discrete computations can be performed efficiently.
+  *Cryptographic relevance*: The geometric construction over $RR$ gives the intuition, but cryptographic applications use elliptic curves over *finite fields* (Section 3.3), where the group is finite and discrete computations can be performed efficiently.
 ]
 
 === Solved Problems
