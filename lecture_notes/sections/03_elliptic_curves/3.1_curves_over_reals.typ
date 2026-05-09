@@ -4,15 +4,20 @@
 === Theory
 
 #definition("Weierstrass Form")[
-  An *elliptic curve* over the real numbers is a set of points $(x, y) in RR^2$ satisfying the *short Weierstrass equation*:
+  An *elliptic curve* over the real numbers is the set of affine points $(x, y) in RR^2$ satisfying the *short Weierstrass equation*
   $ y^2 = x^3 + a x + b $
-  where $a, b in RR$, together with a special point $cal(O)$ called the *point at infinity*.
+  where $a, b in RR$, together with one additional point $cal(O)$ called the *point at infinity*. We write this set as
+  $ E(RR) = {(x,y) in RR^2 : y^2 = x^3 + a x + b} union {cal(O)}. $
+]
+
+#note[
+  The equation is called "short" Weierstrass form. More general Weierstrass equations exist, but over fields of characteristic not equal to 2 or 3 they can often be transformed into this simpler shape. Since $RR$ has characteristic 0, the short form is enough for the geometric intuition used in this section.
 ]
 
 #definition("Non-Singularity")[
   An elliptic curve $y^2 = x^3 + a x + b$ is *non-singular* (i.e., truly an elliptic curve) if its *discriminant* is nonzero:
   $ Delta = -16(4a^3 + 27b^2) != 0 $
-  Geometrically, this means the curve has no cusps or self-intersections—it is a smooth curve.
+  Equivalently, $4a^3 + 27b^2 != 0$. Geometrically, this means the cubic has no cusp or self-intersection. At every point of the curve there is a well-defined tangent line.
 ]
 
 #example[
@@ -25,19 +30,32 @@
 ]
 
 #note[
-  The condition $Delta != 0$ ensures three distinct roots for $x^3 + a x + b$, which guarantees the curve is smooth. Singular curves (where $Delta = 0$) do not form groups under the chord-and-tangent law.
+  The condition $Delta != 0$ says that the polynomial $x^3 + a x + b$ has no repeated roots over the complex numbers. This prevents the affine curve $y^2 = x^3 + a x + b$ from developing a singular point. If $Delta = 0$, the chord-and-tangent construction breaks down at the singularity and does not produce the elliptic-curve group used in cryptography.
 ]
 
 #definition("The Point at Infinity")[
-  Every elliptic curve includes a distinguished point $cal(O)$, the *point at infinity*, which serves as the *identity element* of the group law. Formally, it lies in the projective closure of the curve and can be thought of as the point where all vertical lines meet.
+  Every elliptic curve includes a distinguished point $cal(O)$, the *point at infinity*, which serves as the *identity element* of the group law. Formally, $cal(O)$ lies in the projective closure of the curve.
+
+  A useful mental model is: all vertical lines meet the curve again at this same point $cal(O)$. This convention lets inverse points add to the identity.
+]
+
+#example[
+  If $P = (x,y)$ is on $E(RR)$, then $-P = (x,-y)$ is also on $E(RR)$ because both points have the same value of $y^2$. The vertical line through $P$ and $-P$ meets the curve at $cal(O)$, so the group law will force
+  $ P + (-P) = cal(O). $
 ]
 
 #definition("Geometric Group Law — Chord and Tangent")[
   Given two points $P, Q$ on an elliptic curve, their *sum* $P + Q$ is defined geometrically:
-  + *Case $P != Q$*: Draw the line through $P$ and $Q$. It intersects the curve at a third point $R'$. Reflect $R'$ across the $x$-axis to obtain $R = P + Q$.
-  + *Case $P = Q$* (point doubling): Draw the tangent line to the curve at $P$. It intersects the curve at a third point $R'$. Reflect to obtain $R = 2P$.
-  + *Vertical line* (i.e., $P = -Q$): The line through $P$ and $Q$ is vertical and does not meet a third affine point. We define $P + Q = cal(O)$.
-  + *Identity*: $P + cal(O) = cal(O) + P = P$ for any $P$.
+  + *Case $P != Q$*: Draw the line through $P$ and $Q$. It intersects the cubic at a third point $R'$ (counting intersections with multiplicity). Reflect $R'$ across the $x$-axis to obtain $R = P + Q$.
+  + *Case $P = Q$* (point doubling): Draw the tangent line to the curve at $P$. It intersects the cubic at a third point $R'$. Reflect $R'$ across the $x$-axis to obtain $R = 2P$.
+  + *Vertical line*: If $Q = -P$, then the line through $P$ and $Q$ is vertical. The third intersection is $cal(O)$, so $P + Q = cal(O)$.
+  + *Identity*: For every point $P$, define $P + cal(O) = cal(O) + P = P$.
+]
+
+#note[
+  The reflection step is a convention that makes the group law work cleanly: three collinear points on the curve satisfy
+  $ P + Q + R' = cal(O). $
+  Therefore, if the line through $P$ and $Q$ meets the curve again at $R'$, then $P + Q = -R'$, which is the reflection of $R'$ across the $x$-axis.
 ]
 
 #example[
@@ -53,11 +71,19 @@
   The set of points on a non-singular elliptic curve $E$ over $RR$, together with the point at infinity $cal(O)$, forms an *abelian group* $(E(RR), +)$ under the chord-and-tangent law. The identity is $cal(O)$, and the inverse of a point $P = (x, y)$ is $-P = (x, -y)$.
 ]
 
+#note[
+  Closure and inverses are visible from the geometry. Associativity is much deeper: it is true, but proving it carefully requires more algebraic geometry than we need here. For this course, the key point is that non-singular cubic curves provide a genuine abelian group whose operation can later be computed algebraically.
+]
+
+#definition("Torsion Points")[
+  A point $P in E(RR)$ is called a *torsion point* if some positive multiple of it equals the identity:
+  $ n P = cal(O) quad "for some integer" n >= 1. $
+  For example, any point with $y = 0$ satisfies $P = -P$, so $2P = cal(O)$. Such points are called points of order 2.
+]
+
 #example[
-  If $P = (2,3)$ is on a real elliptic curve, then its inverse is $-P = (2,-3)$.
-  Geometrically, these two points are mirror images across the $x$-axis, and the vertical line through $x=2$ implies
-  $ P + (-P) = cal(O). $
-  This is the same identity-inverse behavior as in any group.
+  On $E: y^2 = x^3 - x$, the point $P = (1,0)$ lies on the curve. Since $P = -P$, the tangent line at $P$ is vertical and
+  $ 2P = cal(O). $
 ]
 
 #note[
