@@ -7,7 +7,7 @@
   For any integers $a, b$ (not both zero), there exist integers $s, t$ such that:
   $ gcd(a, b) = s a + t b $
   The integers $s$ and $t$ are called *Bézout coefficients*. If $gcd(a, b) = 1$, this gives $s a + t b = 1$, so $s a equiv 1 space (mod b)$, meaning $s$ is the modular inverse of $a$ modulo $b$.
-]
+] <bezouts-identity>
 
 #algorithm("Extended Euclidean Algorithm")[
   To find $gcd(a, b)$ and Bézout coefficients $s, t$ such that $s a + t b = gcd(a, b)$:

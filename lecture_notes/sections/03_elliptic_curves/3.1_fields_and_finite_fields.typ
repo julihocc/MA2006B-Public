@@ -55,7 +55,7 @@
 ]
 
 #proof[
-  Let $a$ be a nonzero element of $ZZ_p$. Since $p$ is prime and $a$ is not congruent to $0$ modulo $p$, we have $"gcd"(a,p) = 1$. By Bezout's identity, there exist integers $u,v$ such that
+  Let $a$ be a nonzero element of $ZZ_p$. Since $p$ is prime and $a$ is not congruent to $0$ modulo $p$, we have $"gcd"(a,p) = 1$. By Bézout's identity (@bezouts-identity), there exist integers $u,v$ such that
   $ a u + p v = 1. $
   Reducing modulo $p$ gives $a u equiv 1 space (mod p)$. Thus $u$ is a multiplicative inverse of $a$ modulo $p$.
 ]
