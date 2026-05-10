@@ -196,7 +196,7 @@
 ]
 
 #supplementary[
-  Find the inverse of the point $P = (2, 3)$ on an elliptic curve $y^2 = x^3 - x + 5$ over $RR$.
+  Find the inverse of the point $P = (2, 3)$ on an elliptic curve $y^2 = x^3 - x + 3$ over $RR$.
 ]
 
 #supplementary[
