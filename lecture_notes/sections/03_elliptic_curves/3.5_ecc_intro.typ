@@ -145,9 +145,12 @@
   $3(7,11) = (5,1) + (7,11)$: $lambda=(11-1)(7-5)^(-1)=10 dot 2^(-1)=10 dot 9=90 equiv 5$. $x_3=25-5-7=13$; $y_3=5(5-13)-1=-41 equiv 10$.
   $ S_A = (bold(13), bold(10)) $
 
-  *Bob computes shared secret*: $S = d_B dot Q_A = 10 dot (10, 6) = 30G$. Since $n=19$, $30G = (30 mod 19)G = 11G = 19G - 8G$... Equivalently $30G = 10 dot 3G$, and both computations follow the same double-and-add path.
+  *Bob computes shared secret*: $S = d_B dot Q_A = 10 dot (10, 6) = 10(3G) = 30G$. Since $n=19$, $30G = 11G$.
 
-  By associativity, $d_B dot Q_A = 10(3G) = 3(10G) = d_A dot Q_B = (13, 10)$. ✓
+  Use $11G = 10G + G = (7,11) + (5,1)$:
+  $ lambda = (1 - 11)(5 - 7)^(-1) = (-10)(-2)^(-1) equiv 5 space (mod 17). $
+  $ x_3 = 5^2 - 7 - 5 = 13, quad y_3 = 5(7 - 13) - 11 = -41 equiv 10 space (mod 17). $
+  Thus Bob also obtains $S_B = (13, 10)$. ✓
   $ S_B = (bold(13), bold(10)) $
 
   *Shared secret*: Both parties hold $S = (13, 10)$. In practice, the $x$-coordinate $13$ (or a hash thereof) is used as the symmetric key material.
