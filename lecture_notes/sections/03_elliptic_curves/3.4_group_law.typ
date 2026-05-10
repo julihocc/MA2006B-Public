@@ -44,7 +44,8 @@
 
 #definition("Special Cases")[
   - *Identity*: $P + cal(O) = cal(O) + P = P$ for any $P in E(FF_p)$.
-  - *Inverse*: $P + (-P) = cal(O)$, where $-P = (x_1, p - y_1)$.
+  - *Inverse*: $P + (-P) = cal(O)$, where $-P = (x_1, -y_1 mod p)$.
+    The representative $p - y_1$ is used when $y_1 != 0$; if $y_1 = 0$, then $P = -P$.
   - *Point at infinity*: If $P = -Q$ (i.e., $x_1 = x_2$ and $y_1 + y_2 equiv 0 space (mod p)$), then $P + Q = cal(O)$.
   - *Doubling with $y_1 = 0$*: If $P = (x_1, 0)$, the tangent at $P$ is vertical (denominator $2y_1 equiv 0$), so $2P = cal(O)$. In code, this must be checked *before* computing the modular inverse of $2y_1$.
 ]
@@ -58,7 +59,7 @@
 
 #definition("Scalar Multiplication")[
   *Scalar multiplication* is the repeated addition of a point $P$ to itself $k$ times:
-  $ k P = underbrace(P + P + ... + P)_{k "times") $
+  $ k P = underbrace(P + P + ... + P)_(k " times") $
   For large $k$, this is computed efficiently using the *double-and-add algorithm*, analogous to repeated squaring for exponentiation.
 ]
 
@@ -262,5 +263,5 @@
 ]
 
 #supplementary[
-  On $E(FF_7)$ with $\#E = 9$, if $G$ has order 9. How many distinct points does $chevron.l G chevron.r$ contain?
+  On $E(FF_7)$ with $\#E = 9$, if $G$ has order 9, how many distinct points does $chevron.l G chevron.r$ contain?
 ]
