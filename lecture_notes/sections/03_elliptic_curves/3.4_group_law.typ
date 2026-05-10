@@ -215,7 +215,7 @@
   )
 
   #question(
-    [The formula $x_3 = lambda^2 - x_1 - x_2 space (mod p)$ applies when:],
+    [For ordinary point addition $P + Q$ with $P != Q$, the formula $x_3 = lambda^2 - x_1 - x_2 space (mod p)$ applies when:],
     (["$P = Q$"], ["$P != Q$ and $P != -Q$"], ["$P = cal(O)$"], ["$P = -Q$"]),
     1,
   )
@@ -224,12 +224,6 @@
     [In double-and-add, the bit $k_i = 0$ means:],
     (["Skip the addition, only double"], ["Add $P$"], ["Reset $Q$"], ["Stop the algorithm"]),
     0,
-  )
-
-  #question(
-    [Which property of scalar multiplication makes ECC secure?],
-    (["It is reversible in polynomial time"], ["Finding $k$ from $P$ and $k P$ is computationally hard"], ["It requires large keys"], ["It is slow to compute"]),
-    1,
   )
 
   #question(
