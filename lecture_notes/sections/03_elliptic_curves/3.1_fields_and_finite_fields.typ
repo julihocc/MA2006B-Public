@@ -82,7 +82,7 @@
 #note[
   In elliptic-curve formulas we often divide by quantities such as $2y$ and use coefficients involving $3x^2$. Over a finite field $FF_p$, where $p$ is a prime, the symbols $2$ and $3$ mean their residue classes modulo $p$.
 
-  If $p > 3$, then $2 not equiv 0 space (mod p)$ and $3 not equiv 0 space (mod p)$. Since every nonzero element of $FF_p$ has a multiplicative inverse, both $2$ and $3$ can be divided by safely. For the short Weierstrass form
+  If $p > 3$, then $2 equiv.not 0 space (mod p)$ and $3 equiv.not 0 space (mod p)$. Since every nonzero element of $FF_p$ has a multiplicative inverse, both $2$ and $3$ can be divided by safely. For the short Weierstrass form
   $ y^2 = x^3 + a x + b, $
   this keeps the usual formulas simple. That is why the finite-field sections assume $p > 3$.
 ]
