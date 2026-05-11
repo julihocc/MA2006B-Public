@@ -146,6 +146,29 @@
   Reducing modulo $13$ gives
   $ 5 dot 8 equiv 1 space (mod 13). $
   Therefore $8^(-1) equiv 5 space (mod 13)$.
+
+  *Alternative solution using the coefficient table.* Track each remainder in the form
+  $ r = s dot 13 + t dot 8. $
+  The recursive updates are
+  $ r_(i+1) = r_(i-1) - q_i r_i, $
+  $ s_(i+1) = s_(i-1) - q_i s_i, $
+  $ t_(i+1) = t_(i-1) - q_i t_i. $
+
+  #table(
+    columns: 5,
+    align: center,
+    table.header([$i$], [$q$], [$r$], [$s$], [$t$]),
+    [$0$], [$-$], [$13$], [$1$], [$0$],
+    [$1$], [$-$], [$8$], [$0$], [$1$],
+    [$2$], [$1$], [$5$], [$1$], [$-1$],
+    [$3$], [$1$], [$3$], [$-1$], [$2$],
+    [$4$], [$1$], [$2$], [$2$], [$-3$],
+    [$5$], [$1$], [$1$], [$-3$], [$5$],
+  )
+
+  The last row says
+  $ 1 = -3 dot 13 + 5 dot 8. $
+  Therefore $5 dot 8 equiv 1 space (mod 13)$, so again $8^(-1) equiv 5 space (mod 13)$.
 ]
 
 #solved_problem[
