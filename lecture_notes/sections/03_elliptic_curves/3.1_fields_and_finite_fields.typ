@@ -105,12 +105,14 @@
 ]
 
 #solved_problem[
-  Explain why $ZZ_6$ is not a field.
+  Determine whether $ZZ_9$ is a field.
 ]
 #solution[
-  In a field, every nonzero element must have a multiplicative inverse. In $ZZ_6$, the element $2$ is nonzero, but no element $x$ satisfies
-  $ 2x equiv 1 space (mod 6). $
-  Indeed, $2x$ is always even modulo 6, so it can only be congruent to $0$, $2$, or $4$. Therefore $ZZ_6$ is not a field.
+  The set $ZZ_9$ is not a field. In a field, every nonzero element must have a multiplicative inverse. But in $ZZ_9$, the nonzero element $3$ has no inverse.
+
+  If $3$ had an inverse, there would be an integer $x$ such that
+  $ 3x equiv 1 space (mod 9). $
+  However, $3x$ is always divisible by $3$, so modulo $9$ it can only be congruent to $0$, $3$, or $6$. It can never be congruent to $1$. Therefore $ZZ_9$ is not a field.
 ]
 
 #solved_problem[
