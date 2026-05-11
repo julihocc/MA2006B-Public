@@ -61,9 +61,11 @@
 ]
 
 #example[
-  $ZZ_6$ is not a field. The nonzero element $2$ has no inverse modulo 6 because
-  $ 2 dot 0 equiv 0, quad 2 dot 1 equiv 2, quad 2 dot 2 equiv 4, quad 2 dot 3 equiv 0, quad 2 dot 4 equiv 2, quad 2 dot 5 equiv 4 space (mod 6). $
-  The value $1$ never appears.
+  $ZZ_6$ is not a field. The nonzero element $2$ has no inverse modulo 6. If such an inverse existed, there would be an integer $x$ such that
+  $ 2 x equiv 1 space (mod 6). $
+  Equivalently, for some integer $v$,
+  $ 2 x + 6 v = 1. $
+  But every integer of the form $2 x + 6 v$ is divisible by $"gcd"(2,6) = 2$, so it cannot equal $1$. By Bézout's identity, this is exactly the obstruction: $2$ has an inverse modulo $6$ only when $"gcd"(2,6) = 1$.
 ]
 
 #definition("Characteristic")[
