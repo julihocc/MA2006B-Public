@@ -131,9 +131,21 @@
   Compute $8^(-1) mod 13$.
 ]
 #solution[
-  We seek $x$ such that $8x equiv 1 space (mod 13)$. Testing $x=5$:
-  $ 8 dot 5 = 40 equiv 1 space (mod 13), $
-  so $8^(-1) equiv 5 space (mod 13)$.
+  We seek $x$ such that $8x equiv 1 space (mod 13)$. Use the Euclidean algorithm:
+  $ 13 = 1 dot 8 + 5, $
+  $ 8 = 1 dot 5 + 3, $
+  $ 5 = 1 dot 3 + 2, $
+  $ 3 = 1 dot 2 + 1. $
+
+  Now back-substitute to write $1$ as a combination of $8$ and $13$:
+  $ 1 = 3 - 2, $
+  $ 1 = 3 - (5 - 3) = 2 dot 3 - 5, $
+  $ 1 = 2(8 - 5) - 5 = 2 dot 8 - 3 dot 5, $
+  $ 1 = 2 dot 8 - 3(13 - 8) = 5 dot 8 - 3 dot 13. $
+
+  Reducing modulo $13$ gives
+  $ 5 dot 8 equiv 1 space (mod 13). $
+  Therefore $8^(-1) equiv 5 space (mod 13)$.
 ]
 
 #solved_problem[

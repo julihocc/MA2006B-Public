@@ -1,4 +1,4 @@
-from _finite_field_utils import mod_inverse
+from _finite_field_utils import extended_gcd
 
 
 if __name__ == "__main__":
@@ -6,4 +6,11 @@ if __name__ == "__main__":
     modulus = 13
     element = 8
 
-    print(f"{element}^(-1) = {mod_inverse(element, modulus)} mod {modulus}")
+    gcd, coefficient, modulus_coefficient = extended_gcd(element, modulus)
+    inverse = coefficient % modulus
+
+    print(
+        f"{gcd} = ({coefficient})*{element} "
+        f"+ ({modulus_coefficient})*{modulus}"
+    )
+    print(f"{element}^(-1) = {inverse} mod {modulus}")
