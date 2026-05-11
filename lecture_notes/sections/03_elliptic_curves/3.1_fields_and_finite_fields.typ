@@ -172,14 +172,18 @@
 ]
 
 #solved_problem[
-  Determine the characteristic of $RR$ and $FF_7$.
+  Can a field have characteristic $6$?
 ]
 #solution[
-  In $RR$, repeated addition of $1$ gives $1,2,3,...$ and never equals $0$, so $RR$ has characteristic $0$.
+  No. Suppose, for contradiction, that a field $F$ has characteristic $6$. This means
+  $ 6 dot 1 = 0, $
+  and no smaller positive number of copies of $1$ gives $0$.
 
-  In $FF_7$,
-  $ 7 dot 1 = 1 + 1 + 1 + 1 + 1 + 1 + 1 equiv 0 space (mod 7), $
-  and no smaller positive number of copies of $1$ gives $0$. Thus $FF_7$ has characteristic $7$.
+  Then $2 dot 1 != 0$ and $3 dot 1 != 0$, because otherwise the characteristic would be $2$ or $3$, not $6$. But
+  $ (2 dot 1)(3 dot 1) = 6 dot 1 = 0. $
+  This gives two nonzero elements whose product is $0$.
+
+  That cannot happen in a field: if $a != 0$ and $a b = 0$, then multiplying by $a^(-1)$ gives $b = 0$. Therefore no field has characteristic $6$.
 ]
 
 === Self-Evaluation Quiz
