@@ -101,6 +101,52 @@ The discriminant is a number computed from the coefficients of a polynomial. Its
   is called a *depressed cubic*. It has no $x^2$ term.
 ]
 
+#proposition("Reduction to Depressed Form")[
+  Let
+  $ f(x) = A x^3 + B x^2 + C x + D, quad A != 0, $
+  be a cubic polynomial over $RR$. After dividing by $A$ and making the change of variable
+  $ x = u - B/(3 A), $
+  the equation $f(x)=0$ becomes an equation of the form
+  $ u^3 + p u + q = 0, $
+  where
+  $
+    p = (3 A C - B^2)/(3 A^2),
+    quad
+    q = (2 B^3 - 9 A B C + 27 A^2 D)/(27 A^3).
+  $
+]
+
+#proof[
+  Divide the equation $f(x)=0$ by $A$:
+  $ x^3 + alpha x^2 + beta x + gamma = 0, $
+  where
+  $ alpha = B/A, quad beta = C/A, quad gamma = D/A. $
+
+  Now substitute
+  $ x = u - alpha/3. $
+  Expanding gives
+  $
+    (u - alpha/3)^3
+    + alpha (u - alpha/3)^2
+    + beta (u - alpha/3)
+    + gamma
+    = u^3 + (beta - alpha^2/3)u + (2 alpha^3/27 - alpha beta/3 + gamma).
+  $
+
+  Thus the $u^2$ term has disappeared. Therefore the equation has depressed form
+  $ u^3 + p u + q = 0, $
+  with
+  $ p = beta - alpha^2/3 $
+  and
+  $ q = 2 alpha^3/27 - alpha beta/3 + gamma. $
+
+  Substituting back $alpha = B/A$, $beta = C/A$, and $gamma = D/A$ gives the stated formulas for $p$ and $q$.
+]
+
+#note[
+  The change of variable requires division by $3A$. Over $RR$ this is always allowed because $A != 0$ and $3 != 0$. Over a field of characteristic $3$, this reduction is not generally valid.
+]
+
 #corollary([Discriminant of $x^3 + p x + q$])[
   The discriminant of
   $ f(x) = x^3 + p x + q $
