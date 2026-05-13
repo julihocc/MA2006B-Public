@@ -22,6 +22,7 @@
   $ Delta = -16(4a^3 + 27b^2) != 0. $
   Equivalently,
   $ 4a^3 + 27b^2 != 0. $
+  Appendix @appendix-cubic-discriminant explains where this cubic discriminant formula comes from.
 ]
 
 #example[
