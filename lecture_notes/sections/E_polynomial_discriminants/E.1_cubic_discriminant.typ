@@ -194,10 +194,21 @@ The discriminant is a number computed from the coefficients of a polynomial. Its
 #note[
   In elliptic-curve theory, one usually defines the curve discriminant by
   $ Delta_E = -16(4a^3 + 27b^2). $
-  The factor $-16$ is a normalization coming from the general Weierstrass discriminant. For the short equation it equals $16$ times the polynomial discriminant:
+  The reason for the factor $-16$ is that the discriminant of an elliptic curve is not defined only from the cubic polynomial on the right-hand side. It is defined as an invariant of a Weierstrass equation.
+
+  For the general Weierstrass equation
+  $ y^2 + a_1 x y + a_3 y = x^3 + a_2 x^2 + a_4 x + a_6, $
+  the discriminant is a specific polynomial in the coefficients that detects exactly when the curve is singular and transforms predictably under allowed changes of Weierstrass coordinates. When this general formula is specialized to the short equation
+  $ y^2 = x^3 + a x + b, $
+  it becomes
+  $ Delta_E = -16(4a^3 + 27b^2). $
+
+  Thus $Delta_E$ is the standard curve discriminant, while
+  $ Delta(x^3 + a x + b) = -4a^3 - 27b^2 $
+  is the discriminant of the cubic polynomial. They differ by the nonzero factor $16$:
   $ Delta_E = 16 Delta(x^3 + a x + b). $
 
-  For detecting singularity over $RR$, the factor $-16$ does not affect the nonzero condition. Therefore
+  For detecting singularity over $RR$, this factor does not affect the nonzero condition. Therefore
   $ Delta_E != 0 quad <==> quad 4a^3 + 27b^2 != 0. $
 ]
 
