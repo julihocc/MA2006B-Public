@@ -74,13 +74,13 @@ $ F(X,Y,1) = f(X,Y). $
 
 The extra solutions with $Z = 0$ are the points at infinity of the affine curve.
 
-=== Application to Weierstrass Curves
+=== The Short Weierstrass Equation
 
-Now return to the equation used for elliptic curves. When we write
-$ y^2 = x^3 + a x + b, $
-we are first describing the affine points: the pairs $(x,y) in AA^2(RR)$ that satisfy the equation.
+Now consider the affine equation
+$ y^2 = x^3 + a x + b. $
+At first, this equation describes only its affine solutions: the pairs $(x,y) in AA^2(RR)$ that satisfy the equation.
 
-To understand the point at infinity, we pass from the affine plane to the projective plane.
+To understand whether this affine equation has points at infinity, we pass from the affine plane to the projective plane.
 
 === Homogenizing the Equation
 
@@ -112,9 +112,9 @@ $ [0 : Y : 0] = [0 : 1 : 0]. $
 Thus the short Weierstrass curve has exactly one point at infinity:
 $ cal(O) = [0 : 1 : 0]. $
 
-This is the formal meaning of the symbol $cal(O)$ in the definition of an elliptic curve in short Weierstrass form.
+This is the formal meaning of the symbol $cal(O)$ used in the main text.
 
-=== Why Vertical Lines Meet at $cal(O)$
+=== Vertical Lines and $cal(O)$
 
 A vertical affine line $x = c$ becomes, in projective coordinates,
 $ X = c Z. $
@@ -122,11 +122,8 @@ $ X = c Z. $
 At infinity, $Z = 0$, so this equation forces $X = 0$. The only possible projective point with $Z = 0$ and $X = 0$ is
 $ [0 : 1 : 0] = cal(O). $
 
-So every vertical line meets the projective closure of a short Weierstrass curve at the same point $cal(O)$. This is the projective-geometric reason for the vertical-line rule
-$ P + (-P) = cal(O), $
-which appears in the elliptic-curve group law.
+So every vertical affine line has the same point at infinity, namely $cal(O)$. This statement is purely projective-geometric: it says where vertical affine lines meet the line at infinity after passing to $PP^2(RR)$.
 
 === Computational Remark
 
-In affine formulas, $cal(O)$ is not stored as a coordinate pair because it is not an element of $RR^2$. Implementations therefore represent it separately, for example by a sentinel value such as `None`. The formulas for point addition then handle $cal(O)$ as the identity:
-$ P + cal(O) = cal(O) + P = P. $
+In affine coordinates, $cal(O)$ is not stored as a coordinate pair because it is not an element of $RR^2$. Implementations that work only with affine coordinate pairs must therefore represent this projective point separately, for example by a sentinel value such as `None`.
