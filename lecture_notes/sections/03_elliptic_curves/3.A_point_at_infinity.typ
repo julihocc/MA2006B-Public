@@ -1,9 +1,27 @@
 #import "../../utils.typ": *
 == Appendix: The Point at Infinity <appendix-point-at-infinity>
 
-The phrase *point at infinity* is not meant to describe a very large affine point. It means that we have moved from the affine plane $RR^2$ to the projective plane $PP^2(RR)$, where parallel directions are represented by points with a zero homogenizing coordinate.
+The phrase *point at infinity* is not meant to describe a very large point. It means that we enlarge the ordinary coordinate plane by adding extra points that record directions. This appendix explains that enlargement and then identifies the special point $cal(O)$ on a short Weierstrass curve.
 
-=== Projective Coordinates
+=== The Affine Plane
+
+The *affine plane* over $RR$ is the usual coordinate plane
+$ RR^2 = {(x,y) : x,y in RR}. $
+
+Its points are ordinary coordinate pairs. For example, $(2,3)$, $(-1,0)$, and $(0,0)$ are affine points.
+
+When we first write an elliptic curve as
+$ y^2 = x^3 + a x + b, $
+we are describing its affine points: the pairs $(x,y) in RR^2$ that satisfy the equation.
+
+The affine plane is excellent for computation, but it has one geometric limitation: parallel lines do not meet. For elliptic curves, this is inconvenient because the chord-and-tangent rule wants every line to meet the cubic in three points when intersections are counted properly. Vertical lines are the most important case: a vertical line through $P=(x,y)$ and $-P=(x,-y)$ should meet the curve one more time, and that third point is $cal(O)$.
+
+=== The Projective Plane
+
+The *projective plane* is a larger plane obtained from the affine plane by adding points at infinity. These added points record directions of parallel lines. One point at infinity represents the common direction of all vertical lines, another represents the common direction of all horizontal lines, and so on.
+
+Instead of writing projective points as pairs, we write them using *homogeneous coordinates*
+$ [X : Y : Z]. $
 
 A point of the real projective plane $PP^2(RR)$ is an equivalence class of nonzero triples
 $ [X : Y : Z] $
@@ -11,7 +29,11 @@ where
 $ [X : Y : Z] = [lambda X : lambda Y : lambda Z] $
 for every nonzero real number $lambda$.
 
-The usual affine plane sits inside $PP^2(RR)$ by the map
+Thus the three triples
+$ [2 : 3 : 1], quad [4 : 6 : 2], quad [-2 : -3 : -1] $
+represent the same projective point.
+
+The usual affine plane sits inside the projective plane by the map
 $ (x,y) mapsto [x : y : 1]. $
 Thus points with $Z != 0$ are ordinary affine points: after rescaling, every such point can be written as $[x : y : 1]$.
 
