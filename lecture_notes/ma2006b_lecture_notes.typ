@@ -38,3 +38,4 @@
 #include "sections/A_number_theory/A_main.typ"
 #include "sections/B_matrix_theory/B_main.typ"
 #include "sections/C_symmetric_groups/C_main.typ"
+#include "sections/D_projective_geometry/D_main.typ"

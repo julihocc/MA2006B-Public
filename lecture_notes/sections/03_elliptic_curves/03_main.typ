@@ -17,4 +17,3 @@ The goal is to move from geometric intuition to the arithmetic used in protocols
 #include "3.3_curves_over_finite_fields.typ"
 #include "3.4_group_law.typ"
 #include "3.5_ecc_intro.typ"
-#include "3.A_point_at_infinity.typ"

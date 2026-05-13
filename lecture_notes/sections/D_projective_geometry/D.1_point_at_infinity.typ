@@ -1,7 +1,7 @@
 #import "../../utils.typ": *
-== Appendix: The Point at Infinity <appendix-point-at-infinity>
+== The Point at Infinity <appendix-point-at-infinity>
 
-The phrase *point at infinity* is not meant to describe a very large point. It means that we enlarge the ordinary coordinate plane by adding extra points that record directions. This appendix explains that enlargement and then identifies the special point $cal(O)$ on a short Weierstrass curve.
+The phrase *point at infinity* is not meant to describe a very large point. It means that we enlarge the ordinary coordinate plane by adding extra points that record directions. This section explains that enlargement and then identifies the special point $cal(O)$ on a short Weierstrass curve.
 
 === The Affine Plane
 
