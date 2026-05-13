@@ -5,6 +5,10 @@
 
 The discriminant is a number computed from the coefficients of a polynomial. Its main purpose is to detect whether the polynomial has a repeated root. This is exactly the condition needed in the elliptic-curve chapter: repeated roots of the cubic $x^3 + a x + b$ correspond to singularities of the curve $y^2 = x^3 + a x + b$.
 
+#note[
+  Appendix @appendix-point-at-infinity explains how the affine Weierstrass equation is completed by adding its point at infinity. This appendix addresses the next question: when is that completed cubic non-singular?
+]
+
 #definition("Repeated Root")[
   Let $f(x) in RR[x]$ be a polynomial. A number $r in CC$ is a *repeated root* of $f$ if
   $ f(x) = (x-r)^2 g(x) $
