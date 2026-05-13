@@ -1,7 +1,7 @@
 #import "../../utils.typ": *
 == The Point at Infinity <appendix-point-at-infinity>
 
-The phrase *point at infinity* is not meant to describe a very large point. It means that we enlarge the ordinary coordinate plane by adding extra points that record directions. This section explains that enlargement and then identifies the special point $cal(O)$ on a short Weierstrass curve.
+The phrase *point at infinity* is not meant to describe a very large point. It comes from projective geometry: an affine plane can be enlarged by adding extra points that record directions of parallel lines. This section first develops that geometric construction independently, and only afterward applies it to the short Weierstrass equation.
 
 === The Affine Plane
 
@@ -27,11 +27,7 @@ $ L_(alpha,beta,gamma) = {(x,y) in RR^2 : alpha x + beta y = gamma}, quad (alpha
 
 For example, after coordinates have been chosen, $(2,3)$, $(-1,0)$, and $(0,0)$ are affine points, and $2x - y = 1$ is an affine line.
 
-When we first write an elliptic curve as
-$ y^2 = x^3 + a x + b, $
-we are describing its affine points: the pairs $(x,y) in AA^2(RR)$ that satisfy the equation.
-
-The affine plane is excellent for computation, but it has one geometric limitation: parallel lines do not meet. For elliptic curves, this is inconvenient because the chord-and-tangent rule wants every line to meet the cubic in three points when intersections are counted properly. Vertical lines are the most important case: a vertical line through $P=(x,y)$ and $-P=(x,-y)$ should meet the curve one more time, and that third point is $cal(O)$.
+The affine plane is excellent for computation, but it has one geometric limitation: distinct parallel lines do not meet. Projective geometry removes this exception by adding one point at infinity for each direction of parallel lines.
 
 === The Projective Plane
 
@@ -54,9 +50,19 @@ The usual affine plane sits inside the projective plane by the map
 $ (x,y) mapsto [x : y : 1]. $
 Thus points with $Z != 0$ are ordinary affine points: after rescaling, every such point can be written as $[x : y : 1]$.
 
-The points with $Z = 0$ are the points at infinity. They do not correspond to coordinate pairs in $RR^2$.
+The points with $Z = 0$ are the points at infinity. They do not correspond to coordinate pairs in $RR^2$. Each such point represents a direction in the affine plane.
 
-=== Homogenizing the Curve
+For example, all vertical affine lines have the same direction, and in projective coordinates they meet at the point $[0 : 1 : 0]$. All horizontal affine lines meet at the different point $[1 : 0 : 0]$.
+
+=== Application to Weierstrass Curves
+
+Now return to the equation used for elliptic curves. When we write
+$ y^2 = x^3 + a x + b, $
+we are first describing the affine points: the pairs $(x,y) in AA^2(RR)$ that satisfy the equation.
+
+To understand the point at infinity, we pass from the affine plane to the projective plane.
+
+=== Homogenizing the Equation
 
 Start with the affine short Weierstrass equation
 $ y^2 = x^3 + a x + b. $
@@ -86,7 +92,7 @@ $ [0 : Y : 0] = [0 : 1 : 0]. $
 Thus the short Weierstrass curve has exactly one point at infinity:
 $ cal(O) = [0 : 1 : 0]. $
 
-This is the formal meaning of the symbol $cal(O)$ in the definition of $E(RR)$.
+This is the formal meaning of the symbol $cal(O)$ in the definition of an elliptic curve in short Weierstrass form.
 
 === Why Vertical Lines Meet at $cal(O)$
 
@@ -96,7 +102,7 @@ $ X = c Z. $
 At infinity, $Z = 0$, so this equation forces $X = 0$. The only possible projective point with $Z = 0$ and $X = 0$ is
 $ [0 : 1 : 0] = cal(O). $
 
-So every vertical line meets the projective closure of the curve at the same point $cal(O)$. This explains the geometric rule
+So every vertical line meets the projective closure of a short Weierstrass curve at the same point $cal(O)$. This explains the geometric rule
 $ P + (-P) = cal(O), $
 because $P$ and $-P$ lie on the same vertical line.
 
