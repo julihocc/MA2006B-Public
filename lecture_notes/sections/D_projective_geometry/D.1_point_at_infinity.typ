@@ -31,14 +31,14 @@ The affine plane is excellent for computation, but it has one geometric limitati
 
 === The Projective Plane
 
-The *projective plane* is a larger plane obtained from the affine plane by adding points at infinity. These added points record directions of parallel lines. One point at infinity represents the common direction of all vertical lines, another represents the common direction of all horizontal lines, and so on.
+The *projective plane* over $RR$, denoted $PP^2(RR)$, is the set of one-dimensional vector subspaces of $RR^3$:
+$ PP^2(RR) = {ell subset RR^3 : ell " is a one-dimensional vector subspace"}. $
 
-Instead of writing projective points as pairs, we write them using *homogeneous coordinates*
-$ [X : Y : Z]. $
-
-A point of the real projective plane $PP^2(RR)$ is an equivalence class of nonzero triples
+A nonzero vector $(X,Y,Z) in RR^3$ determines the one-dimensional subspace
+$ RR (X,Y,Z) = {lambda (X,Y,Z) : lambda in RR}. $
+This projective point is written in *homogeneous coordinates* as
 $ [X : Y : Z] $
-where
+and
 $ [X : Y : Z] = [lambda X : lambda Y : lambda Z] $
 for every nonzero real number $lambda$.
 
@@ -46,13 +46,33 @@ Thus the three triples
 $ [2 : 3 : 1], quad [4 : 6 : 2], quad [-2 : -3 : -1] $
 represent the same projective point.
 
+Projective lines are defined similarly. A projective line is the set of one-dimensional subspaces contained in a fixed two-dimensional vector subspace of $RR^3$. Equivalently, projective lines are the solution sets of homogeneous linear equations
+$ alpha X + beta Y + gamma Z = 0, quad (alpha,beta,gamma) != (0,0). $
+
 The usual affine plane sits inside the projective plane by the map
 $ (x,y) mapsto [x : y : 1]. $
-Thus points with $Z != 0$ are ordinary affine points: after rescaling, every such point can be written as $[x : y : 1]$.
+Thus projective points with $Z != 0$ form an affine chart: after rescaling, every such point can be written uniquely as $[x : y : 1]$.
 
-The points with $Z = 0$ are the points at infinity. They do not correspond to coordinate pairs in $RR^2$. Each such point represents a direction in the affine plane.
+The remaining projective points have $Z = 0$. They form the *line at infinity*
+$ L_infinity = {[X : Y : 0] : (X,Y) != (0,0)}. $
+These points do not correspond to coordinate pairs in $RR^2$.
 
-For example, all vertical affine lines have the same direction, and in projective coordinates they meet at the point $[0 : 1 : 0]$. All horizontal affine lines meet at the different point $[1 : 0 : 0]$.
+Each point of $L_infinity$ records a direction in the affine plane. If an affine line has direction vector $(u,v) != (0,0)$, then its projective completion contains the point at infinity $[u : v : 0]$. Therefore all vertical affine lines, whose direction is $(0,1)$, meet at $[0 : 1 : 0]$, while all horizontal affine lines, whose direction is $(1,0)$, meet at $[1 : 0 : 0]$.
+
+=== Homogenizing an Affine Equation
+
+Projective coordinates only determine a point up to nonzero scalar multiplication, so equations in projective space must be *homogeneous*: every term must have the same total degree.
+
+Let $f(x,y)$ be a polynomial of total degree $d$. Its homogenization is
+$ F(X,Y,Z) = Z^d f(X / Z, Y / Z), $
+after simplifying so that $F$ is a polynomial in $X,Y,Z$.
+
+The projective equation
+$ F(X,Y,Z) = 0 $
+extends the affine equation $f(x,y)=0$. Indeed, on the affine chart $Z = 1$, it becomes
+$ F(X,Y,1) = f(X,Y). $
+
+The extra solutions with $Z = 0$ are the points at infinity of the affine curve.
 
 === Application to Weierstrass Curves
 
@@ -67,7 +87,7 @@ To understand the point at infinity, we pass from the affine plane to the projec
 Start with the affine short Weierstrass equation
 $ y^2 = x^3 + a x + b. $
 
-To place it in projective space, replace $x$ by $X / Z$ and $y$ by $Y / Z$, then multiply by $Z^3$ to clear denominators. This gives the homogeneous equation
+The polynomial $y^2 - x^3 - a x - b$ has total degree $3$, so we homogenize to degree $3$. This gives
 $ Y^2 Z = X^3 + a X Z^2 + b Z^3. $
 
 The projective curve is therefore
@@ -102,9 +122,9 @@ $ X = c Z. $
 At infinity, $Z = 0$, so this equation forces $X = 0$. The only possible projective point with $Z = 0$ and $X = 0$ is
 $ [0 : 1 : 0] = cal(O). $
 
-So every vertical line meets the projective closure of a short Weierstrass curve at the same point $cal(O)$. This explains the geometric rule
+So every vertical line meets the projective closure of a short Weierstrass curve at the same point $cal(O)$. This is the projective-geometric reason for the vertical-line rule
 $ P + (-P) = cal(O), $
-because $P$ and $-P$ lie on the same vertical line.
+which appears in the elliptic-curve group law.
 
 === Computational Remark
 
