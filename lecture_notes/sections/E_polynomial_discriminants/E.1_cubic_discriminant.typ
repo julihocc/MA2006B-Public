@@ -33,10 +33,10 @@ The discriminant is a number computed from the coefficients of a polynomial. Its
   if and only if $r_i = r_j$ for some $i != j$. Thus the discriminant is zero exactly when the polynomial has a repeated root.
 ]
 
-#definition("Discriminant of a Cubic")[
+#proposition("Discriminant Formula for a Cubic")[
   For a general cubic polynomial
   $ f(x) = A x^3 + B x^2 + C x + D, quad A != 0, $
-  the discriminant is
+  the discriminant defined above is given by
   $
     Delta(f)
     = B^2 C^2 - 4 A C^3 - 4 B^3 D - 27 A^2 D^2 + 18 A B C D.
