@@ -24,12 +24,12 @@ The discriminant is a number computed from the coefficients of a polynomial. Its
   be a degree $n$ polynomial with leading coefficient $A != 0$ and roots $r_1, dots, r_n$ in $CC$, counted with multiplicity.
 
   The *discriminant* of $f$ is
-  $ "disc"(f) = A^(2n-2) product_(i < j) (r_i - r_j)^2. $
+  $ Delta(f) = A^(2n-2) product_(i < j) (r_i - r_j)^2. $
 ]
 
 #note[
   Because the discriminant contains the factors $(r_i-r_j)^2$, we have
-  $ "disc"(f) = 0 $
+  $ Delta(f) = 0 $
   if and only if $r_i = r_j$ for some $i != j$. Thus the discriminant is zero exactly when the polynomial has a repeated root.
 ]
 
@@ -38,20 +38,20 @@ The discriminant is a number computed from the coefficients of a polynomial. Its
   $ f(x) = A x^3 + B x^2 + C x + D, quad A != 0, $
   the discriminant is
   $
-    "disc"(f)
+    Delta(f)
     = B^2 C^2 - 4 A C^3 - 4 B^3 D - 27 A^2 D^2 + 18 A B C D.
   $
 ]
 
 #example[
   For $f(x)=x^3-x$, we have $A=1$, $B=0$, $C=-1$, and $D=0$. Hence
-  $ "disc"(f) = -4(1)(-1)^3 = 4 != 0. $
+  $ Delta(f) = -4(1)(-1)^3 = 4 != 0. $
   Therefore $x^3-x$ has no repeated root.
 ]
 
 #example[
   For $f(x)=x^3$, we have $A=1$, $B=0$, $C=0$, and $D=0$. Hence
-  $ "disc"(f)=0. $
+  $ Delta(f)=0. $
   Indeed, $x=0$ is a repeated root because $x^3 = x^2 dot x$.
 ]
 
@@ -65,7 +65,7 @@ The discriminant is a number computed from the coefficients of a polynomial. Its
   The discriminant of
   $ f(x) = x^3 + p x + q $
   is
-  $ "disc"(f) = -4p^3 - 27q^2. $
+  $ Delta(f) = -4p^3 - 27q^2. $
 ]
 
 #proof[
@@ -73,7 +73,7 @@ The discriminant is a number computed from the coefficients of a polynomial. Its
   $ A=1, quad B=0, quad C=p, quad D=q. $
   Then
   $
-    "disc"(f)
+    Delta(f)
     = 0^2 p^2 - 4(1)p^3 - 4(0)^3 q - 27(1)^2 q^2 + 18(1)(0)p q
     = -4p^3 - 27q^2.
   $
@@ -81,7 +81,7 @@ The discriminant is a number computed from the coefficients of a polynomial. Its
 
 #note[
   Therefore
-  $ "disc"(x^3 + p x + q) = 0 $
+  $ Delta(x^3 + p x + q) = 0 $
   if and only if
   $ 4p^3 + 27q^2 = 0. $
   This is the form that appears in the short Weierstrass equation.
@@ -91,14 +91,14 @@ The discriminant is a number computed from the coefficients of a polynomial. Its
   For the short Weierstrass equation
   $ y^2 = x^3 + a x + b, $
   the cubic on the right-hand side has discriminant
-  $ "disc"(x^3 + a x + b) = -4a^3 - 27b^2. $
+  $ Delta(x^3 + a x + b) = -4a^3 - 27b^2. $
   Thus the cubic has a repeated root if and only if
   $ 4a^3 + 27b^2 = 0. $
 ]
 
 #proof[
   This is the depressed cubic formula with $p=a$ and $q=b$:
-  $ "disc"(x^3 + a x + b) = -4a^3 - 27b^2. $
+  $ Delta(x^3 + a x + b) = -4a^3 - 27b^2. $
   Since multiplying by $-1$ does not change whether a number is zero,
   $ -4a^3 - 27b^2 = 0 $
   is equivalent to
@@ -107,9 +107,9 @@ The discriminant is a number computed from the coefficients of a polynomial. Its
 
 #note[
   In elliptic-curve theory, one usually defines the curve discriminant by
-  $ Delta = -16(4a^3 + 27b^2). $
+  $ Delta_E = -16(4a^3 + 27b^2). $
   The factor $-16$ is conventional and does not affect the nonzero condition. Therefore
-  $ Delta != 0 quad <==> quad 4a^3 + 27b^2 != 0. $
+  $ Delta_E != 0 quad <==> quad 4a^3 + 27b^2 != 0. $
 ]
 
 === Solved Problems
@@ -119,7 +119,7 @@ The discriminant is a number computed from the coefficients of a polynomial. Its
 ]
 #solution[
   Here $p=-3$ and $q=2$. Using the depressed cubic formula,
-  $ "disc"(f) = -4(-3)^3 - 27(2)^2 = 108 - 108 = 0. $
+  $ Delta(f) = -4(-3)^3 - 27(2)^2 = 108 - 108 = 0. $
   Therefore $f$ has a repeated root. Indeed,
   $ x^3 - 3x + 2 = (x-1)^2(x+2). $
 ]
