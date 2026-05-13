@@ -3,7 +3,7 @@
 
 === Theory
 
-#definition("Short Weierstrass Model over $RR$")[
+#definition([Short Weierstrass Model over $RR$])[
   Let $a,b in RR$. The *affine short Weierstrass model* determined by $a$ and $b$ is the set
   $ C_("aff")(RR) = {(x,y) in RR^2 : y^2 = x^3 + a x + b}. $
   Its defining equation is
@@ -37,7 +37,7 @@
   The condition $Delta != 0$ is equivalent to saying that the cubic polynomial $x^3 + a x + b$ has no repeated root over $CC$. Geometrically, this prevents the affine curve from developing a cusp or self-intersection. At each affine point there is then a well-defined tangent line.
 ]
 
-#definition("Elliptic Curve over $RR$")[
+#definition([Elliptic Curve over $RR$])[
   An *elliptic curve over $RR$ in short Weierstrass form* is a non-singular short Weierstrass model together with its point at infinity:
   $ E(RR) = {(x,y) in RR^2 : y^2 = x^3 + a x + b} union {cal(O)}, $
   where $4a^3 + 27b^2 != 0$.
