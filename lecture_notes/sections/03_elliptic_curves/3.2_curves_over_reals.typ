@@ -34,7 +34,7 @@
 ]
 
 #definition("The Point at Infinity")[
-  Every elliptic curve includes a distinguished point $cal(O)$, the *point at infinity*, which serves as the *identity element* of the group law. Formally, $cal(O)$ lies in the projective closure of the curve.
+  Every elliptic curve includes a distinguished point $cal(O)$, the *point at infinity*, which serves as the *identity element* of the group law. A formal construction using projective coordinates is given in @appendix-point-at-infinity.
 
   A useful mental model is: all vertical lines meet the curve again at this same point $cal(O)$. This convention lets inverse points add to the identity.
 ]
