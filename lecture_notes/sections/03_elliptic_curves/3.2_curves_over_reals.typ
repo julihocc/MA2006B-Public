@@ -3,59 +3,84 @@
 
 === Theory
 
-#definition("Weierstrass Form")[
-  An *elliptic curve* over the real numbers is the set of affine points $(x, y) in RR^2$ satisfying the *short Weierstrass equation*
+#definition("Short Weierstrass Model over $RR$")[
+  Let $a,b in RR$. The *affine short Weierstrass model* determined by $a$ and $b$ is the set
+  $ C_("aff")(RR) = {(x,y) in RR^2 : y^2 = x^3 + a x + b}. $
+  Its defining equation is
   $ y^2 = x^3 + a x + b $
-  where $a, b in RR$, together with one additional point $cal(O)$ called the *point at infinity*. We write this set as
-  $ E(RR) = {(x,y) in RR^2 : y^2 = x^3 + a x + b} union {cal(O)}. $
+  and is called the *short Weierstrass equation*.
 ]
 
 #note[
-  The equation is called "short" Weierstrass form. More general Weierstrass equations exist, but over the fields used in this chapter this simpler shape is enough. Section 3.1 reviews fields, finite fields, and characteristic.
+  More general Weierstrass equations exist. Over the fields used in this chapter, the short form is enough once the characteristic is not $2$ or $3$. Section 3.1 explains why this condition matters.
 ]
 
 #definition("Non-Singularity")[
-  An elliptic curve $y^2 = x^3 + a x + b$ is *non-singular* (i.e., truly an elliptic curve) if its *discriminant* is nonzero:
-  $ Delta = -16(4a^3 + 27b^2) != 0 $
-  Equivalently, $4a^3 + 27b^2 != 0$. Geometrically, this means the cubic has no cusp or self-intersection. At every point of the curve there is a well-defined tangent line.
+  The short Weierstrass model
+  $ y^2 = x^3 + a x + b $
+  is *non-singular* if its discriminant is nonzero:
+  $ Delta = -16(4a^3 + 27b^2) != 0. $
+  Equivalently,
+  $ 4a^3 + 27b^2 != 0. $
 ]
 
 #example[
   Compare two cubic models:
   - $E_1: y^2 = x^3 - x + 1$ has $a=-1$, $b=1$, so
     $Delta = -16(4(-1)^3 + 27(1)^2) = -16(23) != 0$.
-    Hence $E_1$ is a valid elliptic curve.
+    Hence $E_1$ is non-singular.
   - $E_2: y^2 = x^3$ has $a=0$, $b=0$, so $Delta = 0$.
-    This is singular (a cusp), so it is not an elliptic curve for group-law purposes.
+    This model is singular, so it is not an elliptic curve.
 ]
 
 #note[
-  The condition $Delta != 0$ says that the polynomial $x^3 + a x + b$ has no repeated roots over the complex numbers. This prevents the affine curve $y^2 = x^3 + a x + b$ from developing a singular point. If $Delta = 0$, the chord-and-tangent construction breaks down at the singularity and does not produce the elliptic-curve group used in cryptography.
+  The condition $Delta != 0$ is equivalent to saying that the cubic polynomial $x^3 + a x + b$ has no repeated root over $CC$. Geometrically, this prevents the affine curve from developing a cusp or self-intersection. At each affine point there is then a well-defined tangent line.
+]
+
+#definition("Elliptic Curve over $RR$")[
+  An *elliptic curve over $RR$ in short Weierstrass form* is a non-singular short Weierstrass model together with its point at infinity:
+  $ E(RR) = {(x,y) in RR^2 : y^2 = x^3 + a x + b} union {cal(O)}, $
+  where $4a^3 + 27b^2 != 0$.
+]
+
+#note[
+  The point $cal(O)$ is not an affine coordinate pair. In projective coordinates it is
+  $ cal(O) = [0 : 1 : 0]. $
+  Appendix @appendix-point-at-infinity gives the formal construction using the projective closure of the short Weierstrass equation.
 ]
 
 #definition("The Point at Infinity")[
-  Every elliptic curve includes a distinguished point $cal(O)$, the *point at infinity*, which serves as the *identity element* of the group law. A formal construction using projective coordinates is given in @appendix-point-at-infinity.
+  The point $cal(O)$ is the unique point at infinity on the projective closure of
+  $ y^2 = x^3 + a x + b. $
+  It is included in $E(RR)$ and serves as the identity element for the group law.
 
-  A useful mental model is: all vertical lines meet the curve again at this same point $cal(O)$. This convention lets inverse points add to the identity.
+  Projectively, every vertical affine line has this same point at infinity. This is why the vertical line through $(x,y)$ and $(x,-y)$ corresponds to the identity element in the chord-and-tangent law.
 ]
 
 #example[
-  If $P = (x,y)$ is on $E(RR)$, then $-P = (x,-y)$ is also on $E(RR)$ because both points have the same value of $y^2$. The vertical line through $P$ and $-P$ meets the curve at $cal(O)$, so the group law will force
+  If $P = (x,y)$ is an affine point of $E(RR)$, then $(x,-y)$ is also on $E(RR)$ because both points have the same value of $y^2$. We denote this point by $-P$.
+
+  The vertical line through $P$ and $-P$ has point at infinity $cal(O)$, so the chord-and-tangent law gives
   $ P + (-P) = cal(O). $
 ]
 
-#definition("Geometric Group Law — Chord and Tangent")[
-  Given two points $P, Q$ on an elliptic curve, their *sum* $P + Q$ is defined geometrically:
-  + *Case $P != Q$*: Draw the line through $P$ and $Q$. It intersects the cubic at a third point $R'$ (counting intersections with multiplicity). Reflect $R'$ across the $x$-axis to obtain $R = P + Q$.
-  + *Case $P = Q$* (point doubling): Draw the tangent line to the curve at $P$. It intersects the cubic at a third point $R'$. Reflect $R'$ across the $x$-axis to obtain $R = 2P$.
-  + *Vertical line*: If $Q = -P$, then the line through $P$ and $Q$ is vertical. The third intersection is $cal(O)$, so $P + Q = cal(O)$.
-  + *Identity*: For every point $P$, define $P + cal(O) = cal(O) + P = P$.
+#definition("Geometric Group Law - Chord and Tangent")[
+  Let $E(RR)$ be a non-singular short Weierstrass curve. The *chord-and-tangent law* defines a binary operation on $E(RR)$ as follows:
+  + If $P,Q in E(RR)$ are distinct affine points and $Q != -P$, let the line through $P$ and $Q$ meet the curve at the third point $R'$ (counting intersection multiplicity). Define
+    $ P + Q = -R'. $
+  + If $P=Q$ is an affine point and the tangent line at $P$ is not vertical, let that tangent line meet the curve at the third point $R'$. Define
+    $ 2P = -R'. $
+  + If $Q = -P$, define
+    $ P + Q = cal(O). $
+  + For every $P in E(RR)$, define
+    $ P + cal(O) = cal(O) + P = P. $
 ]
 
 #note[
-  The reflection step is a convention that makes the group law work cleanly: three collinear points on the curve satisfy
+  For an affine point $R'=(x,y)$, the point $-R'$ is $(x,-y)$. Thus the instruction $P+Q=-R'$ is exactly the usual reflection across the $x$-axis.
+
+  The reason for the minus sign is that the operation is normalized so that, once the group law is established, three collinear points on the projective curve satisfy
   $ P + Q + R' = cal(O). $
-  Therefore, if the line through $P$ and $Q$ meets the curve again at $R'$, then $P + Q = -R'$, which is the reflection of $R'$ across the $x$-axis.
 ]
 
 #example[
@@ -68,11 +93,12 @@
 ]
 
 #theorem("Elliptic Curve Group")[
-  The set of points on a non-singular elliptic curve $E$ over $RR$, together with the point at infinity $cal(O)$, forms an *abelian group* $(E(RR), +)$ under the chord-and-tangent law. The identity is $cal(O)$, and the inverse of a point $P = (x, y)$ is $-P = (x, -y)$.
+  Let $E(RR)$ be a non-singular short Weierstrass curve. Under the chord-and-tangent law, $E(RR)$ is an abelian group. Its identity element is $cal(O)$, and the inverse of an affine point $P = (x,y)$ is
+  $ -P = (x,-y). $
 ]
 
 #note[
-  Closure and inverses are visible from the geometry. Associativity is much deeper: it is true, but proving it carefully requires more algebraic geometry than we need here. For this course, the key point is that non-singular cubic curves provide a genuine abelian group whose operation can later be computed algebraically.
+  Closure and inverses are visible from the projective geometry. Associativity is deeper: it is true, but a careful proof requires more algebraic geometry than we need here. For this course, the key point is that non-singular cubic curves provide a genuine abelian group whose operation can later be computed algebraically.
 ]
 
 #definition("Torsion Points")[
@@ -107,7 +133,7 @@
 #solution[
   Here $a = 0$, $b = 0$:
   $ Delta = -16(4 dot 0 + 27 dot 0) = 0 $
-  The discriminant is zero, so the curve is *singular*. Indeed, at the origin $(0, 0)$, both partial derivatives $partial_x(x^3 - y^2) = 3x^2 = 0$ and $partial_y(x^3 - y^2) = -2y = 0$ vanish simultaneously, confirming a *cusp* at the origin. Singular curves do not support a well-defined group law.
+  The discriminant is zero, so the curve is *singular*. Indeed, at the origin $(0, 0)$, both partial derivatives $partial_x(x^3 - y^2) = 3x^2 = 0$ and $partial_y(x^3 - y^2) = -2y = 0$ vanish simultaneously, confirming a cusp at the origin. Singular curves do not support a well-defined group law.
 ]
 
 #solved_problem[
@@ -115,8 +141,8 @@
 ]
 #solution[
   *Verification*:
-  - $P = (0, 1)$: $1^2 = 1$ and $0^3 - 0 + 1 = 1$. ✓
-  - $Q = (1, 1)$: $1^2 = 1$ and $1^3 - 1 + 1 = 1$. ✓
+  - $P = (0, 1)$: $1^2 = 1$ and $0^3 - 0 + 1 = 1$.
+  - $Q = (1, 1)$: $1^2 = 1$ and $1^3 - 1 + 1 = 1$.
 
   *Geometric computation of $P + Q$*:
   Draw the line through $P = (0,1)$ and $Q = (1,1)$. The slope is $m = (1-1)/(1-0) = 0$, so the line is $y = 1$. Substitute into the curve:
