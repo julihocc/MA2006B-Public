@@ -5,14 +5,31 @@ The phrase *point at infinity* is not meant to describe a very large point. It m
 
 === The Affine Plane
 
-The *affine plane* over $RR$ is the usual coordinate plane
-$ RR^2 = {(x,y) : x,y in RR}. $
+The *affine plane* over $RR$, denoted $AA^2(RR)$, is a two-dimensional *affine space*. Formally, it consists of:
 
-Its points are ordinary coordinate pairs. For example, $(2,3)$, $(-1,0)$, and $(0,0)$ are affine points.
+- a set $A$ whose elements are called *points*,
+- a two-dimensional real vector space $V$, and
+- a free and transitive action
+  $ A times V -> A, quad (P, v) mapsto P + v. $
+
+Free and transitive means that for any two points $P,Q in A$, there is a unique vector $v in V$ such that
+$ Q = P + v. $
+This vector is written $arrow(P Q)$ or $Q - P$.
+
+The important point is that points of $A$ cannot be added to each other. The expression $P + Q$ has no intrinsic meaning for affine points. What does make sense is subtracting two points to obtain a vector, or adding a vector to a point to obtain another point.
+
+After choosing an origin $O in A$ and a basis of $V$, every point of $A$ receives coordinates $(x,y)$, so $AA^2(RR)$ can be represented by $RR^2$. This coordinate representation is convenient, but it is not the structure itself. The affine structure remembers points, displacement vectors between points, and parallelism, but it does not choose a preferred origin.
+
+An affine line is obtained by choosing a point $P in A$ and a nonzero vector $v in V$:
+$ L = {P + t v : t in RR}. $
+In coordinates, affine lines are exactly the solution sets
+$ L_(alpha,beta,gamma) = {(x,y) in RR^2 : alpha x + beta y = gamma}, quad (alpha,beta) != (0,0). $
+
+For example, after coordinates have been chosen, $(2,3)$, $(-1,0)$, and $(0,0)$ are affine points, and $2x - y = 1$ is an affine line.
 
 When we first write an elliptic curve as
 $ y^2 = x^3 + a x + b, $
-we are describing its affine points: the pairs $(x,y) in RR^2$ that satisfy the equation.
+we are describing its affine points: the pairs $(x,y) in AA^2(RR)$ that satisfy the equation.
 
 The affine plane is excellent for computation, but it has one geometric limitation: parallel lines do not meet. For elliptic curves, this is inconvenient because the chord-and-tangent rule wants every line to meet the cubic in three points when intersections are counted properly. Vertical lines are the most important case: a vertical line through $P=(x,y)$ and $-P=(x,-y)$ should meet the curve one more time, and that third point is $cal(O)$.
 
