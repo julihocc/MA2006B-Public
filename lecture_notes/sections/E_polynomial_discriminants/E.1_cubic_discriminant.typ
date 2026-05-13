@@ -43,6 +43,46 @@ The discriminant is a number computed from the coefficients of a polynomial. Its
   $
 ]
 
+#proof[
+  Let $r_1,r_2,r_3$ be the roots of $f$ in $CC$, counted with multiplicity. Then
+  $ f(x) = A(x-r_1)(x-r_2)(x-r_3). $
+
+  By the root definition of the discriminant,
+  $
+    Delta(f)
+    = A^4 (r_1-r_2)^2 (r_1-r_3)^2 (r_2-r_3)^2.
+  $
+
+  Define the elementary symmetric sums
+  $
+    s_1 = r_1 + r_2 + r_3, quad
+    s_2 = r_1 r_2 + r_1 r_3 + r_2 r_3, quad
+    s_3 = r_1 r_2 r_3.
+  $
+
+  Expanding the product of squared differences and collecting terms in these symmetric sums gives
+  $
+    (r_1-r_2)^2 (r_1-r_3)^2 (r_2-r_3)^2
+    = s_1^2 s_2^2 - 4s_2^3 - 4s_1^3 s_3 - 27s_3^2 + 18s_1 s_2 s_3.
+  $
+
+  On the other hand, comparing coefficients in
+  $
+    A(x-r_1)(x-r_2)(x-r_3)
+    = A x^3 + B x^2 + C x + D
+  $
+  gives Vieta's formulas:
+  $
+    s_1 = -B/A, quad s_2 = C/A, quad s_3 = -D/A.
+  $
+
+  Substituting these into the previous expression and multiplying by $A^4$ gives
+  $
+    Delta(f)
+    = B^2 C^2 - 4 A C^3 - 4 B^3 D - 27 A^2 D^2 + 18 A B C D.
+  $
+]
+
 #example[
   For $f(x)=x^3-x$, we have $A=1$, $B=0$, $C=-1$, and $D=0$. Hence
   $ Delta(f) = -4(1)(-1)^3 = 4 != 0. $
