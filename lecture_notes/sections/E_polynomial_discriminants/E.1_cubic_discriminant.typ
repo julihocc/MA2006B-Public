@@ -216,6 +216,68 @@ The discriminant is a number computed from the coefficients of a polynomial. Its
   $ Delta_E != 0 quad <==> quad 4a^3 + 27b^2 != 0. $
 ]
 
+#definition("Singular Point of a Projective Plane Curve")[
+  Let $F(X,Y,Z)$ be a homogeneous polynomial. A point $P=[X:Y:Z]$ on the projective curve
+  $ F(X,Y,Z)=0 $
+  is called *singular* if all first partial derivatives vanish at $P$:
+  $ F_X(P)=F_Y(P)=F_Z(P)=0. $
+
+  If no point on the projective curve is singular, the curve is called *non-singular*.
+]
+
+#proposition("Projective Meaning of the Discriminant Condition")[
+  Let
+  $ E: Y^2 Z = X^3 + a X Z^2 + b Z^3 $
+  be the projective closure of
+  $ y^2 = x^3 + a x + b. $
+  Then $E$ is singular if and only if the cubic polynomial
+  $ f(x)=x^3+a x+b $
+  has a repeated root. Equivalently,
+  $ E " is non-singular" quad <==> quad 4a^3 + 27b^2 != 0. $
+]
+
+#proof[
+  Write the projective equation as
+  $ F(X,Y,Z)=Y^2 Z - X^3 - a X Z^2 - b Z^3. $
+  Its partial derivatives are
+  $
+    F_X = -3X^2 - a Z^2, quad
+    F_Y = 2Y Z, quad
+    F_Z = Y^2 - 2a X Z - 3b Z^2.
+  $
+
+  First check the point at infinity. Appendix @appendix-point-at-infinity shows that the only point at infinity on this projective curve is
+  $ cal(O)=[0:1:0]. $
+  At this point,
+  $ F_Z(cal(O)) = 1 != 0, $
+  so $cal(O)$ is not singular.
+
+  Therefore any singular point must lie in the affine chart $Z=1$. Write it as $(x,y)$. In affine coordinates the equation is
+  $ y^2 = f(x), quad "where" f(x)=x^3+a x+b. $
+  Equivalently, consider
+  $ G(x,y)=y^2-f(x). $
+
+  An affine singular point must satisfy
+  $ G(x,y)=0, quad G_x(x,y)=0, quad G_y(x,y)=0. $
+  Since
+  $ G_x(x,y)=-(3x^2+a)=-f'(x) $
+  and
+  $ G_y(x,y)=2y, $
+  the singularity conditions become
+  $ f(x)=0, quad f'(x)=0, quad y=0. $
+
+  Thus the projective curve is singular exactly when there exists a number $x$ that is both a root of $f$ and a root of $f'$. This is exactly the condition that $f$ has a repeated root.
+
+  By the discriminant criterion proved above, this is equivalent to
+  $ Delta(f)=0, $
+  and for $f(x)=x^3+a x+b$ this is equivalent to
+  $ 4a^3 + 27b^2 = 0. $
+]
+
+#note[
+  This is the precise connection with Appendix @appendix-point-at-infinity. Projective geometry tells us where the missing point $cal(O)$ comes from; the discriminant tells us whether the completed projective cubic is smooth enough to be an elliptic curve.
+]
+
 === Solved Problems
 
 #solved_problem[
