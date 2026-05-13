@@ -101,7 +101,7 @@ The discriminant is a number computed from the coefficients of a polynomial. Its
   is called a *depressed cubic*. It has no $x^2$ term.
 ]
 
-#corollary("Discriminant of $x^3 + p x + q$")[
+#corollary([Discriminant of $x^3 + p x + q$])[
   The discriminant of
   $ f(x) = x^3 + p x + q $
   is
