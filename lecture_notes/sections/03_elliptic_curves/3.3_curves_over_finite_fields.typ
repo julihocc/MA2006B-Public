@@ -60,18 +60,26 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
 ]
 
 #definition("Inverse Point over $FF_p$")[
-  For an affine point $P=(x,y) in E(FF_p)$, its inverse is
-  $ -P = (x,-y mod p). $
+  For an affine point $P=(x,y) in E(FF_p)$, its inverse with respect to $⊕$ is denoted
+  $ overline(P) $
+  and is given by
+  $ overline(P) = (x,-y mod p). $
   Equivalently, when $y != 0$, one may write
-  $ -P = (x,p-y). $
+  $ overline(P) = (x,p-y). $
   Also,
-  $ -cal(O)=cal(O). $
+  $ overline(cal(O))=cal(O). $
+]
+
+#definition("Point Subtraction over $FF_p$")[
+  If $P,Q in E(FF_p)$, define
+  $ P ⊖ Q = P ⊕ overline(Q). $
+  Thus $⊖$ is reserved for subtraction of two points, not for the inverse of one point.
 ]
 
 #definition("Point Operation and Doubling Formulas")[
   Let $E: y^2 equiv x^3 + a x + b space (mod p)$ be an elliptic curve over $FF_p$, and let $P=(x_1,y_1)$ and $Q=(x_2,y_2)$ be affine points on $E$.
 
-  If $P != Q$ and $P != -Q$, define $R=P ⊕ Q=(x_3,y_3)$ by
+  If $P != Q$ and $P != overline(Q)$, define $R=P ⊕ Q=(x_3,y_3)$ by
   $ lambda = (y_2-y_1)(x_2-x_1)^(-1) mod p, $
   $ x_3 = lambda^2 - x_1 - x_2 mod p, $
   $ y_3 = lambda(x_1-x_3)-y_1 mod p. $
@@ -89,13 +97,13 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
 #definition("Special Cases")[
   The finite-field operation also includes the following cases:
   - *Identity*: $P ⊕ cal(O) = cal(O) ⊕ P = P$.
-  - *Inverse points*: If $Q=-P$, then $P ⊕ Q=cal(O)$.
-  - *Doubling with $y_1=0$*: If $P=(x_1,0)$, then $P=-P$, so $2 P=cal(O)$.
+  - *Inverse points*: If $Q=overline(P)$, then $P ⊕ Q=cal(O)$.
+  - *Doubling with $y_1=0$*: If $P=(x_1,0)$, then $P=overline(P)$, so $2 P=cal(O)$.
 ]
 
 #example[
   On $E: y^2 equiv x^3 + 2x + 2 space (mod 17)$, add $P=(5,1)$ and $Q=(6,3)$.
-  Since $P != Q$ and $P != -Q$,
+  Since $P != Q$ and $P != overline(Q)$,
   $ lambda = (3-1)(6-5)^(-1) = 2. $
   Then
   $ x_3 = 2^2 - 5 - 6 = -7 equiv 10, $
@@ -187,7 +195,7 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
 ]
 
 #solved_problem[
-  On $E: y^2 equiv x^3 + 2x + 3 space (mod 7)$, verify that $P=(2,1)$ lies on the curve and find $-P$.
+  On $E: y^2 equiv x^3 + 2x + 3 space (mod 7)$, verify that $P=(2,1)$ lies on the curve and find $overline(P)$.
 ]
 #solution[
   Check membership:
@@ -197,7 +205,7 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
   Thus $P$ lies on $E(FF_7)$.
 
   The inverse is obtained by negating the $y$-coordinate modulo $7$:
-  $ -P = (2,-1 mod 7) = (2,6). $
+  $ overline(P) = (2,-1 mod 7) = (2,6). $
 ]
 
 #solved_problem[
@@ -223,7 +231,7 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
   - $P$: $5^2=25 equiv 12$, and $1+3+8=12$.
   - $Q$: $6^2=36 equiv 10$, and $9^3+3 dot 9+8=764 equiv 10 space (mod 13)$.
 
-  Since $P != Q$ and $P != -Q$,
+  Since $P != Q$ and $P != overline(Q)$,
   $ lambda = (6-5)(9-1)^(-1) = 1 dot 8^(-1) equiv 5 space (mod 13), $
   because $8 dot 5 equiv 1 space (mod 13)$.
   Then
@@ -280,7 +288,7 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
 
   Continuing by the same formulas gives
   $ 10 G=(7,11). $
-  Also $18 G=-G=(5,16)$, so
+  Also $18 G=overline(G)=(5,16)$, so
   $ 19 G=18 G ⊕ G=(5,16) ⊕ (5,1)=cal(O), $
   because the two points are inverses.
 ]
@@ -314,25 +322,25 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
   )
 
   #question(
-    [For a point $P=(x,y) in E(FF_p)$, the inverse $-P$ is:],
+    [For a point $P=(x,y) in E(FF_p)$, the inverse $overline(P)$ is:],
     ([$(-x,y)$], [$(x,-y mod p)$], [$(p-x,p-y)$], [$cal(O)$]),
     1,
   )
 
   #question(
-    [In the point operation $P ⊕ Q$ with $P != Q$ and $P != -Q$, the slope $lambda$ is:],
+    [In the point operation $P ⊕ Q$ with $P != Q$ and $P != overline(Q)$, the slope $lambda$ is:],
     ([$(y_2+y_1)(x_2+x_1)^(-1)$], [$(y_2-y_1)(x_2-x_1)^(-1)$], [$(3x_1^2+a)(2y_1)^(-1)$], [$(x_2-x_1)(y_2-y_1)^(-1)$]),
     1,
   )
 
   #question(
     [In point doubling $2 P$, the slope formula comes from:],
-    ([The chord through $P$ and $-P$], [The tangent line at $P$], [The $x$-axis], [The line at infinity]),
+    ([The chord through $P$ and $overline(P)$], [The tangent line at $P$], [The $x$-axis], [The line at infinity]),
     1,
   )
 
   #question(
-    [When $P ⊕ (-P)$ is computed, the result is:],
+    [When $P ⊕ overline(P)$ is computed, the result is:],
     ([$2 P$], [$cal(O)$], [$(0,0)$], [$-2 P$]),
     1,
   )
@@ -371,7 +379,7 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
 ]
 
 #supplementary[
-  Show that for any point $P=(x,y)$ on $E(FF_p)$ with $y != 0$, we have $P != -P$.
+  Show that for any point $P=(x,y)$ on $E(FF_p)$ with $y != 0$, we have $P != overline(P)$.
 ]
 
 #supplementary[

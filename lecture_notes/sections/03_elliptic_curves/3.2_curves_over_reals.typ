@@ -62,31 +62,39 @@ The real case gives the geometric model for elliptic curves. In this section, or
 ]
 
 #definition("Inverse Point")[
-  If $P = (x,y)$ is an affine point of $E(RR)$, its *inverse point* is
-  $ -P = (x,-y). $
+  If $P = (x,y)$ is an affine point of $E(RR)$, its inverse with respect to $⊕$ is denoted
+  $ overline(P) $
+  and is given by
+  $ overline(P) = (x,-y). $
   We also define
-  $ -cal(O) = cal(O). $
+  $ overline(cal(O)) = cal(O). $
 ]
 
 #example[
-  If $P=(x,y)$ lies on $y^2=x^3+a x+b$, then $-P=(x,-y)$ also lies on the curve because both points have the same value of $y^2$.
+  If $P=(x,y)$ lies on $y^2=x^3+a x+b$, then $overline(P)=(x,-y)$ also lies on the curve because both points have the same value of $y^2$. The minus sign in $(x,-y)$ is ordinary real-number negation of the coordinate $y$; the symbol $overline(P)$ is the inverse of the point $P$ under $⊕$.
+]
+
+#definition("Point Subtraction")[
+  If $P,Q in E(RR)$, define
+  $ P ⊖ Q = P ⊕ overline(Q). $
+  Thus $⊖$ is a binary operation on two points, while the bar notation $overline(P)$ denotes the inverse of one point.
 ]
 
 #definition("Chord-and-Tangent Operation")[
   Let $E(RR)$ be an elliptic curve over $RR$. The *chord-and-tangent operation* defines a binary operation $⊕$ on $E(RR)$ as follows:
 
-  + If $P,Q$ are distinct affine points and $Q != -P$, let the affine line through $P$ and $Q$ meet the curve at the third point $R'$, counted with intersection multiplicity. Define
-    $ P ⊕ Q = -R'. $
+  + If $P,Q$ are distinct affine points and $Q != overline(P)$, let the affine line through $P$ and $Q$ meet the curve at the third point $R'$, counted with intersection multiplicity. Define
+    $ P ⊕ Q = overline(R'). $
   + If $P=Q$ is an affine point and the tangent line at $P$ is not vertical, let the tangent line meet the curve at the third point $R'$, counted with intersection multiplicity. Define
-    $ 2 P = P ⊕ P = -R'. $
-  + If $Q=-P$, define
+    $ 2 P = P ⊕ P = overline(R'). $
+  + If $Q=overline(P)$, define
     $ P ⊕ Q = cal(O). $
   + For every $P in E(RR)$, define
     $ P ⊕ cal(O) = cal(O) ⊕ P = P. $
 ]
 
 #note[
-  The operation $⊕$ is not coordinate-wise addition in $RR^2$. It is defined from lines and the completed cubic. The reflection in the formula $P ⊕ Q=-R'$ is the reflection across the $x$-axis for affine points.
+  The operation $⊕$ is not coordinate-wise addition in $RR^2$. It is defined from lines and the completed cubic. The inverse bar is not the ordinary vector inverse in $RR^2$; for an affine point $R'=(x,y)$ it gives $overline(R')=(x,-y)$.
 
   The minus sign is the convention that makes three collinear points on the completed cubic satisfy
   $ P ⊕ Q ⊕ R' = cal(O). $
@@ -99,12 +107,12 @@ The real case gives the geometric model for elliptic curves. In this section, or
   so
   $ x^3 - x = x(x-1)(x+1) = 0. $
   The third intersection is $R' = (-1,1)$, and therefore
-  $ P ⊕ Q = -R' = (-1,-1). $
+  $ P ⊕ Q = overline(R') = (-1,-1). $
 ]
 
 #theorem("Elliptic Curve Group")[
   Let $E(RR)$ be an elliptic curve over $RR$. Under the chord-and-tangent operation, $E(RR)$ is an abelian group. Its identity element is $cal(O)$, and the inverse of an affine point $P = (x,y)$ is
-  $ -P = (x,-y). $
+  $ overline(P) = (x,-y). $
 ]
 
 #note[
@@ -114,11 +122,11 @@ The real case gives the geometric model for elliptic curves. In this section, or
 #definition("Torsion Points")[
   A point $P in E(RR)$ is called a *torsion point* if some positive multiple of it equals the identity:
   $ n P = cal(O) quad "for some integer" n >= 1. $
-  If $P=(x,0)$ is on the curve, then $P=-P$, so $2 P=cal(O)$. Such points are points of order $2$.
+  If $P=(x,0)$ is on the curve, then $P=overline(P)$, so $2 P=cal(O)$. Such points are points of order $2$.
 ]
 
 #example[
-  On $E: y^2 = x^3 - x$, the point $P = (1,0)$ lies on the curve. Since $P=-P$, the tangent line at $P$ is vertical and
+  On $E: y^2 = x^3 - x$, the point $P = (1,0)$ lies on the curve. Since $P=overline(P)$, the tangent line at $P$ is vertical and
   $ 2 P = cal(O). $
 ]
 
@@ -163,7 +171,7 @@ The real case gives the geometric model for elliptic curves. In this section, or
   Thus
   $ x(x-1)(x+1)=0, $
   and the three intersections have $x=0,1,-1$. The third point is $R'=(-1,1)$. Reflecting across the $x$-axis gives
-  $ P ⊕ Q=-R'=(-1,-1). $
+  $ P ⊕ Q=overline(R')=(-1,-1). $
 ]
 
 #solved_problem[
@@ -171,9 +179,9 @@ The real case gives the geometric model for elliptic curves. In this section, or
 ]
 #solution[
   The inverse of an affine point is obtained by changing the sign of the $y$-coordinate. If $P=(x,0)$, then
-  $ -P = (x,-0) = (x,0) = P. $
+  $ overline(P) = (x,-0) = (x,0) = P. $
   Hence
-  $ 2 P = P ⊕ P = P ⊕ (-P) = cal(O). $
+  $ 2 P = P ⊕ P = P ⊕ overline(P) = cal(O). $
   Geometrically, the tangent line at such a point is vertical, and every vertical line meets the completed curve at $cal(O)$.
 ]
 
@@ -199,7 +207,7 @@ The real case gives the geometric model for elliptic curves. In this section, or
   )
 
   #question(
-    [The inverse of an affine point $P=(x,y)$ is:],
+    [The inverse $overline(P)$ of an affine point $P=(x,y)$ is:],
     ([$(-x,y)$], [$(x,-y)$], [$(-x,-y)$], [$cal(O)$]),
     1,
   )
@@ -248,7 +256,7 @@ The real case gives the geometric model for elliptic curves. In this section, or
 ]
 
 #supplementary[
-  Prove that the operation $P mapsto -P = (x, -y)$ is an involution on the affine points of $E(RR)$.
+  Prove that the operation $P mapsto overline(P) = (x, -y)$ is an involution on the affine points of $E(RR)$.
 ]
 
 #supplementary[
