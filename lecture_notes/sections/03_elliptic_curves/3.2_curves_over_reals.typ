@@ -150,6 +150,10 @@ The real case gives the geometric model for elliptic curves. In this section, or
 #example[
   *Vertical tangent at a point of order $2$.* On $E: y^2 = x^3 - x$, take
   $ P=(1,0). $
+  We use this curve, rather than $y^2=x^3-x+1$, because the point $(1,0)$ has $y$-coordinate zero and lies on this curve:
+  $ 0^2 = 1^3 - 1 = 0. $
+  Points with $y=0$ are exactly the affine points that can be equal to their own inverse.
+
   Since $overline(P)=(1,-0)=(1,0)=P$, the point is its own inverse. The tangent line at $P$ is vertical, and therefore
   $ 2 P = P ⊕ P = cal(O). $
 
