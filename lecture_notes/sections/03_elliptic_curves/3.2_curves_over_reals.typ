@@ -222,6 +222,28 @@ The real case gives the geometric model for elliptic curves. In this section, or
   If $P=(x,0)$ is on the curve, then $P=overline(P)$, so $2 P=cal(O)$. Such points are points of order $2$, as in the vertical-tangent case above.
 ]
 
+#example[
+  A torsion point need not have order $2$. On
+  $ E: y^2 = x^3 + 1, $
+  take $P=(0,1)$. This curve is non-singular because
+  $ 4(0)^3 + 27(1)^2 = 27 != 0, $
+  and $P$ lies on it because
+  $ 1^2 = 0^3 + 1. $
+
+  The tangent slope at $P$ is
+  $ lambda = (3x^2)/(2y) bar_(P) = 0, $
+  so the tangent line is $y=1$. Substituting into the curve gives
+  $ 1 = x^3 + 1, $
+  hence $x=0$. Thus the tangent line meets the curve at $P$ with multiplicity $3$.
+  Hence
+  $ 2 P = overline(P) = (0,-1). $
+  Since $P != overline(P)$, the point is not of order $2$.
+
+  Now adding once more gives
+  $ 3 P = 2 P ⊕ P = overline(P) ⊕ P = cal(O). $
+  Thus $P$ has order $3$.
+]
+
 #note[
   Real curves give the geometric origin of the operation. Cryptographic applications use the same algebraic operation over finite fields, where the set of points is finite and arithmetic can be performed exactly.
 ]
