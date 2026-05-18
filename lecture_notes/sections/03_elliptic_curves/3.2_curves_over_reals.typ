@@ -32,6 +32,12 @@
     Hence $E_1$ is non-singular.
   - $E_2: y^2 = x^3$ has $a=0$, $b=0$, so $Delta = 0$.
     This model is singular, so it is not an elliptic curve.
+
+  #align(center)[
+    #image("../../assets/generated/03_elliptic_curves/3.2_discriminant_comparison.svg", width: 90%)
+  ]
+
+  The nonzero discriminant for $E_1$ appears geometrically as a smooth curve. For $E_2$, the zero discriminant corresponds to the cusp at the origin.
 ]
 
 #note[
