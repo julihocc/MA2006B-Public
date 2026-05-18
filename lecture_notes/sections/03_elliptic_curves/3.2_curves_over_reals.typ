@@ -187,13 +187,22 @@ The real case gives the geometric model for elliptic curves. In this section, or
   ]
 ]
 
-#theorem("Elliptic Curve Group")[
-  Let $E(RR)$ be an elliptic curve over $RR$. Under the chord-and-tangent operation, $E(RR)$ is an abelian group. Its identity element is $cal(O)$, and the inverse of an affine point $P = (x,y)$ is
-  $ overline(P) = (x,-y). $
+#note[
+  The case-by-case construction above defines the operation $⊕$. The next result explains why this operation is algebraically useful: it does not merely produce more points on the curve, but gives the whole set of points the structure of an abelian group.
+]
+
+#theorem("Elliptic Curve Group Structure")[
+  Let $E(RR)$ be an elliptic curve over $RR$. With the chord-and-tangent operation $⊕$, the set $E(RR)$ is an abelian group.
+
+  More explicitly:
+  - the identity element is $cal(O)$;
+  - the inverse of an affine point $P=(x,y)$ is $overline(P)=(x,-y)$;
+  - for all $P,Q in E(RR)$, the point $P ⊕ Q$ is again in $E(RR)$;
+  - the operation is associative and commutative.
 ]
 
 #note[
-  The identity and inverse rules are visible from the projective geometry. Associativity is deeper and is not proved in this course. The important algebraic conclusion is that non-singular cubic curves give genuine abelian groups.
+  The identity, inverse, and vertical-line cases are visible from the projective construction. Closure follows from the fact that a line meets a non-singular cubic in three points when intersections are counted with multiplicity. Associativity is the deeper part of the theorem and is not proved in this course. The important algebraic conclusion is that the geometric rule is a genuine group operation, which is why finite-field elliptic curves can later be used as finite abelian groups.
 ]
 
 #definition("Torsion Points")[
