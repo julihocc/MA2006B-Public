@@ -100,14 +100,87 @@ The real case gives the geometric model for elliptic curves. In this section, or
   $ P ⊕ Q ⊕ R' = cal(O). $
 ]
 
+==== Case-by-Case Examples of $⊕$
+
 #example[
-  On $E: y^2 = x^3 - x + 1$, take $P = (0,1)$ and $Q = (1,1)$.
+  *Distinct affine points.* On $E: y^2 = x^3 - x + 1$, take
+  $ P = (0,1) quad "and" quad Q = (1,1). $
   The line through them is $y=1$. Substituting into the curve gives
   $ 1 = x^3 - x + 1, $
   so
   $ x^3 - x = x(x-1)(x+1) = 0. $
-  The third intersection is $R' = (-1,1)$, and therefore
+  The third intersection is $R'=(-1,1)$, and therefore
   $ P ⊕ Q = overline(R') = (-1,-1). $
+
+  #align(center)[
+    #image("../../assets/generated/03_elliptic_curves/3.2_chord_distinct_points.svg", width: 72%)
+  ]
+]
+
+#example[
+  *Doubling with a non-vertical tangent.* On $E: y^2 = x^3 - x + 1$, take
+  $ P=(0,1). $
+  The tangent slope at $P$ is
+  $ lambda = (3x^2 - 1)/(2y) bar_(P) = -1/2. $
+  Hence the tangent line is
+  $ y = 1 - x/2. $
+  It meets the curve again at
+  $ R' = (1/4, 7/8). $
+  Therefore
+  $ 2 P = P ⊕ P = overline(R') = (1/4, -7/8). $
+
+  #align(center)[
+    #image("../../assets/generated/03_elliptic_curves/3.2_tangent_doubling.svg", width: 72%)
+  ]
+]
+
+#example[
+  *Inverse points.* On $E: y^2 = x^3 - x + 1$, let
+  $ P=(0,1). $
+  Then
+  $ overline(P)=(0,-1). $
+  The line through $P$ and $overline(P)$ is the vertical line $x=0$. In the projective closure, this vertical line meets the curve at $cal(O)$, so
+  $ P ⊕ overline(P) = cal(O). $
+
+  #align(center)[
+    #image("../../assets/generated/03_elliptic_curves/3.2_inverse_vertical_line.svg", width: 72%)
+  ]
+]
+
+#example[
+  *Vertical tangent at a point of order $2$.* On $E: y^2 = x^3 - x$, take
+  $ P=(1,0). $
+  Since $overline(P)=(1,-0)=(1,0)=P$, the point is its own inverse. The tangent line at $P$ is vertical, and therefore
+  $ 2 P = P ⊕ P = cal(O). $
+
+  #align(center)[
+    #image("../../assets/generated/03_elliptic_curves/3.2_vertical_tangent_order_two.svg", width: 72%)
+  ]
+]
+
+#example[
+  *The identity point.* For every point $P in E(RR)$,
+  $ P ⊕ cal(O) = cal(O) ⊕ P = P. $
+  This case is not represented by an ordinary affine line construction, because $cal(O)$ is not a point of $RR^2$. It is the projective point that completes the curve and serves as the identity element.
+
+  #align(center)[
+    #image("../../assets/generated/03_elliptic_curves/3.2_identity_point_at_infinity.svg", width: 72%)
+  ]
+]
+
+#example[
+  *Point subtraction.* On $E: y^2 = x^3 - x + 1$, take
+  $ P=(0,1) quad "and" quad Q=(1,1). $
+  Since $overline(Q)=(1,-1)$, subtraction is computed by
+  $ P ⊖ Q = P ⊕ overline(Q). $
+  The line through $P$ and $overline(Q)$ has equation $y=1-2x$ and meets the curve again at
+  $ R'=(3,-5). $
+  Hence
+  $ P ⊖ Q = overline(R') = (3,5). $
+
+  #align(center)[
+    #image("../../assets/generated/03_elliptic_curves/3.2_point_subtraction.svg", width: 72%)
+  ]
 ]
 
 #theorem("Elliptic Curve Group")[

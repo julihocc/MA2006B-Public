@@ -6,7 +6,7 @@ def format_point(point):
 
 
 if __name__ == "__main__":
-    # Example: On y^2 = x^3 - x, P=(1,0) satisfies 2P = O.
+    # Example: On y^2 = x^3 - x, P=(1,0) satisfies 2P = cal(O).
     curve = RealEllipticCurve(a=-1, b=0)
     point = (1, 0)
 
