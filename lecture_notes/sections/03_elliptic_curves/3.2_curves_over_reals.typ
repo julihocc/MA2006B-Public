@@ -3,7 +3,7 @@
 
 === Theory
 
-The real case gives the geometric model for elliptic curves. In this section, the word "addition" will not mean coordinate-wise addition in $RR^2$. It will mean a new operation defined on the points of a non-singular cubic curve.
+The real case gives the geometric model for elliptic curves. In this section, ordinary addition in $RR^2$ will still be written with $+$. The elliptic-curve operation will be written with the circled-plus symbol $⊕$.
 
 #definition([Short Weierstrass Model over $RR$])[
   Let $a,b in RR$. The *affine short Weierstrass model* determined by $a$ and $b$ is the set
@@ -73,23 +73,23 @@ The real case gives the geometric model for elliptic curves. In this section, th
 ]
 
 #definition("Chord-and-Tangent Operation")[
-  Let $E(RR)$ be an elliptic curve over $RR$. The *chord-and-tangent operation* defines a binary operation $+$ on $E(RR)$ as follows:
+  Let $E(RR)$ be an elliptic curve over $RR$. The *chord-and-tangent operation* defines a binary operation $⊕$ on $E(RR)$ as follows:
 
   + If $P,Q$ are distinct affine points and $Q != -P$, let the affine line through $P$ and $Q$ meet the curve at the third point $R'$, counted with intersection multiplicity. Define
-    $ P + Q = -R'. $
+    $ P ⊕ Q = -R'. $
   + If $P=Q$ is an affine point and the tangent line at $P$ is not vertical, let the tangent line meet the curve at the third point $R'$, counted with intersection multiplicity. Define
-    $ 2 P = P + P = -R'. $
+    $ 2 P = P ⊕ P = -R'. $
   + If $Q=-P$, define
-    $ P + Q = cal(O). $
+    $ P ⊕ Q = cal(O). $
   + For every $P in E(RR)$, define
-    $ P + cal(O) = cal(O) + P = P. $
+    $ P ⊕ cal(O) = cal(O) ⊕ P = P. $
 ]
 
 #note[
-  The operation is not coordinate-wise addition in $RR^2$. It is defined from lines and the completed cubic. The reflection in the formula $P+Q=-R'$ is the reflection across the $x$-axis for affine points.
+  The operation $⊕$ is not coordinate-wise addition in $RR^2$. It is defined from lines and the completed cubic. The reflection in the formula $P ⊕ Q=-R'$ is the reflection across the $x$-axis for affine points.
 
   The minus sign is the convention that makes three collinear points on the completed cubic satisfy
-  $ P + Q + R' = cal(O). $
+  $ P ⊕ Q ⊕ R' = cal(O). $
 ]
 
 #example[
@@ -99,7 +99,7 @@ The real case gives the geometric model for elliptic curves. In this section, th
   so
   $ x^3 - x = x(x-1)(x+1) = 0. $
   The third intersection is $R' = (-1,1)$, and therefore
-  $ P + Q = -R' = (-1,-1). $
+  $ P ⊕ Q = -R' = (-1,-1). $
 ]
 
 #theorem("Elliptic Curve Group")[
@@ -151,7 +151,7 @@ The real case gives the geometric model for elliptic curves. In this section, th
 ]
 
 #solved_problem[
-  On the elliptic curve $y^2 = x^3 - x + 1$ over $RR$, the points $P = (0, 1)$ and $Q = (1, 1)$ lie on the curve. Verify membership and compute $P+Q$ geometrically.
+  On the elliptic curve $y^2 = x^3 - x + 1$ over $RR$, the points $P = (0, 1)$ and $Q = (1, 1)$ lie on the curve. Verify membership and compute $P ⊕ Q$ geometrically.
 ]
 #solution[
   First verify membership:
@@ -163,7 +163,7 @@ The real case gives the geometric model for elliptic curves. In this section, th
   Thus
   $ x(x-1)(x+1)=0, $
   and the three intersections have $x=0,1,-1$. The third point is $R'=(-1,1)$. Reflecting across the $x$-axis gives
-  $ P+Q=-R'=(-1,-1). $
+  $ P ⊕ Q=-R'=(-1,-1). $
 ]
 
 #solved_problem[
@@ -173,7 +173,7 @@ The real case gives the geometric model for elliptic curves. In this section, th
   The inverse of an affine point is obtained by changing the sign of the $y$-coordinate. If $P=(x,0)$, then
   $ -P = (x,-0) = (x,0) = P. $
   Hence
-  $ 2 P = P+P = P+(-P) = cal(O). $
+  $ 2 P = P ⊕ P = P ⊕ (-P) = cal(O). $
   Geometrically, the tangent line at such a point is vertical, and every vertical line meets the completed curve at $cal(O)$.
 ]
 
@@ -252,5 +252,5 @@ The real case gives the geometric model for elliptic curves. In this section, th
 ]
 
 #supplementary[
-  Compute $P + Q$ on $y^2 = x^3 - 2x + 4$ where $P = (-2, 0)$ and $Q = (0, 2)$.
+  Compute $P ⊕ Q$ on $y^2 = x^3 - 2x + 4$ where $P = (-2, 0)$ and $Q = (0, 2)$.
 ]

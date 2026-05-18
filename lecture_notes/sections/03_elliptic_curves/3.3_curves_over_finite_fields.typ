@@ -3,7 +3,7 @@
 
 === Theory
 
-Over finite fields, the same elliptic-curve group becomes a finite algebraic system. The geometry from the real case supplies the operation; the field $FF_p$ supplies exact modular arithmetic.
+Over finite fields, the same elliptic-curve group becomes a finite algebraic system. The geometry from the real case supplies the operation $⊕$; the field $FF_p$ supplies exact modular arithmetic.
 
 #definition("Elliptic Curve over a Prime Field")[
   Let $p > 3$ be prime. An *elliptic curve over $FF_p$ in short Weierstrass form* is
@@ -68,10 +68,10 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
   $ -cal(O)=cal(O). $
 ]
 
-#definition("Point Addition and Doubling Formulas")[
+#definition("Point Operation and Doubling Formulas")[
   Let $E: y^2 equiv x^3 + a x + b space (mod p)$ be an elliptic curve over $FF_p$, and let $P=(x_1,y_1)$ and $Q=(x_2,y_2)$ be affine points on $E$.
 
-  If $P != Q$ and $P != -Q$, define $R=P+Q=(x_3,y_3)$ by
+  If $P != Q$ and $P != -Q$, define $R=P ⊕ Q=(x_3,y_3)$ by
   $ lambda = (y_2-y_1)(x_2-x_1)^(-1) mod p, $
   $ x_3 = lambda^2 - x_1 - x_2 mod p, $
   $ y_3 = lambda(x_1-x_3)-y_1 mod p. $
@@ -88,8 +88,8 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
 
 #definition("Special Cases")[
   The finite-field operation also includes the following cases:
-  - *Identity*: $P + cal(O) = cal(O) + P = P$.
-  - *Inverse points*: If $Q=-P$, then $P+Q=cal(O)$.
+  - *Identity*: $P ⊕ cal(O) = cal(O) ⊕ P = P$.
+  - *Inverse points*: If $Q=-P$, then $P ⊕ Q=cal(O)$.
   - *Doubling with $y_1=0$*: If $P=(x_1,0)$, then $P=-P$, so $2 P=cal(O)$.
 ]
 
@@ -100,12 +100,12 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
   Then
   $ x_3 = 2^2 - 5 - 6 = -7 equiv 10, $
   $ y_3 = 2(5-10) - 1 = -11 equiv 6. $
-  Thus $P+Q=(10,6)$.
+  Thus $P ⊕ Q=(10,6)$.
 ]
 
 #definition("Scalar Multiplication")[
-  *Scalar multiplication* is repeated addition of a point to itself:
-  $ k P = underbrace(P + P + ... + P)_(k " times"). $
+  *Scalar multiplication* is repeated use of the operation $⊕$:
+  $ k P = underbrace(P ⊕ P ⊕ ... ⊕ P)_(k " times"). $
   It is computed efficiently by the *double-and-add algorithm*, which uses the binary expansion of $k$.
 ]
 
@@ -120,7 +120,7 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
      - Set $R=2 R$.
   3. Return $Q$.
 
-  This requires $O(log k)$ point additions and doublings.
+  This requires $O(log k)$ elliptic-curve operations and doublings.
 ]
 
 #definition("Subgroup and Generator")[
@@ -216,7 +216,7 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
 ]
 
 #solved_problem[
-  On $E: y^2 equiv x^3 + 3x + 8 space (mod 13)$, compute $P+Q$ where $P=(1,5)$ and $Q=(9,6)$.
+  On $E: y^2 equiv x^3 + 3x + 8 space (mod 13)$, compute $P ⊕ Q$ where $P=(1,5)$ and $Q=(9,6)$.
 ]
 #solution[
   Check membership:
@@ -229,7 +229,7 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
   Then
   $ x_3 = 5^2 - 1 - 9 = 15 equiv 2 space (mod 13), $
   $ y_3 = 5(1-2)-5 = -10 equiv 3 space (mod 13). $
-  Therefore $P+Q=(2,3)$.
+  Therefore $P ⊕ Q=(2,3)$.
 ]
 
 #solved_problem[
@@ -255,7 +255,7 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
 #solution[
   Since
   $ 127 = 1111111_2, $
-  it has 7 binary digits. Naive repeated addition requires 126 additions. Double-and-add builds the powers
+  it has 7 binary digits. Naive repeated use of $⊕$ requires 126 operations. Double-and-add builds the powers
   $ 2 P,4 P,8 P,16 P,32 P,64 P $
   by 6 doublings and then combines the needed terms. This uses about $O(log 127)$ group operations instead of $O(127)$ operations.
 ]
@@ -271,7 +271,7 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
   $ y_3 = 13(5-6)-1 = -14 equiv 3. $
   Hence $2 G=(6,3)$.
 
-  *Step 2: $3 G=2 G+G$.* Add $(6,3)$ and $(5,1)$:
+  *Step 2: $3 G=2 G ⊕ G$.* Combine $(6,3)$ and $(5,1)$:
   $ lambda = (1-3)(5-6)^(-1) = (-2)(-1)^(-1) equiv 2 space (mod 17). $
   Hence
   $ x_3 = 2^2 - 6 - 5 = -7 equiv 10, $
@@ -281,7 +281,7 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
   Continuing by the same formulas gives
   $ 10 G=(7,11). $
   Also $18 G=-G=(5,16)$, so
-  $ 19 G=18 G+G=(5,16)+(5,1)=cal(O), $
+  $ 19 G=18 G ⊕ G=(5,16) ⊕ (5,1)=cal(O), $
   because the two points are inverses.
 ]
 
@@ -320,7 +320,7 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
   )
 
   #question(
-    [In point addition $P+Q$ with $P != Q$ and $P != -Q$, the slope $lambda$ is:],
+    [In the point operation $P ⊕ Q$ with $P != Q$ and $P != -Q$, the slope $lambda$ is:],
     ([$(y_2+y_1)(x_2+x_1)^(-1)$], [$(y_2-y_1)(x_2-x_1)^(-1)$], [$(3x_1^2+a)(2y_1)^(-1)$], [$(x_2-x_1)(y_2-y_1)^(-1)$]),
     1,
   )
@@ -332,7 +332,7 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
   )
 
   #question(
-    [When $P+(-P)$ is computed, the result is:],
+    [When $P ⊕ (-P)$ is computed, the result is:],
     ([$2 P$], [$cal(O)$], [$(0,0)$], [$-2 P$]),
     1,
   )
@@ -383,7 +383,7 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
 ]
 
 #supplementary[
-  On $E: y^2 equiv x^3 + 2x + 2 space (mod 17)$, compute $(6,3)+(5,1)$.
+  On $E: y^2 equiv x^3 + 2x + 2 space (mod 17)$, compute $(6,3) ⊕ (5,1)$.
 ]
 
 #supplementary[
@@ -399,7 +399,7 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
 ]
 
 #supplementary[
-  Explain why naive repeated addition is computationally infeasible for a 256-bit scalar $k$.
+  Explain why naive repeated use of $⊕$ is computationally infeasible for a 256-bit scalar $k$.
 ]
 
 #supplementary[
