@@ -3,81 +3,154 @@
 
 === Theory
 
+Over finite fields, the same elliptic-curve group becomes a finite algebraic system. The geometry from the real case supplies the operation; the field $FF_p$ supplies exact modular arithmetic.
+
 #definition("Elliptic Curve over a Prime Field")[
-  Let $p > 3$ be a prime. An *elliptic curve over $FF_p$* is the set of points $(x, y) in FF_p times FF_p$ satisfying:
-  $ y^2 equiv x^3 + a x + b space (mod p) $
-  where $a, b in FF_p$ and $4 a^3 + 27 b^2 equiv.not 0 space (mod p)$, together with the point at infinity $cal(O)$.
-
-  We denote this set $E(FF_p)$.
-]
-
-#example[
-  For $p=5$, $a=1$, $b=1$, the curve is
-  $ y^2 equiv x^3 + x + 1 space (mod 5). $
-  The non-singularity condition is
-  $ 4a^3 + 27b^2 = 4 + 27 = 31 equiv 1 != 0 space (mod 5), $
-  so this is a valid elliptic curve over $FF_5$.
+  Let $p > 3$ be prime. An *elliptic curve over $FF_p$ in short Weierstrass form* is
+  $ E(FF_p) = {(x,y) in FF_p times FF_p : y^2 equiv x^3 + a x + b space (mod p)} union {cal(O)}, $
+  where $a,b in FF_p$ and
+  $ 4a^3 + 27b^2 equiv.not 0 space (mod p). $
 ]
 
 #note[
-  All arithmetic (addition, multiplication, and finding inverses) is performed *modulo $p$*. The curve $E(FF_p)$ has only finitely many points, making it suitable for cryptographic use.
+  All arithmetic in the equation is performed modulo $p$. The condition $p>3$ keeps the short Weierstrass formulas in the same shape as the real formulas, because $2$ and $3$ are nonzero and invertible in $FF_p$.
+]
+
+#example[
+  For $p=5$, $a=1$, and $b=1$, the curve is
+  $ y^2 equiv x^3 + x + 1 space (mod 5). $
+  Its non-singularity condition is
+  $ 4a^3 + 27b^2 = 4 + 27 = 31 equiv 1 != 0 space (mod 5), $
+  so this is an elliptic curve over $FF_5$.
 ]
 
 #definition("Order of an Elliptic Curve")[
-  The *order* of an elliptic curve over $FF_p$, denoted $\#E(FF_p)$ or $|E(FF_p)|$, is the total number of points on the curve including the point at infinity $cal(O)$.
+  The *order* of an elliptic curve over $FF_p$, denoted $\#E(FF_p)$ or $|E(FF_p)|$, is the number of points in $E(FF_p)$, including the point at infinity $cal(O)$.
+]
+
+#note[
+  To count points, test each $x in FF_p$. Compute
+  $ r = x^3 + a x + b space (mod p). $
+  If $r=0$, there is one point $(x,0)$. If $r$ is a nonzero quadratic residue modulo $p$, there are two points $(x,y)$ and $(x,-y)$. If $r$ is a quadratic non-residue, there is no point with that $x$-coordinate.
 ]
 
 #example[
-  For $E: y^2 equiv x^3 + x + 1 space (mod 5)$, counting all affine solutions gives 8 points.
-  Adding the point at infinity yields
-  $ \#E(FF_5) = 8 + 1 = 9. $
-  This is a concrete instance of curve order.
+  For $E: y^2 equiv x^3 + x + 1 space (mod 5)$, counting all affine solutions gives 8 affine points. Including $cal(O)$ gives
+  $ \#E(FF_5) = 9. $
 ]
 
 #theorem("Hasse's Theorem")[
-  For an elliptic curve $E$ over $FF_p$, Hasse's theorem bounds the number of points:
-  $ |space \#E(FF_p) - (p+1) space| <= 2 sqrt(p) $
-  Equivalently, the order $\#E(FF_p)$ lies in the interval:
-  $ p + 1 - 2sqrt(p) <= \#E(FF_p) <= p + 1 + 2sqrt(p) $
-  This shows that the curve has approximately $p + 1$ points.
-]
-
-#example[
-  If $p=5$, Hasse gives
-  $ 5 + 1 - 2sqrt(5) <= \#E(FF_5) <= 5 + 1 + 2sqrt(5), $
-  so numerically $1.53 <= \#E(FF_5) <= 10.47$.
-  Therefore the only possible integer orders are from 2 to 10.
-  The value $\#E(FF_5)=9$ from the previous example is inside this interval.
+  For an elliptic curve $E$ over $FF_p$,
+  $ |space \#E(FF_p) - (p+1) space| <= 2 sqrt(p). $
+  Equivalently,
+  $ p + 1 - 2sqrt(p) <= \#E(FF_p) <= p + 1 + 2sqrt(p). $
 ]
 
 #definition("Trace of Frobenius")[
-  The integer $t = p + 1 - \#E(FF_p)$ is called the *trace of Frobenius*. By Hasse's theorem, $|t| <= 2sqrt(p)$.
-]
-
-#note[
-  *Finding points on $E(FF_p)$*: For each $x in FF_p$, compute $r = x^3 + a x + b space (mod p)$. If $r = 0$, then $(x, 0)$ is a point. If $r$ is a quadratic residue mod $p$ (i.e., $r^{(p-1)/2} equiv 1$), there are two points $(x, y)$ and $(x, -y)$. Otherwise, no point exists for that $x$.
-]
-
-#definition("Subgroup and Generator")[
-  Since $E(FF_p)$ is a finite abelian group, it may contain cyclic subgroups. A *generator* (or *base point*) $G in E(FF_p)$ is a point of large prime order $n$, meaning $n G = cal(O)$ and no smaller positive multiple equals $cal(O)$. The subgroup $chevron.l G chevron.r = {cal(O), G, 2G, ..., (n-1)G}$ is used in cryptographic protocols.
+  The integer
+  $ t = p + 1 - \#E(FF_p) $
+  is called the *trace of Frobenius*. By Hasse's theorem,
+  $ |t| <= 2sqrt(p). $
 ]
 
 #example[
-  On the toy curve $y^2 equiv x^3 + 2x + 2 space (mod 17)$, the point $G=(5,1)$ has order $n=19$.
-  Its generated subgroup is
-  $ chevron.l G chevron.r = {cal(O), G, 2G, ..., 18G}, $
-  and $19G = cal(O)$.
-  This toy model mirrors how real ECC picks a base point of large prime order.
+  If $p=5$ and $\#E(FF_5)=9$, then
+  $ t = 5 + 1 - 9 = -3. $
+  Hasse's theorem gives $|-3| <= 2sqrt(5)$, which is true.
+]
+
+#definition("Inverse Point over $FF_p$")[
+  For an affine point $P=(x,y) in E(FF_p)$, its inverse is
+  $ -P = (x,-y mod p). $
+  Equivalently, when $y != 0$, one may write
+  $ -P = (x,p-y). $
+  Also,
+  $ -cal(O)=cal(O). $
+]
+
+#definition("Point Addition and Doubling Formulas")[
+  Let $E: y^2 equiv x^3 + a x + b space (mod p)$ be an elliptic curve over $FF_p$, and let $P=(x_1,y_1)$ and $Q=(x_2,y_2)$ be affine points on $E$.
+
+  If $P != Q$ and $P != -Q$, define $R=P+Q=(x_3,y_3)$ by
+  $ lambda = (y_2-y_1)(x_2-x_1)^(-1) mod p, $
+  $ x_3 = lambda^2 - x_1 - x_2 mod p, $
+  $ y_3 = lambda(x_1-x_3)-y_1 mod p. $
+
+  If $P=Q$ and $y_1 != 0$, define $2 P=(x_3,y_3)$ by
+  $ lambda = (3x_1^2+a)(2y_1)^(-1) mod p, $
+  $ x_3 = lambda^2 - 2x_1 mod p, $
+  $ y_3 = lambda(x_1-x_3)-y_1 mod p. $
 ]
 
 #note[
-  *Programmatic representation of $cal(O)$*: The point at infinity cannot be stored as a coordinate pair $(x, y) in FF_p^2$ because it lies in the projective closure of the curve, not in the affine plane. A standard implementation pattern uses a *sentinel value* — for example, representing $cal(O)$ as `None` in Python — and handling it explicitly in every arithmetic routine:
+  These formulas are the affine coordinate form of the chord-and-tangent operation from Section 3.2. Division modulo $p$ means multiplication by a modular inverse, so every denominator must be checked before applying the formula.
+]
 
-  - If either input is $cal(O)$, return the other point immediately.
-  - Before applying the $lambda$ formula, check whether the inputs are inverses (same $x$, opposite $y$ mod $p$); if so, return $cal(O)$.
-  - For point doubling, check $y_1 equiv 0 space (mod p)$ first; if so, return $cal(O)$.
+#definition("Special Cases")[
+  The finite-field operation also includes the following cases:
+  - *Identity*: $P + cal(O) = cal(O) + P = P$.
+  - *Inverse points*: If $Q=-P$, then $P+Q=cal(O)$.
+  - *Doubling with $y_1=0$*: If $P=(x_1,0)$, then $P=-P$, so $2 P=cal(O)$.
+]
 
-  This guard structure must precede any modular-inverse computation, since a division by zero (e.g., $x_2 - x_1 equiv 0$) would otherwise cause a runtime error.
+#example[
+  On $E: y^2 equiv x^3 + 2x + 2 space (mod 17)$, add $P=(5,1)$ and $Q=(6,3)$.
+  Since $P != Q$ and $P != -Q$,
+  $ lambda = (3-1)(6-5)^(-1) = 2. $
+  Then
+  $ x_3 = 2^2 - 5 - 6 = -7 equiv 10, $
+  $ y_3 = 2(5-10) - 1 = -11 equiv 6. $
+  Thus $P+Q=(10,6)$.
+]
+
+#definition("Scalar Multiplication")[
+  *Scalar multiplication* is repeated addition of a point to itself:
+  $ k P = underbrace(P + P + ... + P)_(k " times"). $
+  It is computed efficiently by the *double-and-add algorithm*, which uses the binary expansion of $k$.
+]
+
+#algorithm("Double-and-Add for Scalar Multiplication")[
+  *Input*: A point $P in E(FF_p)$ and an integer $k > 0$ with binary representation $k=(k_n k_(n-1) ... k_1 k_0)_2$.
+
+  *Output*: $Q = k P$.
+
+  1. Set $Q=cal(O)$ and $R=P$.
+  2. For $i=0$ to $n$:
+     - If $k_i=1$, set $Q=Q+R$.
+     - Set $R=2 R$.
+  3. Return $Q$.
+
+  This requires $O(log k)$ point additions and doublings.
+]
+
+#definition("Subgroup and Generator")[
+  Since $E(FF_p)$ is a finite abelian group, it may contain cyclic subgroups. A *generator* or *base point* $G$ of order $n$ is a point satisfying
+  $ n G = cal(O) $
+  and no smaller positive multiple of $G$ equals $cal(O)$.
+
+  The subgroup generated by $G$ is
+  $ chevron.l G chevron.r = {cal(O), G, 2 G, ..., (n-1) G}. $
+]
+
+#example[
+  On the toy curve $y^2 equiv x^3 + 2x + 2 space (mod 17)$, the point $G=(5,1)$ has order $19$. Hence
+  $ chevron.l G chevron.r = {cal(O), G, 2 G, ..., 18 G}, $
+  and
+  $ 19 G = cal(O). $
+]
+
+#note[
+  *Light cryptographic motivation*: For a public point $G$, computing $k G$ from $k$ is efficient by double-and-add. The reverse problem, recovering $k$ from $G$ and $k G$, is the *Elliptic Curve Discrete Logarithm Problem* (ECDLP). This one-way behavior is the algebraic reason elliptic-curve groups are useful in cryptography.
+]
+
+#example[
+  In a toy public/private key picture, a private integer $d$ determines a public point
+  $ Q = d G. $
+  Anyone can see $G$ and $Q$, but recovering $d$ from them is the hard direction on properly chosen large curves. Real systems use standardized curves and very large prime-order subgroups; the small examples in these notes are only for calculation.
+]
+
+#note[
+  Standardized curves such as secp256k1, P-256, and Curve25519 are chosen with large field sizes, carefully selected group orders, and implementation constraints. The algebraic objects remain the same: a finite field, an elliptic curve, a base point, and scalar multiplication.
 ]
 
 === Solved Problems
@@ -86,122 +159,199 @@
   Let $E: y^2 equiv x^3 + x + 1 space (mod 5)$. Find all points on $E(FF_5)$ by testing each $x in {0,1,2,3,4}$.
 ]
 #solution[
-  For each $x$, compute $r = x^3 + x + 1 space (mod 5)$, then check if $r$ has a square root mod 5. The squares mod 5 are $0^2=0, 1^2=1, 2^2=4, 3^2=4, 4^2=1$, so the quadratic residues are $Q R = {0, 1, 4}$.
+  The quadratic residues modulo $5$ are
+  $ 0^2=0, quad 1^2=1, quad 2^2=4, quad 3^2=4, quad 4^2=1, $
+  so $Q R={0,1,4}$.
 
-  - $x=0$: $r = 0 + 0 + 1 = 1 in Q R$. $y^2 equiv 1$: $y = 1, 4$. Points: $(0,1), (0,4)$.
-  - $x=1$: $r = 1 + 1 + 1 = 3 in.not Q R$. No points.
-  - $x=2$: $r = 8 + 2 + 1 = 11 equiv 1 in Q R$. $y = 1, 4$. Points: $(2,1), (2,4)$.
-  - $x=3$: $r = 27 + 3 + 1 = 31 equiv 1 in Q R$. $y = 1, 4$. Points: $(3,1), (3,4)$.
-  - $x=4$: $r = 64 + 4 + 1 = 69 equiv 4 in Q R$. $y^2 equiv 4$: $y = 2, 3$. Points: $(4,2),(4,3)$.
+  - $x=0$: $r=1$, so $y=1,4$. Points: $(0,1),(0,4)$.
+  - $x=1$: $r=3$, not a quadratic residue. No points.
+  - $x=2$: $r=11 equiv 1$, so $y=1,4$. Points: $(2,1),(2,4)$.
+  - $x=3$: $r=31 equiv 1$, so $y=1,4$. Points: $(3,1),(3,4)$.
+  - $x=4$: $r=69 equiv 4$, so $y=2,3$. Points: $(4,2),(4,3)$.
 
-  Total affine points: 8. Including $cal(O)$: $\#E(FF_5) = 9$.
+  There are 8 affine points. Including $cal(O)$,
+  $ \#E(FF_5)=9. $
 ]
 
 #solved_problem[
-  Verify that Hasse's theorem holds for $E(FF_5)$ with $\#E(FF_5) = 9$.
+  Verify that Hasse's theorem holds for $E(FF_5)$ with $\#E(FF_5)=9$.
 ]
 #solution[
-  Hasse's bound: $p + 1 - 2sqrt(p) <= \#E <= p + 1 + 2sqrt(p)$ with $p=5$:
-  $ 5 + 1 - 2sqrt(5) = 6 - 4.47 approx 1.53 $
-  $ 5 + 1 + 2sqrt(5) = 6 + 4.47 approx 10.47 $
-  Since $1.53 <= 9 <= 10.47$, Hasse's theorem is satisfied. ✓
-
-  The trace of Frobenius is $t = 5 + 1 - 9 = -3$, and indeed $|-3| = 3 <= 2sqrt(5) approx 4.47$. ✓
+  Hasse's bound gives
+  $ 5+1-2sqrt(5) <= \#E(FF_5) <= 5+1+2sqrt(5). $
+  Numerically,
+  $ 1.53 <= \#E(FF_5) <= 10.47. $
+  Since $9$ lies in this interval, Hasse's theorem holds. The trace is
+  $ t=5+1-9=-3, $
+  and $|-3| <= 2sqrt(5)$.
 ]
 
 #solved_problem[
-  On $E: y^2 equiv x^3 + 2x + 3 space (mod 7)$, verify that $P = (2, 1)$ lies on the curve and find $-P$.
+  On $E: y^2 equiv x^3 + 2x + 3 space (mod 7)$, verify that $P=(2,1)$ lies on the curve and find $-P$.
 ]
 #solution[
-  *Verification*: LHS: $1^2 equiv 1 space (mod 7)$.
+  Check membership:
+  $ 1^2 equiv 1 space (mod 7), $
+  while
+  $ 2^3 + 2 dot 2 + 3 = 15 equiv 1 space (mod 7). $
+  Thus $P$ lies on $E(FF_7)$.
 
-  RHS:
-  $ 2^3 + 2 dot 2 + 3 = 8 + 4 + 3 = 15 equiv 1 space (mod 7). $
-
-  Since LHS $=$ RHS, $P = (2,1)$ lies on $E(FF_7)$.
-
-  The inverse is obtained by negating the $y$-coordinate modulo 7:
-  $ -P = (2, -1 mod 7) = (2, 6). $
+  The inverse is obtained by negating the $y$-coordinate modulo $7$:
+  $ -P = (2,-1 mod 7) = (2,6). $
 ]
 
 #solved_problem[
-  Consider the *toy curve* $E: y^2 equiv x^3 + 2x + 2 space (mod 17)$. (a) Verify that $E$ is non-singular. (b) Confirm that $G = (5, 1)$ lies on $E$. (c) Determine the programmatic membership test a class `Curva(p=17, a=2, b=2)` must perform.
+  Consider the toy curve $E: y^2 equiv x^3 + 2x + 2 space (mod 17)$. Verify that $E$ is non-singular and that $G=(5,1)$ lies on $E$.
 ]
 #solution[
-  *(a) Non-singularity check*: Compute the discriminant condition $4a^3 + 27b^2 equiv.not 0 space (mod 17)$:
-  $ 4(8) + 27(4) = 32 + 108 = 140 equiv 140 - 8(17) = 140 - 136 = 4 equiv.not 0 space (mod 17) $
-  The curve is non-singular. ✓
+  For non-singularity,
+  $ 4a^3 + 27b^2 = 4(2^3)+27(2^2)=32+108=140 equiv 4 != 0 space (mod 17). $
+  Hence $E$ is non-singular.
 
-  *(b) Point membership*: Check $y^2 equiv x^3 + 2x + 2 space (mod 17)$ for $(x,y) = (5,1)$:
-  - LHS: $1^2 = 1$
-  - RHS: $125 + 10 + 2 = 137 equiv 137 - 8(17) = 137 - 136 = 1$
-  LHS $=$ RHS, so $G = (5,1) in E(FF_{17})$. ✓
+  For $G=(5,1)$,
+  $ 1^2 = 1 $
+  and
+  $ 5^3 + 2 dot 5 + 2 = 137 equiv 1 space (mod 17). $
+  Thus $G in E(FF_17)$.
+]
 
-  *(c) Membership test*: A `Curva.contains(punto)` method must evaluate
-  $ (y^2 - x^3 - a x - b) mod p == 0 $
-  and additionally handle the special case `punto is None` (representing $cal(O)$), which always belongs to the curve.
+#solved_problem[
+  On $E: y^2 equiv x^3 + 3x + 8 space (mod 13)$, compute $P+Q$ where $P=(1,5)$ and $Q=(9,6)$.
+]
+#solution[
+  Check membership:
+  - $P$: $5^2=25 equiv 12$, and $1+3+8=12$.
+  - $Q$: $6^2=36 equiv 10$, and $9^3+3 dot 9+8=764 equiv 10 space (mod 13)$.
+
+  Since $P != Q$ and $P != -Q$,
+  $ lambda = (6-5)(9-1)^(-1) = 1 dot 8^(-1) equiv 5 space (mod 13), $
+  because $8 dot 5 equiv 1 space (mod 13)$.
+  Then
+  $ x_3 = 5^2 - 1 - 9 = 15 equiv 2 space (mod 13), $
+  $ y_3 = 5(1-2)-5 = -10 equiv 3 space (mod 13). $
+  Therefore $P+Q=(2,3)$.
+]
+
+#solved_problem[
+  On $E: y^2 equiv x^3 + x + 6 space (mod 11)$, compute $2 P$ where $P=(2,7)$.
+]
+#solution[
+  Verify $P$:
+  $7^2=49 equiv 5$, and $2^3+2+6=16 equiv 5$.
+
+  Use the doubling formula with $a=1$:
+  $ lambda = (3 dot 2^2 + 1)(2 dot 7)^(-1) = 13 dot 14^(-1) equiv 2 dot 3^(-1) space (mod 11). $
+  Since $3^(-1) equiv 4 space (mod 11)$,
+  $ lambda = 2 dot 4 = 8. $
+  Hence
+  $ x_3 = 8^2 - 2 dot 2 = 60 equiv 5, $
+  $ y_3 = 8(2-5)-7 = -31 equiv 2 space (mod 11). $
+  Therefore $2 P=(5,2)$.
+]
+
+#solved_problem[
+  Explain why double-and-add is efficient for computing $127 P$.
+]
+#solution[
+  Since
+  $ 127 = 1111111_2, $
+  it has 7 binary digits. Naive repeated addition requires 126 additions. Double-and-add builds the powers
+  $ 2 P,4 P,8 P,16 P,32 P,64 P $
+  by 6 doublings and then combines the needed terms. This uses about $O(log 127)$ group operations instead of $O(127)$ operations.
+]
+
+#solved_problem[
+  On the toy curve $E: y^2 equiv x^3 + 2x + 2 space (mod 17)$ with $G=(5,1)$, compute $2 G$, $3 G$, and $10 G$, and verify that $19 G=cal(O)$.
+]
+#solution[
+  *Step 1: $2 G$.* Since $a=2$,
+  $ lambda = (3 dot 5^2 + 2)(2 dot 1)^(-1) = 77 dot 2^(-1) equiv 9 dot 9 equiv 13 space (mod 17). $
+  Thus
+  $ x_3 = 13^2 - 2 dot 5 = 159 equiv 6, $
+  $ y_3 = 13(5-6)-1 = -14 equiv 3. $
+  Hence $2 G=(6,3)$.
+
+  *Step 2: $3 G=2 G+G$.* Add $(6,3)$ and $(5,1)$:
+  $ lambda = (1-3)(5-6)^(-1) = (-2)(-1)^(-1) equiv 2 space (mod 17). $
+  Hence
+  $ x_3 = 2^2 - 6 - 5 = -7 equiv 10, $
+  $ y_3 = 2(6-10)-3 = -11 equiv 6. $
+  So $3 G=(10,6)$.
+
+  Continuing by the same formulas gives
+  $ 10 G=(7,11). $
+  Also $18 G=-G=(5,16)$, so
+  $ 19 G=18 G+G=(5,16)+(5,1)=cal(O), $
+  because the two points are inverses.
+]
+
+#solved_problem[
+  Explain the algebraic idea behind a public key of the form $Q = d G$.
+]
+#solution[
+  The integer $d$ is private, while $G$ and $Q = d G$ may be public. Computing $Q$ from $d$ and $G$ is efficient because scalar multiplication can be done by double-and-add. Recovering $d$ from $G$ and $Q$ is the ECDLP. For carefully chosen large curves, no efficient general method is known for this reverse problem.
 ]
 
 === Self-Evaluation Quiz
 
 #quiz[
   #question(
-    [An elliptic curve $E(FF_p)$ is defined over a finite field where $p$ is:],
-    (["Any integer"], ["A prime"], ["A power of 2 only"], ["An even number"]),
+    [An elliptic curve $E(FF_p)$ in this section is defined over a field where $p$ is:],
+    (["Any integer"], ["A prime greater than 3"], ["A power of 2 only"], ["An even number"]),
     1,
   )
 
   #question(
-    [The total number of points on $E(FF_p)$, including $cal(O)$, is called the:],
+    [The total number of points on $E(FF_p)$, including $cal(O)$, is called:],
     (["Trace of Frobenius"], ["Discriminant"], ["Order of the curve"], ["Hasse bound"]),
     2,
   )
 
   #question(
-    [Hasse's theorem states that $\#E(FF_p)$ is approximately:],
-    ([$p$], [$p + 1$], [$p^2$], [$sqrt(p)$]),
+    [Hasse's theorem says that $\#E(FF_p)$ is approximately:],
+    ([$p$], [$p+1$], [$p^2$], [$sqrt(p)$]),
     1,
   )
 
   #question(
-    [The trace of Frobenius $t$ is defined as:],
-    ([$t = p + \#E(FF_p)$], [$t = p - \#E(FF_p)$], [$t = p + 1 - \#E(FF_p)$], [$t = \#E(FF_p) - p$]),
-    2,
-  )
-
-  #question(
-    [For a point $P = (x, y) in E(FF_p)$, the inverse $-P$ is:],
-    ([$(- x, y) mod p$], [$(x, p - y)$], [$(p - x, p - y)$], [$cal(O)$]),
+    [For a point $P=(x,y) in E(FF_p)$, the inverse $-P$ is:],
+    ([$(-x,y)$], [$(x,-y mod p)$], [$(p-x,p-y)$], [$cal(O)$]),
     1,
   )
 
   #question(
-    [How many affine points are on $E: y^2 equiv x^3 + x + 1 space (mod 5)$?],
-    (["6"], ["7"], ["8"], ["9"]),
-    2,
-  )
-
-  #question(
-    [A generator (base point) $G$ of order $n$ satisfies:],
-    ([$G^n = 1$], [$n G = cal(O)$], [$G + n = cal(O)$], [$n = |E(FF_p)|$]),
+    [In point addition $P+Q$ with $P != Q$ and $P != -Q$, the slope $lambda$ is:],
+    ([$(y_2+y_1)(x_2+x_1)^(-1)$], [$(y_2-y_1)(x_2-x_1)^(-1)$], [$(3x_1^2+a)(2y_1)^(-1)$], [$(x_2-x_1)(y_2-y_1)^(-1)$]),
     1,
   )
 
   #question(
-    [For an $x in FF_p$, a point $(x, y)$ exists on $E(FF_p)$ if and only if $x^3 + a x + b$ is:],
-    (["Zero or a quadratic residue mod $p$"], ["Any value"], ["A prime mod $p$"], ["A quadratic non-residue mod $p$"]),
-    0,
-  )
-
-  #question(
-    [True or False: The group $E(FF_p)$ is always cyclic.],
-    (["True"], ["False — it can be $ZZ_n times ZZ_m$"], ["Only for large $p$"], ["Only when $p = 2$"]),
+    [In point doubling $2 P$, the slope formula comes from:],
+    ([The chord through $P$ and $-P$], [The tangent line at $P$], [The $x$-axis], [The line at infinity]),
     1,
   )
 
   #question(
-    [The bound $|t| <= 2sqrt(p)$ ensures that $E(FF_p)$ has:],
-    (["At most $p$ points"], ["At least 1 point besides $cal(O)$"], ["Roughly $p+1$ points within $2sqrt(p)$"], ["Exactly $p$ points"]),
+    [When $P+(-P)$ is computed, the result is:],
+    ([$2 P$], [$cal(O)$], [$(0,0)$], [$-2 P$]),
+    1,
+  )
+
+  #question(
+    [Scalar multiplication $k P$ is computed efficiently using:],
+    (["Trial division"], ["Double-and-add"], ["The Euclidean algorithm only"], ["Point counting"]),
+    1,
+  )
+
+  #question(
+    [A generator $G$ of order $n$ satisfies:],
+    ([$G^n=1$], [$n G=cal(O)$], [$G+n=cal(O)$], [$n=\#FF_p$]),
+    1,
+  )
+
+  #question(
+    [The ECDLP asks one to recover:],
+    ([$G$ from $Q = d G$], [$Q$ from $d$ and $G$], [$d$ from $G$ and $Q = d G$], [$p$ from $E(FF_p)$]),
     2,
   )
 ]
@@ -213,21 +363,53 @@
 ]
 
 #supplementary[
-  For $E(FF_{11})$ with $\#E = 13$, compute the trace of Frobenius and verify Hasse's bound.
+  For $E(FF_11)$ with $\#E=13$, compute the trace of Frobenius and verify Hasse's bound.
 ]
 
 #supplementary[
-  Explain why arithmetic on $E(FF_p)$ is performed modulo $p$ even for coordinates.
+  Explain why arithmetic on $E(FF_p)$ is performed modulo $p$, including coordinate arithmetic.
 ]
 
 #supplementary[
-  Show that for any point $P = (x, y)$ on $E(FF_p)$ with $y != 0$, we have $P != -P$.
+  Show that for any point $P=(x,y)$ on $E(FF_p)$ with $y != 0$, we have $P != -P$.
 ]
 
 #supplementary[
-  For $p = 5$, compute the quadratic residues mod 5 and use them to count points on $y^2 equiv x^3 + 2 space (mod 5)$.
+  For $p=5$, compute the quadratic residues modulo $5$ and use them to count points on $y^2 equiv x^3 + 2 space (mod 5)$.
 ]
 
 #supplementary[
-  What goes wrong if $4 a^3 + 27 b^2 equiv 0 space (mod p)$? Give a concrete example.
+  What goes wrong if $4a^3+27b^2 equiv 0 space (mod p)$? Give a concrete example.
+]
+
+#supplementary[
+  On $E: y^2 equiv x^3 + 2x + 2 space (mod 17)$, compute $(6,3)+(5,1)$.
+]
+
+#supplementary[
+  Compute $3 P$ on $E: y^2 equiv x^3 + x + 1 space (mod 23)$ where $P=(0,1)$ using double-and-add.
+]
+
+#supplementary[
+  Show that for any point $P$ of order $n$ on $E(FF_p)$, we have $n P=cal(O)$.
+]
+
+#supplementary[
+  Verify associativity for one concrete triple of points on $E: y^2 equiv x^3 + x + 6 space (mod 11)$.
+]
+
+#supplementary[
+  Explain why naive repeated addition is computationally infeasible for a 256-bit scalar $k$.
+]
+
+#supplementary[
+  On $E(FF_7)$ with $\#E=9$, if $G$ has order $9$, how many distinct points does $chevron.l G chevron.r$ contain?
+]
+
+#supplementary[
+  In the public-key relation $Q = d G$, explain what is public, what is private, and why recovering $d$ is expected to be hard on a large standardized curve.
+]
+
+#supplementary[
+  Compare, at a high level, why elliptic-curve cryptography can use smaller keys than RSA for a similar security level.
 ]
