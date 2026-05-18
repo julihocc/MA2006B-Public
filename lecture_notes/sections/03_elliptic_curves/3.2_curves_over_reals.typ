@@ -94,8 +94,6 @@ The real case gives the geometric model for elliptic curves. In this section, or
   $ P ⊕ Q ⊕ R' = cal(O). $
 ]
 
-==== Case-by-Case Examples of $⊕$
-
 #example[
   *Distinct affine points.* On $E: y^2 = x^3 - x + 1$, take
   $ P = (0,1) quad "and" quad Q = (1,1). $
