@@ -3,12 +3,13 @@
 
 === Theory
 
+The real case gives the geometric model for elliptic curves. In this section, the word "addition" will not mean coordinate-wise addition in $RR^2$. It will mean a new operation defined on the points of a non-singular cubic curve.
+
 #definition([Short Weierstrass Model over $RR$])[
   Let $a,b in RR$. The *affine short Weierstrass model* determined by $a$ and $b$ is the set
   $ C_("aff")(RR) = {(x,y) in RR^2 : y^2 = x^3 + a x + b}. $
   Its defining equation is
-  $ y^2 = x^3 + a x + b $
-  and is called the *short Weierstrass equation*.
+  $ y^2 = x^3 + a x + b. $
 ]
 
 #note[
@@ -18,19 +19,22 @@
 #definition("Non-Singularity")[
   The short Weierstrass model
   $ y^2 = x^3 + a x + b $
-  is *non-singular* if its discriminant is nonzero:
-  $ Delta = -16(4a^3 + 27b^2) != 0. $
+  is *non-singular* if its elliptic-curve discriminant is nonzero:
+  $ Delta_E = -16(4a^3 + 27b^2) != 0. $
   Equivalently,
   $ 4a^3 + 27b^2 != 0. $
-  Appendix @appendix-cubic-discriminant explains where this cubic discriminant formula comes from.
+]
+
+#note[
+  The condition $Delta_E != 0$ is equivalent to saying that the cubic polynomial $x^3 + a x + b$ has no repeated root over $CC$. Geometrically, this prevents the completed cubic from having a cusp or self-intersection. Appendix @appendix-cubic-discriminant proves the discriminant criterion.
 ]
 
 #example[
   Compare two cubic models:
   - $E_1: y^2 = x^3 - x + 1$ has $a=-1$, $b=1$, so
-    $Delta = -16(4(-1)^3 + 27(1)^2) = -16(23) != 0$.
+    $Delta_E = -16(4(-1)^3 + 27(1)^2) = -16(23) != 0$.
     Hence $E_1$ is non-singular.
-  - $E_2: y^2 = x^3$ has $a=0$, $b=0$, so $Delta = 0$.
+  - $E_2: y^2 = x^3$ has $a=0$, $b=0$, so $Delta_E = 0$.
     This model is singular, so it is not an elliptic curve.
 
   #align(center)[
@@ -40,184 +44,187 @@
   The nonzero discriminant for $E_1$ appears geometrically as a smooth curve. For $E_2$, the zero discriminant corresponds to the cusp at the origin.
 ]
 
-#note[
-  The condition $Delta != 0$ is equivalent to saying that the cubic polynomial $x^3 + a x + b$ has no repeated root over $CC$. Geometrically, this prevents the affine curve from developing a cusp or self-intersection. At each affine point there is then a well-defined tangent line.
-]
-
 #definition([Elliptic Curve over $RR$])[
-  An *elliptic curve over $RR$ in short Weierstrass form* is a non-singular short Weierstrass model together with its point at infinity:
+  An *elliptic curve over $RR$ in short Weierstrass form* is a non-singular short Weierstrass model together with one additional point, called the *point at infinity*:
   $ E(RR) = {(x,y) in RR^2 : y^2 = x^3 + a x + b} union {cal(O)}, $
   where $4a^3 + 27b^2 != 0$.
-]
-
-#note[
-  The point $cal(O)$ is not an affine coordinate pair. In projective coordinates it is
-  $ cal(O) = [0 : 1 : 0]. $
-  Appendix @appendix-point-at-infinity gives the formal construction using the projective closure of the short Weierstrass equation.
 ]
 
 #definition("The Point at Infinity")[
   The point $cal(O)$ is the unique point at infinity on the projective closure of
   $ y^2 = x^3 + a x + b. $
-  It is included in $E(RR)$ and serves as the identity element for the group law.
+  In homogeneous coordinates it is
+  $ cal(O) = [0 : 1 : 0]. $
+]
 
-  Projectively, every vertical affine line has this same point at infinity. This is why the vertical line through $(x,y)$ and $(x,-y)$ corresponds to the identity element in the chord-and-tangent law.
+#note[
+  The point $cal(O)$ is not an affine coordinate pair. Appendix @appendix-point-at-infinity constructs it formally using projective geometry. For the present section, the essential fact is that every vertical affine line meets the completed curve at this same point $cal(O)$.
+]
+
+#definition("Inverse Point")[
+  If $P = (x,y)$ is an affine point of $E(RR)$, its *inverse point* is
+  $ -P = (x,-y). $
+  We also define
+  $ -cal(O) = cal(O). $
 ]
 
 #example[
-  If $P = (x,y)$ is an affine point of $E(RR)$, then $(x,-y)$ is also on $E(RR)$ because both points have the same value of $y^2$. We denote this point by $-P$.
-
-  The vertical line through $P$ and $-P$ has point at infinity $cal(O)$, so the chord-and-tangent law gives
-  $ P + (-P) = cal(O). $
+  If $P=(x,y)$ lies on $y^2=x^3+a x+b$, then $-P=(x,-y)$ also lies on the curve because both points have the same value of $y^2$.
 ]
 
-#definition("Geometric Group Law - Chord and Tangent")[
-  Let $E(RR)$ be a non-singular short Weierstrass curve. The *chord-and-tangent law* defines a binary operation on $E(RR)$ as follows:
-  + If $P,Q in E(RR)$ are distinct affine points and $Q != -P$, let the line through $P$ and $Q$ meet the curve at the third point $R'$ (counting intersection multiplicity). Define
+#definition("Chord-and-Tangent Operation")[
+  Let $E(RR)$ be an elliptic curve over $RR$. The *chord-and-tangent operation* defines a binary operation $+$ on $E(RR)$ as follows:
+
+  + If $P,Q$ are distinct affine points and $Q != -P$, let the affine line through $P$ and $Q$ meet the curve at the third point $R'$, counted with intersection multiplicity. Define
     $ P + Q = -R'. $
-  + If $P=Q$ is an affine point and the tangent line at $P$ is not vertical, let that tangent line meet the curve at the third point $R'$. Define
-    $ 2P = -R'. $
-  + If $Q = -P$, define
+  + If $P=Q$ is an affine point and the tangent line at $P$ is not vertical, let the tangent line meet the curve at the third point $R'$, counted with intersection multiplicity. Define
+    $ 2 P = P + P = -R'. $
+  + If $Q=-P$, define
     $ P + Q = cal(O). $
   + For every $P in E(RR)$, define
     $ P + cal(O) = cal(O) + P = P. $
 ]
 
 #note[
-  For an affine point $R'=(x,y)$, the point $-R'$ is $(x,-y)$. Thus the instruction $P+Q=-R'$ is exactly the usual reflection across the $x$-axis.
+  The operation is not coordinate-wise addition in $RR^2$. It is defined from lines and the completed cubic. The reflection in the formula $P+Q=-R'$ is the reflection across the $x$-axis for affine points.
 
-  The reason for the minus sign is that the operation is normalized so that, once the group law is established, three collinear points on the projective curve satisfy
+  The minus sign is the convention that makes three collinear points on the completed cubic satisfy
   $ P + Q + R' = cal(O). $
 ]
 
 #example[
   On $E: y^2 = x^3 - x + 1$, take $P = (0,1)$ and $Q = (1,1)$.
   The line through them is $y=1$. Substituting into the curve gives
-  $ x^3 - x = 0 => x in {0,1,-1}. $
-  So the third intersection is $R' = (-1,1)$, and reflecting across the $x$-axis gives
-  $ P + Q = (-1,-1). $
-  This concrete picture is the geometric prototype of elliptic-curve addition.
+  $ 1 = x^3 - x + 1, $
+  so
+  $ x^3 - x = x(x-1)(x+1) = 0. $
+  The third intersection is $R' = (-1,1)$, and therefore
+  $ P + Q = -R' = (-1,-1). $
 ]
 
 #theorem("Elliptic Curve Group")[
-  Let $E(RR)$ be a non-singular short Weierstrass curve. Under the chord-and-tangent law, $E(RR)$ is an abelian group. Its identity element is $cal(O)$, and the inverse of an affine point $P = (x,y)$ is
+  Let $E(RR)$ be an elliptic curve over $RR$. Under the chord-and-tangent operation, $E(RR)$ is an abelian group. Its identity element is $cal(O)$, and the inverse of an affine point $P = (x,y)$ is
   $ -P = (x,-y). $
 ]
 
 #note[
-  Closure and inverses are visible from the projective geometry. Associativity is deeper: it is true, but a careful proof requires more algebraic geometry than we need here. For this course, the key point is that non-singular cubic curves provide a genuine abelian group whose operation can later be computed algebraically.
+  The identity and inverse rules are visible from the projective geometry. Associativity is deeper and is not proved in this course. The important algebraic conclusion is that non-singular cubic curves give genuine abelian groups.
 ]
 
 #definition("Torsion Points")[
   A point $P in E(RR)$ is called a *torsion point* if some positive multiple of it equals the identity:
   $ n P = cal(O) quad "for some integer" n >= 1. $
-  For example, any point with $y = 0$ satisfies $P = -P$, so $2P = cal(O)$. Such points are called points of order 2.
+  If $P=(x,0)$ is on the curve, then $P=-P$, so $2 P=cal(O)$. Such points are points of order $2$.
 ]
 
 #example[
-  On $E: y^2 = x^3 - x$, the point $P = (1,0)$ lies on the curve. Since $P = -P$, the tangent line at $P$ is vertical and
-  $ 2P = cal(O). $
+  On $E: y^2 = x^3 - x$, the point $P = (1,0)$ lies on the curve. Since $P=-P$, the tangent line at $P$ is vertical and
+  $ 2 P = cal(O). $
 ]
 
 #note[
-  *Cryptographic relevance*: The geometric construction over $RR$ gives the intuition, but cryptographic applications use elliptic curves over *finite fields* (Section 3.3), where the group is finite and discrete computations can be performed efficiently.
+  Real curves give the geometric origin of the operation. Cryptographic applications use the same algebraic operation over finite fields, where the set of points is finite and arithmetic can be performed exactly.
 ]
 
 === Solved Problems
 
 #solved_problem[
-  Determine whether the curve $y^2 = x^3 - x$ is a valid (non-singular) elliptic curve.
+  Determine whether the curve $y^2 = x^3 - x$ is a valid non-singular elliptic curve over $RR$.
 ]
 #solution[
-  We have $a = -1$, $b = 0$. Compute the discriminant:
-  $ Delta = -16(4(-1)^3 + 27(0)^2) = -16(-4) = 64 != 0 $
-  Since $Delta != 0$, the curve is non-singular and is a valid elliptic curve.
+  We have $a = -1$ and $b = 0$. Compute
+  $ Delta_E = -16(4(-1)^3 + 27(0)^2) = -16(-4) = 64 != 0. $
+  Since the discriminant is nonzero, the curve is non-singular and is an elliptic curve over $RR$ after adding $cal(O)$.
 ]
 
 #solved_problem[
   Show that the curve $y^2 = x^3$ is singular, and explain the geometric significance.
 ]
 #solution[
-  Here $a = 0$, $b = 0$:
-  $ Delta = -16(4 dot 0 + 27 dot 0) = 0 $
-  The discriminant is zero, so the curve is *singular*. Indeed, at the origin $(0, 0)$, both partial derivatives $partial_x(x^3 - y^2) = 3x^2 = 0$ and $partial_y(x^3 - y^2) = -2y = 0$ vanish simultaneously, confirming a cusp at the origin. Singular curves do not support a well-defined group law.
+  Here $a = 0$ and $b = 0$, so
+  $ Delta_E = -16(4 dot 0 + 27 dot 0) = 0. $
+  The discriminant is zero, so the curve is singular. Directly, for
+  $ F(x,y) = y^2 - x^3, $
+  both partial derivatives vanish at the origin:
+  $ F_x(0,0) = -3(0)^2 = 0, quad F_y(0,0) = 2(0) = 0. $
+  This is the cusp visible at $(0,0)$. Singular cubic curves are excluded because the chord-and-tangent operation does not give the elliptic-curve group used in this chapter.
 ]
 
 #solved_problem[
-  On the elliptic curve $y^2 = x^3 - x + 1$ over $RR$, the points $P = (0, 1)$ and $Q = (1, 1)$ lie on the curve. Verify membership and describe geometrically how $P + Q$ is computed.
+  On the elliptic curve $y^2 = x^3 - x + 1$ over $RR$, the points $P = (0, 1)$ and $Q = (1, 1)$ lie on the curve. Verify membership and compute $P+Q$ geometrically.
 ]
 #solution[
-  *Verification*:
-  - $P = (0, 1)$: $1^2 = 1$ and $0^3 - 0 + 1 = 1$.
-  - $Q = (1, 1)$: $1^2 = 1$ and $1^3 - 1 + 1 = 1$.
+  First verify membership:
+  - For $P=(0,1)$, $1^2=1$ and $0^3-0+1=1$.
+  - For $Q=(1,1)$, $1^2=1$ and $1^3-1+1=1$.
 
-  *Geometric computation of $P + Q$*:
-  Draw the line through $P = (0,1)$ and $Q = (1,1)$. The slope is $m = (1-1)/(1-0) = 0$, so the line is $y = 1$. Substitute into the curve:
-  $ 1 = x^3 - x + 1 => x^3 - x = 0 => x(x-1)(x+1) = 0 $
-  Roots: $x = 0, 1, -1$. The third intersection is at $x = -1$, giving $y = 1$, so $R' = (-1, 1)$.
-  Reflecting across the $x$-axis: $P + Q = (-1, -1)$.
+  The line through $P$ and $Q$ is horizontal, so it has equation $y=1$. Substitute into the curve:
+  $ 1 = x^3 - x + 1 quad => quad x^3 - x = 0. $
+  Thus
+  $ x(x-1)(x+1)=0, $
+  and the three intersections have $x=0,1,-1$. The third point is $R'=(-1,1)$. Reflecting across the $x$-axis gives
+  $ P+Q=-R'=(-1,-1). $
+]
+
+#solved_problem[
+  Explain why a point $P=(x,0)$ on an elliptic curve satisfies $2 P=cal(O)$.
+]
+#solution[
+  The inverse of an affine point is obtained by changing the sign of the $y$-coordinate. If $P=(x,0)$, then
+  $ -P = (x,-0) = (x,0) = P. $
+  Hence
+  $ 2 P = P+P = P+(-P) = cal(O). $
+  Geometrically, the tangent line at such a point is vertical, and every vertical line meets the completed curve at $cal(O)$.
 ]
 
 === Self-Evaluation Quiz
 
 #quiz[
   #question(
-    [The short Weierstrass form of an elliptic curve is:],
+    [The short Weierstrass form used in this section is:],
     ([$y = x^3 + a x + b$], [$y^2 = x^3 + a x + b$], [$y^2 = x^2 + a x + b$], [$y^3 = x^2 + a x + b$]),
     1,
   )
 
   #question(
-    [Which condition ensures an elliptic curve is non-singular?],
-    ([$a != 0$], [$b != 0$], [$Delta = -16(4a^3 + 27b^2) != 0$], [$a^2 + b^2 != 0$]),
+    [Which condition ensures non-singularity for $y^2=x^3+a x+b$ over $RR$?],
+    ([$a != 0$], [$b != 0$], [$Delta_E = -16(4a^3 + 27b^2) != 0$], [$a^2+b^2 != 0$]),
     2,
   )
 
   #question(
-    [The identity element of the elliptic curve group is:],
-    ([$( 0, 0)$], [The $x$-intercept], [The point at infinity $cal(O)$], [The origin]),
+    [The point at infinity on a short Weierstrass curve is:],
+    ([$(0,0)$], [$[1:0:0]$], [$[0:1:0]$], [The $x$-intercept]),
     2,
   )
 
   #question(
-    [The inverse of a point $P = (x, y)$ on an elliptic curve is:],
-    ([$(- x, y)$], [$(x, -y)$], [$(- x, -y)$], [$cal(O)$]),
+    [The inverse of an affine point $P=(x,y)$ is:],
+    ([$(-x,y)$], [$(x,-y)$], [$(-x,-y)$], [$cal(O)$]),
     1,
   )
 
   #question(
-    [In the chord-and-tangent law, if we draw a tangent at $P$, we are computing:],
-    ([$P + Q$ for $P != Q$], [$2P$ (point doubling)], [$-P$], [$P + cal(O)$]),
+    [The chord-and-tangent operation on an elliptic curve is:],
+    ([Ordinary coordinate-wise addition], [A new operation defined using lines and reflection], [Multiplication of coordinates], [Addition only for points with the same $x$-coordinate]),
     1,
   )
 
   #question(
-    [The elliptic curve group $(E(RR), +)$ is:],
-    ([A non-abelian group], [An abelian group], [A ring but not a group], [A semigroup only]),
+    [If the tangent line at $P$ is vertical, then:],
+    ([$2 P=cal(O)$], [$2 P=P$], [$P$ is not on the curve], [$P$ has no inverse]),
+    0,
+  )
+
+  #question(
+    [Under the chord-and-tangent operation, $E(RR)$ is:],
+    ([A non-abelian group], [An abelian group], [A ring], [A field]),
     1,
   )
 
   #question(
-    [Which geometric action corresponds to adding a point $P$ to the identity $cal(O)$?],
-    ([Drawing a horizontal line], [Drawing a vertical line through $P$], [Reflecting $P$ about the $x$-axis], [$P$ itself]),
-    3,
-  )
-
-  #question(
-    [True or False: A singular elliptic curve supports a well-defined group law.],
-    (["True"], ["False"], ["Only over finite fields"], ["Only over $RR$"]),
-    1,
-  )
-
-  #question(
-    [If a vertical line through $P$ and $Q = -P$ is drawn, the result $P + Q$ is:],
-    ([$(0, 0)$], [$P$], [$cal(O)$], [$Q$]),
-    2,
-  )
-
-  #question(
-    [Which of the following is a consequence of $Delta = 0$?],
-    (["The curve has no real points"], ["The curve has a cusp or self-intersection"], ["The group law fails to be commutative"], ["The curve has infinitely many points"]),
+    [True or False: A singular cubic curve is still an elliptic curve in this chapter.],
+    (["True"], ["False"], ["Only over $RR$"], ["Only if it has real points"]),
     1,
   )
 ]
@@ -225,7 +232,7 @@
 === Supplementary Problems
 
 #supplementary[
-  Determine which of the following are valid elliptic curves: (a) $y^2 = x^3 - 3x + 2$, (b) $y^2 = x^3 + 3x^2 + 3x + 1$, (c) $y^2 = x^3 + x$.
+  Determine which of the following are valid elliptic curves in short Weierstrass form: (a) $y^2 = x^3 - 3x + 2$, (b) $y^2 = x^3 + x$, (c) $y^2 = x^3 + 1$.
 ]
 
 #supplementary[
@@ -233,15 +240,15 @@
 ]
 
 #supplementary[
-  On $y^2 = x^3 + 1$, show that $P = (-1, 0)$ satisfies $2P = cal(O)$.
+  On $y^2 = x^3 + 1$, show that $P = (-1, 0)$ satisfies $2 P = cal(O)$.
 ]
 
 #supplementary[
-  Describe geometrically what happens when you attempt to "add" a point $P$ to itself when the tangent line at $P$ is vertical.
+  Describe geometrically what happens when one attempts to add a point $P$ to itself and the tangent line at $P$ is vertical.
 ]
 
 #supplementary[
-  Prove that the operation $P mapsto -P = (x, -y)$ is an involution (applying it twice returns $P$).
+  Prove that the operation $P mapsto -P = (x, -y)$ is an involution on the affine points of $E(RR)$.
 ]
 
 #supplementary[
