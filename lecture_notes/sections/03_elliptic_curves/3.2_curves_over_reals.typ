@@ -208,12 +208,7 @@ The real case gives the geometric model for elliptic curves. In this section, or
 #definition("Torsion Points")[
   A point $P in E(RR)$ is called a *torsion point* if some positive multiple of it equals the identity:
   $ n P = cal(O) quad "for some integer" n >= 1. $
-  If $P=(x,0)$ is on the curve, then $P=overline(P)$, so $2 P=cal(O)$. Such points are points of order $2$.
-]
-
-#example[
-  On $E: y^2 = x^3 - x$, the point $P = (1,0)$ lies on the curve. Since $P=overline(P)$, the tangent line at $P$ is vertical and
-  $ 2 P = cal(O). $
+  If $P=(x,0)$ is on the curve, then $P=overline(P)$, so $2 P=cal(O)$. Such points are points of order $2$, as in the vertical-tangent case above.
 ]
 
 #note[
