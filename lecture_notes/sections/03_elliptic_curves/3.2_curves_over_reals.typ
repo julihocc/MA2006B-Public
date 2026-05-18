@@ -61,40 +61,34 @@ The real case gives the geometric model for elliptic curves. In this section, or
   The point $cal(O)$ is not an affine coordinate pair. Appendix @appendix-point-at-infinity constructs it formally using projective geometry. For the present section, the essential fact is that every vertical affine line meets the completed curve at this same point $cal(O)$.
 ]
 
-#definition("Inverse Point")[
-  If $P = (x,y)$ is an affine point of $E(RR)$, its inverse with respect to $⊕$ is denoted
+#definition("Reflection of an Affine Point")[
+  If $P = (x,y)$ is an affine point of $E(RR)$, define its *reflection across the $x$-axis* by
   $ overline(P) $
-  and is given by
+  where
   $ overline(P) = (x,-y). $
   We also define
   $ overline(cal(O)) = cal(O). $
 ]
 
 #example[
-  If $P=(x,y)$ lies on $y^2=x^3+a x+b$, then $overline(P)=(x,-y)$ also lies on the curve because both points have the same value of $y^2$. The minus sign in $(x,-y)$ is ordinary real-number negation of the coordinate $y$; the symbol $overline(P)$ is the inverse of the point $P$ under $⊕$.
-]
-
-#definition("Point Subtraction")[
-  If $P,Q in E(RR)$, define
-  $ P ⊖ Q = P ⊕ overline(Q). $
-  Thus $⊖$ is a binary operation on two points, while the bar notation $overline(P)$ denotes the inverse of one point.
+  If $P=(x,y)$ lies on $y^2=x^3+a x+b$, then $overline(P)=(x,-y)$ also lies on the curve because both points have the same value of $y^2$. At this point, $overline(P)$ only denotes a reflected point. Its role as the inverse of $P$ will follow after the operation $⊕$ has been defined.
 ]
 
 #definition("Chord-and-Tangent Operation")[
   Let $E(RR)$ be an elliptic curve over $RR$. The *chord-and-tangent operation* defines a binary operation $⊕$ on $E(RR)$ as follows:
 
-  + If $P,Q$ are distinct affine points and $Q != overline(P)$, let the affine line through $P$ and $Q$ meet the curve at the third point $R'$, counted with intersection multiplicity. Define
+  + *Distinct affine points.* If $P,Q$ are distinct affine points and $Q != overline(P)$, let the affine line through $P$ and $Q$ meet the curve at the third point $R'$, counted with intersection multiplicity. Define
     $ P ⊕ Q = overline(R'). $
-  + If $P=Q$ is an affine point and the tangent line at $P$ is not vertical, let the tangent line meet the curve at the third point $R'$, counted with intersection multiplicity. Define
+  + *Doubling with a non-vertical tangent.* If $P=Q$ is an affine point and the tangent line at $P$ is not vertical, let the tangent line meet the curve at the third point $R'$, counted with intersection multiplicity. Define
     $ 2 P = P ⊕ P = overline(R'). $
-  + If $Q=overline(P)$, define
+  + *Vertical line case.* If $Q=overline(P)$, define
     $ P ⊕ Q = cal(O). $
-  + For every $P in E(RR)$, define
+  + *Identity case.* For every $P in E(RR)$, define
     $ P ⊕ cal(O) = cal(O) ⊕ P = P. $
 ]
 
 #note[
-  The operation $⊕$ is not coordinate-wise addition in $RR^2$. It is defined from lines and the completed cubic. The inverse bar is not the ordinary vector inverse in $RR^2$; for an affine point $R'=(x,y)$ it gives $overline(R')=(x,-y)$.
+  The operation $⊕$ is not coordinate-wise addition in $RR^2$. It is defined from lines and the completed cubic. For an affine point $R'=(x,y)$, the point $overline(R')=(x,-y)$ is its reflection across the $x$-axis.
 
   The minus sign is the convention that makes three collinear points on the completed cubic satisfy
   $ P ⊕ Q ⊕ R' = cal(O). $
@@ -172,6 +166,29 @@ The real case gives the geometric model for elliptic curves. In this section, or
   ]
 ]
 
+#note[
+  The case-by-case construction above defines the operation $⊕$. The next result explains why this operation is algebraically useful: it does not merely produce more points on the curve, but gives the whole set of points the structure of an abelian group.
+]
+
+#proposition("Inverse Rule")[
+  For every point $P in E(RR)$,
+  $ P ⊕ overline(P) = cal(O). $
+  Thus $overline(P)$ is the inverse of $P$ with respect to the operation $⊕$.
+]
+
+#proof[
+  If $P=cal(O)$, this follows from the identity case because $overline(cal(O))=cal(O)$.
+
+  If $P=(x,y)$ is affine, then $overline(P)=(x,-y)$ lies on the same vertical line as $P$. By the vertical-line case in the definition of $⊕$, this gives
+  $ P ⊕ overline(P) = cal(O). $
+]
+
+#definition("Point Subtraction")[
+  If $P,Q in E(RR)$, define
+  $ P ⊖ Q = P ⊕ overline(Q). $
+  Thus subtraction means applying the operation $⊕$ to $P$ and the inverse of $Q$.
+]
+
 #example[
   *Point subtraction.* On $E: y^2 = x^3 - x + 1$, take
   $ P=(0,1) quad "and" quad Q=(1,1). $
@@ -185,10 +202,6 @@ The real case gives the geometric model for elliptic curves. In this section, or
   #align(center)[
     #image("../../assets/generated/03_elliptic_curves/3.2_point_subtraction.svg", width: 72%)
   ]
-]
-
-#note[
-  The case-by-case construction above defines the operation $⊕$. The next result explains why this operation is algebraically useful: it does not merely produce more points on the curve, but gives the whole set of points the structure of an abelian group.
 ]
 
 #theorem("Elliptic Curve Group Structure")[
