@@ -21,8 +21,17 @@ def plot_curve(ax: plt.Axes, *, a: float, b: float, color: str = "#2563eb") -> N
     values = cubic(x, a=a, b=b)
     mask = values >= 0
     y = np.sqrt(np.maximum(values, 0))
-    ax.plot(x[mask], y[mask], color=color, linewidth=2.2)
-    ax.plot(x[mask], -y[mask], color=color, linewidth=2.2)
+
+    start: int | None = None
+    for index, is_valid in enumerate(mask):
+        if is_valid and start is None:
+            start = index
+        if start is not None and (not is_valid or index == len(mask) - 1):
+            stop = index + 1 if is_valid and index == len(mask) - 1 else index
+            if stop - start > 1:
+                ax.plot(x[start:stop], y[start:stop], color=color, linewidth=2.2)
+                ax.plot(x[start:stop], -y[start:stop], color=color, linewidth=2.2)
+            start = None
 
 
 def style_axes(ax: plt.Axes, *, xlim: tuple[float, float], ylim: tuple[float, float]) -> None:
