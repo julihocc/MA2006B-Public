@@ -46,8 +46,30 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
 ]
 
 #example[
-  For $E: y^2 equiv x^3 + x + 1 space (mod 5)$, counting all affine solutions gives 8 affine points. Including $cal(O)$ gives
+  For $E: y^2 equiv x^3 + x + 1 space (mod 5)$, the quadratic residues modulo $5$ are
+  $ {0,1,4}. $
+  Testing each $x in FF_5$ gives:
+
+  #table(
+    columns: (auto, auto, auto, auto),
+    inset: 6pt,
+    align: horizon,
+    [$x$], [$r=x^3+x+1 mod 5$], [case], [points],
+    [$0$], [$1$], [nonzero quadratic residue], [$(0,1),(0,4)$],
+    [$1$], [$3$], [quadratic non-residue], [none],
+    [$2$], [$1$], [nonzero quadratic residue], [$(2,1),(2,4)$],
+    [$3$], [$1$], [nonzero quadratic residue], [$(3,1),(3,4)$],
+    [$4$], [$4$], [nonzero quadratic residue], [$(4,2),(4,3)$],
+  )
+
+  Thus this curve has 8 affine points. Including $cal(O)$ gives
   $ \#E(FF_5) = 9. $
+
+  This particular curve does not show the $r=0$ case. For that case, consider instead
+  $ E': y^2 equiv x^3 + x + 2 space (mod 5), $
+  which is nonsingular because $4 dot 1^3 + 27 dot 2^2 = 112 equiv 2 != 0 space (mod 5)$. When $x=4$,
+  $ r = 4^3 + 4 + 2 = 70 equiv 0 space (mod 5), $
+  so there is exactly one point with that $x$-coordinate, namely $(4,0)$.
 ]
 
 #theorem("Hasse's Theorem")[
