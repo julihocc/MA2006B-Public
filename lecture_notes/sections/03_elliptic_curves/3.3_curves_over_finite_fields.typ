@@ -92,6 +92,26 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
   Equivalently,
   $ p + 1 - 2sqrt(p) <= \#E(FF_p) <= p + 1 + 2sqrt(p). $
 ]
+#proof[
+  A complete proof uses the Frobenius endomorphism of an elliptic curve, so the following argument records the standard algebraic input and then derives the bound from it.
+
+  Let $pi$ be the Frobenius map on $E$:
+  $ pi(x,y) = (x^p,y^p). $
+  The fixed points of $pi$ are precisely the points whose coordinates lie in $FF_p$, so
+  $ \#E(FF_p) = deg(1-pi). $
+  Write
+  $ t = p+1-\#E(FF_p). $
+  A standard fact about the degree pairing on endomorphisms of an elliptic curve gives, for every pair of integers $m,n$,
+  $ deg(m - n pi) = m^2 - m n t + n^2 p >= 0. $
+
+  Thus the quadratic polynomial
+  $ q(x) = x^2 - t x + p $
+  is nonnegative for every rational number $x=m/n$ with $n != 0$. Since rational numbers are dense in $RR$, $q(x) >= 0$ for every real $x$. Therefore the discriminant of $q$ cannot be positive:
+  $ t^2 - 4p <= 0. $
+  Hence $|t| <= 2sqrt(p)$. Substituting $t=p+1-\#E(FF_p)$ gives
+  $ |space \#E(FF_p) - (p+1) space| <= 2sqrt(p), $
+  as claimed.
+]
 
 #definition("Trace of Frobenius")[
   The integer
