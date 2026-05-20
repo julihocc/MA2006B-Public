@@ -24,6 +24,17 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
   so this is an elliptic curve over $FF_5$.
 ]
 
+#example[
+  The integer value of $4a^3+27b^2$ may be nonzero and still vanish after reducing modulo $p$. For instance, over $FF_5$ take $a=2$ and $b=2$. Then
+  $ 4a^3 + 27b^2 = 4 dot 2^3 + 27 dot 2^2 = 32 + 108 = 140 equiv 0 space (mod 5). $
+  Therefore
+  $ y^2 equiv x^3 + 2x + 2 space (mod 5) $
+  is singular over $FF_5$, so it is not an elliptic curve in this sense. The singular point is $(1,0)$: the equation gives $0 equiv 1+2+2 equiv 0 space (mod 5)$, and for
+  $ F(x,y)=y^2 - x^3 - 2x - 2 $
+  both partial derivatives vanish at $(1,0)$ modulo $5$:
+  $ F_x(1,0) = -3 - 2 equiv 0 space (mod 5) quad "and" quad F_y(1,0)=0. $
+]
+
 #definition("Order of an Elliptic Curve")[
   The *order* of an elliptic curve over $FF_p$, denoted $\#E(FF_p)$ or $|E(FF_p)|$, is the number of points in $E(FF_p)$, including the point at infinity $cal(O)$.
 ]
