@@ -169,15 +169,43 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
 ]
 
 #example[
-  On $E: y^2 equiv x^3 + 2x + 2 space (mod 17)$, add $P=(5,1)$ and $Q=(6,3)$.
-  Since $P != Q$ and $P != overline(Q)$,
-  $ lambda = (3-1)(6-5)^(-1) = 2. $
-  Then
-  $ x_3 = 2^2 - 5 - 6 = -7 equiv 10, $
-  $ y_3 = 2(5-10) - 1 = -11 equiv 6. $
-  Thus $P ⊕ Q=(10,6)$.
-]
+  The following computations cover one regular case and all special cases.
 
+  - *Regular addition on* $E: y^2 equiv x^3 + 2x + 2 space (mod 17)$.
+    Take $P=(5,1)$ and $Q=(6,3)$. Since $P != Q$ and $P != overline(Q)$,
+    $ lambda = (3-1)(6-5)^(-1) = 2. $
+    Then
+    $ x_3 = 2^2 - 5 - 6 = -7 equiv 10, $
+    $ y_3 = 2(5-10) - 1 = -11 equiv 6. $
+    Hence
+    $ P ⊕ Q=(10,6). $
+
+  - *Doubling with* $y_1 != 0$ on the same curve.
+    For $P=(5,1)$,
+    $ lambda = (3 dot 5^2 + 2)(2 dot 1)^(-1) = 77 dot 2^(-1) equiv 9 dot 9 equiv 13 space (mod 17). $
+    So
+    $ x_3 = 13^2 - 2 dot 5 = 159 equiv 6, $
+    $ y_3 = 13(5-6)-1 = -14 equiv 3. $
+    Therefore
+    $ 2P = (6,3). $
+
+  - *Inverse-points special case* on the same curve.
+    Since $overline(P)=(5,-1) equiv (5,16) space (mod 17)$, we have
+    $ P ⊕ overline(P) = cal(O). $
+
+  - *Identity special case* on the same curve.
+    For every point $R in E(FF_17)$,
+    $ R ⊕ cal(O) = cal(O) ⊕ R = R. $
+    In particular,
+    $ (5,1) ⊕ cal(O) = (5,1). $
+
+  - *Doubling special case with* $y_1 = 0$.
+    This case does not occur on $y^2 equiv x^3 + 2x + 2 space (mod 17)$ because this curve has no affine point with $y=0$.
+    To exhibit the rule, use
+    $ E': y^2 equiv x^3 + x + 2 space (mod 5), $
+    where $(4,0) in E'(FF_5)$. Then $(4,0)=overline((4,0))$, so
+    $ 2(4,0)=cal(O). $
+]
 #definition("Scalar Multiplication")[
   *Scalar multiplication* is repeated use of the operation $⊕$:
   $ k P = underbrace(P ⊕ P ⊕ ... ⊕ P)_(k " times"). $
