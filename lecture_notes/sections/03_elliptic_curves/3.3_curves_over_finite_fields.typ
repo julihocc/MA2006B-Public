@@ -67,12 +67,23 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
 
   This particular curve does not show the $r=0$ case. For that case, consider instead
   $ E': y^2 equiv x^3 + x + 2 space (mod 5), $
-  which is nonsingular because $4 dot 1^3 + 27 dot 2^2 = 112 equiv 2 != 0 space (mod 5)$. When $x=4$,
-  $ r = 4^3 + 4 + 2 = 70 equiv 0 space (mod 5), $
-  so there is exactly one point with that $x$-coordinate, namely $(4,0)$. For another affine point on the same curve, take $x=1$. Then
-  $ r = 1^3 + 1 + 2 = 4 space (mod 5). $
-  Since $2^2 equiv 3^2 equiv 4 space (mod 5)$, the curve has the two points
-  $ (1,2) quad "and" quad (1,3). $
+  which is nonsingular because $4 dot 1^3 + 27 dot 2^2 = 112 equiv 2 != 0 space (mod 5)$. Testing all values of $x$ gives:
+
+  #table(
+    columns: (auto, auto, auto, auto),
+    inset: 6pt,
+    align: horizon,
+    [$x$], [$r=x^3+x+2 mod 5$], [case], [points],
+    [$0$], [$2$], [quadratic non-residue], [none],
+    [$1$], [$4$], [nonzero quadratic residue], [$(1,2),(1,3)$],
+    [$2$], [$2$], [quadratic non-residue], [none],
+    [$3$], [$2$], [quadratic non-residue], [none],
+    [$4$], [$0$], [$r=0$], [$(4,0)$],
+  )
+
+  Hence the affine points on $E'$ are exactly
+  $ (1,2), (1,3), " and " (4,0), $
+  and including $cal(O)$ gives $\#E'(FF_5)=4$.
 ]
 
 #theorem("Hasse's Theorem")[

@@ -25,5 +25,13 @@ if __name__ == "__main__":
     print()
     print("Comparison curve y^2 = x^3 + x + 2 over F_5:")
     print(f"nonsingular = {comparison_curve.is_nonsingular()}")
-    print(f"x=4 gives r={comparison_curve.rhs(4)}, points={comparison_curve.points_by_x()[4]}")
-    print(f"x=1 gives r={comparison_curve.rhs(1)}, points={comparison_curve.points_by_x()[1]}")
+    for x, points in comparison_curve.points_by_x().items():
+        rhs = comparison_curve.rhs(x)
+        case = "r=0" if rhs == 0 else (
+            "nonzero quadratic residue"
+            if rhs in quadratic_residues(comparison_curve.p)
+            else "quadratic non-residue"
+        )
+        print(f"x={x}: r={rhs}, case={case}, points={points or 'none'}")
+    print(f"affine points: {comparison_curve.affine_points()}")
+    print(f"curve order including O: {comparison_curve.order()}")
