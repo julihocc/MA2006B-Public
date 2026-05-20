@@ -1,4 +1,4 @@
-from _group_law_utils import double_and_add_operation_counts
+from _finite_curve_utils import double_and_add_operation_counts
 
 
 if __name__ == "__main__":

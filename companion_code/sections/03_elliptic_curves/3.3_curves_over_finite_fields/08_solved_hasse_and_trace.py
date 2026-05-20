@@ -12,4 +12,4 @@ if __name__ == "__main__":
     print(f"Hasse interval: [{lower:.2f}, {upper:.2f}]")
     print(f"order satisfies Hasse: {lower <= order <= upper}")
     print(f"trace of Frobenius: {trace}")
-    print(f"|trace| <= 2sqrt(p): {abs(trace) <= upper - (p + 1)}")
+    print(f"|trace| <= 2sqrt(p): {abs(trace) <= 2 * (p ** 0.5)}")

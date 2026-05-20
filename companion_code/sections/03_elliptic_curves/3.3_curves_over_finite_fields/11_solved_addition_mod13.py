@@ -1,11 +1,11 @@
-from _group_law_utils import Curve
+from _finite_curve_utils import FiniteFieldCurve
 
 
 if __name__ == "__main__":
-    # Example: On y^2 = x^3 + 2x + 2 over F_17, add P=(5,1) and Q=(6,3).
-    curve = Curve(p=17, a=2, b=2)
-    p = (5, 1)
-    q = (6, 3)
+    # Solved problem: On y^2 = x^3 + 3x + 8 over F_13, compute P + Q.
+    curve = FiniteFieldCurve(p=13, a=3, b=8)
+    p = (1, 5)
+    q = (9, 6)
 
     print(f"P on curve: {curve.contains(p)}")
     print(f"Q on curve: {curve.contains(q)}")
