@@ -69,7 +69,10 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
   $ E': y^2 equiv x^3 + x + 2 space (mod 5), $
   which is nonsingular because $4 dot 1^3 + 27 dot 2^2 = 112 equiv 2 != 0 space (mod 5)$. When $x=4$,
   $ r = 4^3 + 4 + 2 = 70 equiv 0 space (mod 5), $
-  so there is exactly one point with that $x$-coordinate, namely $(4,0)$.
+  so there is exactly one point with that $x$-coordinate, namely $(4,0)$. For another affine point on the same curve, take $x=1$. Then
+  $ r = 1^3 + 1 + 2 = 4 space (mod 5). $
+  Since $2^2 equiv 3^2 equiv 4 space (mod 5)$, the curve has the two points
+  $ (1,2) quad "and" quad (1,3). $
 ]
 
 #theorem("Hasse's Theorem")[

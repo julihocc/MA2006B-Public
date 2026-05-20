@@ -26,3 +26,4 @@ if __name__ == "__main__":
     print("Comparison curve y^2 = x^3 + x + 2 over F_5:")
     print(f"nonsingular = {comparison_curve.is_nonsingular()}")
     print(f"x=4 gives r={comparison_curve.rhs(4)}, points={comparison_curve.points_by_x()[4]}")
+    print(f"x=1 gives r={comparison_curve.rhs(1)}, points={comparison_curve.points_by_x()[1]}")
