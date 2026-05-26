@@ -193,7 +193,10 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
   The finite-field operation also includes the following cases:
   - *Identity*: $P ⊕ cal(O) = cal(O) ⊕ P = P$.
   - *Inverse points*: If $Q=overline(P)$, then $P ⊕ Q=cal(O)$.
-  - *Doubling with $y_1=0$*: If $P=(x_1,0)$, then $P=overline(P)$, so $2 P=cal(O)$.
+  - *Doubling with $y_1=0$*: If $P=(x_1,0)$, then
+    $ overline(P)=(x_1,-0)=(x_1,0)=P. $
+    Thus doubling $P$ means adding $P$ to its own inverse:
+    $ 2 P=P ⊕ P=P ⊕ overline(P)=cal(O). $
 ]
 
 #example[
@@ -214,8 +217,10 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
     This case does not occur on $y^2 equiv x^3 + 2x + 2 space (mod 17)$ because this curve has no affine point with $y=0$.
     To exhibit the rule, use
     $ E': y^2 equiv x^3 + x + 2 space (mod 5), $
-    where $(4,0) in E'(FF_5)$. Then $(4,0)=overline((4,0))$, so
-    $ 2(4,0)=cal(O). $
+    where $(4,0) in E'(FF_5)$. Since
+    $ overline((4,0))=(4,-0)=(4,0), $
+    this point is its own inverse. Therefore
+    $ 2(4,0)=(4,0) ⊕ (4,0)=(4,0) ⊕ overline((4,0))=cal(O). $
 ]
 === Solved Problems
 
