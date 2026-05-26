@@ -143,18 +143,47 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
   Thus $⊖$ is reserved for subtraction of two points, not for the inverse of one point.
 ]
 
-#definition("Point Operation and Doubling Formulas")[
+#proposition("Point Operation and Doubling Formulas")[
   Let $E: y^2 equiv x^3 + a x + b space (mod p)$ be an elliptic curve over $FF_p$, and let $P=(x_1,y_1)$ and $Q=(x_2,y_2)$ be affine points on $E$.
 
-  If $P != Q$ and $P != overline(Q)$, define $R=P ⊕ Q=(x_3,y_3)$ by
+  If $P != Q$ and $P != overline(Q)$, then $R=P ⊕ Q=(x_3,y_3)$ is given by
   $ lambda = (y_2-y_1)(x_2-x_1)^(-1) mod p, $
   $ x_3 = lambda^2 - x_1 - x_2 mod p, $
   $ y_3 = lambda(x_1-x_3)-y_1 mod p. $
 
-  If $P=Q$ and $y_1 != 0$, define $2 P=(x_3,y_3)$ by
+  If $P=Q$ and $y_1 != 0$, then $2 P=(x_3,y_3)$ is given by
   $ lambda = (3x_1^2+a)(2y_1)^(-1) mod p, $
   $ x_3 = lambda^2 - 2x_1 mod p, $
   $ y_3 = lambda(x_1-x_3)-y_1 mod p. $
+]
+#proof[
+  First suppose $P != Q$ and $P != overline(Q)$. Then $x_1 != x_2$, so the line through $P$ and $Q$ has slope
+  $ lambda = (y_2-y_1)(x_2-x_1)^(-1) mod p $
+  and equation
+  $ y = lambda(x-x_1)+y_1. $
+  Substitute this line into the curve equation:
+  $ (lambda(x-x_1)+y_1)^2 equiv x^3+a x+b space (mod p). $
+  After moving all terms to one side, this is a cubic equation in $x$. Its three roots are the $x$-coordinates where the line meets the curve. Two of those roots are $x_1$ and $x_2$; call the third one $x'$. The coefficient of $x^2$ in this cubic gives
+  $ x_1+x_2+x' = lambda^2, $
+  so
+  $ x' = lambda^2-x_1-x_2. $
+  The third intersection point is
+  $ R'=(x', lambda(x'-x_1)+y_1). $
+  The elliptic-curve operation reflects this point, so
+  $ P ⊕ Q = overline(R') = (x', -lambda(x'-x_1)-y_1). $
+  Writing $x_3=x'$ gives
+  $ y_3 = lambda(x_1-x_3)-y_1. $
+
+  For doubling, the line is the tangent at $P$. Since $p>3$ and $y_1 != 0$, the denominator $2y_1$ is invertible. Implicitly differentiating
+  $ y^2 = x^3+a x+b $
+  gives
+  $ 2y lambda = 3x^2+a, $
+  so at $P$,
+  $ lambda = (3x_1^2+a)(2y_1)^(-1) mod p. $
+  The tangent meets the curve at $P$ with multiplicity two. Thus the three roots of the same cubic are $x_1,x_1,x'$, and
+  $ 2x_1+x'=lambda^2. $
+  Hence $x_3=x'=lambda^2-2x_1$, and reflecting the third intersection gives again
+  $ y_3=lambda(x_1-x_3)-y_1. $
 ]
 
 #note[
