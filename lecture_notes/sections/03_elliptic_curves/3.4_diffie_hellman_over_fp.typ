@@ -53,11 +53,15 @@ Section 3.3 built a finite abelian group from the points of an elliptic curve ov
   $ chevron.l G chevron.r = {cal(O), G, 2 G, ..., (n-1) G}. $
 ]
 
-#definition("Private Scalar and Public Point")[
-  In elliptic-curve cryptography, a private key is modeled as a secret integer $d$ with
+#definition("Private Key and Public Key")[
+  In a key-exchange protocol, a *private key* is information kept secret by one person, while a *public key* is information that may be shared openly.
+
+  For elliptic-curve Diffie-Hellman, the private key is modeled as a secret integer $d$ with
   $ 1 <= d <= n-1, $
-  where $n$ is the order of the chosen base point $G$. The corresponding public point is
+  where $n$ is the order of the chosen base point $G$. The corresponding public key is the point
   $ Q = d G. $
+
+  Thus $d$ is private, while $G$ and $Q$ may be public. The point $Q$ can be computed efficiently from $d$, but the security idea is that recovering $d$ from $G$ and $Q$ should be hard on a properly chosen large curve.
 ]
 
 #definition("Elliptic Curve Discrete Logarithm Problem")[
