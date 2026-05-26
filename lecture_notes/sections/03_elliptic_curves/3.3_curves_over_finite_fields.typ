@@ -161,6 +161,34 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
   These formulas are the affine coordinate form of the chord-and-tangent operation from Section 3.2. Division modulo $p$ means multiplication by a modular inverse, so every denominator must be checked before applying the formula.
 ]
 
+#example[
+  *Regular addition.* Work on
+  $ E: y^2 equiv x^3 + 2x + 2 space (mod 17). $
+  Take $P=(5,1)$ and $Q=(6,3)$. Since $P != Q$ and $P != overline(Q)$, use the addition formula:
+  $ lambda = (3-1)(6-5)^(-1) = 2. $
+  Then
+  $ x_3 = 2^2 - 5 - 6 = -7 equiv 10 space (mod 17), $
+  and
+  $ y_3 = 2(5-10)-1 = -11 equiv 6 space (mod 17). $
+  Therefore
+  $ P ⊕ Q = (10,6). $
+]
+
+#example[
+  *Doubling with $y_1 != 0$.* On the same curve, take $P=(5,1)$. Since $y_1=1 != 0$, use the doubling formula:
+  $ lambda = (3 dot 5^2 + 2)(2 dot 1)^(-1). $
+  Reducing modulo $17$ gives
+  $ 3 dot 5^2 + 2 = 77 equiv 9 quad "and" quad (2 dot 1)^(-1) = 2^(-1) equiv 9, $
+  so
+  $ lambda equiv 9 dot 9 equiv 13 space (mod 17). $
+  Hence
+  $ x_3 = 13^2 - 2 dot 5 = 159 equiv 6 space (mod 17), $
+  and
+  $ y_3 = 13(5-6)-1 = -14 equiv 3 space (mod 17). $
+  Therefore
+  $ 2P=(6,3). $
+]
+
 #definition("Special Cases")[
   The finite-field operation also includes the following cases:
   - *Identity*: $P ⊕ cal(O) = cal(O) ⊕ P = P$.
@@ -169,27 +197,10 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
 ]
 
 #example[
-  The following computations cover one regular case and all special cases.
-
-  - *Regular addition on* $E: y^2 equiv x^3 + 2x + 2 space (mod 17)$.
-    Take $P=(5,1)$ and $Q=(6,3)$. Since $P != Q$ and $P != overline(Q)$,
-    $ lambda = (3-1)(6-5)^(-1) = 2. $
-    Then
-    $ x_3 = 2^2 - 5 - 6 = -7 equiv 10, $
-    $ y_3 = 2(5-10) - 1 = -11 equiv 6. $
-    Hence
-    $ P ⊕ Q=(10,6). $
-
-  - *Doubling with* $y_1 != 0$ on the same curve.
-    For $P=(5,1)$,
-    $ lambda = (3 dot 5^2 + 2)(2 dot 1)^(-1) = 77 dot 2^(-1) equiv 9 dot 9 equiv 13 space (mod 17). $
-    So
-    $ x_3 = 13^2 - 2 dot 5 = 159 equiv 6, $
-    $ y_3 = 13(5-6)-1 = -14 equiv 3. $
-    Therefore
-    $ 2P = (6,3). $
+  The following computations cover the special cases.
 
   - *Inverse-points special case* on the same curve.
+    Work on $E: y^2 equiv x^3 + 2x + 2 space (mod 17)$ and take $P=(5,1)$.
     Since $overline(P)=(5,-1) equiv (5,16) space (mod 17)$, we have
     $ P ⊕ overline(P) = cal(O). $
 
