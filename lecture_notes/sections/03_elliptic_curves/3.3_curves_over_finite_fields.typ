@@ -218,14 +218,27 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
   $ 2P=(6,3). $
 ]
 
-#definition("Special Cases")[
-  The finite-field operation also includes the following cases:
+#proposition("Special Cases")[
+  The finite-field operation satisfies the following cases:
   - *Identity*: $P ⊕ cal(O) = cal(O) ⊕ P = P$.
   - *Inverse points*: If $Q=overline(P)$, then $P ⊕ Q=cal(O)$.
   - *Doubling with $y_1=0$*: If $P=(x_1,0)$, then
     $ overline(P)=(x_1,-0)=(x_1,0)=P. $
     Thus doubling $P$ means adding $P$ to its own inverse:
     $ 2 P=P ⊕ P=P ⊕ overline(P)=cal(O). $
+]
+#proof[
+  The point $cal(O)$ is the projective point that completes the short Weierstrass curve. Appendix @appendix-point-at-infinity constructs this point and shows that every vertical affine line has $cal(O)$ as its point at infinity. The same homogeneous-coordinate calculation applies over $FF_p$.
+
+  The identity case is part of the completed chord-and-tangent operation: $cal(O)$ is the point chosen to make the completed curve into an elliptic-curve group. Thus
+  $ P ⊕ cal(O)=cal(O) ⊕ P=P. $
+
+  Now suppose $Q=overline(P)$. If $P=(x,y)$ is affine, then $Q=(x,-y)$, so $P$ and $Q$ lie on the same vertical line. By the projective fact above, that vertical line meets the completed curve at $cal(O)$. Therefore the vertical-line case of the chord-and-tangent construction gives
+  $ P ⊕ overline(P)=cal(O). $
+  If $P=cal(O)$, the same conclusion follows from the identity case and $overline(cal(O))=cal(O)$.
+
+  Finally, if $P=(x_1,0)$, then $overline(P)=(x_1,-0)=(x_1,0)=P$. Hence doubling $P$ is the same as adding $P$ to its inverse:
+  $ 2P=P ⊕ P=P ⊕ overline(P)=cal(O). $
 ]
 
 #example[
