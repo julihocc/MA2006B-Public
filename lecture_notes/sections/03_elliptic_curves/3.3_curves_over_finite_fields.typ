@@ -126,7 +126,7 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
   Hasse's theorem gives $|-3| <= 2sqrt(5)$, which is true.
 ]
 
-#definition("Inverse Point over $FF_p$")[
+#definition([Inverse Point over $FF_p$])[
   For an affine point $P=(x,y) in E(FF_p)$, its inverse with respect to $⊕$ is denoted
   $ overline(P) $
   and is given by
@@ -137,7 +137,7 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
   $ overline(cal(O))=cal(O). $
 ]
 
-#definition("Point Subtraction over $FF_p$")[
+#definition([Point Subtraction over $FF_p$])[
   If $P,Q in E(FF_p)$, define
   $ P ⊖ Q = P ⊕ overline(Q). $
   Thus $⊖$ is reserved for subtraction of two points, not for the inverse of one point.
