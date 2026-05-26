@@ -25,6 +25,25 @@ Section 3.3 built a finite abelian group from the points of an elliptic curve ov
   This requires $O(log k)$ elliptic-curve operations and doublings.
 ]
 
+#example[
+  On the toy curve
+  $ E: y^2 equiv x^3 + 2x + 2 space (mod 17) $
+  with $G=(5,1)$, compute $13 G$ using double-and-add.
+
+  Since $13=1101_2$, we use the powers
+  $ G, 2G, 4G, " and " 8G. $
+  The repeated doublings give
+  $ 2G=(6,3), quad 4G=(3,1), quad 8G=(13,7). $
+  Because
+  $ 13G = 8G ⊕ 4G ⊕ G, $
+  we combine the selected powers:
+  $ 8G ⊕ 4G = (0,11), $
+  and then
+  $ (0,11) ⊕ G = (16,4). $
+  Therefore
+  $ 13G=(16,4). $
+]
+
 #definition("Base Point and Generated Subgroup")[
   Since $E(FF_p)$ is a finite abelian group, it may contain cyclic subgroups. A *generator* or *base point* $G$ of order $n$ is a point satisfying
   $ n G = cal(O) $
