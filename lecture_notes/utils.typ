@@ -12,10 +12,10 @@
 // #show: thmrules
 
 // Definitions
-#let definition = thmbox("definition", "Definition", fill: rgb("fff3e0"), stroke: rgb("e65100") + 1pt, base: "heading")
+#let definition = thmbox("definition", "Definition", fill: rgb("fff3e0"), stroke: rgb("e65100") + 1pt, breakable: true, base: "heading")
 
 // Theorems
-#let theorem = thmbox("theorem", "Theorem", fill: rgb("e8eaf6"), stroke: rgb("283593") + 1pt, base: "heading")
+#let theorem = thmbox("theorem", "Theorem", fill: rgb("e8eaf6"), stroke: rgb("283593") + 1pt, breakable: true, base: "heading")
 
 // Propositions
 #let proposition = thmbox(
@@ -23,11 +23,12 @@
   "Proposition",
   fill: rgb("fce4ec"),
   stroke: rgb("880e4f") + 1pt,
+  breakable: true,
   base: "heading",
 )
 
 // Corollaries
-#let corollary = thmbox("corollary", "Corollary", fill: rgb("e0f2f1"), stroke: rgb("00695c") + 1pt, base: "heading")
+#let corollary = thmbox("corollary", "Corollary", fill: rgb("e0f2f1"), stroke: rgb("00695c") + 1pt, breakable: true, base: "heading")
 
 // Algorithms
 #let algorithm = thmbox(
@@ -58,7 +59,7 @@
 }
 
 // Notes
-#let note = thmbox("note", "Note", fill: rgb("e8f5e9"), stroke: rgb("2e7d32") + 1pt, base: "heading")
+#let note = thmbox("note", "Note", fill: rgb("e8f5e9"), stroke: rgb("2e7d32") + 1pt, breakable: true, base: "heading")
 
 // Solved Problems (Schaum's Style)
 #let solved_problem = thmbox(
@@ -68,6 +69,7 @@
   inset: 8pt,
   radius: 4pt,
   stroke: rgb("0074d9") + 1pt,
+  breakable: true,
   base: "heading",
 )
 
@@ -79,11 +81,12 @@
   inset: 8pt,
   radius: 4pt,
   stroke: rgb("fbc02d") + 1pt,
+  breakable: true,
   base: "heading",
 )
 
 // Exercises (Keeping for backward compatibility or generic use)
-#let exercise = thmbox("exercise", "Exercise", fill: rgb("f3e5f5"), stroke: rgb("6a1b9a") + 1pt, base: "heading")
+#let exercise = thmbox("exercise", "Exercise", fill: rgb("f3e5f5"), stroke: rgb("6a1b9a") + 1pt, breakable: true, base: "heading")
 
 // Proofs
 #let proof = thmproof("proof", "Proof")
