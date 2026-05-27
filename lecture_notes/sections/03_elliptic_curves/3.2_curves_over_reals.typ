@@ -12,6 +12,13 @@ The real case gives the geometric model for elliptic curves. In this section, or
   $ y^2 = x^3 + a x + b. $
 ]
 
+#example[
+  If $a=-1$ and $b=1$, then the affine short Weierstrass model is
+  $ C_("aff")(RR) = {(x,y) in RR^2 : y^2 = x^3 - x + 1}. $
+  The point $(0,1)$ lies on this model because
+  $ 1^2 = 0^3 - 0 + 1. $
+]
+
 #note[
   More general Weierstrass equations exist. Over the fields used in this chapter, the short form is enough once the characteristic is not $2$ or $3$. Section 3.1 explains why this condition matters.
 ]
@@ -59,6 +66,18 @@ The real case gives the geometric model for elliptic curves. In this section, or
 
 #note[
   The point $cal(O)$ is not an affine coordinate pair. Appendix @appendix-point-at-infinity constructs it formally using projective geometry. For the present section, the essential fact is that every vertical affine line meets the completed curve at this same point $cal(O)$.
+]
+
+#example[
+  For
+  $ E: y^2 = x^3 - x + 1, $
+  we have $a=-1$ and $b=1$, so
+  $ 4a^3 + 27b^2 = 4(-1)^3 + 27(1)^2 = 23 != 0. $
+  Thus the elliptic curve over $RR$ is
+  $ E(RR) = C_("aff")(RR) union {cal(O)}, $
+  where $C_("aff")(RR)$ is the affine model from the previous example. The point
+  $ cal(O) = [0 : 1 : 0] $
+  is the added point at infinity, not an affine coordinate pair in $RR^2$.
 ]
 
 #definition("Reflection of an Affine Point")[
