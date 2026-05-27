@@ -152,24 +152,29 @@ Section 3.3 built a finite abelian group from the points of an elliptic curve ov
 ]
 
 #example[
-  Work on the toy curve
+  We run the protocol on the toy curve
   $ E: y^2 equiv x^3 + 2x + 2 space (mod 17) $
-  with base point $G=(5,1)$. This point has order $19$, so the public subgroup is
+  with base point $G=(5,1)$. Since $G$ has order $19$, the public subgroup is
   $ chevron.l G chevron.r = {cal(O), G, 2 G, ..., 18 G}. $
+  The goal is for Alice and Bob to compute the same point in this subgroup without revealing their private scalars.
 
-  Alice chooses the private scalar $a=5$. Her public point is
+  *Private input.* Alice chooses
+  $ a=5, $
+  and Bob chooses
+  $ b=7. $
+
+  *Public exchange.* Alice computes and sends
   $ A = 5 G = (9,16). $
-
-  Bob chooses the private scalar $b=7$. His public point is
+  Bob computes and sends
   $ B = 7 G = (0,6). $
 
-  Alice receives $B$ and computes
+  *Shared-point computation.* Alice receives $B=(0,6)$ and computes
   $ S_A = 5 B = 5(7 G) = 35 G = (10,11). $
-  Bob receives $A$ and computes
+  Bob receives $A=(9,16)$ and computes
   $ S_B = 7 A = 7(5 G) = 35 G = (10,11). $
 
-  Thus both parties obtain the same shared point
-  $ S=(10,11), $
+  Therefore the output of the exchange is the shared point
+  $ S = (10,11), $
   even though Alice did not reveal $a$ and Bob did not reveal $b$.
 ]
 
