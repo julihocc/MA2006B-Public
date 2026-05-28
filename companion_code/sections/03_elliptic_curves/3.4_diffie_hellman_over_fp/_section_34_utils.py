@@ -1,7 +1,8 @@
-"""Shared utilities for the Section 3.4 ECDH companion scripts.
+"""Shared utilities for the Section 3.4 Diffie-Hellman companion scripts.
 
-Section 3.4 of the notes studies elliptic-curve Diffie-Hellman on the toy
-curve
+Section 3.4 of the notes first studies classical Diffie-Hellman in the
+multiplicative group F_23^*, then translates the same protocol shape to
+elliptic-curve Diffie-Hellman on the toy curve
 
     E: y^2 = x^3 + 2x + 2 over F_17,
 
@@ -10,8 +11,10 @@ the arithmetic that appears in the notes, not to provide a general-purpose
 cryptography library. This module therefore centralizes only the data and
 short helper routines that are reused across those scripts:
 
+- the classical Diffie-Hellman toy parameters,
 - the toy curve from the notes,
 - the selected base point and its order,
+- the classical public-key and shared-secret computation,
 - the public-key computation Q=dG,
 - and the mirrored ECDH shared-point computation.
 
@@ -49,6 +52,9 @@ from _finite_curve_utils import (  # noqa: E402
     format_point,
 )
 
+CLASSICAL_DH_PRIME = 23
+CLASSICAL_DH_GENERATOR = 5
+
 
 # The canonical toy curve from Section 3.4:
 #
@@ -63,6 +69,54 @@ TOY_CURVE = FiniteFieldCurve(p=17, a=2, b=2)
 # the point at infinity is 19G.
 GENERATOR: Point = (5, 1)
 GENERATOR_ORDER = 19
+
+
+def classical_dh_exchange(alice_private: int, bob_private: int) -> dict[str, int]:
+    """Run the Section 3.4 classical Diffie-Hellman toy computation.
+
+    The note example uses the multiplicative group F_23^* with public
+    generator g=5. Alice publishes A=g^a mod 23, Bob publishes B=g^b mod 23,
+    and both compute the shared element g^(ab) mod 23.
+
+    Parameters
+    ----------
+    alice_private:
+        Alice's private exponent a.
+    bob_private:
+        Bob's private exponent b.
+
+    Returns
+    -------
+    dict[str, int]
+        A dictionary with ``alice_public``, ``bob_public``, ``alice_shared``,
+        ``bob_shared``, and ``direct_shared``.
+
+    Raises
+    ------
+    AssertionError
+        If Alice's, Bob's, and the direct shared-secret computations do not
+        match. Such a mismatch would indicate an inconsistent example.
+    """
+    p = CLASSICAL_DH_PRIME
+    generator = CLASSICAL_DH_GENERATOR
+
+    alice_public = pow(generator, alice_private, p)
+    bob_public = pow(generator, bob_private, p)
+
+    alice_shared = pow(bob_public, alice_private, p)
+    bob_shared = pow(alice_public, bob_private, p)
+    direct_shared = pow(generator, alice_private * bob_private, p)
+
+    if alice_shared != bob_shared or alice_shared != direct_shared:
+        raise AssertionError("classical DH shared-secret computations disagree")
+
+    return {
+        "alice_public": alice_public,
+        "bob_public": bob_public,
+        "alice_shared": alice_shared,
+        "bob_shared": bob_shared,
+        "direct_shared": direct_shared,
+    }
 
 
 def toy_public_key(private_scalar: int) -> Point:
