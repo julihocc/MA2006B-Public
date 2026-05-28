@@ -4,6 +4,10 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import matplotlib
+
+matplotlib.use("Agg")
+matplotlib.rcParams["svg.hashsalt"] = "ma2006b-3.2-chord-tangent-cases"
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -57,7 +61,7 @@ def scatter_point(ax: plt.Axes, point: tuple[float, float], label: str, *, color
 def save(fig: plt.Figure, filename: str) -> None:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     path = OUTPUT_DIR / filename
-    fig.savefig(path, format="svg", bbox_inches="tight")
+    fig.savefig(path, format="svg", bbox_inches="tight", metadata={"Date": None})
     plt.close(fig)
     print(f"wrote {path}")
 

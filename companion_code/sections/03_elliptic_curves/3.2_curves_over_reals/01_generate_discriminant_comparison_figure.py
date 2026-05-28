@@ -4,6 +4,10 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import matplotlib
+
+matplotlib.use("Agg")
+matplotlib.rcParams["svg.hashsalt"] = "ma2006b-3.2-discriminant"
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -62,7 +66,7 @@ def main() -> None:
     axes[1].set_title("$E_2: y^2 = x^3$\n$\\Delta = 0$ (singular)", fontsize=10)
 
     fig.suptitle("Discriminant and geometry of two cubic models", fontsize=12)
-    fig.savefig(OUTPUT, format="svg", bbox_inches="tight")
+    fig.savefig(OUTPUT, format="svg", bbox_inches="tight", metadata={"Date": None})
     plt.close(fig)
 
     print(f"wrote {OUTPUT}")
