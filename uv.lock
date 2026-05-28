@@ -926,7 +926,7 @@ wheels = [
 ]
 
 [[package]]
-name = "ma2006b-lecture-notes"
+name = "ma2006b-public"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
