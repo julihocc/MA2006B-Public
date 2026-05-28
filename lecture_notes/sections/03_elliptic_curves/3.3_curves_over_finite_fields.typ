@@ -127,7 +127,8 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
 ]
 
 #definition([Inverse Point over $FF_p$])[
-  For an affine point $P=(x,y) in E(FF_p)$, its inverse with respect to $⊕$ is denoted
+  For an affine point $P=(x,y) in E(FF_p)$, the point obtained by negating the
+  $y$-coordinate modulo $p$ is denoted
   $ overline(P) $
   and is given by
   $ overline(P) = (x,-y mod p). $
@@ -135,23 +136,6 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
   $ overline(P) = (x,p-y). $
   Also,
   $ overline(cal(O))=cal(O). $
-]
-
-#definition([Point Subtraction over $FF_p$])[
-  If $P,Q in E(FF_p)$, define
-  $ P ⊖ Q = P ⊕ overline(Q). $
-  Thus $⊖$ is reserved for subtraction of two points, not for the inverse of one point.
-]
-
-#example[
-  Work on
-  $ E: y^2 equiv x^3 + 2x + 2 space (mod 17). $
-  For $P=(5,1)$ and $Q=(6,3)$, the inverse points are
-  $ overline(P) = (5,-1) equiv (5,16) space (mod 17) $
-  and
-  $ overline(Q) = (6,-3) equiv (6,14) space (mod 17). $
-  Therefore subtraction is computed by adding the inverse of $Q$:
-  $ P ⊖ Q = P ⊕ overline(Q) = (5,1) ⊕ (6,14) = (5,16). $
 ]
 
 #proposition("Point Operation and Doubling Formulas")[
@@ -275,6 +259,25 @@ Over finite fields, the same elliptic-curve group becomes a finite algebraic sys
     this point is its own inverse. Therefore
     $ 2(4,0)=(4,0) ⊕ (4,0)=(4,0) ⊕ overline((4,0))=cal(O). $
 ]
+
+#definition([Point Subtraction over $FF_p$])[
+  Now that the operation $⊕$ and the inverse case have been established, define
+  subtraction of points by
+  $ P ⊖ Q = P ⊕ overline(Q). $
+  Thus $⊖$ is reserved for subtraction of two points, not for the inverse of one point.
+]
+
+#example[
+  Work on
+  $ E: y^2 equiv x^3 + 2x + 2 space (mod 17). $
+  For $P=(5,1)$ and $Q=(6,3)$, the inverse points are
+  $ overline(P) = (5,-1) equiv (5,16) space (mod 17) $
+  and
+  $ overline(Q) = (6,-3) equiv (6,14) space (mod 17). $
+  Therefore subtraction is computed by adding the inverse of $Q$:
+  $ P ⊖ Q = P ⊕ overline(Q) = (5,1) ⊕ (6,14) = (5,16). $
+]
+
 === Solved Problems
 
 #solved_problem[
