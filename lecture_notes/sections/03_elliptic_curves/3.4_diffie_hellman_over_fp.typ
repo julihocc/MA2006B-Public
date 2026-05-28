@@ -1,19 +1,13 @@
 #import "../../utils.typ": *
-== Diffie-Hellman over Elliptic Curves over $FF_p$
+== Diffie-Hellman and Elliptic Curves over $FF_p$
 
 === Theory
 
-Section 3.3 built a finite abelian group from the points of an elliptic curve over $FF_p$. This section uses that group to describe elliptic-curve Diffie-Hellman. The protocol is not based on multiplying field elements; it is based on scalar multiplication of points.
-
-#definition("Scalar Multiplication")[
-  *Scalar multiplication* is repeated use of the elliptic-curve operation $⊕$:
-  $ k P = underbrace(P ⊕ P ⊕ ... ⊕ P)_(k " times"). $
-  It is computed efficiently by the *double-and-add algorithm*, the elliptic-curve analogue of binary exponentiation.
-]
+Diffie-Hellman is a key-exchange idea for cyclic groups where repeated composition is efficient but reversing that repeated composition is hard. We first describe it in the multiplicative group $FF_p^*$, where the operation is ordinary multiplication modulo $p$. Then we translate the same pattern to the elliptic-curve group $E(FF_p)$ from Section 3.3.
 
 ==== Binary Exponentiation as a Model
 
-Before studying scalar multiplication on elliptic curves, recall the usual fast method for computing a power $a^k$. If
+In the multiplicative group $FF_p^*$, the basic computation is a power $a^k$. If
 $ k=(k_n k_(n-1) ... k_1 k_0)_2, $
 then
 $ a^k = product_(i=0)^n (a^(2^i))^(k_i). $
@@ -36,7 +30,81 @@ Thus one repeatedly squares the current power and multiplies it into the answer 
   $ 3, 3^2, 3^4, " and " 3^8. $
   Since the binary digits of $13$ select $8$, $4$, and $1$, we get
   $ 3^13 = 3^8 dot 3^4 dot 3. $
-  The double-and-add algorithm below follows the same pattern, but replaces multiplication of powers by addition of points, and replaces squaring by point doubling.
+  This is the fast computation used in classical Diffie-Hellman. Later, double-and-add will follow the same pattern on elliptic curves.
+]
+
+==== Classical Diffie-Hellman in $FF_p^*$
+
+In classical Diffie-Hellman, Alice and Bob agree publicly on a prime $p$ and a generator $g$ of a cyclic subgroup of $FF_p^*$. Their private keys are secret exponents. Their public keys are powers of $g$.
+
+#algorithm("Classical Diffie-Hellman in $FF_p^*$")[
+  *Goal.* Alice and Bob want to agree on the same element $s in FF_p^*$ without sending their private exponents to each other.
+
+  *Public input.* A prime $p$ and a generator $g in FF_p^*$.
+
+  *Private input.* Alice has a secret exponent $a$ and Bob has a secret exponent $b$.
+
+  *Output.* Alice and Bob should both obtain the same shared element
+  $ s in FF_p^*. $
+
+  *Key generation.* Alice computes
+  $ A equiv g^a space (mod p). $
+  Bob computes
+  $ B equiv g^b space (mod p). $
+
+  *Public exchange.* Alice sends Bob $A$, and Bob sends Alice $B$.
+
+  *Shared-secret computation.* Alice computes
+  $ s_A equiv B^a space (mod p). $
+  Bob computes
+  $ s_B equiv A^b space (mod p). $
+
+  Since $B equiv g^b$ and $A equiv g^a$,
+  $ s_A equiv (g^b)^a equiv g^(b a) space (mod p), $
+  while
+  $ s_B equiv (g^a)^b equiv g^(a b) space (mod p). $
+  Because integer multiplication commutes, $g^(a b)=g^(b a)$. Thus both parties obtain the same shared element
+  $ s equiv g^(a b) space (mod p). $
+]
+
+#example[
+  Work in $FF_23^*$ with public generator $g=5$. Alice chooses the private exponent
+  $ a=6, $
+  and Bob chooses the private exponent
+  $ b=15. $
+
+  Alice publishes
+  $ A equiv 5^6 equiv 8 space (mod 23), $
+  and Bob publishes
+  $ B equiv 5^15 equiv 19 space (mod 23). $
+
+  Alice uses Bob's public value:
+  $ s_A equiv B^a equiv 19^6 equiv 2 space (mod 23). $
+  Bob uses Alice's public value:
+  $ s_B equiv A^b equiv 8^15 equiv 2 space (mod 23). $
+
+  Therefore both obtain the same shared element
+  $ s=2. $
+]
+
+The elliptic-curve version keeps the same protocol shape but changes the group operation:
+
+#table(
+  columns: (auto, auto, auto),
+  inset: 5pt,
+  align: center,
+  table.header([Role], [Classical DH in $FF_p^*$], [ECDH in $E(FF_p)$]),
+  [Public generator], [$g$], [$G$],
+  [Alice public key], [$g^a$], [$a G$],
+  [Bob public key], [$g^b$], [$b G$],
+  [Shared value], [$g^(a b)$], [$(a b) G$],
+  [Fast computation], [binary exponentiation], [double-and-add],
+)
+
+#definition("Scalar Multiplication")[
+  *Scalar multiplication* is repeated use of the elliptic-curve operation $⊕$:
+  $ k P = underbrace(P ⊕ P ⊕ ... ⊕ P)_(k " times"). $
+  It is computed efficiently by the *double-and-add algorithm*, the elliptic-curve analogue of binary exponentiation.
 ]
 
 #algorithm("Double-and-Add for Scalar Multiplication")[
