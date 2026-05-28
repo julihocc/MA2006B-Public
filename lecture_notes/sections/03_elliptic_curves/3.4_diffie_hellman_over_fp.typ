@@ -8,7 +8,35 @@ Section 3.3 built a finite abelian group from the points of an elliptic curve ov
 #definition("Scalar Multiplication")[
   *Scalar multiplication* is repeated use of the elliptic-curve operation $⊕$:
   $ k P = underbrace(P ⊕ P ⊕ ... ⊕ P)_(k " times"). $
-  It is computed efficiently by the *double-and-add algorithm*, which uses the binary expansion of $k$.
+  It is computed efficiently by the *double-and-add algorithm*, the elliptic-curve analogue of binary exponentiation.
+]
+
+==== Binary Exponentiation as a Model
+
+Before studying scalar multiplication on elliptic curves, recall the usual fast method for computing a power $a^k$. If
+$ k=(k_n k_(n-1) ... k_1 k_0)_2, $
+then
+$ a^k = product_(i=0)^n (a^(2^i))^(k_i). $
+Thus one repeatedly squares the current power and multiplies it into the answer only when the corresponding binary digit is $1$.
+
+#algorithm("Binary Exponentiation")[
+  *Input*: An element $a$ of a multiplicative group and an integer $k > 0$ with binary representation $k=(k_n k_(n-1) ... k_1 k_0)_2$.
+
+  *Output*: $a^k$.
+
+  1. Set $q=1$ and $r=a$.
+  2. For $i=0$ to $n$:
+     - If $k_i=1$, set $q=q r$.
+     - Set $r=r^2$.
+  3. Return $q$.
+]
+
+#example[
+  To compute $3^13$ by binary exponentiation, write $13=1101_2$. The relevant powers are
+  $ 3, 3^2, 3^4, " and " 3^8. $
+  Since the binary digits of $13$ select $8$, $4$, and $1$, we get
+  $ 3^13 = 3^8 dot 3^4 dot 3. $
+  The double-and-add algorithm below follows the same pattern, but replaces multiplication of powers by addition of points, and replaces squaring by point doubling.
 ]
 
 #algorithm("Double-and-Add for Scalar Multiplication")[
