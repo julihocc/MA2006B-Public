@@ -1,0 +1,12 @@
+[project]
+name = "ma2006b-public"
+version = "0.1.0"
+description = "Student-facing lecture notes and companion code for MA2006B"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "ipykernel>=7.2.0",
+    "jupyter>=1.1.1",
+    "matplotlib>=3.10",
+    "notebook>=7.5.6",
+]

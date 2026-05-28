@@ -1,0 +1,7 @@
+.vscode/
+*.log
+.history/
+__pycache__/
+*.py[cod]
+.venv/
+ma2006b_lecture_notes_check.pdf
