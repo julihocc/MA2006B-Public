@@ -37,7 +37,7 @@ Thus one repeatedly squares the current power and multiplies it into the answer 
 
 In classical Diffie-Hellman, Alice and Bob agree publicly on a prime $p$ and a generator $g$ of a cyclic subgroup of $FF_p^*$. Their private keys are secret exponents. Their public keys are powers of $g$.
 
-#algorithm("Classical Diffie-Hellman in $FF_p^*$")[
+#algorithm(title: [Classical Diffie-Hellman in $FF_p^*$])[
   *Goal.* Alice and Bob want to agree on the same element $s in FF_p^*$ without sending their private exponents to each other.
 
   *Public input.* A prime $p$ and a generator $g in FF_p^*$.
